@@ -1,0 +1,9 @@
+KINDMANAGE FLOW
+=====================================================
+
+1. User creates a task, message or file upload
+2. That item is converted into an entry
+3. Entries are filed under a given project
+4. Workspaces aggregate only certain entries at user's discretion
+5. An entry can be in any number of workspaces at any time (no duplicates per workspace)
+6. 
