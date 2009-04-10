@@ -22,7 +22,18 @@
 =inside_wrapper
   :width 750px
   :padding 15px
+  
+=support_hover
+  :_azimuth expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit')
+  
+  
 
+/*------------------------------------------------------------------- =Colors
+!light_blue = "#eef5f7"
+!blue = "#6e7b86"
+!dark_blue = "#5e6a75"
+!dark_blue_alt = "#535e67"
+!light_brown = "#eae2c7"
 
 
 /*------------------------------------------------------------------- =Basics
@@ -40,16 +51,13 @@ body
   :background #5e6a75 url(/images/wrapper_bg.gif) top center no-repeat
   :font-family "Helvetica", Arial, Tahoma, sans-serif
   :text-align left
-  
   #header
     +inside_wrapper
     :height 80px
-    
   #content
     +cf
     +inside_wrapper
     :background-color #fff
-    
   #footer
     :width 790px
     :height 10px
@@ -61,6 +69,7 @@ body
 #header
   .project_details, .workspace_details
     :float left
+    :width 550px
     h5.label
       :margin-bottom 8px
       :font-size 10px
@@ -69,7 +78,6 @@ body
     h1.name
       :font-size 20px
       :color #fff
-    
 
 
 /*------------------------------------------------------------------- =Ribbon
@@ -81,6 +89,46 @@ ul.ribbon
   :padding 0
   :background #eae2c7 url(/images/ribbon_bg.gif) top left repeat-x
   :border-bottom 1px solid #cbc3a8
+  li
+    :float left
+    :margin-right 5px
+    +support_hover
+    a, span
+      :float left
+      :height 39px
+    a
+      :font-size 14px
+      :font-weight bold
+      :color #000
+      :text-decoration none
+      :background url(/images/ribbon_item_right_bg.gif) top right no-repeat
+      :outline 0
+      span
+        :padding 0 10px
+        :line-height 40px
+        :background url(/images/ribbon_item_left_bg.gif) top left no-repeat
+    &.hover, &:hover
+      a
+        :background-image url(/images/ribbon_item_right_bg_on.gif)
+        span
+          :background-image url(/images/ribbon_item_left_bg_on.gif)
+    &.active, &:active
+      a
+        :background-image url(/images/ribbon_item_right_bg_act.gif)
+        span
+          :background-image url(/images/ribbon_item_left_bg_act.gif)
+    
+      
+  li.create_label
+    :width 42px
+    :height 39px
+    :background url(/images/ribbon_create_label_bg.gif) top left no-repeat
   
   
-/*------------------------------------------------------------------- =Content
+/*------------------------------------------------------------------- =Entries
+#entries
+  :background-color #f4f3ed
+  :border
+    :top 2px solid #ece9de
+    :bottom 2px solid #ece9de
+  
