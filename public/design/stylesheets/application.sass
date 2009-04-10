@@ -7,18 +7,22 @@
 @import "_reset.sass"
 
 
-/*------------------------------------------------------------------- =Partials
+/*------------------------------------------------------------------- =Mixins
+=cf
+  display: inline-block
+  &:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+  * html &
+    height: 1px
+
 =inside_wrapper
   :width 750px
   :padding 15px
 
-
-/*------------------------------------------------------------------- =Variables
-
-!light_blue = "#eef5f7"
-!blue = "#6e7b86"
-!dark_blue = "#5e6a75"
-!dark_blue_alt = "#535e67"
 
 
 /*------------------------------------------------------------------- =Basics
@@ -29,30 +33,54 @@ body
   
 /*------------------------------------------------------------------- =Layout
 #wrapper
+  +cf
   :margin 30px auto 0
   :padding 0 5px
   :width 780px
   :background #5e6a75 url(/images/wrapper_bg.gif) top center no-repeat
+  :font-family "Helvetica", Arial, Tahoma, sans-serif
+  :text-align left
   
   #header
     +inside_wrapper
-    :height 90px
+    :height 80px
     
   #content
+    +cf
     +inside_wrapper
-    :height 100px
     :background-color #fff
     
   #footer
-    :margin 0 -5px
     :width 790px
     :height 10px
+    :margin 0 -5px
     :background #5e6a75 url(/images/footer_bg.gif) bottom center no-repeat
     
 
-
 /*------------------------------------------------------------------- =Header
-
 #header
+  .project_details, .workspace_details
+    :float left
+    h5.label
+      :margin-bottom 8px
+      :font-size 10px
+      :text-transform uppercase
+      :color #8b98a3
+    h1.name
+      :font-size 20px
+      :color #fff
+    
+
+
+/*------------------------------------------------------------------- =Ribbon
+ul.ribbon
+  :float left
+  :width 780px
+  :height 39px
+  :margin -15px -15px 15px
+  :padding 0
+  :background #eae2c7 url(/images/ribbon_bg.gif) top left repeat-x
+  :border-bottom 1px solid #cbc3a8
+  
   
 /*------------------------------------------------------------------- =Content
