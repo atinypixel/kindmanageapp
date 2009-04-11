@@ -31,6 +31,7 @@
 /*------------------------------------------------------------------- =Colors
 !light_blue = "#eef5f7"
 !blue = "#6e7b86"
+!blue_alt = "#5f84a4"
 !dark_blue = "#5e6a75"
 !dark_blue_alt = "#535e67"
 !light_brown = "#eae2c7"
@@ -130,11 +131,12 @@ ul.ribbon
 #entries
   +cf
   :padding 15px
-  :margin 0px -15px 0
+  :margin -15px -15px 0
   :background-color #f4f3ed
-  / :border
+  :border
     :top 1px solid #ece9de
-    :bottom 1px solid #ece9de
+  a
+    :color = !blue_alt
   .entry
     +cf
     :width 720px
@@ -181,6 +183,11 @@ ul.ribbon
           :font-size 14px
           :line-height 18px
           :color #333
+      .meta
+        :font-size 11px
+        :color #999
+        .actions
+          :font-weight bold
   
   /*----------------------------------------------------------------- =Entry_type_label_variations
           
@@ -197,11 +204,80 @@ ul.ribbon
   /*----------------------------------------------------------------- =Entry_type_formatting
   
   .task .content
-    h3
-      :font-size 16px
-      :color #333
-      :margin-bottom 0
+    .body
+      h3
+        :font-size 16px
+        :color #333
+        :margin-bottom 0
+        span.due
+          :font-size 12px
+          :font-weight bold
+          :color #999
+    .meta
+      :margin-top 10px
   
   .note .content
     h3
+      :margin-top 0
       :font-size 18px
+
+/*------------------------------------------------------------------- =Entry_form
+
+#entry_form
+  :float left
+  :width 100%
+  :height auto
+  :margin-bottom 30px
+  :background-color #eef5f7
+  :border 1px solid #dce9ec
+  form
+    :float left
+    :overflow hidden
+    
+    /* =Form_layout
+    
+    .main, .options
+      :float left
+    .main
+      :width 470px
+      :padding 15px
+    .options
+      :width 220px
+      :padding 15px 15px 1000px
+      :margin-bottom -1000px
+      :background-color #e4eff2
+    .row
+      :float left
+      :width 100%
+      :margin-bottom 10px
+      :display block
+  
+    /* =Form_elements
+    
+    legend
+      :padding 0
+      :margin 0 0 10px
+      :float left
+      :font-size 11px
+      :font-weight bold
+      :color #9cacb0
+      :text-transform uppercase
+    label
+      :display block
+      :margin-bottom 8px
+      :font-size 12px
+      :font-weight bold
+      :color = !dark_blue_alt
+    input.text, input.title, input.password, textarea.body, textarea
+      :border 1px solid #bccbd0
+      :padding 4px
+      :font-size 14px
+      :font-family "Helvetica", Arial
+      :width 462px
+    input.title
+      :font-weight bold
+      :font-size 16px
+    textarea
+      :height auto
+    textarea.body
+      / :height 90px

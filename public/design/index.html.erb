@@ -26,7 +26,24 @@
       </ul>
       
       <div id="entry_form">
-        
+        <form>
+          <fieldset class="main">
+            <legend>new task</legend>
+            <div class="row">
+              <label for="describe_your_task_here">Title</label>
+              <input type="text/submit/hidden/button" name="describe_your_task_here" value="" id="describe_your_task_here" class="title">
+              <!-- <textarea name="task_description" class=""></textarea> -->
+            </div>
+            <div class="row">
+              <label for="describe_your_task_here">Body</label>
+              <!-- <input type="text/submit/hidden/button" name="describe_your_task_here" value="" id="describe_your_task_here" class="title"> -->
+              <textarea name="task_description" class="" rows="8"></textarea>
+            </div>
+          </fieldset>
+          <fieldset class="options">
+          
+          </fieldset>
+        </form>
       </div>
       
       <div id="entries">
@@ -36,12 +53,17 @@
             <li class="label"><span>note</span></li>
           </ul>
           <div class="content">
-            <h3>Budget: Some things to look out for</h3>
+            <!-- <h3>Budget: Some things to look out for</h3> -->
             <div class="body">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div> 
-            <div class="meta"></div>
+            <div class="meta">
+              Less than a minute ago -
+              <span class="actions">
+                <a href="#">Add to a workspace</a>
+              </span>
+            </div>
           </div>
         </div>
         
@@ -52,9 +74,14 @@
           </ul>
           <div class="content">
             <div class="body">
-              <h3>Fix the drain pipe in the kitchen</h3>
+              <h3>Fix the drain pipe in the kitchen <span class="due overdue">Due tomorrow</h3>
             </div>
-            <div class="meta"></div>
+            <div class="meta">
+              3 hours ago -
+              <span class="actions">
+                <a href="#">Add to a workspace</a>
+              </span>
+            </div>
           </div>
         </div>
         
@@ -68,7 +95,12 @@
             <div class="body">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div> 
-            <div class="meta"></div>
+            <div class="meta">
+              34 days ago -
+              <span class="actions">
+                <a href="#">Add to a workspace</a>
+              </span>
+            </div>
           </div>
         </div>
         
