@@ -76,7 +76,7 @@ body
       :text-transform uppercase
       :color #8b98a3
     h1.name
-      :font-size 20px
+      :font-size 22px
       :color #fff
 
 
@@ -91,7 +91,7 @@ ul.ribbon
   :border-bottom 1px solid #cbc3a8
   li
     :float left
-    :margin-right 5px
+    :margin-right 3px
     +support_hover
     a, span
       :float left
@@ -122,13 +122,86 @@ ul.ribbon
   li.create_label
     :width 42px
     :height 39px
+    :margin-right 8px
     :background url(/images/ribbon_create_label_bg.gif) top left no-repeat
   
   
 /*------------------------------------------------------------------- =Entries
 #entries
+  +cf
+  :padding 15px
+  :margin 0px -15px 0
   :background-color #f4f3ed
-  :border
-    :top 2px solid #ece9de
-    :bottom 2px solid #ece9de
+  / :border
+    :top 1px solid #ece9de
+    :bottom 1px solid #ece9de
+  .entry
+    +cf
+    :width 720px
+    :padding 15px
+    :margin 0 0 5px
+    :background-color #fff
+    :border-bottom 2px solid #ece9de
+    
+    /*--------------------------------------------------------------- =Entry_type_labels
+    
+    ul.type
+      :float left
+      :width 70px
+      :padding-right 15px
+      :text-align right
+      li.label
+        :float right
+        :background-position top right
+        :background-repeat no-repeat
+        :height 19px
+        span
+          :float left
+          :height 19px
+          :padding 0 6px
+          :line-height 19px
+          :color #fff
+          :font-size 10px
+          :font-weight bold
+          :text-transform uppercase
+          :background-position top left
+          :background-repeat no-repeat
+          
+    /*--------------------------------------------------------------- =Entry_basic_formatting
+          
+    .content
+      :float left
+      :width 635px
+      h3
+        :margin-top 2px
+        :margin-bottom 10px
+      .body
+        p
+          :padding-bottom 10px
+          :font-size 14px
+          :line-height 18px
+          :color #333
   
+  /*----------------------------------------------------------------- =Entry_type_label_variations
+          
+  .note ul.type li.label
+    :background-image url(/images/type_label_right_grn_bg.gif)
+    span
+      :background-image url(/images/type_label_left_grn_bg.gif)
+  
+  .task ul.type li.label
+    :background-image url(/images/type_label_right_blu_bg.gif)
+    span
+      :background-image url(/images/type_label_left_blu_bg.gif)
+      
+  /*----------------------------------------------------------------- =Entry_type_formatting
+  
+  .task .content
+    h3
+      :font-size 16px
+      :color #333
+      :margin-bottom 0
+  
+  .note .content
+    h3
+      :font-size 18px
