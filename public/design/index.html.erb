@@ -32,7 +32,7 @@
           <form>
             <fieldset class="main">
               <legend>new note</legend>
-              <div class="row hide">
+              <div class="row">
                 <label>Title</label>
                 <input type="text" class="title" />
               </div>
@@ -56,14 +56,16 @@
                 
               </div>
               <div class="buttons">
-                <input type="submit" value="Create note" />
+                <button type="submit" />Save task</button>
+                or <a href="#">Cancel</a>
               </div>
             </fieldset>
             <fieldset class="options">
               <legend>options</legend>
               <div class="row">
-                <label>Add to a workspace?</label>
+                <label>Add to workspace</label>
                 <select name="some_name" id="some_name" size="1">
+                  <option disabled=true>Choose a workspace (optional)</option>
                   <option value="option1">United Airlines</option>
                   <option value="option2">AT&T Interactive</option>
                   
@@ -126,7 +128,7 @@
           <div class="content">
             <!-- <h3>Budget: Some things to look out for</h3> -->
             <div class="body">
-              <h3>Consectetur adipisicing elit, sed do eiusmod maybe go home today? This is a long task description <span class="due">Due tomorrow</span></h3>
+              <h3>Consectetur adipisicing elit, sed do eiusmod <span class="due">Due tomorrow</span></h3>
             </div> 
             <div class="meta">
               Less than a minute ago &nbsp; 
