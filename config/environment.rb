@@ -10,7 +10,7 @@ Rails::Initializer.run do |config|
   
   config.gem "haml"
   
-  Sass::Plugin.options[:style] = :compact
+  # Sass::Plugin.options[:style] = :compact
   # Sass::Plugin.options[:load_paths] = RAILS_ROOT + "/public/design/stylesheets"
   
   # Settings in config/environments/* take precedence over those specified here.

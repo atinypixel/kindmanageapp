@@ -41,7 +41,8 @@
 body
   :background-color #6e7b86
   :text-align center
-
+.hide
+  :display none !important
   
 /*------------------------------------------------------------------- =Layout
 #wrapper
@@ -128,7 +129,7 @@ ul.ribbon
   
   
 /*------------------------------------------------------------------- =Entries
-#entries
+#entries, #entry
   +cf
   :padding 15px
   :margin -15px -15px 0
@@ -173,7 +174,7 @@ ul.ribbon
           
     .content
       :float left
-      :width 635px
+      :width 500px
       h3
         :margin-top 2px
         :margin-bottom 10px
@@ -188,6 +189,25 @@ ul.ribbon
         :color #999
         .actions
           :font-weight bold
+          
+    /*--------------------------------------------------------------- =Entry_options
+    
+    .options
+      :float left
+      :width 135px
+      .group
+        :float left
+        :width 100%
+        :display block
+        :font-size 11px
+        :font-weight bold
+        :color #888
+        :margin-bottom 3px
+        :padding-bottom 3px
+        :border-bottom 1px dotted #d9d9d9
+        a
+          :text-decoration none
+    
   
   /*----------------------------------------------------------------- =Entry_type_label_variations
           
@@ -209,12 +229,14 @@ ul.ribbon
         :font-size 16px
         :color #333
         :margin-bottom 0
+        :line-height 18px
         span.due
-          :font-size 12px
+          :padding-left 4px
+          :font-size 11px
           :font-weight bold
           :color #999
     .meta
-      :margin-top 10px
+      :margin-top 6px
   
   .note .content
     h3
@@ -225,12 +247,12 @@ ul.ribbon
 
 #entry_form
   :float left
-  :display none
-  :width 100%
+  :width 746px
   :height auto
-  :margin-bottom 30px
-  :background-color #eef5f7
-  :border 1px solid #dce9ec
+  :margin-bottom 15px
+  / :background-color #eef5f7
+  :background-color #fff
+  :border = 2px solid (#ece9de)
   form
     :float left
     :overflow hidden
@@ -240,13 +262,14 @@ ul.ribbon
     .main, .options
       :float left
     .main
-      :width 470px
+      :width 466px
       :padding 15px
     .options
-      :width 220px
+      :width 219px
       :padding 15px 15px 1000px
       :margin-bottom -1000px
-      :background-color #e4eff2
+      :background-color = #ece9de +12
+      :border-left 1px solid #ece9de
     .row, .buttons
       :float left
       :width 100%
@@ -256,29 +279,39 @@ ul.ribbon
     /* =Form_elements
     
     legend
-      :padding 0
-      :margin 0 0 10px
+      :margin -4px 0 10px
       :float left
-      :font-size 11px
+      :font-size 10px
       :font-weight bold
-      :color #9cacb0
+      / :background-color = #ece9de -50
+      / :background-color = !dark_blue
+      :color = #ece9de -50
       :text-transform uppercase
     label
       :display block
       :margin-bottom 3px
-      :font-size 12px
+      :font-size 14px
       :font-weight bold
-      :color = !dark_blue_alt
+      :color #000
+      .help
+        :font-size 11px
+        :font-style italic
+        :font-weight normal
+        :color #999
     input.text, input.title, input.password, textarea.body, textarea
-      :border 1px solid #bccbd0
+      :border 1px solid #ddd
+        :right 2px solid #ccc
+        :bottom 2px solid #ccc
       :padding 4px
       :font-size 14px
       :font-family "Helvetica", Arial
-      :width 460px
+      :width 454px
+      :color #444
     input.title
       :font-weight bold
       :font-size 16px
-    textarea
-      :height auto
-    textarea.body
-      / :height 90px
+      
+    .options
+      label
+        :font-size 12px
+        :color = #ece9de -100
