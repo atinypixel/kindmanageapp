@@ -1,10 +1,42 @@
-/* -------------------------------------------------------------------
- * Kindmanage CSS */
-/* ------------------------------------------------------------------- */
 /* ------------------------------------------------------------------- =Includes */
-@import "_reset.sass";
-/* ------------------------------------------------------------------- =Mixins */
-/* ------------------------------------------------------------------- =Colors */
+/* 
+ * Reset
+ * By Eric Meyers
+ * //
+ * PURPOSE:
+ * Resets everything to zero for better browser compatibility */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, p, blockquote, pre, a,
+abbr, acronym, address, big, cite, code, small, strike, strong, sub, sup, tt, var,
+dfn, em, img, del, small, strike, strong, sub, sup, tt, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+body {
+  line-height: 1; }
+
+blockquote {
+  quotes: none; }
+
+del {
+  text-decoration: line-through; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  background: transparent;
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+*:focus {
+  outline: 0; }
+
 /* ------------------------------------------------------------------- =Basics */
 body {
   background-color: #6e7b86;
@@ -30,7 +62,7 @@ body {
     visibility: hidden; }
   * html #wrapper {
     height: 1px; }
-  #wrapper #header {
+  #wrapper #header, #wrapper #page {
     width: 750px;
     padding: 15px;
     height: 80px; }
@@ -107,6 +139,19 @@ ul.ribbon {
     margin-right: 8px;
     background: url(/images/ribbon_create_label_bg.gif) top left no-repeat; }
 
+/* ------------------------------------------------------------------- =Page_details */
+#page #project_meta, #page #workspace_meta {
+  float: left;
+  width: 550px; }
+  #page #project_meta h5.label,   #page #workspace_meta h5.label {
+    margin-bottom: 8px;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #8b98a3; }
+  #page #project_meta h1.name,   #page #workspace_meta h1.name {
+    font-size: 22px;
+    color: #fff; }
+
 /* ------------------------------------------------------------------- =Entries */
 #entries, #entry {
   display: inline-block;
@@ -168,7 +213,7 @@ ul.ribbon {
     #entries .entry .content,     #entry .entry .content {
       float: left;
       width: 500px; }
-      #entries .entry .content h3,       #entry .entry .content h3 {
+      #entries .entry .content .body h3,       #entry .entry .content .body h3 {
         margin-top: 2px;
         margin-bottom: 10px; }
       #entries .entry .content .body p,       #entry .entry .content .body p {

@@ -1,0 +1,13 @@
+%div.entry{:class => entry.type.name, :id  => "entry_#{entry.id}"}
+  / label
+  %ul.type
+    %li.label
+      %span=entry.type.name
+      
+  .content
+    .body
+      =render :partial => "entries/#{entry.type.name}", :locals => {:entry => entry}
+    .meta
+      %span.created_at="#{time_ago_in_words(entry.created_at)} ago"
+  .options
+    

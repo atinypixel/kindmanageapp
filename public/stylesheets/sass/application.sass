@@ -1,48 +1,15 @@
-/*-------------------------------------------------------------------
-  Kindmanage CSS
-/*-------------------------------------------------------------------
-
-
 /*------------------------------------------------------------------- =Includes
-@import "_reset.sass"
-
-
-/*------------------------------------------------------------------- =Mixins
-=cf
-  display: inline-block
-  &:after
-    content: "."
-    display: block
-    height: 0
-    clear: both
-    visibility: hidden
-  * html &
-    height: 1px
-
-=inside_wrapper
-  :width 750px
-  :padding 15px
-  
-=support_hover
-  :_azimuth expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit')
-  
-  
-
-/*------------------------------------------------------------------- =Colors
-!light_blue = "#eef5f7"
-!blue = "#6e7b86"
-!blue_alt = "#5f84a4"
-!dark_blue = "#5e6a75"
-!dark_blue_alt = "#535e67"
-!light_brown = "#eae2c7"
-
+@import _reset.sass
+@import _colors.sass
+@import _mixins.sass
 
 /*------------------------------------------------------------------- =Basics
-body
+body  
   :background-color #6e7b86
   :text-align center
 .hide
   :display none !important
+  
   
 /*------------------------------------------------------------------- =Layout
 #wrapper
@@ -53,7 +20,7 @@ body
   :background #5e6a75 url(/images/wrapper_bg.gif) top center no-repeat
   :font-family "Helvetica", Arial, Tahoma, sans-serif
   :text-align left
-  #header
+  #header, #page
     +inside_wrapper
     :height 80px
   #content
@@ -127,7 +94,21 @@ ul.ribbon
     :margin-right 8px
     :background url(/images/ribbon_create_label_bg.gif) top left no-repeat
   
-  
+
+/*------------------------------------------------------------------- =Page_details
+#page
+  #project_meta, #workspace_meta
+    :float left
+    :width 550px
+    h5.label
+      :margin-bottom 8px
+      :font-size 10px
+      :text-transform uppercase
+      :color #8b98a3
+    h1.name
+      :font-size 22px
+      :color #fff
+
 /*------------------------------------------------------------------- =Entries
 #entries, #entry
   +cf
@@ -175,10 +156,10 @@ ul.ribbon
     .content
       :float left
       :width 500px
-      h3
-        :margin-top 2px
-        :margin-bottom 10px
       .body
+        h3
+          :margin-top 2px
+          :margin-bottom 10px
         p
           :padding-bottom 10px
           :font-size 14px

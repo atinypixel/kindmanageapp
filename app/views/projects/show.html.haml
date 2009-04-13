@@ -1,3 +1,14 @@
-#header
+
+/ Project header
+=render :partial => "shared/header", :locals => {:project_name => @project.name, :label => @project.class}
+
+#content
+  =render :partial => "create_ribbon"
+  
+  #entries
+    -@entries.each do |entry|
+      =render :partial => "entries/entry", :locals => {:entry => entry}
+        
   
   
+
