@@ -1,0 +1,293 @@
+/* -------------------------------------------------------------------
+ * Kindmanage CSS */
+/* ------------------------------------------------------------------- */
+/* ------------------------------------------------------------------- =Includes */
+@import "_reset.sass";
+/* ------------------------------------------------------------------- =Mixins */
+/* ------------------------------------------------------------------- =Colors */
+/* ------------------------------------------------------------------- =Basics */
+body {
+  background-color: #6e7b86;
+  text-align: center; }
+
+.hide {
+  display: none !important; }
+
+/* ------------------------------------------------------------------- =Layout */
+#wrapper {
+  display: inline-block;
+  margin: 30px auto 0;
+  padding: 0 5px;
+  width: 780px;
+  background: #5e6a75 url(/images/wrapper_bg.gif) top center no-repeat;
+  font-family: "Helvetica", Arial, Tahoma, sans-serif;
+  text-align: left; }
+  #wrapper:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html #wrapper {
+    height: 1px; }
+  #wrapper #header {
+    width: 750px;
+    padding: 15px;
+    height: 80px; }
+  #wrapper #content {
+    display: inline-block;
+    width: 750px;
+    padding: 15px;
+    background-color: #fff; }
+    #wrapper #content:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    * html #wrapper #content {
+      height: 1px; }
+  #wrapper #footer {
+    width: 790px;
+    height: 10px;
+    margin: 0 -5px;
+    background: #5e6a75 url(/images/footer_bg.gif) bottom center no-repeat; }
+
+/* ------------------------------------------------------------------- =Header */
+#header .project_details, #header .workspace_details {
+  float: left;
+  width: 550px; }
+  #header .project_details h5.label,   #header .workspace_details h5.label {
+    margin-bottom: 8px;
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #8b98a3; }
+  #header .project_details h1.name,   #header .workspace_details h1.name {
+    font-size: 22px;
+    color: #fff; }
+
+/* ------------------------------------------------------------------- =Ribbon */
+ul.ribbon {
+  float: left;
+  width: 780px;
+  height: 39px;
+  margin: -15px -15px 15px;
+  padding: 0;
+  background: #eae2c7 url(/images/ribbon_bg.gif) top left repeat-x;
+  border-bottom: 1px solid #cbc3a8; }
+  ul.ribbon li {
+    float: left;
+    margin-right: 3px;
+    _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit'); }
+    ul.ribbon li a, ul.ribbon li span {
+      float: left;
+      height: 39px; }
+    ul.ribbon li a {
+      font-size: 14px;
+      font-weight: bold;
+      color: #000;
+      text-decoration: none;
+      background: url(/images/ribbon_item_right_bg.gif) top right no-repeat;
+      outline: 0; }
+      ul.ribbon li a span {
+        padding: 0 10px;
+        line-height: 40px;
+        background: url(/images/ribbon_item_left_bg.gif) top left no-repeat; }
+    ul.ribbon li.hover a,     ul.ribbon li:hover a {
+      background-image: url(/images/ribbon_item_right_bg_on.gif); }
+      ul.ribbon li.hover a span,       ul.ribbon li:hover a span {
+        background-image: url(/images/ribbon_item_left_bg_on.gif); }
+    ul.ribbon li.active a,     ul.ribbon li:active a {
+      background-image: url(/images/ribbon_item_right_bg_act.gif); }
+      ul.ribbon li.active a span,       ul.ribbon li:active a span {
+        background-image: url(/images/ribbon_item_left_bg_act.gif); }
+  ul.ribbon li.create_label {
+    width: 42px;
+    height: 39px;
+    margin-right: 8px;
+    background: url(/images/ribbon_create_label_bg.gif) top left no-repeat; }
+
+/* ------------------------------------------------------------------- =Entries */
+#entries, #entry {
+  display: inline-block;
+  padding: 15px;
+  margin: -15px -15px 0;
+  background-color: #f4f3ed;
+  border-top: 1px solid #ece9de;
+  /* ----------------------------------------------------------------- =Entry_type_label_variations */
+  /* ----------------------------------------------------------------- =Entry_type_formatting */ }
+  #entries:after,   #entry:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html #entries,   * html #entry {
+    height: 1px; }
+  #entries a,   #entry a {
+    color: #5f84a4; }
+  #entries .entry,   #entry .entry {
+    display: inline-block;
+    width: 720px;
+    padding: 15px;
+    margin: 0 0 5px;
+    background-color: #fff;
+    border-bottom: 2px solid #ece9de;
+    /* --------------------------------------------------------------- =Entry_type_labels */
+    /* --------------------------------------------------------------- =Entry_basic_formatting */
+    /* --------------------------------------------------------------- =Entry_options */ }
+    #entries .entry:after,     #entry .entry:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    * html #entries .entry,     * html #entry .entry {
+      height: 1px; }
+    #entries .entry ul.type,     #entry .entry ul.type {
+      float: left;
+      width: 70px;
+      padding-right: 15px;
+      text-align: right; }
+      #entries .entry ul.type li.label,       #entry .entry ul.type li.label {
+        float: right;
+        background-position: top right;
+        background-repeat: no-repeat;
+        height: 19px; }
+        #entries .entry ul.type li.label span,         #entry .entry ul.type li.label span {
+          float: left;
+          height: 19px;
+          padding: 0 6px;
+          line-height: 19px;
+          color: #fff;
+          font-size: 10px;
+          font-weight: bold;
+          text-transform: uppercase;
+          background-position: top left;
+          background-repeat: no-repeat; }
+    #entries .entry .content,     #entry .entry .content {
+      float: left;
+      width: 500px; }
+      #entries .entry .content h3,       #entry .entry .content h3 {
+        margin-top: 2px;
+        margin-bottom: 10px; }
+      #entries .entry .content .body p,       #entry .entry .content .body p {
+        padding-bottom: 10px;
+        font-size: 14px;
+        line-height: 18px;
+        color: #333; }
+      #entries .entry .content .meta,       #entry .entry .content .meta {
+        font-size: 11px;
+        color: #999; }
+        #entries .entry .content .meta .actions,         #entry .entry .content .meta .actions {
+          font-weight: bold; }
+    #entries .entry .options,     #entry .entry .options {
+      float: left;
+      width: 135px; }
+      #entries .entry .options .group,       #entry .entry .options .group {
+        float: left;
+        width: 100%;
+        display: block;
+        font-size: 11px;
+        font-weight: bold;
+        color: #888;
+        margin-bottom: 3px;
+        padding-bottom: 3px;
+        border-bottom: 1px dotted #d9d9d9; }
+        #entries .entry .options .group a,         #entry .entry .options .group a {
+          text-decoration: none; }
+  #entries .note ul.type li.label,   #entry .note ul.type li.label {
+    background-image: url(/images/type_label_right_grn_bg.gif); }
+    #entries .note ul.type li.label span,     #entry .note ul.type li.label span {
+      background-image: url(/images/type_label_left_grn_bg.gif); }
+  #entries .task ul.type li.label,   #entry .task ul.type li.label {
+    background-image: url(/images/type_label_right_blu_bg.gif); }
+    #entries .task ul.type li.label span,     #entry .task ul.type li.label span {
+      background-image: url(/images/type_label_left_blu_bg.gif); }
+  #entries .task .content .body h3,   #entry .task .content .body h3 {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 0;
+    line-height: 18px; }
+    #entries .task .content .body h3 span.due,     #entry .task .content .body h3 span.due {
+      padding-left: 4px;
+      font-size: 11px;
+      font-weight: bold;
+      color: #999; }
+  #entries .task .content .meta,   #entry .task .content .meta {
+    margin-top: 6px; }
+  #entries .note .content h3,   #entry .note .content h3 {
+    margin-top: 0;
+    font-size: 18px; }
+
+/* ------------------------------------------------------------------- =Entry_form */
+#entry_form {
+  float: left;
+  width: 746px;
+  height: auto;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border: 2px solid #ece9de; }
+  #entry_form form {
+    float: left;
+    overflow: hidden;
+    /* =Form_layout */
+    /* =Form_elements */ }
+    #entry_form form .main, #entry_form form .options {
+      float: left; }
+    #entry_form form .main {
+      width: 466px;
+      padding: 15px; }
+    #entry_form form .options {
+      width: 219px;
+      padding: 15px 15px 1000px;
+      margin-bottom: -1000px;
+      background-color: #f8f5ea;
+      border-left: 1px solid #ece9de; }
+    #entry_form form .row, #entry_form form .buttons {
+      float: left;
+      width: 100%;
+      margin-bottom: 10px;
+      display: block; }
+    #entry_form form legend {
+      margin: -4px 0 10px;
+      float: left;
+      font-size: 10px;
+      font-weight: bold;
+      color: #bab7ac;
+      text-transform: uppercase; }
+    #entry_form form label {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #666; }
+      #entry_form form label .help {
+        font-size: 11px;
+        font-style: italic;
+        font-weight: normal;
+        color: #999; }
+    #entry_form form input.text, #entry_form form input.title, #entry_form form input.password, #entry_form form textarea.body, #entry_form form textarea {
+      border: 1px solid #ddd;
+      border-right: 2px solid #ccc;
+      border-bottom: 2px solid #ccc;
+      padding: 4px;
+      font-size: 14px;
+      font-family: "Helvetica", Arial;
+      width: 454px;
+      color: #444; }
+    #entry_form form input.title {
+      font-weight: bold;
+      font-size: 16px; }
+    #entry_form form .buttons {
+      margin-top: 10px;
+      font-size: 12px; }
+      #entry_form form .buttons input, #entry_form form .buttons button {
+        font-family: Helvetica;
+        font-size: 14px;
+        color: #333; }
+      #entry_form form .buttons a {
+        color: #cc0000; }
+    #entry_form form .options label {
+      font-size: 12px;
+      color: #88857a; }

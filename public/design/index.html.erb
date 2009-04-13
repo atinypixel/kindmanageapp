@@ -40,6 +40,14 @@
                 <label for="describe_your_task_here">Describe task here <span class="help hide">Use <a href="#">markdown</a> for formatting</span></label>
                 <textarea name="task_description" class="" rows="3"></textarea>
               </div>
+          
+              <div class="buttons">
+                <button type="submit" />Save task</button>
+                or <a href="#">Cancel</a>
+              </div>
+            </fieldset>
+            <fieldset class="options">
+              <legend>options</legend>
               <div class="row">
                 <label>When is it due?</label>
                 <select>
@@ -55,17 +63,10 @@
                 </select>
                 
               </div>
-              <div class="buttons">
-                <button type="submit" />Save task</button>
-                or <a href="#">Cancel</a>
-              </div>
-            </fieldset>
-            <fieldset class="options">
-              <legend>options</legend>
               <div class="row">
-                <label>Add to workspace</label>
+                <label>Available workspaces</label>
                 <select name="some_name" id="some_name" size="1">
-                  <option disabled=true>Choose a workspace (optional)</option>
+                  <option disabled=true>Choose one ...</option>
                   <option value="option1">United Airlines</option>
                   <option value="option2">AT&T Interactive</option>
                   
