@@ -1,0 +1,26 @@
+/ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+/   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+/ <html xmlns="http://www.w3.org/1999/xhtml">
+/ <head>
+/ <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+/ <title>Kindmanage - Manage projects like a ninja</title>
+/ 
+/ <link rel="stylesheet" href="/stylesheets/application.css" type="text/css" media="screen" />
+/ 
+/ </head>
+/ <body>
+/   <div id="wrapper">
+/     <%= yield %>
+/   </div>
+/ </body>
+/ </html>
+
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => "en", 'xml:lang' => "en" }
+  %head
+    %title Kindmanage - Manage projects like a ninja
+    =stylesheet_link_tag "application.css"
+    
+  %body
+    #wrapper
+      =yield
