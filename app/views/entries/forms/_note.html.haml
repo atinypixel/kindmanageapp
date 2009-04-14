@@ -3,5 +3,6 @@
 %div.row
   %label{:for => "entry_note_body"}
     Body
-    %span.help=toggle_note_title_link "Add title", f, "add"
+    %span.help
+      =add_note_title_link "Add title", f
   =f.text_area :note_body, :rows => 6
