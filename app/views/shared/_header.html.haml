@@ -1,5 +1,8 @@
-#page
-  #project_meta
+#header
+  .project_meta
     %h5.label=label
-    %h1.name=project_name
-
+    %h1.name
+      -unless @entry
+        =project.name
+      -else
+        =link_to project.name, project_path(project)

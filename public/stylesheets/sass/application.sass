@@ -22,7 +22,7 @@ body
   :text-align left
   #header, #page
     +inside_wrapper
-    :height 80px
+    :height 45px
   #content
     +cf
     +inside_wrapper
@@ -34,20 +34,21 @@ body
     :background #5e6a75 url(/images/footer_bg.gif) bottom center no-repeat
     
 
-/*------------------------------------------------------------------- =Header
-#header
-  .project_details, .workspace_details
-    :float left
-    :width 550px
-    h5.label
-      :margin-bottom 8px
-      :font-size 10px
-      :text-transform uppercase
-      :color #8b98a3
-    h1.name
-      :font-size 22px
-      :color #fff
+/*------------------------------------------------------------------- =Project_and_workspace_meta
 
+.project_meta, .workspace_meta
+  :float left
+  :width 550px
+  h5.label
+    :margin-bottom 8px
+    :font-size 10px
+    :text-transform uppercase
+    :color #8b98a3
+  h1.name
+    :font-size 22px
+    :color #fff
+    a
+      :color #fff
 
 /*------------------------------------------------------------------- =Ribbon
 ul.ribbon
@@ -93,21 +94,7 @@ ul.ribbon
     :height 39px
     :margin-right 8px
     :background url(/images/ribbon_create_label_bg.gif) top left no-repeat
-  
-
-/*------------------------------------------------------------------- =Page_details
-#page
-  #project_meta, #workspace_meta
-    :float left
-    :width 550px
-    h5.label
-      :margin-bottom 8px
-      :font-size 10px
-      :text-transform uppercase
-      :color #8b98a3
-    h1.name
-      :font-size 22px
-      :color #fff
+    
 
 /*------------------------------------------------------------------- =Entries
 #entries, #entry
@@ -220,9 +207,10 @@ ul.ribbon
       :margin-top 6px
   
   .note .content
-    h3
-      :margin-top 0
-      :font-size 18px
+    .body
+      h3
+        :margin-top 0px
+        :font-size 18px
 
 /*------------------------------------------------------------------- =Entry_form
 

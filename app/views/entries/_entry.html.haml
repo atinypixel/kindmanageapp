@@ -1,13 +1,25 @@
 %div.entry{:class => entry.type.name, :id  => "entry_#{entry.id}"}
+
   / label
   %ul.type
     %li.label
       %span=entry.type.name
-      
+  
+  / content + meta    
   .content
     .body
       =render :partial => "entries/#{entry.type.name}", :locals => {:entry => entry}
     .meta
       %span.created_at="#{time_ago_in_words(entry.created_at)} ago"
+      
+  / actionable links + etc
   .options
-    
+    .group
+      -unless @entry
+        =link_to "Open", project_entry_path(project, entry)
+        ,
+      =link_to "Edit", edit_project_entry_path(project, entry)
+      or
+      =link_to "Delete", "#"
+    .group
+      =link_to "Add to a workspace", "#"

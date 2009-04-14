@@ -65,7 +65,7 @@ body {
   #wrapper #header, #wrapper #page {
     width: 750px;
     padding: 15px;
-    height: 80px; }
+    height: 45px; }
   #wrapper #content {
     display: inline-block;
     width: 750px;
@@ -85,18 +85,20 @@ body {
     margin: 0 -5px;
     background: #5e6a75 url(/images/footer_bg.gif) bottom center no-repeat; }
 
-/* ------------------------------------------------------------------- =Header */
-#header .project_details, #header .workspace_details {
+/* ------------------------------------------------------------------- =Project_and_workspace_meta */
+.project_meta, .workspace_meta {
   float: left;
   width: 550px; }
-  #header .project_details h5.label,   #header .workspace_details h5.label {
+  .project_meta h5.label,   .workspace_meta h5.label {
     margin-bottom: 8px;
     font-size: 10px;
     text-transform: uppercase;
     color: #8b98a3; }
-  #header .project_details h1.name,   #header .workspace_details h1.name {
+  .project_meta h1.name,   .workspace_meta h1.name {
     font-size: 22px;
     color: #fff; }
+    .project_meta h1.name a,     .workspace_meta h1.name a {
+      color: #fff; }
 
 /* ------------------------------------------------------------------- =Ribbon */
 ul.ribbon {
@@ -138,19 +140,6 @@ ul.ribbon {
     height: 39px;
     margin-right: 8px;
     background: url(/images/ribbon_create_label_bg.gif) top left no-repeat; }
-
-/* ------------------------------------------------------------------- =Page_details */
-#page #project_meta, #page #workspace_meta {
-  float: left;
-  width: 550px; }
-  #page #project_meta h5.label,   #page #workspace_meta h5.label {
-    margin-bottom: 8px;
-    font-size: 10px;
-    text-transform: uppercase;
-    color: #8b98a3; }
-  #page #project_meta h1.name,   #page #workspace_meta h1.name {
-    font-size: 22px;
-    color: #fff; }
 
 /* ------------------------------------------------------------------- =Entries */
 #entries, #entry {
@@ -261,8 +250,8 @@ ul.ribbon {
       color: #999; }
   #entries .task .content .meta,   #entry .task .content .meta {
     margin-top: 6px; }
-  #entries .note .content h3,   #entry .note .content h3 {
-    margin-top: 0;
+  #entries .note .content .body h3,   #entry .note .content .body h3 {
+    margin-top: 0px;
     font-size: 18px; }
 
 /* ------------------------------------------------------------------- =Entry_form */

@@ -1,0 +1,6 @@
+=render :partial => "shared/header", :locals => {:project => @entry.project, :label => @entry.project.class}
+
+#content
+  #entry
+    =render :partial => "entries/entry", :locals => {:entry => @entry, :project => @project}
+    
