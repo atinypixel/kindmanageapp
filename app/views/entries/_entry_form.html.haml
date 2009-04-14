@@ -1,0 +1,20 @@
+-remote_form_for :entry, @entry, :url => {:action => create_or_update(@entry)}, :html => {:id => "#{type.name}_entry_form"} do |f|
+
+  %fieldset.options
+    %legend Options
+    =render :partial => "entries/forms/#{type.name}_options", :locals => {:f => f}
+    %div.row
+      %label Add to a workspace (optional)
+      %select
+        %option Deploy
+        %option Backlog
+    
+  %fieldset.main
+    %legend="#{new_or_edit(@entry)} #{type.name}"
+    =render :partial => "entries/forms/#{type.name}", :locals => {:f => f}
+    
+    %div.buttons
+      =f.hidden_field :type_id, :value => type.id
+      =f.submit "#{create_or_update(@entry).capitalize} #{type.name}"
+      
+  

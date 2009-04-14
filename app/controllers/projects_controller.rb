@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
     
     before :show do
       @entries = current_object.entries
+      @types = Type.find(:all)
     end
   end
 end

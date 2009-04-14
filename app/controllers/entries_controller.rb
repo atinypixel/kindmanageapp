@@ -3,7 +3,13 @@ class EntriesController < ApplicationController
     actions :all
     belongs_to :project
     
-    before :show do
+    before :new do
+      @project = Project.find(params[:project_id])
+      @type = Type.find(params[:type])
+    end
+        
+    before :edit do
+    
     end
     
   end

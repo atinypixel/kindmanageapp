@@ -1,11 +1,14 @@
 =render :partial => "shared/header", :locals => {:project => @project, :label => @project.class}
 
 #content
-  =render :partial => "create_ribbon"
+  =render :partial => "create_ribbon", :locals => {:project => @project, :types => @types}
   
   #entries
-    -@entries.each do |entry|
-      =render :partial => "entries/entry", :locals => {:entry => entry, :project => @project}
+    #entry_form{:style => "display:none;"}
+    #for_queue
+    #for_project
+      -@entries.each do |entry|
+        =render :partial => "entries/entry", :locals => {:entry => entry, :project => @project}
         
   
   

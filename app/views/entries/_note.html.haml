@@ -1,3 +1,4 @@
 / content
-%h3=entry.note_title
+-unless entry.note_title.blank?
+  %h3=entry.note_title
 =entry.note_body.to_html

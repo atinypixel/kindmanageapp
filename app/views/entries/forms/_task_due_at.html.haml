@@ -1,0 +1,3 @@
+%span#task_due_at_field
+  =f.label :task_due_at, "When is it due?"
+  =f.date_select :task_due_at, :order => [:month, :day, :year], :start_year => Time.now.year

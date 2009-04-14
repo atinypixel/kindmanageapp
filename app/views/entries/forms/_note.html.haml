@@ -1,0 +1,7 @@
+%div#note_title_field_wrapper.row{:style => "display:none"}
+  /=#render :partial => "entries/forms/note_title", :locals => {:f => f}
+%div.row
+  %label{:for => "entry_note_body"}
+    Body
+    %span.help=toggle_note_title_link "Add title", f, "add"
+  =f.text_area :note_body, :rows => 6

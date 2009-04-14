@@ -168,13 +168,18 @@ ul.ribbon
         :width 100%
         :display block
         :font-size 11px
-        :font-weight bold
-        :color #888
+        :font-weight normal
+        :color #ddd
         :margin-bottom 3px
         :padding-bottom 3px
         :border-bottom 1px dotted #d9d9d9
         a
+          :font-weight bold
           :text-decoration none
+          &:hover
+            :color #000
+        a.neg:hover
+          :color #cc0000
     
   
   /*----------------------------------------------------------------- =Entry_type_label_variations
@@ -219,7 +224,6 @@ ul.ribbon
   :width 746px
   :height auto
   :margin-bottom 15px
-  / :background-color #eef5f7
   :background-color #fff
   :border = 2px solid (#ece9de)
   form
@@ -228,12 +232,12 @@ ul.ribbon
     
     /* =Form_layout
     
-    .main, .options
-      :float left
     .main
+      :float left
       :width 466px
       :padding 15px
     .options
+      :float right
       :width 219px
       :padding 15px 15px 1000px
       :margin-bottom -1000px
@@ -263,8 +267,8 @@ ul.ribbon
       :font-weight bold
       :color #666
       .help
+        :padding-left 6px
         :font-size 11px
-        :font-style italic
         :font-weight normal
         :color #999
     input.text, input.title, input.password, textarea.body, textarea
@@ -275,7 +279,7 @@ ul.ribbon
       :font-size 14px
       :font-family "Helvetica", Arial
       :width 454px
-      :color #444
+      :color #333
     input.title
       :font-weight bold
       :font-size 16px
@@ -289,6 +293,8 @@ ul.ribbon
       a
         :color = #cc0000
     .options
+      .row
+        :margin-bottom 12px
       label
         :font-size 12px
-        :color = #ece9de -100
+        :color = #ece9de -130

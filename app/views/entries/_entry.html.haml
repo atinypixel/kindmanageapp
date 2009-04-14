@@ -17,9 +17,9 @@
     .group
       -unless @entry
         =link_to "Open", project_entry_path(project, entry)
-        ,
+        |
       =link_to "Edit", edit_project_entry_path(project, entry)
-      or
-      =link_to "Delete", "#"
+      |
+      =link_to "Delete", "#", :class => "neg"
     .group
       =link_to "Add to a workspace", "#"

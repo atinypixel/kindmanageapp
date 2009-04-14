@@ -1,8 +1,5 @@
 %ul#create_entry.ribbon
   %li.create_label &nbsp;
-  %li
-    %a{:href => "#"}
-      %span Note
-  %li
-    %a{:href => "#"}
-      %span Task
+  -types.each do |type|
+    %li=link_to_remote "<span>#{type.name.capitalize}</span>", :url => new_project_entry_path(@project, :type => type), :method => :get
+    
