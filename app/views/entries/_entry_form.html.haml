@@ -1,20 +1,25 @@
--remote_form_for :entry, @entry, :url => {:action => create_or_update(@entry)}, :html => {:id => "#{type.name}_entry_form"} do |f|
+-remote_form_for :entry, @entry, :url => {:action => create_or_update(@entry)}, :html => {:id => "#{type.name}_entry_form", :method => create_or_update(@entry, :choose_method => true) } do |f|
 
   %fieldset.options
-    %legend Options
+    %span.legend Options
     =render :partial => "entries/forms/#{type.name}_options", :locals => {:f => f}
-    %div.row
+    %div.row.hide
       %label Add to a workspace (optional)
       %select
         %option Deploy
         %option Backlog
     
   %fieldset.main
-    %legend="#{new_or_edit(@entry)} #{type.name}"
+    %span.legend="#{new_or_edit(@entry)} #{type.name}"
+    
     =render :partial => "entries/forms/#{type.name}", :locals => {:f => f}
     
     %div.buttons
       =f.hidden_field :type_id, :value => type.id
+      -if @context
+        =hidden_field_tag "context", @context
       =f.submit "#{create_or_update(@entry).capitalize} #{type.name}"
-      
+      or
+      =link_to_function "Cancel", "$('#{type.name}_entry_form').remove(); $('entry_form').hide()"
+      / =@context
   

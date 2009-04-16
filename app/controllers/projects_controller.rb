@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
     actions :all
     
     before :show do
-      @entries = current_object.entries
+      @entries = @project.entries
       @types = Type.find(:all)
     end
   end

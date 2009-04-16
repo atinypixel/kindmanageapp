@@ -1,5 +1,5 @@
 %h3
   =entry.task_description
   %span.due
-    ="Due in #{distance_of_time_in_words_to_now(entry.task_due_at)}"
+    ="Due in #{distance_of_time_in_words_to_now(entry.task_due_at)}" unless entry.task_due_at.blank? || entry.task_show_due_at
   

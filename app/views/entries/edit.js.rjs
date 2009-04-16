@@ -1,0 +1,3 @@
+page.visual_effect :scroll_to, "entry_form", :duration => 0.5
+page.replace_html "entry_form", :partial => "entries/entry_form", :locals => {:type => @type}
+page.visual_effect :blind_down, "entry_form", :duration => 0.2

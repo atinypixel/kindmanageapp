@@ -1,0 +1,6 @@
+page.replace_html "for_project", :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project, :single_entry => false}
+page.visual_effect :scroll_to, "entry_marker_#{@entry.id}", :duration => 0.5
+page.delay(0.5) {
+  page.visual_effect :highlight, "entry_#{@entry.id}"
+}
+page.form.reset "#{@entry.type.name}_entry_form"

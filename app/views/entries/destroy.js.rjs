@@ -1,0 +1,11 @@
+page.visual_effect :fade, "entry_#{@entry.id}", :duration => 0.5
+if @entries.empty?
+  page.redirect_to project_url(@entry.project)
+end
+# page.delay(0.6) {
+#   unless @entries.empty? && !@disable_open_link
+#     page.replace_html "for_project", :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project}
+#   else
+#     page.redirect_to project_url(@entry.project)
+#   end
+# }

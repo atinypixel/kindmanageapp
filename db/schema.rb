@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090414184048) do
+ActiveRecord::Schema.define(:version => 20090414230039) do
 
   create_table "entries", :force => true do |t|
     t.text     "note_body"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20090414184048) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "note_show_title"
+    t.boolean  "task_show_due_at"
   end
 
   create_table "projects", :force => true do |t|

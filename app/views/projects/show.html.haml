@@ -7,8 +7,10 @@
     #entry_form{:style => "display:none;"}
     #for_queue
     #for_project
-      -@entries.each do |entry|
-        =render :partial => "entries/entry", :locals => {:entry => entry, :project => @project}
+      -unless @entries.empty?
+        =render :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project, :single_entry => false}
+      -else
+        %h2.empty There are no entries for this project
         
   
   

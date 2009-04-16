@@ -2,6 +2,5 @@
   %label{:for => "entry_note_title"} 
     Title
     %span.help
-      =link_to_function "Remove title", "$('note_title_field').remove() ; $('add_note_title_link').show() ; $('note_title_field_wrapper').hide() ; $('entry_note_show_title').writeAttribute('value', '0');"
 
   =f.text_field :note_title, :class => "title"

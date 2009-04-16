@@ -1,6 +1,7 @@
 =render :partial => "shared/header", :locals => {:project => @entry.project, :label => @entry.project.class}
-
 #content
   #entry
-    =render :partial => "entries/entry", :locals => {:entry => @entry, :project => @project}
+    #entry_form{:style => "display:none;"}
+    #for_single_entry
+      =render :partial => "entries/entry", :locals => {:entry => @entry, :project => @project, :single_entry => true}
     

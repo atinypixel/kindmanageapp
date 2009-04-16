@@ -1,3 +1,7 @@
 %span#task_due_at_field
-  =f.label :task_due_at, "When is it due?"
+  %label{:for => "entry_task_due_at"}
+    Due date?
+    %span.help
+      =toggle_entry_field_link "Remove", "task_due_at", "remove", f, :disable_option => "entry_task_show_due_at"
+    
   =f.date_select :task_due_at, :order => [:month, :day, :year], :start_year => Time.now.year

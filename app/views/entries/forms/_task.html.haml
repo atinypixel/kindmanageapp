@@ -2,4 +2,6 @@
   %label{:for => "entry_task_description"}
     Describe your task here
     %span.help
+      =#toggle_entry_field_link "Add due date", "task_due_at", "add", f, :disable_option => "entry_task_show_due_at"
+      
   =f.text_area :task_description, :rows => 2
