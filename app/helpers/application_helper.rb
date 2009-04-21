@@ -10,5 +10,5 @@ module ApplicationHelper
   
   def new_or_edit(object)
     object.new_record? ? "new" : "edit"
-  end  
+  end
 end

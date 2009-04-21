@@ -1,0 +1,5 @@
+%h3 Projects
+%ul#projects
+  =render :partial => "projects/project", :collection => current_account.projects, :as => :project
+  %li.new_project
+    / -remote_form_for :project, @project, :url => project_path

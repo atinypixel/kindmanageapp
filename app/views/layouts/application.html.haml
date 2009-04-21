@@ -3,10 +3,30 @@
   %head
     %title Kindmanage - Manage projects like a ninja
     =javascript_include_tag :defaults
+    =javascript_include_tag "cufon/cufon.js"
+    =javascript_include_tag "cufon/Museo_500-Museo_700.font.js"
     =stylesheet_link_tag "application.css"
+    
+    :javascript
+      Cufon.replace('#logo_text');
+      
     
   %body
     #wrapper
+      
+      #masthead
+        %span#logo_text 
+          %a{:href => "#"} Kindmanage
+        
+          
+        
+        %ul#navigation
+          %li=link_to_remote "Projects", :url => account_projects_path, :method => :get
+          
+        #admin{:style => "display:none;"}
+          #project_list
+            =#render :partial => "projects/projects"
+            
       
       =yield
       

@@ -5,7 +5,9 @@
   
   #entries
     #entry_form{:style => "display:none;"}
+    #notice.clear{:style => "display: none;"}
     #for_queue
+      
     #for_project
       -unless @entries.empty?
         =render :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project, :single_entry => false}

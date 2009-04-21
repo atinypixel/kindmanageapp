@@ -2,6 +2,7 @@
 @import _reset.sass
 @import _colors.sass
 @import _mixins.sass
+@import _flash.sass
 
 /*------------------------------------------------------------------- =Basics
 body  
@@ -9,20 +10,89 @@ body
   :text-align center
 .hide
   :display none !important
+.clear
+  :clear both
   
-  
+
 /*------------------------------------------------------------------- =Layout
 #wrapper
   +cf
-  :margin 15px auto 0
+  :margin 45px auto 0
   :padding 0 5px
   :width 780px
   :background #5e6a75 url(/images/wrapper_bg.gif) top center no-repeat
   :font-family "Helvetica", Arial, Tahoma, sans-serif
   :text-align left
+  
+  #masthead
+    +cf
+    :width 760px
+    :padding 0 15px 9px
+    :margin 10px -5px 0px
+    :background-color = !dark_blue -5
+    :border-bottom = 1px dashed (!dark_blue -10)
+    
+    #logo_text
+      +support_hover
+      :float left
+      :padding-right 5px
+      :margin-right 10px
+      :font-size 14px
+      :font-weight normal
+      :border-right = 1px dashed (!dark_blue -20)
+      a
+        :color = !dark_blue -30
+        :text-decoration none
+      &.hover, &:hover
+        a
+          :color #fff
+    ul#navigation
+      li
+        :float left
+        :margin-right 15px
+        :font-size 12px
+        :font-weight bold
+        :font-family "Trebuchet MS"
+        a
+          :position relative
+          :color = !blue +20
+          :text-decoration none
+          &:hover
+            :color #fff
+            
+    #admin
+      +cf
+      :width 720px
+      :padding 15px
+      :margin 0 5px 5px
+      :margin-top 10px
+      :background-color = !dark_blue -25
+      :font-size 12px
+      h3
+        :color = !light_blue
+        :margin-bottom 10px
+      ul#projects
+        li.project
+          +cf
+          :width 100%
+          :padding 5px 0
+          :border-bottom = 1px dashed (!dark_blue -5)
+          .name
+            :width 350px
+            :float left
+            a
+              :color = !blue +30
+              :font-weight bold
+          .meta
+            :float left
+            :font-size 11px
+            :color = !dark_blue +20
+  
   #header, #page
+    +cf
     +inside_wrapper
-    :height 45px
+    :padding-bottom 10px
+    :height auto
   #content
     +cf
     +inside_wrapper
@@ -35,17 +105,24 @@ body
     
 
 /*------------------------------------------------------------------- =Project_and_workspace_meta
-
 .project_meta, .workspace_meta
   :float left
   :width 550px
+  +cf
   h5.label
+    :float left
     :margin-bottom 8px
-    :font-size 10px
+    :padding 4px
+    :font-size 11px
+    :font-weight normal
     :text-transform uppercase
     :color #8b98a3
+    :background-color = !dark_blue_alt
   h1.name
-    :font-size 22px
+    :float left
+    :margin-top 1px
+    :margin-left 10px
+    :font-size 18px
     :color #fff
     a
       :color #fff
@@ -119,7 +196,7 @@ ul.ribbon
     
     ul.type
       :float left
-      :width 70px
+      :width 80px
       :padding-right 15px
       :text-align right
       li.label
@@ -143,7 +220,7 @@ ul.ribbon
           
     .content
       :float left
-      :width 485px
+      :width 475px
       :padding-right 15px
       .body
         h3
@@ -186,7 +263,8 @@ ul.ribbon
   
   /*----------------------------------------------------------------- =Entry_type_label_variations
           
-  .note ul.type li.label
+  .note ul.type li.label,
+  .milestone ul.type li.label
     :background-image url(/images/type_label_right_grn_bg.gif)
     span
       :background-image url(/images/type_label_left_grn_bg.gif)
@@ -219,7 +297,7 @@ ul.ribbon
         :margin-top 0px
         :font-size 18px
 
-/*------------------------------------------------------------------- =Entry_form
+/*------------------------------------------------------------------- =Forms
 
 #entry_form
   :float left
@@ -277,9 +355,9 @@ ul.ribbon
         :font-weight normal
         :color #999
     input.text, input.title, input.password, textarea.body, textarea
-      :border 1px solid #ddd
-        :right 2px solid #ccc
-        :bottom 2px solid #ccc
+      :border 1px solid #ccc
+        :right 2px solid #bbb
+        :bottom 2px solid #bbb
       :padding 4px
       :font-size 14px
       :font-family "Helvetica", Arial
@@ -293,7 +371,7 @@ ul.ribbon
       :font-size 12px
       input, button
         :font-family Helvetica
-        :font-size 14px
+        :font-size 12px
         :color #333
       a
         :color = #cc0000
