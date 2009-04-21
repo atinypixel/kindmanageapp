@@ -21,9 +21,13 @@
           
         
         %ul#navigation
-          %li=link_to_remote "Projects", :url => account_projects_path, :method => :get
+          %li#nav_choose_project
+            =choose_project_link
+          %li#nav_settings
+            <a href="#">Settings</a>
           
         #admin{:style => "display:none;"}
+          .close_admin=choose_project_link(:close => true)
           #project_list
             =#render :partial => "projects/projects"
             

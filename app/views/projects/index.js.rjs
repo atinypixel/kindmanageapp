@@ -1,2 +1,2 @@
 page.replace_html "project_list", :partial => "projects/projects"
-page.visual_effect :blind_down, "admin", :duration => 0.2
+page.visual_effect :blind_down, "admin", :duration => 0.3

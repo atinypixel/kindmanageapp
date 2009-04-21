@@ -135,6 +135,7 @@ body {
         color: #fff; }
     #wrapper #masthead ul#navigation li {
       float: left;
+      display: inline;
       margin-right: 15px;
       font-size: 12px;
       font-weight: bold;
@@ -145,12 +146,21 @@ body {
         text-decoration: none; }
         #wrapper #masthead ul#navigation li a:hover {
           color: #fff; }
+      #wrapper #masthead ul#navigation li.on a {
+        position: relative;
+        z-index: 1;
+        color: #fff; }
+        #wrapper #masthead ul#navigation li.on a .indicator {
+          position: absolute;
+          z-index: 0;
+          width: 16px;
+          height: 14px;
+          background: url(/images/nav_indicator.gif) 0 4px no-repeat; }
     #wrapper #masthead #admin {
       display: inline-block;
       width: 720px;
       padding: 15px;
-      margin: 0 5px 5px;
-      margin-top: 10px;
+      margin: 15px 5px 5px;
       background-color: #45515c;
       font-size: 12px; }
       #wrapper #masthead #admin:after {
@@ -161,32 +171,42 @@ body {
         visibility: hidden; }
       * html #wrapper #masthead #admin {
         height: 1px; }
+      #wrapper #masthead #admin .close_admin {
+        float: right; }
+        #wrapper #masthead #admin .close_admin a {
+          padding: 3px 6px;
+          color: #fff;
+          text-decoration: none;
+          background-color: #000; }
       #wrapper #masthead #admin h3 {
         color: #eef5f7;
         margin-bottom: 10px; }
-      #wrapper #masthead #admin ul#projects li.project {
-        display: inline-block;
-        width: 100%;
-        padding: 5px 0;
-        border-bottom: 1px dashed #596570; }
-        #wrapper #masthead #admin ul#projects li.project:after {
-          content: ".";
-          display: block;
-          height: 0;
-          clear: both;
-          visibility: hidden; }
-        * html #wrapper #masthead #admin ul#projects li.project {
-          height: 1px; }
-        #wrapper #masthead #admin ul#projects li.project .name {
-          width: 350px;
-          float: left; }
-          #wrapper #masthead #admin ul#projects li.project .name a {
-            color: #8c99a4;
-            font-weight: bold; }
-        #wrapper #masthead #admin ul#projects li.project .meta {
-          float: left;
-          font-size: 11px;
-          color: #727e89; }
+      #wrapper #masthead #admin ul#projects {
+        float: left;
+        width: 95%; }
+        #wrapper #masthead #admin ul#projects li.project {
+          display: inline-block;
+          width: 100%;
+          padding: 6px 0;
+          border-bottom: 1px dashed #596570; }
+          #wrapper #masthead #admin ul#projects li.project:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden; }
+          * html #wrapper #masthead #admin ul#projects li.project {
+            height: 1px; }
+          #wrapper #masthead #admin ul#projects li.project .name {
+            width: 350px;
+            float: left; }
+            #wrapper #masthead #admin ul#projects li.project .name a {
+              color: #a0adb8;
+              font-weight: bold; }
+          #wrapper #masthead #admin ul#projects li.project .meta {
+            float: left;
+            font-size: 11px;
+            color: #727e89; }
   #wrapper #header, #wrapper #page {
     display: inline-block;
     width: 750px;

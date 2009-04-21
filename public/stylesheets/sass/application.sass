@@ -49,6 +49,7 @@ body
     ul#navigation
       li
         :float left
+        :display inline
         :margin-right 15px
         :font-size 12px
         :font-weight bold
@@ -59,29 +60,47 @@ body
           :text-decoration none
           &:hover
             :color #fff
-            
+        &.on a
+          :position relative
+          :z-index 1
+          :color #fff
+          .indicator
+            :position absolute
+            / :margin 15px auto 0
+            :z-index 0
+            :width 16px
+            :height 14px
+            :background url(/images/nav_indicator.gif) 0 4px no-repeat
     #admin
       +cf
       :width 720px
       :padding 15px
-      :margin 0 5px 5px
-      :margin-top 10px
+      :margin 15px 5px 5px
       :background-color = !dark_blue -25
       :font-size 12px
+      .close_admin
+        :float right
+        a
+          :padding 3px 6px
+          :color #fff
+          :text-decoration none
+          :background-color #000
       h3
         :color = !light_blue
         :margin-bottom 10px
       ul#projects
+        :float left
+        :width 95%
         li.project
           +cf
           :width 100%
-          :padding 5px 0
+          :padding 6px 0
           :border-bottom = 1px dashed (!dark_blue -5)
           .name
             :width 350px
             :float left
             a
-              :color = !blue +30
+              :color = !blue +50
               :font-weight bold
           .meta
             :float left
