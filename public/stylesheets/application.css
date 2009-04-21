@@ -123,8 +123,8 @@ body {
     #wrapper #masthead #logo_text {
       _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit');
       float: left;
-      padding-right: 5px;
-      margin-right: 10px;
+      padding-right: 8px;
+      margin-right: 4px;
       font-size: 14px;
       font-weight: normal;
       border-right: 1px dashed #4a5661; }
@@ -136,31 +136,26 @@ body {
     #wrapper #masthead ul#navigation li {
       float: left;
       display: inline;
-      margin-right: 15px;
       font-size: 12px;
       font-weight: bold;
       font-family: "Trebuchet MS"; }
       #wrapper #masthead ul#navigation li a {
         position: relative;
         color: #828f9a;
+        padding: 0 8px;
         text-decoration: none; }
         #wrapper #masthead ul#navigation li a:hover {
           color: #fff; }
       #wrapper #masthead ul#navigation li.on a {
-        position: relative;
-        z-index: 1;
+        display: inline;
+        padding: 3px 8px 8px;
+        background-color: #45515c;
         color: #fff; }
-        #wrapper #masthead ul#navigation li.on a .indicator {
-          position: absolute;
-          z-index: 0;
-          width: 16px;
-          height: 14px;
-          background: url(/images/nav_indicator.gif) 0 4px no-repeat; }
     #wrapper #masthead #admin {
       display: inline-block;
       width: 720px;
       padding: 15px;
-      margin: 15px 5px 5px;
+      margin: 6px 5px 5px;
       background-color: #45515c;
       font-size: 12px; }
       #wrapper #masthead #admin:after {

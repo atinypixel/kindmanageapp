@@ -35,8 +35,8 @@ body
     #logo_text
       +support_hover
       :float left
-      :padding-right 5px
-      :margin-right 10px
+      :padding-right 8px
+      :margin-right 4px
       :font-size 14px
       :font-weight normal
       :border-right = 1px dashed (!dark_blue -20)
@@ -50,32 +50,26 @@ body
       li
         :float left
         :display inline
-        :margin-right 15px
         :font-size 12px
         :font-weight bold
         :font-family "Trebuchet MS"
         a
           :position relative
           :color = !blue +20
+          :padding 0 8px
           :text-decoration none
           &:hover
             :color #fff
         &.on a
-          :position relative
-          :z-index 1
+          :display inline
+          :padding 3px 8px 8px
+          :background-color = !dark_blue -25
           :color #fff
-          .indicator
-            :position absolute
-            / :margin 15px auto 0
-            :z-index 0
-            :width 16px
-            :height 14px
-            :background url(/images/nav_indicator.gif) 0 4px no-repeat
     #admin
       +cf
       :width 720px
       :padding 15px
-      :margin 15px 5px 5px
+      :margin 6px 5px 5px
       :background-color = !dark_blue -25
       :font-size 12px
       .close_admin

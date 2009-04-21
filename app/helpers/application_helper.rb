@@ -14,7 +14,7 @@ module ApplicationHelper
   
   def choose_project_link(options={})
     unless options[:close]
-      link_to_remote("Choose a project <span class=\"indicator\">&nbsp;</span>", 
+      link_to_remote("Choose a project", 
         :url => account_projects_path,
         :success => "$('nav_choose_project').addClassName('on')",
         :method => :get)
