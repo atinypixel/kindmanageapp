@@ -2,6 +2,14 @@ class ProjectsController < ApplicationController
   make_resourceful do
     actions :all
     
+    before :index do 
+      @project = Project.new     
+    end
+    
+    before :create do
+      @project.account = current_account
+    end
+    
     before :show do
       @entries = current_object.entries
       @types = Type.find(:all)
