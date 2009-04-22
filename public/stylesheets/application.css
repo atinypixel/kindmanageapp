@@ -77,196 +77,95 @@ table {
 .success a {
   color: #264409; }
 
-/* ------------------------------------------------------------------- =Basics */
-body {
-  background-color: #6e7b86;
-  text-align: center; }
-
-.hide {
-  display: none !important; }
-
-.clear {
-  clear: both; }
-
-/* ------------------------------------------------------------------- =Layout */
-#wrapper {
-  display: inline-block;
-  margin: 45px auto 0;
-  padding: 0 5px;
-  width: 780px;
-  background: #5e6a75 url(/images/wrapper_bg.gif) top center no-repeat;
-  font-family: "Helvetica", Arial, Tahoma, sans-serif;
-  text-align: left; }
-  #wrapper:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-  * html #wrapper {
-    height: 1px; }
-  #wrapper #masthead {
-    display: inline-block;
-    width: 760px;
-    padding: 0 15px 9px;
-    margin: 10px -5px 0px;
-    background-color: #596570;
-    border-bottom: 1px dashed #54606b; }
-    #wrapper #masthead:after {
-      content: ".";
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden; }
-    * html #wrapper #masthead {
-      height: 1px; }
-    #wrapper #masthead #logo_text {
-      _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit');
-      float: left;
-      padding-right: 8px;
-      margin-right: 4px;
-      font-size: 14px;
-      font-weight: normal;
-      border-right: 1px dashed #4a5661; }
-      #wrapper #masthead #logo_text a {
-        color: #404c57;
-        text-decoration: none; }
-      #wrapper #masthead #logo_text.hover a,       #wrapper #masthead #logo_text:hover a {
-        color: #fff; }
-    #wrapper #masthead ul#navigation li {
-      float: left;
-      display: inline;
-      font-size: 12px;
-      font-weight: bold;
-      font-family: "Trebuchet MS"; }
-      #wrapper #masthead ul#navigation li a {
-        position: relative;
-        color: #828f9a;
-        padding: 0 8px;
-        text-decoration: none; }
-        #wrapper #masthead ul#navigation li a:hover {
-          color: #fff; }
-      #wrapper #masthead ul#navigation li.on a {
-        display: inline;
-        padding: 3px 8px 8px;
-        background-color: #45515c;
-        color: #fff; }
-    #wrapper #masthead #admin {
-      display: inline-block;
-      width: 720px;
-      padding: 15px;
-      margin: 4px 5px 5px;
-      background-color: #45515c;
-      font-size: 12px; }
-      #wrapper #masthead #admin:after {
-        content: ".";
-        display: block;
-        height: 0;
-        clear: both;
-        visibility: hidden; }
-      * html #wrapper #masthead #admin {
-        height: 1px; }
-      #wrapper #masthead #admin .close_admin {
-        float: right; }
-        #wrapper #masthead #admin .close_admin a {
-          padding: 3px 6px;
-          color: #fff;
-          text-decoration: none;
-          background-color: #000; }
-      #wrapper #masthead #admin h3 {
-        color: #eef5f7;
-        margin-bottom: 10px; }
-      #wrapper #masthead #admin ul#projects {
-        float: left;
-        width: 95%; }
-        #wrapper #masthead #admin ul#projects li.project {
-          display: inline-block;
-          width: 100%;
-          padding: 6px 0;
-          border-bottom: 1px dashed #596570; }
-          #wrapper #masthead #admin ul#projects li.project:after {
-            content: ".";
-            display: block;
-            height: 0;
-            clear: both;
-            visibility: hidden; }
-          * html #wrapper #masthead #admin ul#projects li.project {
-            height: 1px; }
-          #wrapper #masthead #admin ul#projects li.project .name {
-            width: 350px;
-            float: left; }
-            #wrapper #masthead #admin ul#projects li.project .name a {
-              color: #a0adb8;
-              font-weight: bold; }
-          #wrapper #masthead #admin ul#projects li.project .meta {
-            float: left;
-            font-size: 11px;
-            color: #727e89; }
-  #wrapper #header, #wrapper #page {
-    display: inline-block;
-    width: 750px;
-    padding: 15px;
-    padding-bottom: 10px;
-    height: auto; }
-    #wrapper #header:after,     #wrapper #page:after {
-      content: ".";
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden; }
-    * html #wrapper #header,     * html #wrapper #page {
-      height: 1px; }
-  #wrapper #content {
-    display: inline-block;
-    width: 750px;
-    padding: 15px;
-    background-color: #fff; }
-    #wrapper #content:after {
-      content: ".";
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden; }
-    * html #wrapper #content {
-      height: 1px; }
-  #wrapper #footer {
-    width: 790px;
-    height: 10px;
-    margin: 0 -5px;
-    background: #5e6a75 url(/images/footer_bg.gif) bottom center no-repeat; }
-
-/* ------------------------------------------------------------------- =Project_and_workspace_meta */
-.project_meta, .workspace_meta {
+#entry_form {
   float: left;
-  width: 550px;
-  display: inline-block; }
-  .project_meta:after,   .workspace_meta:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-  * html .project_meta,   * html .workspace_meta {
-    height: 1px; }
-  .project_meta h5.label,   .workspace_meta h5.label {
+  width: 746px;
+  height: auto;
+  margin-bottom: 15px;
+  background-color: #fff;
+  border: 2px solid #ece9de; }
+  #entry_form form {
     float: left;
-    margin-bottom: 8px;
-    padding: 4px;
-    font-size: 11px;
-    font-weight: normal;
-    text-transform: uppercase;
-    color: #8b98a3;
-    background-color: #535e67; }
-  .project_meta h1.name,   .workspace_meta h1.name {
-    float: left;
-    margin-top: 1px;
-    margin-left: 10px;
-    font-size: 18px;
-    color: #fff; }
-    .project_meta h1.name a,     .workspace_meta h1.name a {
-      color: #fff; }
+    overflow: hidden;
+    /* =Form_layout */
+    /* =Form_elements */ }
+    #entry_form form .main {
+      float: left;
+      width: 466px;
+      padding: 15px; }
+    #entry_form form .options {
+      float: right;
+      width: 219px;
+      padding: 15px 15px 1000px;
+      margin-bottom: -1000px;
+      background-color: #f8f5ea;
+      border-left: 1px solid #ece9de; }
+    #entry_form form .row, #entry_form form .buttons {
+      float: left;
+      width: 100%;
+      margin-bottom: 10px;
+      display: block; }
+    #entry_form form span.legend {
+      margin: 0px 0 10px;
+      float: left;
+      width: 100%;
+      font-size: 10px;
+      font-weight: bold;
+      background-color: transparent;
+      display: block;
+      color: #bab7ac;
+      text-transform: uppercase; }
+    #entry_form form label {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #666; }
+      #entry_form form label .help {
+        padding-left: 3px;
+        font-size: 11px;
+        font-weight: normal;
+        color: #999; }
+    #entry_form form input.text, #entry_form form input.title, #entry_form form input.password, #entry_form form textarea.body, #entry_form form textarea {
+      border: 1px solid #ccc;
+      border-right: 2px solid #bbb;
+      border-bottom: 2px solid #bbb;
+      padding: 4px;
+      font-size: 14px;
+      font-family: "Helvetica", Arial;
+      width: 454px;
+      color: #333; }
+    #entry_form form input.title {
+      font-weight: bold;
+      font-size: 16px; }
+    #entry_form form .buttons {
+      margin-top: 10px;
+      font-size: 12px; }
+      #entry_form form .buttons input, #entry_form form .buttons button {
+        font-family: Helvetica;
+        font-size: 12px;
+        color: #333; }
+      #entry_form form .buttons a {
+        color: #cc0000; }
+    #entry_form form .options .row {
+      margin-bottom: 12px; }
+    #entry_form form .options label {
+      font-size: 12px;
+      color: #6a675c; }
 
-/* ------------------------------------------------------------------- =Ribbon */
+#admin form {
+  width: auto;
+  background-color: transparent; }
+  #admin form input.text {
+    width: 190px;
+    padding: 4px;
+    border: none;
+    border-right: 2px solid #2b363f;
+    border-bottom: 2px solid #2b363f;
+    font-size: 14px;
+    font-family: "Helvetica", Arial;
+    font-weight: bold; }
+
 ul.ribbon {
   float: left;
   width: 780px;
@@ -431,79 +330,198 @@ ul.ribbon {
     margin-top: 0px;
     font-size: 18px; }
 
-/* ------------------------------------------------------------------- =Forms */
-#entry_form {
-  float: left;
-  width: 746px;
-  height: auto;
-  margin-bottom: 15px;
-  background-color: #fff;
-  border: 2px solid #ece9de; }
-  #entry_form form {
-    float: left;
-    overflow: hidden;
-    /* =Form_layout */
-    /* =Form_elements */ }
-    #entry_form form .main {
-      float: left;
-      width: 466px;
-      padding: 15px; }
-    #entry_form form .options {
-      float: right;
-      width: 219px;
-      padding: 15px 15px 1000px;
-      margin-bottom: -1000px;
-      background-color: #f8f5ea;
-      border-left: 1px solid #ece9de; }
-    #entry_form form .row, #entry_form form .buttons {
-      float: left;
-      width: 100%;
-      margin-bottom: 10px;
-      display: block; }
-    #entry_form form span.legend {
-      margin: 0px 0 10px;
-      float: left;
-      width: 100%;
-      font-size: 10px;
-      font-weight: bold;
-      background-color: transparent;
+/* ------------------------------------------------------------------- =Basics */
+body {
+  background-color: #6e7b86;
+  text-align: center; }
+
+.hide {
+  display: none !important; }
+
+.clear {
+  clear: both; }
+
+/* ------------------------------------------------------------------- =Layout */
+#wrapper {
+  display: inline-block;
+  margin: 45px auto 0;
+  padding: 0 5px;
+  width: 780px;
+  background: #5e6a75 url(/images/wrapper_bg.gif) top center no-repeat;
+  font-family: "Helvetica", Arial, Tahoma, sans-serif;
+  text-align: left; }
+  #wrapper:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html #wrapper {
+    height: 1px; }
+  #wrapper #masthead {
+    display: inline-block;
+    width: 760px;
+    padding: 0 15px 9px;
+    margin: 10px -5px 0px;
+    background-color: #596570;
+    border-bottom: 1px dashed #54606b; }
+    #wrapper #masthead:after {
+      content: ".";
       display: block;
-      color: #bab7ac;
-      text-transform: uppercase; }
-    #entry_form form label {
-      display: block;
-      margin-bottom: 3px;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    * html #wrapper #masthead {
+      height: 1px; }
+    #wrapper #masthead #logo_text {
+      _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit');
+      float: left;
+      padding-right: 8px;
+      margin-right: 4px;
       font-size: 14px;
       font-weight: bold;
-      color: #666; }
-      #entry_form form label .help {
-        padding-left: 3px;
-        font-size: 11px;
-        font-weight: normal;
-        color: #999; }
-    #entry_form form input.text, #entry_form form input.title, #entry_form form input.password, #entry_form form textarea.body, #entry_form form textarea {
-      border: 1px solid #ccc;
-      border-right: 2px solid #bbb;
-      border-bottom: 2px solid #bbb;
-      padding: 4px;
-      font-size: 14px;
-      font-family: "Helvetica", Arial;
-      width: 454px;
-      color: #333; }
-    #entry_form form input.title {
-      font-weight: bold;
-      font-size: 16px; }
-    #entry_form form .buttons {
-      margin-top: 10px;
-      font-size: 12px; }
-      #entry_form form .buttons input, #entry_form form .buttons button {
-        font-family: Helvetica;
-        font-size: 12px;
-        color: #333; }
-      #entry_form form .buttons a {
-        color: #cc0000; }
-    #entry_form form .options .row {
-      margin-bottom: 12px; }
-    #entry_form form .options label {
+      border-right: 1px dashed #4a5661; }
+      #wrapper #masthead #logo_text a {
+        color: #404c57;
+        text-decoration: none; }
+      #wrapper #masthead #logo_text.hover a,       #wrapper #masthead #logo_text:hover a {
+        color: #fff; }
+    #wrapper #masthead ul#navigation li {
+      float: left;
+      display: inline;
       font-size: 12px;
-      color: #6a675c; }
+      font-weight: bold; }
+      #wrapper #masthead ul#navigation li a {
+        position: relative;
+        top: 1px;
+        color: #828f9a;
+        padding: 0 8px;
+        text-decoration: none; }
+        #wrapper #masthead ul#navigation li a:hover {
+          color: #fff; }
+      #wrapper #masthead ul#navigation li.on a {
+        display: inline;
+        padding: 6px 8px 8px;
+        background-color: #45515c;
+        color: #fff; }
+    #wrapper #masthead #admin {
+      display: inline-block;
+      width: 720px;
+      padding: 10px 15px;
+      margin: 4px 5px 5px;
+      background-color: #45515c;
+      font-size: 12px; }
+      #wrapper #masthead #admin:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+      * html #wrapper #masthead #admin {
+        height: 1px; }
+      #wrapper #masthead #admin .close_admin {
+        float: right; }
+        #wrapper #masthead #admin .close_admin a {
+          padding: 3px 6px;
+          color: #fff;
+          text-decoration: none;
+          background-color: #000; }
+      #wrapper #masthead #admin h3 {
+        color: #eef5f7;
+        margin-bottom: 10px; }
+      #wrapper #masthead #admin ul#projects {
+        float: left;
+        width: 95%; }
+        #wrapper #masthead #admin ul#projects li.project {
+          display: inline-block;
+          width: 100%;
+          padding: 6px 0;
+          border-bottom: 1px dashed #596570; }
+          #wrapper #masthead #admin ul#projects li.project:after {
+            content: ".";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden; }
+          * html #wrapper #masthead #admin ul#projects li.project {
+            height: 1px; }
+          #wrapper #masthead #admin ul#projects li.project .name {
+            width: 350px;
+            float: left; }
+            #wrapper #masthead #admin ul#projects li.project .name a {
+              color: #a0adb8;
+              font-weight: bold; }
+            #wrapper #masthead #admin ul#projects li.project .name a.destroy {
+              margin-right: 3px;
+              position: relative;
+              top: 2px; }
+          #wrapper #masthead #admin ul#projects li.project .meta {
+            float: left;
+            padding: 2px 0;
+            font-size: 11px;
+            color: #727e89; }
+        #wrapper #masthead #admin ul#projects li#new_project {
+          padding: 6px 0; }
+  #wrapper #header, #wrapper #page {
+    display: inline-block;
+    width: 750px;
+    padding: 15px;
+    padding-bottom: 10px;
+    height: auto; }
+    #wrapper #header:after,     #wrapper #page:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    * html #wrapper #header,     * html #wrapper #page {
+      height: 1px; }
+  #wrapper #content {
+    display: inline-block;
+    width: 750px;
+    padding: 15px;
+    background-color: #fff; }
+    #wrapper #content:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    * html #wrapper #content {
+      height: 1px; }
+  #wrapper #footer {
+    width: 790px;
+    height: 10px;
+    margin: 0 -5px;
+    background: #5e6a75 url(/images/footer_bg.gif) bottom center no-repeat; }
+
+/* ------------------------------------------------------------------- =Project_and_workspace_meta */
+.project_meta, .workspace_meta {
+  float: left;
+  width: 550px;
+  display: inline-block; }
+  .project_meta:after,   .workspace_meta:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .project_meta,   * html .workspace_meta {
+    height: 1px; }
+  .project_meta h5.label,   .workspace_meta h5.label {
+    float: left;
+    margin-bottom: 8px;
+    padding: 4px;
+    font-size: 11px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #8b98a3;
+    background-color: #535e67; }
+  .project_meta h1.name,   .workspace_meta h1.name {
+    float: left;
+    margin-top: 1px;
+    margin-left: 10px;
+    font-size: 18px;
+    color: #fff; }
+    .project_meta h1.name a,     .workspace_meta h1.name a {
+      color: #fff; }

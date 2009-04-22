@@ -1,5 +1,7 @@
 %li.project{:id => "project_#{project.id}"}
   %span.name
+    / =link_to_remote image_tag("admin_trash_icon.gif")
+    =delete_project_link(project)
     =link_to project.name, project_path(project)
   %span.meta
     ="#{pluralize(project.number_of_entries_for("note"), "note")} and #{pluralize(project.number_of_entries_for("task"), "task")}"

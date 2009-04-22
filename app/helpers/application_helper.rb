@@ -20,9 +20,15 @@ module ApplicationHelper
         :method => :get)
     else
       link_to_function "x" do |page|
-        page << "$('nav_choose_project').removeClassName('on');"
-        page.hide "admin"
+        page.visual_effect :blind_up, "admin", :duration => 0.2
+        page.delay(0.2) {
+          page << "$('nav_choose_project').removeClassName('on');"
+        }
       end
     end
+  end
+  
+  def delete_project_link(project)
+    link_to_remote image_tag("admin_trash_icon.gif"), :url => project_path(project), :method => :delete, :html => {:class => "destroy"}, :confirm => "Deleting this project will also remove all of it's entries. Are you sure?"
   end
 end

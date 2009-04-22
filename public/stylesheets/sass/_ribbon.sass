@@ -1,0 +1,43 @@
+ul.ribbon
+  :float left
+  :width 780px
+  :height 39px
+  :margin -15px -15px 15px
+  :padding 0
+  :background #eae2c7 url(/images/ribbon_bg.gif) top left repeat-x
+  :border-bottom 1px solid #cbc3a8
+  li
+    :float left
+    :margin-right 3px
+    +support_hover
+    a, span
+      :float left
+      :height 39px
+    a
+      :font-size 14px
+      :font-weight bold
+      :color #000
+      :text-decoration none
+      :background url(/images/ribbon_item_right_bg.gif) top right no-repeat
+      :outline 0
+      span
+        :padding 0 10px
+        :line-height 42px
+        :background url(/images/ribbon_item_left_bg.gif) top left no-repeat
+    &.hover, &:hover
+      a
+        :background-image url(/images/ribbon_item_right_bg_on.gif)
+        span
+          :background-image url(/images/ribbon_item_left_bg_on.gif)
+    &.active, &:active
+      a
+        :background-image url(/images/ribbon_item_right_bg_act.gif)
+        span
+          :background-image url(/images/ribbon_item_left_bg_act.gif)
+    
+      
+  li.create_label
+    :width 42px
+    :height 39px
+    :margin-right 8px
+    :background url(/images/ribbon_create_label_bg.gif) top left no-repeat

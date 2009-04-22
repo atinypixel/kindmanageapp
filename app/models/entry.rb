@@ -14,9 +14,24 @@ class Entry < ActiveRecord::Base
   
   private
   
+  def create_or_associate_hashtag
+    case entry_type
+    when "task"
+      text = self.task_description
+    when "note"
+      text = self.note_body
+    end
+    hashtags = text.strip.split(/(#\S+)/)
+    hashtags.each do |tag|
+      return
+    end
+  end
+  
   def scope_to_account
     self.account_id = self.project.account_id
   end
+  
+  
   
   # Validation methods
   

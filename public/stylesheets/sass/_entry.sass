@@ -1,0 +1,123 @@
+/*------------------------------------------------------------------- =Entries
+#entries, #entry
+  +cf
+  :width 750px
+  :padding 15px
+  :margin -15px -15px 0
+  :background-color #f4f3ed
+  :border
+    :top 1px solid #ece9de
+  a
+    :color = !blue_alt
+  .entry
+    +cf
+    :width 720px
+    :padding 15px
+    :margin 0 0 5px
+    :background-color #fff
+    :border-bottom 2px solid #ece9de
+    
+    /*--------------------------------------------------------------- =Entry_type_labels
+    
+    ul.type
+      :float left
+      :width 80px
+      :padding-right 15px
+      :text-align right
+      li.label
+        :float right
+        :background-position top right
+        :background-repeat no-repeat
+        :height 19px
+        span
+          :float left
+          :height 19px
+          :padding 0 6px
+          :line-height 21px
+          :color #fff
+          :font-size 10px
+          :font-weight bold
+          :text-transform uppercase
+          :background-position top left
+          :background-repeat no-repeat
+          
+    /*--------------------------------------------------------------- =Entry_basic_formatting
+          
+    .content
+      :float left
+      :width 475px
+      :padding-right 15px
+      .body
+        h3
+          :margin-top 2px
+          :margin-bottom 10px
+        p
+          :padding-bottom 10px
+          :font-size 14px
+          :line-height 18px
+          :color #333
+      .meta
+        :font-size 11px
+        :color #999
+        .actions
+          :font-weight bold
+          
+    /*--------------------------------------------------------------- =Entry_options
+    
+    .options
+      :float left
+      :width 135px
+      .group
+        :float left
+        :width 100%
+        :display block
+        :font-size 11px
+        :font-weight normal
+        :color #ddd
+        :margin-bottom 3px
+        :padding-bottom 3px
+        :border-bottom 1px dotted #d9d9d9
+        a
+          :font-weight bold
+          :text-decoration none
+          &:hover
+            :color #000
+        a.neg:hover
+          :color #cc0000
+    
+  
+  /*----------------------------------------------------------------- =Entry_type_label_variations
+          
+  .note ul.type li.label,
+  .milestone ul.type li.label
+    :background-image url(/images/type_label_right_grn_bg.gif)
+    span
+      :background-image url(/images/type_label_left_grn_bg.gif)
+  
+  .task ul.type li.label
+    :background-image url(/images/type_label_right_blu_bg.gif)
+    span
+      :background-image url(/images/type_label_left_blu_bg.gif)
+      
+  /*----------------------------------------------------------------- =Entry_type_formatting
+  
+  .task .content
+    .body
+      h3
+        :font-size 16px
+        :color #333
+        :margin-bottom 0
+        :line-height 18px
+        span.due
+          :padding-left 4px
+          :font-size 11px
+          :font-weight bold
+          :color #999
+    .meta
+      :margin-top 6px
+  
+  .note .content
+    .body
+      h3
+        :margin-top 0px
+        :font-size 18px
