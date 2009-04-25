@@ -9,9 +9,9 @@ ActionController::Routing::Routes.draw do |map|
     p.resources :entries
   end
 
-  map.resource :user_session
+  # map.resource :user_session
   # map.root :controller => "user_sessions", :action => "new"
-  map.connect "/", :controller => "dashboard"
+  # map.connect "/", :controller => "dashboard"
   
   
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,5 +1,6 @@
 #masthead
-  %span#logo_text=link_to current_account.name, "/"
+  / %span#logo_text=link_to @current_account.name, "/"
+  %span#logo_text=link_to "Kindmanage", "#"
   
   %ul#navigation
     %li#nav_choose_project=choose_project_link

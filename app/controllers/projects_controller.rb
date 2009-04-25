@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
+  # before_filter :require_logged_in
   make_resourceful do
     actions :all
-    
+        
     before :index do 
       @project = Project.new
     end

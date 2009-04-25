@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Certify
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
