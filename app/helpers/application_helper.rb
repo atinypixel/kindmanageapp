@@ -14,7 +14,7 @@ module ApplicationHelper
   
   def choose_project_link(options={})
     unless options[:close]
-      link_to_remote("Choose a project", 
+      link_to_remote("Choose a project",
         :url => account_projects_path,
         :success => "$('nav_choose_project').addClassName('on')",
         :method => :get)
@@ -30,5 +30,9 @@ module ApplicationHelper
   
   def delete_project_link(project)
     link_to_remote image_tag("admin_trash_icon.gif"), :url => project_path(project), :method => :delete, :html => {:class => "destroy"}, :confirm => "Deleting this project will also remove all of it's entries. Are you sure?"
+  end
+  
+  def highlight_hashtags(content)
+    content.gsub(/(#\w+)/, '<a href="#" class="hashtag">\0</a>')
   end
 end

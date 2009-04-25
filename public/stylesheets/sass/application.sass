@@ -4,6 +4,7 @@
 @import _mixins.sass
 @import _flash.sass
 @import _forms.sass
+@import _masthead.sass
 @import _ribbon.sass
 @import _entry.sass
 
@@ -17,7 +18,7 @@ body
   :clear both
   
 
-/*------------------------------------------------------------------- =Layout
+/*------------------------------------------------------------------- =Skeleton
 #wrapper
   +cf
   :margin 45px auto 0
@@ -26,92 +27,7 @@ body
   :background #5e6a75 url(/images/wrapper_bg.gif) top center no-repeat
   :font-family "Helvetica", Arial, Tahoma, sans-serif
   :text-align left
-  
-  #masthead
-    +cf
-    :width 760px
-    :padding 0 15px 9px
-    :margin 10px -5px 0px
-    :background-color = !dark_blue -5
-    :border-bottom = 1px dashed (!dark_blue -10)
     
-    #logo_text
-      +support_hover
-      :float left
-      :padding-right 8px
-      :margin-right 4px
-      :font-size 14px
-      :font-weight bold
-      :border-right = 1px dashed (!dark_blue -20)
-      a
-        :color = !dark_blue -30
-        :text-decoration none
-      &.hover, &:hover
-        a
-          :color #fff
-    ul#navigation
-      li
-        :float left
-        :display inline
-        :font-size 12px
-        :font-weight bold
-        / :font-family "Trebuchet MS"
-        a
-          :position relative
-          :top 1px
-          :color = !blue +20
-          :padding 0 8px
-          :text-decoration none
-          &:hover
-            :color #fff
-        &.on a
-          :display inline
-          :padding 6px 8px 8px
-          :background-color = !dark_blue -25
-          :color #fff
-    #admin
-      +cf
-      :width 720px
-      :padding 10px 15px
-      :margin 4px 5px 5px
-      :background-color = !dark_blue -25
-      :font-size 12px
-      .close_admin
-        :float right
-        a
-          :padding 3px 6px
-          :color #fff
-          :text-decoration none
-          :background-color #000
-      h3
-        :color = !light_blue
-        :margin-bottom 10px
-      ul#projects
-        :float left
-        :width 95%
-        li.project
-          +cf
-          :width 100%
-          :padding 6px 0
-          :border-bottom = 1px dashed (!dark_blue -5)
-          .name
-            :width 350px
-            :float left
-            a
-              :color = !blue +50
-              :font-weight bold
-            a.destroy
-              :margin-right 3px
-              :position relative
-              :top 2px
-          .meta
-            :float left
-            :padding 2px 0
-            :font-size 11px
-            :color = !dark_blue +20
-        li#new_project
-          :padding 6px 0
-  
   #header, #page
     +cf
     +inside_wrapper
@@ -128,8 +44,8 @@ body
     :background #5e6a75 url(/images/footer_bg.gif) bottom center no-repeat
     
 
-/*------------------------------------------------------------------- =Project_and_workspace_meta
-.project_meta, .workspace_meta
+/*------------------------------------------------------------------- =Page_meta
+#page
   :float left
   :width 550px
   +cf
@@ -150,3 +66,11 @@ body
     :color #fff
     a
       :color #fff
+  &.dashboard
+    h5.label
+      :font-weight bold
+      :color #fff
+      /:font-size 13px
+      /:background-color = !dark_blue_alt - 50
+      /:color #fff
+      

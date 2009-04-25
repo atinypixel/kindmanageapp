@@ -1,4 +1,10 @@
-=render :partial => "shared/header", :locals => {:project => @project, :label => @project.class}
+#page
+  %h5.label Projects  
+  %h1.name
+    -unless @entry
+      =@project.name
+    -else
+      =link_to @project.name, project_path(project)
 
 #content
   =render :partial => "create_ribbon", :locals => {:project => @project, :types => @types}
@@ -7,7 +13,6 @@
     #entry_form{:style => "display:none;"}
     #notice.clear{:style => "display: none;"}
     #for_queue
-      
     #for_project
       -unless @entries.empty?
         =render :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project, :single_entry => false}

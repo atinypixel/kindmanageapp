@@ -14,23 +14,7 @@
   %body
     #wrapper
       
-      #masthead
-        %span#logo_text 
-          %a{:href => "#"} Kindmanage
-        
-          
-        
-        %ul#navigation
-          %li#nav_choose_project
-            =choose_project_link
-          %li#nav_settings.hide
-            <a href="#">Settings</a>
-          
-        #admin{:style => "display:none;"}
-          .close_admin=choose_project_link(:close => true)
-          #project_list
-            =#render :partial => "projects/projects"
-            
+      =render :partial => "shared/masthead"
       
       =yield
       

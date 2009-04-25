@@ -1,0 +1,33 @@
+en:
+  certify:
+    flash:
+      login: 'Login successful!'
+      recover: 'Your password has been reset and emailed to you.'
+      register: 'Registration successful!'
+      login_required: 'You must be logged in to view that page.'
+    labels:
+      email: 'Email'
+      password: 'Password'
+      remember: 'Remember Me?'
+      lost_password: 'Lost Password?'
+      cancel: 'Cancel'
+      name: 'Name'
+      existing_account: 'Already have an account?'
+      register: 'Sign up for an account'
+    buttons:
+      login: 'Login'
+      recover: 'Recover'
+      register: 'Register'
+    legends:
+      login: 'Credentials'
+      recover: 'Credentials'
+      account: 'Account'
+      user: 'User'
+    titles:
+      login: 'Login'
+      recover: 'Recover Account'
+      unknown_account: 'Unable to locate account'
+      registration: 'Register'
+    notices:
+      recover: 'Enter your email address below and within minutes you should receive an email with your new password.'
+      unknown_account: 'An account was not found at that sub-domain.'

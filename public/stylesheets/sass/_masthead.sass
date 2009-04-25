@@ -1,0 +1,100 @@
+#masthead
+  +cf
+  :width 750px
+  :padding 5px 20px 14px
+  :margin 10px -5px 0px
+  :background-color = !dark_blue -5
+  :border-bottom = 1px dashed (!dark_blue -10)
+  
+  
+  /* ---------------------------------------------------------------- =Logo_text
+  #logo_text
+    +support_hover
+    :float left
+    :padding-right 8px
+    / :margin-right 4px
+    :font-size 16px
+    :font-weight bold
+    a
+      :color = !dark_blue_alt +100
+      / :color #fff
+      :text-decoration none
+    &.hover, &:hover
+      a
+        :color #fff
+        
+  
+  /* ---------------------------------------------------------------- = Navigation
+  ul#navigation
+    :float left
+    :width 500px
+    li#nav_choose_project
+      :float left
+      :display inline
+      :font-size 13px
+      :font-weight normal
+      :font-family "Helvetica", Arial
+      a
+        :position relative
+        :top 0px
+        :color = !blue +60
+        :padding 6px 8px
+        :text-decoration none
+        :background-color = !dark_blue -10
+        :font-weight bold
+        &:hover
+          :color #fff
+      &.on a
+        :display inline
+        :padding 6px 8px 12px
+        :background-color = !dark_blue -25
+        :color #fff
+        :font-weight bold
+        
+  
+  /* ---------------------------------------------------------------- =Admin
+  #admin
+    +cf
+    :width 720px
+    :padding 10px 15px
+    :margin 10px 0px 5px
+    :background-color = !dark_blue -25
+    :font-size 12px
+    .close_admin
+      :float right
+      a
+        :padding 3px 6px
+        :color #fff
+        :text-decoration none
+        :background-color #000
+    h3
+      :color = !light_blue
+      :margin-bottom 10px
+    ul#projects
+      :float left
+      :width 95%
+      li.project
+        +cf
+        :width 100%
+        :padding 6px 0
+        :border-bottom = 1px dashed (!dark_blue -5)
+        .name
+          :width 350px
+          :float left
+          a
+            :color = !blue +50
+            :font-weight bold
+            :text-decoration none
+            &:hover
+              :color #fff
+          a.destroy
+            :margin-right 3px
+            :position relative
+            :top 2px
+        .meta
+          :float left
+          :padding 2px 0
+          :font-size 11px
+          :color = !dark_blue +20
+      li#new_project
+        :padding 6px 0

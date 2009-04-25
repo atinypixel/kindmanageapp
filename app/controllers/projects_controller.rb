@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
     actions :all
     
     before :index do 
-      @project = Project.new     
+      @project = Project.new
     end
     
     before :create do
