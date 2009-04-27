@@ -6,4 +6,4 @@
 	url = git://github.com/hcatlin/make_resourceful.git
 [submodule "vendor/plugins/certify"]
 	path = vendor/plugins/certify
-	url = git://github.com/ryantownsend/certify.git
+	url = git://github.com/tinypixel/certify.git
