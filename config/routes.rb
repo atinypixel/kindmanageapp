@@ -1,6 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
   
-  
   map.resource :account do |a|
     a.resources :projects
   end
@@ -11,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # map.resource :user_session
   # map.root :controller => "user_sessions", :action => "new"
-  # map.connect "/", :controller => "dashboard"
+  map.root :controller => "dashboard"
   
   
   # The priority is based upon order of creation: first created -> highest priority.

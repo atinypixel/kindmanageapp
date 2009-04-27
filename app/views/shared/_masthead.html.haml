@@ -1,9 +1,10 @@
 #masthead
   / %span#logo_text=link_to @current_account.name, "/"
-  %span#logo_text=link_to "Kindmanage", "#"
+  %span#logo_text=link_to "Kindmanage", root_url
   
   %ul#navigation
-    %li#nav_choose_project=choose_project_link
+    -unless current_account.nil? or !logged_in?
+      %li#nav_choose_project=choose_project_link
     %li#nav_settings.hide
       <a href="#">Settings</a>
   
