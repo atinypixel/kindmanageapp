@@ -5,6 +5,7 @@ if @entry.errors.empty?
     page.visual_effect :highlight, "entry_#{@entry.id}"
   }
   page.form.reset "#{@entry.type.name}_entry_form"
+  page.hide "entry_form"
   page.replace_html "notice", flash[:notice]
   page << "$('notice').writeAttribute('class', 'success');"
   page.show "notice"

@@ -1,6 +1,11 @@
-=render :partial => "projects/project_navigation"
-
-=render :partial => "shared/header", :locals => {:project => @entry.project, :label => @entry.project.class}
+#page
+  %h5.label Projects  
+  %h1.name
+    -unless @entry
+      =@project.name
+    -else
+      =link_to @project.name, project_path(@project)
+      
 #content
   #entry
     #entry_form{:style => "display:none;"}

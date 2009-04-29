@@ -1,7 +1,4 @@
-class DashboardController < ApplicationController
-  before_filter :require_logged_in
-  
+class DashboardController < ApplicationController  
   def index
-    
   end
 end

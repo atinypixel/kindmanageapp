@@ -3,7 +3,7 @@
   %span#logo_text=link_to "Kindmanage", root_url
   
   %ul#navigation
-    -unless current_account.nil? or !logged_in?
+    -unless current_account.nil?
       %li#nav_choose_project=choose_project_link
     %li#nav_settings.hide
       <a href="#">Settings</a>
@@ -11,4 +11,4 @@
   #admin{:style => "display:none;"}
     .close_admin=choose_project_link(:close => true)
     #project_list
-      =#render :partial => "projects/projects"
+      =render :partial => "projects/projects"

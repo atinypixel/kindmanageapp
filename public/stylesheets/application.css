@@ -170,7 +170,7 @@ table {
   display: inline-block;
   width: 750px;
   padding: 5px 20px 14px;
-  margin: 10px -5px 0px;
+  margin: 10px -5px 5px;
   background-color: #596570;
   border-bottom: 1px dashed #54606b;
   /* ---------------------------------------------------------------- =Logo_text */
@@ -446,6 +446,12 @@ ul.ribbon {
     margin-top: 0px;
     font-size: 18px; }
 
+.dashboard h1.section {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 15px;
+  border-bottom: 1px dashed #aaa; }
+
 /* ------------------------------------------------------------------- =Basics */
 body {
   background-color: #6e7b86;
@@ -511,6 +517,7 @@ body {
 #page {
   float: left;
   width: 550px;
+  margin-top: -5px;
   display: inline-block; }
   #page:after {
     content: ".";

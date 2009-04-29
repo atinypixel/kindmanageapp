@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   
   map.resource :account do |a|
+    a.resources :users
     a.resources :projects
   end
   

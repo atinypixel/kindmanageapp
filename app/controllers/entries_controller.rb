@@ -3,6 +3,9 @@ class EntriesController < ApplicationController
     actions :all
     belongs_to :project, :account
     
+    before :show do
+      @project = @entry.project
+    end
     
     before :new do
       @type = Type.find(params[:type])

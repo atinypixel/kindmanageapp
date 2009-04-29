@@ -10,7 +10,7 @@ Rails::Initializer.run do |config|
   
   config.gem "haml"
   config.gem "acts_as_markup"
-  # config.gem "authlogic"
+  config.gem "authlogic"
   # config.gem "rdiscount"
   # config.gem "resourcelogic"
   

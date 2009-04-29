@@ -2,6 +2,7 @@ class Entry < ActiveRecord::Base
   acts_as_markdown :note_body
   default_scope :order => 'created_at DESC'
   
+  
   belongs_to :project
   belongs_to :type
   # has_and_belongs_to_many :workspaces
@@ -42,7 +43,7 @@ class Entry < ActiveRecord::Base
     def expected_for_notes?
       entry_type.include?("note")
     end
-  
+    
     def expected_for_tasks?
       entry_type.include?("task")
     end
