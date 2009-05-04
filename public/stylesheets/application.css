@@ -5,7 +5,7 @@
  * //
  * PURPOSE:
  * Resets everything to zero for better browser compatibility */
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, p, blockquote, pre, a,
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a,
 abbr, acronym, address, big, cite, code, small, strike, strong, sub, sup, tt, var,
 dfn, em, img, del, small, strike, strong, sub, sup, tt, dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
@@ -158,18 +158,20 @@ table {
   background-color: transparent; }
   #admin form input.text {
     width: 190px;
-    padding: 4px;
+    padding: 3px;
     border: none;
-    border-right: 2px solid #2b363f;
-    border-bottom: 2px solid #2b363f;
-    font-size: 14px;
+    border-right: 1px solid #2b363f;
+    border-bottom: 1px solid #2b363f;
+    font-size: 12px;
     font-family: "Helvetica", Arial;
-    font-weight: bold; }
+    font-weight: bold;
+    color: #becbd6;
+    background-color: #5e6a75; }
 
 #masthead {
   display: inline-block;
   width: 750px;
-  padding: 5px 20px 14px;
+  padding: 5px 20px 5px;
   margin: 10px -5px 5px;
   background-color: #596570;
   border-bottom: 1px dashed #54606b;
@@ -191,40 +193,77 @@ table {
     font-size: 16px;
     font-weight: bold; }
     #masthead #logo_text a {
-      color: #859099;
+      color: #a3aeb7;
       text-decoration: none; }
     #masthead #logo_text.hover a,     #masthead #logo_text:hover a {
       color: #fff; }
   #masthead ul#navigation {
     float: left;
-    width: 500px; }
-    #masthead ul#navigation li#nav_choose_project {
+    width: 643px;
+    margin-top: 0; }
+    #masthead ul#navigation li#nav_choose_project, #masthead ul#navigation li#nav_workspaces {
+      position: relative;
+      top: -4px;
       float: left;
       display: inline;
-      font-size: 13px;
+      margin-right: 8px;
+      padding: 6px 8px;
+      font-size: 12px;
       font-weight: normal;
-      font-family: "Helvetica", Arial; }
-      #masthead ul#navigation li#nav_choose_project a {
-        position: relative;
-        top: 0px;
-        color: #aab7c2;
-        padding: 6px 8px;
+      font-family: "Helvetica", Arial;
+      background-color: #54606b;
+      display: inline-block; }
+      #masthead ul#navigation li#nav_choose_project:after,       #masthead ul#navigation li#nav_workspaces:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+      * html #masthead ul#navigation li#nav_choose_project,       * html #masthead ul#navigation li#nav_workspaces {
+        height: 1px; }
+      #masthead ul#navigation li#nav_choose_project a,       #masthead ul#navigation li#nav_workspaces a {
+        float: left;
+        color: #828f9a;
         text-decoration: none;
-        background-color: #54606b;
         font-weight: bold; }
-        #masthead ul#navigation li#nav_choose_project a:hover {
+        #masthead ul#navigation li#nav_choose_project a:hover,         #masthead ul#navigation li#nav_workspaces a:hover {
           color: #fff; }
-      #masthead ul#navigation li#nav_choose_project.on a {
-        display: inline;
-        padding: 6px 8px 12px;
+      #masthead ul#navigation li#nav_choose_project .close_admin,       #masthead ul#navigation li#nav_workspaces .close_admin {
+        display: none;
+        float: left;
+        margin-left: 6px;
+        margin-top: 1px;
+        font-size: 10px; }
+        #masthead ul#navigation li#nav_choose_project .close_admin a,         #masthead ul#navigation li#nav_workspaces .close_admin a {
+          text-decoration: none; }
+      #masthead ul#navigation li#nav_choose_project.on,       #masthead ul#navigation li#nav_workspaces.on {
         background-color: #45515c;
-        color: #fff;
-        font-weight: bold; }
+        padding-bottom: 12px; }
+        #masthead ul#navigation li#nav_choose_project.on a,         #masthead ul#navigation li#nav_workspaces.on a {
+          color: #fff;
+          font-weight: bold; }
+        #masthead ul#navigation li#nav_choose_project.on .close_admin,         #masthead ul#navigation li#nav_workspaces.on .close_admin {
+          display: inline; }
+          #masthead ul#navigation li#nav_choose_project.on .close_admin a,           #masthead ul#navigation li#nav_workspaces.on .close_admin a {
+            color: #909ca7; }
+    #masthead ul#navigation li#nav_account {
+      float: right; }
+      #masthead ul#navigation li#nav_account ul li {
+        float: left;
+        margin-left: 15px; }
+        #masthead ul#navigation li#nav_account ul li a {
+          display: inline;
+          font-size: 12px;
+          font-weight: bold;
+          color: #828f9a;
+          text-decoration: none; }
+          #masthead ul#navigation li#nav_account ul li a:hover {
+            color: #fff; }
   #masthead #admin {
     display: inline-block;
     width: 720px;
     padding: 10px 15px;
-    margin: 10px 0px 5px;
+    margin: -5px 0px 15px;
     background-color: #45515c;
     font-size: 12px; }
     #masthead #admin:after {
@@ -235,23 +274,28 @@ table {
       visibility: hidden; }
     * html #masthead #admin {
       height: 1px; }
-    #masthead #admin .close_admin {
-      float: right; }
-      #masthead #admin .close_admin a {
-        padding: 3px 6px;
-        color: #fff;
-        text-decoration: none;
-        background-color: #000; }
     #masthead #admin h3 {
       color: #eef5f7;
       margin-bottom: 10px; }
+    #masthead #admin .close_admin {
+      margin-top: 0px;
+      font-size: 9px; }
+      #masthead #admin .close_admin a {
+        padding: 1px 4px;
+        color: #909ca7;
+        text-decoration: none;
+        background-color: #36424d; }
+    #masthead #admin #project_list {
+      float: left;
+      width: 100%; }
     #masthead #admin ul#projects {
       float: left;
-      width: 95%; }
+      width: 100%; }
       #masthead #admin ul#projects li.project {
         display: inline-block;
         width: 100%;
-        padding: 6px 0;
+        padding: 0 0 7px;
+        margin: 0 0 7px;
         border-bottom: 1px dashed #596570; }
         #masthead #admin ul#projects li.project:after {
           content: ".";
@@ -279,8 +323,20 @@ table {
           padding: 2px 0;
           font-size: 11px;
           color: #727e89; }
-      #masthead #admin ul#projects li#new_project {
-        padding: 6px 0; }
+
+#new_project_form {
+  display: block;
+  padding: 0 0 7px;
+  margin: 0 0 0;
+  display: inline-block; }
+  #new_project_form:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html #new_project_form {
+    height: 1px; }
 
 ul.ribbon {
   float: left;
@@ -376,7 +432,7 @@ ul.ribbon {
           padding: 0 6px;
           line-height: 21px;
           color: #fff;
-          font-size: 10px;
+          font-size: 9px;
           font-weight: bold;
           text-transform: uppercase;
           background-position: top left;
@@ -418,6 +474,8 @@ ul.ribbon {
             color: #000; }
         #entries .entry .options .group a.neg:hover,         #entry .entry .options .group a.neg:hover {
           color: #cc0000; }
+      #entries .entry .options .user,       #entry .entry .options .user {
+        color: #aaa; }
   #entries .note ul.type li.label,
   #entries .milestone ul.type li.label,   #entry .note ul.type li.label,
   #entry .milestone ul.type li.label {
@@ -434,7 +492,7 @@ ul.ribbon {
     font-size: 16px;
     color: #333;
     margin-bottom: 0;
-    line-height: 18px; }
+    line-height: 19px; }
     #entries .task .content .body h3 span.due,     #entry .task .content .body h3 span.due {
       padding-left: 4px;
       font-size: 11px;
@@ -444,13 +502,13 @@ ul.ribbon {
     margin-top: 6px; }
   #entries .note .content .body h3,   #entry .note .content .body h3 {
     margin-top: 0px;
-    font-size: 18px; }
+    font-size: 18px;
+    line-height: 20px; }
 
 .dashboard h1.section {
   font-size: 14px;
   color: #999;
-  margin-bottom: 15px;
-  border-bottom: 1px dashed #aaa; }
+  margin-bottom: 15px; }
 
 /* ------------------------------------------------------------------- =Basics */
 body {
@@ -517,7 +575,7 @@ body {
 #page {
   float: left;
   width: 550px;
-  margin-top: -5px;
+  margin-top: -4px;
   display: inline-block; }
   #page:after {
     content: ".";
@@ -530,16 +588,28 @@ body {
   #page h5.label {
     float: left;
     margin-bottom: 8px;
-    padding: 4px;
+    height: 23px;
     font-size: 11px;
-    font-weight: normal;
+    font-weight: bold;
     text-transform: uppercase;
-    color: #8b98a3;
-    background-color: #535e67; }
+    color: #a9b6c1;
+    background-color: #535e67;
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-image: url(/images/page_label_left.gif); }
+    #page h5.label span {
+      float: left;
+      padding-left: 8px;
+      padding-right: 16px;
+      height: 23px;
+      line-height: 24px;
+      background-position: top right;
+      background-repeat: no-repeat;
+      background-image: url(/images/page_label_right.gif); }
   #page h1.name {
     float: left;
-    margin-top: 1px;
-    margin-left: 10px;
+    margin-top: 3px;
+    margin-left: 8px;
     font-size: 18px;
     color: #fff; }
     #page h1.name a {

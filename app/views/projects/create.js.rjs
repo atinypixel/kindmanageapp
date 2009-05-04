@@ -1,3 +1,5 @@
-page.insert_html :before, "new_project", :partial => "projects/project", :locals => {:project => @project}
-page.visual_effect :shake, "project_#{@project.id}"
-page.form.reset "project_form"
+if @new_project
+  page.insert_html :bottom, "projects", :partial => "projects/project", :locals => {:project => @new_project}
+  page.visual_effect :shake, "project_#{@new_project.id}"
+  page.form.reset :project_form
+end

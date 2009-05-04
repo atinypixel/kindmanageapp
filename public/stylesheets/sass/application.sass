@@ -17,7 +17,7 @@ body
   :display none !important
 .clear
   :clear both
-  
+
 
 /*------------------------------------------------------------------- =Skeleton
 #wrapper
@@ -49,21 +49,38 @@ body
 #page
   :float left
   :width 550px
-  :margin-top -5px
+  :margin-top -4px
   +cf
   h5.label
     :float left
     :margin-bottom 8px
-    :padding 4px
+    / :padding 6px 8px
+    :height 23px
     :font-size 11px
-    :font-weight normal
+    :font-weight bold
     :text-transform uppercase
-    :color #8b98a3
-    :background-color = !dark_blue_alt
+    :color = #8b98a3 +30
+    :background
+      :color = !dark_blue_alt
+      :position top left
+      :repeat no-repeat
+      :image url(/images/page_label_left.gif)
+    span
+      :float left
+      :padding
+        :left 8px
+        :right 16px
+      :height 23px
+      :line-height 24px
+      :background
+        :position top right
+        :repeat no-repeat
+        :image url(/images/page_label_right.gif)
+      
   h1.name
     :float left
-    :margin-top 1px
-    :margin-left 10px
+    :margin-top 3px
+    :margin-left 8px
     :font-size 18px
     :color #fff
     a

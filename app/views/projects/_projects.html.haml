@@ -1,6 +1,6 @@
 %ul#projects
   =render :partial => "projects/project", :collection => current_account.projects, :as => :project
-  %li#new_project.form
-    -remote_form_for :project, @project, :url => {:controller => "projects", :action => "create"}, :html => {:method => :get, :id => "project_form"} do |f|
-      =f.text_field :name, :class => "text", :value => ""
-      =f.submit "Add project"
+#new_project_form
+  -remote_form_for :project, :url => {:controller => "projects", :action => "create"}, :html => {:method => :get, :id => "project_form"} do |f|
+    =f.text_field :name, :class => "text", :value => ""
+    =f.submit "Add project"

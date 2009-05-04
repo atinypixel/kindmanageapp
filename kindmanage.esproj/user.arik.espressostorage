@@ -8,5 +8,17 @@
 	<false/>
 	<key>com.macrabbit.Espresso.Workspace.DisclosureCollapsed</key>
 	<false/>
+	<key>com.macrabbit.Espresso.Workspace.Tabs</key>
+	<dict>
+		<key>Tabs</key>
+		<array>
+			<dict>
+				<key>DocumentURL</key>
+				<string>file://localhost/Users/arik/dev/kindmanage/app/models/entry.rb</string>
+				<key>StateType</key>
+				<string>DefaultTab</string>
+			</dict>
+		</array>
+	</dict>
 </dict>
 </plist>

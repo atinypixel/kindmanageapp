@@ -6,7 +6,6 @@ class Project < ActiveRecord::Base
   
   def number_of_entries_for(type)
     entry_type = Type.find_by_name(type)
-    entries = Entry.find(:all, :conditions => {:type_id => entry_type.id, :project_id => self.id})
-    entries.length
+    Entry.find(:all, :conditions => {:type_id => entry_type.id, :project_id => self.id}).length
   end
 end

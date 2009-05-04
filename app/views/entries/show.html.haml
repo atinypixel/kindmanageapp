@@ -1,5 +1,6 @@
 #page
-  %h5.label Projects  
+  %h5.label
+    %span Project
   %h1.name
     -unless @entry
       =@project.name
@@ -10,5 +11,5 @@
   #entry
     #entry_form{:style => "display:none;"}
     #for_single_entry
-      =render :partial => "entries/entry", :locals => {:entry => @entry, :project => @project, :single_entry => true}
+      =render :partial => "entries/entry", :locals => {:entry => @entry, :project => @project, :standalone => true}
     

@@ -1,12 +1,12 @@
 case @context
 when "project"
-  page.replace_html "for_project", :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project, :single_entry => false}
+  page.replace_html "for_project", :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project, :standalone => false}
   page.visual_effect :scroll_to, "entry_marker_#{@entry.id}", :duration => 0.5
   page.delay(0.5) {
     page.visual_effect :highlight, "entry_#{@entry.id}"
   }
 when "entry"
-  page.replace_html "for_single_entry", :partial => "entries/entry", :locals => {:entry => @entry, :project => @project, :single_entry => true} 
+  page.replace_html "for_single_entry", :partial => "entries/entry", :locals => {:entry => @entry, :project => @project, :standalone => true} 
   page.visual_effect :highlight, "entry_#{@entry.id}"
 end
 page.remove "#{@entry.type.name}_entry_form"

@@ -1,7 +1,7 @@
 #masthead
   +cf
   :width 750px
-  :padding 5px 20px 14px
+  :padding 5px 20px 5px
   :margin 10px -5px 5px
   :background-color = !dark_blue -5
   :border-bottom = 1px dashed (!dark_blue -10)
@@ -16,7 +16,7 @@
     :font-size 16px
     :font-weight bold
     a
-      :color = !dark_blue_alt +50
+      :color = !dark_blue_alt +80
       / :color #fff
       :text-decoration none
     &.hover, &:hover
@@ -27,29 +27,61 @@
   /* ---------------------------------------------------------------- = Navigation
   ul#navigation
     :float left
-    :width 500px
-    li#nav_choose_project
+    :width 643px
+    :margin-top 0
+    li#nav_choose_project, li#nav_workspaces
+      :position relative
+      :top -4px
       :float left
       :display inline
-      :font-size 13px
+      :margin-right 8px
+      :padding 6px 8px
+      :font-size 12px
       :font-weight normal
       :font-family "Helvetica", Arial
+      :background-color = !dark_blue -10
+      +cf
       a
-        :position relative
-        :top 0px
-        :color = !blue +60
-        :padding 6px 8px
+        :float left
+        :color = !blue +20
+        / :padding 6px 8px
         :text-decoration none
-        :background-color = !dark_blue -10
         :font-weight bold
         &:hover
           :color #fff
-      &.on a
-        :display inline
-        :padding 6px 8px 12px
+      .close_admin
+        :display none
+        :float left
+        :margin-left 6px
+        :margin-top 1px
+        :font-size 10px
+        a
+          :text-decoration none
+        
+      &.on
         :background-color = !dark_blue -25
-        :color #fff
-        :font-weight bold
+        :padding-bottom 12px
+        a
+          :color #fff
+          :font-weight bold
+        .close_admin
+          :display inline
+          a
+            :color = !dark_blue +50
+    li#nav_account
+      :float right
+      ul li
+        :float left
+        :margin-left 15px
+        a
+          :display inline
+          :font-size 12px
+          :font-weight bold
+          :color = !blue +20
+          / :background-color = !blue +60
+          :text-decoration none
+          &:hover
+            :color #fff
         
   
   /* ---------------------------------------------------------------- =Admin
@@ -57,26 +89,32 @@
     +cf
     :width 720px
     :padding 10px 15px
-    :margin 10px 0px 5px
+    :margin -5px 0px 15px
     :background-color = !dark_blue -25
     :font-size 12px
-    .close_admin
-      :float right
-      a
-        :padding 3px 6px
-        :color #fff
-        :text-decoration none
-        :background-color #000
     h3
       :color = !light_blue
       :margin-bottom 10px
+    .close_admin
+      / :float right
+      :margin-top 0px
+      :font-size 9px
+      a
+        :padding 1px 4px
+        :color = !dark_blue +50
+        :text-decoration none
+        :background-color = !dark_blue -40
+    #project_list
+      :float left
+      :width 100%
     ul#projects
       :float left
-      :width 95%
+      :width 100%
       li.project
         +cf
         :width 100%
-        :padding 6px 0
+        :padding 0 0 7px
+        :margin 0 0 7px
         :border-bottom = 1px dashed (!dark_blue -5)
         .name
           :width 350px
@@ -96,5 +134,8 @@
           :padding 2px 0
           :font-size 11px
           :color = !dark_blue +20
-      li#new_project
-        :padding 6px 0
+#new_project_form
+  :display block
+  :padding 0 0 7px
+  :margin 0 0 0
+  +cf

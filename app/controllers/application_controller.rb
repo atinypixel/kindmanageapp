@@ -3,10 +3,10 @@
 
 class ApplicationController < ActionController::Base
   
-  include Locate
+  include Kind
   
   helper :all
-  helper_method :current_user_session, :current_user
+  # helper_method :current_user_session, :current_user
   filter_parameter_logging :password, :password_confirmation
   
   

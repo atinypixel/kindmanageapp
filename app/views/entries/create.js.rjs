@@ -1,5 +1,5 @@
 if @entry.errors.empty?
-  page.replace_html "for_project", :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project, :single_entry => false}
+  page.replace_html "for_project", :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project, :standalone => false}
   page.visual_effect :scroll_to, "entry_marker_#{@entry.id}", :duration => 0.5
   page.delay(0.5) {
     page.visual_effect :highlight, "entry_#{@entry.id}"

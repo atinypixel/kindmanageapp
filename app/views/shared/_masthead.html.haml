@@ -3,12 +3,20 @@
   %span#logo_text=link_to "Kindmanage", root_url
   
   %ul#navigation
-    -unless current_account.nil?
-      %li#nav_choose_project=choose_project_link
-    %li#nav_settings.hide
-      <a href="#">Settings</a>
+    -if current_account
+      %li#nav_choose_project
+        =choose_project_link
+        .close_admin=choose_project_link(:close => true)
+      %li#nav_workspaces
+        <a href="#">Workspaces</a>
+        .close_admin=choose_project_link(:close => true)
+    %li#nav_account
+      %ul
+        %li=link_to "Dashboard", root_url
+        %li=link_to "People", account_users_url
+        %li=link_to "Settings", edit_account_url
   
   #admin{:style => "display:none;"}
-    .close_admin=choose_project_link(:close => true)
+    .close_admin.hide=choose_project_link(:close => true)
     #project_list
       =render :partial => "projects/projects"

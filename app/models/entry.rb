@@ -2,10 +2,14 @@ class Entry < ActiveRecord::Base
   acts_as_markdown :note_body
   default_scope :order => 'created_at DESC'
   
+  named_scope :just_notes, :conditions => { :type_id => Type.find_by_name("note") }
+  named_scope :just_tasks, :conditions => { :type_id => Type.find_by_name("task") }
   
   belongs_to :project
   belongs_to :type
-  # has_and_belongs_to_many :workspaces
+  
+  has_many :collections
+  has_many :workspaces, :through => :collections
   
   validates_presence_of :note_body, :note_title, :if => :expected_for_notes?
   validates_presence_of :task_description, :if => :expected_for_tasks?
@@ -17,6 +21,10 @@ class Entry < ActiveRecord::Base
   
     
   private
+    def entry_type_by_name(entry_type)
+      Type.find_by_name(entry_type)
+    end
+    
   
     def convert_hashtags_to_workspaces_and_attach
       primary_content.scan(/#(\w*)$/).flatten.each do |hashtag|
@@ -51,6 +59,7 @@ class Entry < ActiveRecord::Base
     def entry_type
       self.type.name
     end
+    
   
     def valid_entry_types
       ["task", "note"]

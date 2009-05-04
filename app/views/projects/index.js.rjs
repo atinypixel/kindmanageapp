@@ -1,5 +1,2 @@
 # page.replace_html "project_list", :partial => "projects/projects"
-page.visual_effect :blind_down, "admin", :duration => 0.1
-if @project
-  page.form.reset "project_form"
-end
+# page.visual_effect :blind_down, "admin", :duration => 0.1

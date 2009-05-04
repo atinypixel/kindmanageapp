@@ -1,17 +1,18 @@
 ActionController::Routing::Routes.draw do |map|
   
+  
   map.resource :account do |a|
     a.resources :users
-    a.resources :projects
+    # a.resources :projects
   end
   
   map.resources :projects do |p|
     p.resources :entries
   end
 
-  # map.resource :user_session
+  map.resource :user_session
   # map.root :controller => "user_sessions", :action => "new"
-  map.root :controller => "dashboard"
+  map.root :controller => "accounts"
   
   
   # The priority is based upon order of creation: first created -> highest priority.

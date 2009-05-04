@@ -1,0 +1,48 @@
+@import _reset.sass
+@import _colors.sass
+@import _forms.sass
+
+body  
+  :background-color #6e7b86
+  :text-align center
+  :font-family "Helvetica", Arial
+  
+#login form
+  :width 300px
+  :margin 50px auto
+  :padding 15px
+  :text-align left
+  :border = 8px solid !dark_blue
+  :background-color #fff
+  div
+    :margin-bottom 10px
+  #logo_text
+    :width 300px
+    :padding 10px 15px 15px
+    :margin -15px -15px 15px
+    :background-color = !dark_blue
+    :border-bottom = 1px solid (!dark_blue -20)
+    :color = !dark_blue +90
+    strong
+      :color = !dark_blue +50
+  h1
+    :margin-bottom 15px
+    :color = !dark_blue
+  label
+    :display block
+    :margin-bottom 3px
+    :font-size 14px
+    :font-weight bold
+    :color #666
+    .help
+      :padding-left 3px
+      :font-size 11px
+      :font-weight normal
+      :color #999
+  input.text
+    :border 1px solid #ccc
+      :right 2px solid #bbb
+      :bottom 2px solid #bbb
+    :padding 4px
+    :font-size 14px    
+  

@@ -15,3 +15,9 @@
   
 =support_hover
   :_azimuth expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit')
+
+=heading_tag_fix_for_safari
+  @media screen and (-webkit-min-device-pixel-ratio:0) &
+    :position relative
+    :top -5px
+

@@ -1,13 +1,13 @@
-module Locate
+module Kind
   def self.included(controller)
-    controller.send(:include, InstanceMethods)
+    controller.send(:include, UsersAccounts)
     
     controller.class_eval do
       helper_method :current_account, :current_user, :current_user_session, :require_user, :require_no_user, :redirect_back_or_default
     end
   end
   
-  module InstanceMethods
+  module UsersAccounts
     
     private
       

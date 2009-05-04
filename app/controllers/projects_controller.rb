@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  # before_filter :require_logged_in
+  # before_filter :require_user
   make_resourceful do
     actions :all
         
@@ -9,6 +9,14 @@ class ProjectsController < ApplicationController
     
     before :create do
       @project.account = current_account
+    end
+    
+    response_for :create do |wants|
+      wants.js {
+        if @project.save
+          @new_project = @project
+        end
+      }
     end
     
     before :show do

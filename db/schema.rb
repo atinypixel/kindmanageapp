@@ -9,10 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090429223852) do
+ActiveRecord::Schema.define(:version => 20090502085212) do
 
   create_table "accounts", :force => true do |t|
     t.string   "subdomain"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "collections", :force => true do |t|
+    t.integer  "entry_id"
+    t.integer  "workspace_id"
+    t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20090429223852) do
     t.boolean  "in_queue"
     t.integer  "task_milestone_id"
     t.boolean  "private"
+    t.integer  "milestone_id"
   end
 
   create_table "milestones", :force => true do |t|
