@@ -1,4 +1,13 @@
-
+#page
+  %h5.label 
+    %span Workspace
+  %h1.name
+    -unless @entry
+      =@workspace.name
+    -else
+      =link_to @workspace.name, workspace_path(@workspace)
 #content
-  -@workspace.collections.each do |col|
-    =col.id
+  #entries
+    #for_workspace
+      -@workspace.collections.each do |c|
+        =render :partial => "entries/entry", :locals => {:entry => c.entry, :project => c.entry.project, :standalone => false}  
