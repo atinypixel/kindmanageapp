@@ -23,7 +23,6 @@ class Entry < ActiveRecord::Base
     
   private
   
-    
     def process_workspaces
       if at_tags?
         at_tags.each do |at_tag|

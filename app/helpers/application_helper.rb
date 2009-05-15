@@ -33,7 +33,7 @@ module ApplicationHelper
   end
   
   def highlight_at_tags(content)
-    content.gsub(/@(\w+)/, '<a href="/workspaces/\0" class="at_tag"><span>\0</span></a>')
+    content.gsub(/@(\w*)/, '@<a href="/workspaces/\1" class="at_tag"><span>\1</span></a>')
   end
   
   def page_label(label, name)

@@ -9,6 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :projects do |p|
     p.resources :entries
   end
+  
+  map.resources :workspaces
 
   map.resource :user_session
   # map.root :controller => "user_sessions", :action => "new"

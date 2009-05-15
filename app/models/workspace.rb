@@ -7,6 +7,10 @@ class Workspace < ActiveRecord::Base
   
   before_save :remove_workspaces_without_collections
   
+  def to_param
+    self.name.gsub(/_/, "-")
+  end
+  
   def remove_workspaces_without_collections
     Workspace.find(:all).each do |w|
       w.destroy if w.collections.nil?
