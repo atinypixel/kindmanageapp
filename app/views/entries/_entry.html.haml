@@ -26,6 +26,6 @@
       -if standalone
         =link_to_remote "Edit", :url => edit_project_entry_path(project, entry, :type => entry.type, :context => "#{standalone ? 'entry' : 'project'}"), :method => :get
         |
-        =link_to_remote "Delete", :url => project_entry_path(project, entry, :context => "#{standalone ? 'entry' : 'project'}"), :method => :delete
+        =link_to_remote "Delete", :url => project_entry_path(project, entry, :context => "#{standalone ? 'entry' : 'project'}"), :method => :delete, :confirm => "Are you sure?"
     .group.user
       From <strong>You</strong>

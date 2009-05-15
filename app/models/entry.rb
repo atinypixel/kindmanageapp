@@ -8,7 +8,7 @@ class Entry < ActiveRecord::Base
   belongs_to :project
   belongs_to :type
   
-  has_many :collections, :uniq => true
+  has_many :collections, :uniq => true, :dependent => :destroy
   has_many :workspaces, :through => :collections
   
   validates_presence_of :note_body, :note_title, :if => :expected_for_notes?
@@ -25,47 +25,47 @@ class Entry < ActiveRecord::Base
   
     
     def process_workspaces
-      if hash_tags?
-        hash_tags.each do |hash_tag|
+      if at_tags?
+        at_tags.each do |at_tag|
           # Create or find a workspace based on hash tag (hash tags are translated into workspaces)
-          workspace = new_or_existing_workspace(hash_tag)
-          unless collection_exists_for_hash_tag?(workspace)
+          workspace = new_or_existing_workspace(at_tag)
+          unless collection_exists_for_at_tag?(workspace)
             # Collect entry inside a workspace if collection doesn't already exist
             workspace.collections.create(:entry => self)
           else
             # Remove collection if no matching hash tag
             self.collections.each do |c|
-              c.destroy unless hash_tags.include?(c.workspace.name)
+              c.destroy unless at_tags.include?(c.workspace.name)
             end
           end
         end
       else
-        # If there are absolutely no hash tags, remove orphaned collections
-        hash_tags = " "
+        # If there are absolutely no hash tags, remove collections
+        at_tags = " "
         self.collections.each do |c|
-          c.destroy unless hash_tags.include?(c.workspace.name)
+          c.destroy unless at_tags.include?(c.workspace.name)
         end
       end
     end
     
-    def collection_exists_for_hash_tag?(workspace)
-      true if hash_tags.include?(workspace.name) && workspace.collections.find_by_entry_id(self.id)
+    def collection_exists_for_at_tag?(workspace)
+      true if at_tags.include?(workspace.name) && workspace.collections.find_by_entry_id(self.id)
     end
         
     def collection_exists?(workspace)
       Collection.find_by_workspace_id_and_entry_id(workspace.id, self.id)
     end    
       
-    def new_or_existing_workspace(hash_tag)
-      Workspace.find_or_create_by_name(hash_tag)
+    def new_or_existing_workspace(at_tag)
+      Workspace.find_or_create_by_name(at_tag)
     end
     
-    def hash_tags
-      body.scan(/#(\w*)/).flatten
+    def at_tags
+      body.scan(/@(\w+)/).flatten
     end
     
-    def hash_tags?
-      body.scan(/#(\w*)/).length > 0
+    def at_tags?
+      body.scan(/@(\w+)/).length > 0
     end
     
     def entry_type_by_name(entry_type)

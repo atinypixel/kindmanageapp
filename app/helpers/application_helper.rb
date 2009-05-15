@@ -32,8 +32,8 @@ module ApplicationHelper
     link_to_remote image_tag("admin_trash_icon.gif"), :url => project_path(project), :method => :delete, :html => {:class => "destroy"}, :confirm => "Deleting this project will also remove all of it's entries. Are you sure?"
   end
   
-  def highlight_hashtags(content)
-    content.gsub(/#\w+|#\w+/, '<a href="#" class="hashtag">\0</a>')
+  def highlight_at_tags(content)
+    content.gsub(/@(\w+)/, '<a href="/workspaces/\0" class="at_tag"><span>\0</span></a>')
   end
   
   def page_label(label, name)

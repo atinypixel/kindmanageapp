@@ -1,4 +1,4 @@
 / content
 -unless entry.note_title.blank?
   %h3=entry.note_title
-=highlight_hashtags(entry.note_body.to_html)
+=highlight_at_tags(entry.note_body.to_html)

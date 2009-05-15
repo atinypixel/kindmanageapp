@@ -1,5 +1,5 @@
 page.visual_effect :fade, "entry_#{@entry.id}", :duration => 0.5
-if @entries.empty?
+if @entries.empty? || @context == "entry"
   page.redirect_to project_url(@entry.project)
 end
 # page.delay(0.6) {
