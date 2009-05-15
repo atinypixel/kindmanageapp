@@ -5,16 +5,18 @@
   %ul.type
     %li.label
       %span
-        =entry.type.name 
+        =entry.type.name
 
   / content + meta    
   .content
     .body
-      -entry.collections do |w|
-        =w.wor
       =render :partial => "entries/#{entry.type.name}", :locals => {:entry => entry}
     .meta
       %span.created_at="#{time_ago_in_words(entry.created_at)} ago"
+      -if entry.collections && !@project || @entry
+        %span.project
+          in
+          =link_to entry.project.name, project_path(entry.project)
   
   / actionable links + etc
   .options

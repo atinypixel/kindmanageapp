@@ -6,10 +6,10 @@
     -if current_account
       %li#nav_choose_project
         =choose_project_link
-        .close_admin=choose_project_link(:close => true)
+        .close_admin=choose_admin_link(:close => true)
       %li#nav_workspaces
         <a href="#">Workspaces</a>
-        .close_admin=choose_project_link(:close => true)
+        .close_admin=choose_admin_link(:close => true)
     %li#nav_account
       %ul
         %li=link_to "Dashboard", root_url
@@ -17,6 +17,5 @@
         %li=link_to "Settings", edit_account_url
   
   #admin{:style => "display:none;"}
-    .close_admin.hide=choose_project_link(:close => true)
-    #project_list
-      =render :partial => "projects/projects"
+    
+    =#render :partial => "projects/projects"

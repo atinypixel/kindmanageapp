@@ -24,6 +24,8 @@ a.at_tag
   :font-size 14px
   :color = !blue
   :text-decoration none !important
+  .at_symbol
+    :color = !blue +50
   
   &:hover
     :color #000 !important
@@ -102,4 +104,8 @@ a.at_tag
       /:font-size 13px
       /:background-color = !dark_blue_alt - 50
       /:color #fff
+      
+  &.workspace
+    h1.name
+      :text-transform capitalize
       

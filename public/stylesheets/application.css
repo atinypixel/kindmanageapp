@@ -285,9 +285,6 @@ table {
         color: #909ca7;
         text-decoration: none;
         background-color: #36424d; }
-    #masthead #admin #project_list {
-      float: left;
-      width: 100%; }
     #masthead #admin ul#projects {
       float: left;
       width: 100%; }
@@ -454,6 +451,11 @@ ul.ribbon {
         color: #999; }
         #entries .entry .content .meta .actions,         #entry .entry .content .meta .actions {
           font-weight: bold; }
+        #entries .entry .content .meta .project a,         #entry .entry .content .meta .project a {
+          color: #777;
+          text-decoration: none; }
+          #entries .entry .content .meta .project a:hover,           #entry .entry .content .meta .project a:hover {
+            text-decoration: underline; }
     #entries .entry .options,     #entry .entry .options {
       float: left;
       width: 135px; }
@@ -527,6 +529,8 @@ a.at_tag {
   font-size: 14px;
   color: #6e7b86;
   text-decoration: none !important; }
+  a.at_tag .at_symbol {
+    color: #a0adb8; }
   a.at_tag:hover {
     color: #000 !important; }
 
@@ -626,3 +630,5 @@ a.at_tag {
   #page.dashboard h5.label {
     font-weight: bold;
     color: #fff; }
+  #page.workspace h1.name {
+    text-transform: capitalize; }

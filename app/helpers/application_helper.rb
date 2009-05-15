@@ -12,18 +12,20 @@ module ApplicationHelper
     object.new_record? ? "new" : "edit"
   end
   
-  def choose_project_link(options={})
+  def choose_admin_link(name, options={})
     unless options[:close]
-      link_to_function "Projects" do |page|
+      link_to_function name do |page|
+        page.replace_html "admin", :partial => options[:partial]
         page.visual_effect :blind_down, "admin", :duration => 0.1
-        page << "$('nav_choose_project').addClassName('on')"
-        page.form.reset "project_form"
+        page << "$('nav_choose_#{options[:type]}').addClassName('on')"
+        page.form.reset "project_form" if options[:type] == "project"
       end
     else
       link_to_function image_tag("close_admin.gif") do |page|
+        page.remove "#{options[:type]}_list"
         page.hide "admin"
-        page << "$('nav_choose_project').removeClassName('on');"
-        page.form.reset "project_form"
+        page << "$('nav_choose_#{options[:type]}').removeClassName('on');"
+        page.form.reset "project_form" if options[:type] == "project"
       end
     end
   end
@@ -33,7 +35,7 @@ module ApplicationHelper
   end
   
   def highlight_at_tags(content)
-    content.gsub(/@(\w*)/, '@<a href="/workspaces/\1" class="at_tag"><span>\1</span></a>')
+    content.gsub(/@(\w*)/, '<a href="/workspaces/\1" class="at_tag"><span class="at_symbol">@</span><span>\1</span></a>')
   end
   
   def page_label(label, name)

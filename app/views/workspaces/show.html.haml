@@ -1,9 +1,9 @@
-#page
+#page.workspace
   %h5.label 
     %span Workspace
   %h1.name
     -unless @entry
-      =@workspace.name
+      =@workspace.name.humanize
     -else
       =link_to @workspace.name, workspace_path(@workspace)
 #content
