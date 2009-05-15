@@ -4,4 +4,13 @@ class Workspace < ActiveRecord::Base
   
   validates_uniqueness_of :name, :on => :create, :message => "must be unique"
   # validates_exclusion_of :name, :in => %r(/^([a-zA-Z0-9_-]+)$/), :on => :create, :message => "Only numbers and letters allowed"
+  
+  before_save :remove_workspaces_without_collections
+  
+  def remove_workspaces_without_collections
+    Workspace.find(:all).each do |w|
+      w.destroy if w.collections.nil?
+    end
+  end
+  
 end

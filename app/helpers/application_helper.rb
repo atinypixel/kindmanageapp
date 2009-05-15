@@ -33,7 +33,7 @@ module ApplicationHelper
   end
   
   def highlight_hashtags(content)
-    content.gsub(/(#\w+)/, '<a href="#" class="hashtag">\0</a>')
+    content.gsub(/#\w+|#\w+/, '<a href="#" class="hashtag">\0</a>')
   end
   
   def page_label(label, name)

@@ -1,13 +1,19 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
+  
+  
+  
   #page h1.name {
     position: relative;
     top: -2px;
   }
-  ul.ribbon li a span {
-    line-height: 41px;
-  }
   #page h5.label span {
     line-height: 23px;
+  }
+  #entries .entry ul.type li.label span {
+   line-height: 18px;
+  }
+  ul.ribbon li a span {
+    line-height: 41px;
   }
   ul#navigation .close_admin a {
   }
