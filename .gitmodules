@@ -10,3 +10,9 @@
 [submodule "vendor/plugins/responds_to_parent"]
 	path = vendor/plugins/responds_to_parent
 	url = git://github.com/Winslett/Responds-to-Parent.git
+[submodule "vendor/plugins/jrails/jrails"]
+	path = vendor/plugins/jrails/jrails
+	url = git://github.com/aaronchi/jrails.git
+[submodule "vendor/plugins/jrails"]
+	path = vendor/plugins/jrails
+	url = git://github.com/aaronchi/jrails.git

@@ -5,11 +5,11 @@
   %ul#navigation
     -if current_account
       %li#nav_choose_project
-        =choose_project_link
-        .close_admin=choose_admin_link(:close => true)
-      %li#nav_workspaces
-        <a href="#">Workspaces</a>
-        .close_admin=choose_admin_link(:close => true)
+        =choose_admin_link "Projects", :type => :project, :partial => "projects/projects"
+        .close_admin=choose_admin_link(nil, :close => true, :type => :project)
+      %li#nav_choose_workspace
+        =choose_admin_link "Workspaces", :type => :workspace, :partial=> "workspaces/workspaces"
+        .close_admin=choose_admin_link(nil, :close => true, :type => :workspace)
     %li#nav_account
       %ul
         %li=link_to "Dashboard", root_url
@@ -17,5 +17,4 @@
         %li=link_to "Settings", edit_account_url
   
   #admin{:style => "display:none;"}
-    
-    =#render :partial => "projects/projects"
+    &nbsp;

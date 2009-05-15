@@ -18,6 +18,7 @@ module ApplicationHelper
         page.replace_html "admin", :partial => options[:partial]
         page.visual_effect :blind_down, "admin", :duration => 0.1
         page << "$('nav_choose_#{options[:type]}').addClassName('on')"
+        page << "$('nav_choose_#{%r{[^\w+)]}}')"
         page.form.reset "project_form" if options[:type] == "project"
       end
     else

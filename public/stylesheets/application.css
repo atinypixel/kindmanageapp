@@ -201,7 +201,7 @@ table {
     float: left;
     width: 643px;
     margin-top: 0; }
-    #masthead ul#navigation li#nav_choose_project, #masthead ul#navigation li#nav_workspaces {
+    #masthead ul#navigation li#nav_choose_project, #masthead ul#navigation li#nav_choose_workspace {
       position: relative;
       top: -5px;
       float: left;
@@ -213,38 +213,38 @@ table {
       font-family: "Helvetica", Arial;
       background-color: #54606b;
       display: inline-block; }
-      #masthead ul#navigation li#nav_choose_project:after,       #masthead ul#navigation li#nav_workspaces:after {
+      #masthead ul#navigation li#nav_choose_project:after,       #masthead ul#navigation li#nav_choose_workspace:after {
         content: ".";
         display: block;
         height: 0;
         clear: both;
         visibility: hidden; }
-      * html #masthead ul#navigation li#nav_choose_project,       * html #masthead ul#navigation li#nav_workspaces {
+      * html #masthead ul#navigation li#nav_choose_project,       * html #masthead ul#navigation li#nav_choose_workspace {
         height: 1px; }
-      #masthead ul#navigation li#nav_choose_project a,       #masthead ul#navigation li#nav_workspaces a {
+      #masthead ul#navigation li#nav_choose_project a,       #masthead ul#navigation li#nav_choose_workspace a {
         float: left;
         color: #828f9a;
         text-decoration: none;
         font-weight: bold; }
-        #masthead ul#navigation li#nav_choose_project a:hover,         #masthead ul#navigation li#nav_workspaces a:hover {
+        #masthead ul#navigation li#nav_choose_project a:hover,         #masthead ul#navigation li#nav_choose_workspace a:hover {
           color: #fff; }
-      #masthead ul#navigation li#nav_choose_project .close_admin,       #masthead ul#navigation li#nav_workspaces .close_admin {
+      #masthead ul#navigation li#nav_choose_project .close_admin,       #masthead ul#navigation li#nav_choose_workspace .close_admin {
         display: none;
         float: left;
         margin-left: 6px;
         margin-top: 1px;
         font-size: 10px; }
-        #masthead ul#navigation li#nav_choose_project .close_admin a,         #masthead ul#navigation li#nav_workspaces .close_admin a {
+        #masthead ul#navigation li#nav_choose_project .close_admin a,         #masthead ul#navigation li#nav_choose_workspace .close_admin a {
           text-decoration: none; }
-      #masthead ul#navigation li#nav_choose_project.on,       #masthead ul#navigation li#nav_workspaces.on {
+      #masthead ul#navigation li#nav_choose_project.on,       #masthead ul#navigation li#nav_choose_workspace.on {
         background-color: #45515c;
         padding-bottom: 12px; }
-        #masthead ul#navigation li#nav_choose_project.on a,         #masthead ul#navigation li#nav_workspaces.on a {
+        #masthead ul#navigation li#nav_choose_project.on a,         #masthead ul#navigation li#nav_choose_workspace.on a {
           color: #fff;
           font-weight: bold; }
-        #masthead ul#navigation li#nav_choose_project.on .close_admin,         #masthead ul#navigation li#nav_workspaces.on .close_admin {
+        #masthead ul#navigation li#nav_choose_project.on .close_admin,         #masthead ul#navigation li#nav_choose_workspace.on .close_admin {
           display: inline; }
-          #masthead ul#navigation li#nav_choose_project.on .close_admin a,           #masthead ul#navigation li#nav_workspaces.on .close_admin a {
+          #masthead ul#navigation li#nav_choose_project.on .close_admin a,           #masthead ul#navigation li#nav_choose_workspace.on .close_admin a {
             color: #909ca7; }
     #masthead ul#navigation li#nav_account {
       float: right; }
