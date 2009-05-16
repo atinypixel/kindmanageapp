@@ -22,6 +22,6 @@
         =hidden_field_tag "add_another", "", :id => "add_another_option"
       =f.submit "#{create_or_update(@entry).capitalize} #{type.name}"
       or
-      =link_to_function "Cancel", "$('#{type.name}_entry_form').remove(); $('entry_form').hide()"
+      =link_to_function "Cancel", "$('##{type.name}_entry_form').remove(); $('##{}entry_form').hide();"
       / =@context
   

@@ -1,21 +1,21 @@
 if @entry.errors.empty?
   page.replace_html "for_project", :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project, :standalone => false}
-  page.visual_effect :scroll_to, "entry_marker_#{@entry.id}", :duration => 0.5
+  page.visual_effect :scroll_to, "entry_marker_#{@entry.id}", :duration => 1
   page.delay(0.5) {
     page.visual_effect :highlight, "entry_#{@entry.id}"
   }
-  page.form.reset "#{@entry.type.name}_entry_form"
+  page["##{@entry.type.name}_entry_form"].reset
   page.hide "entry_form"
   page.replace_html "notice", flash[:notice]
-  page << "$('notice').writeAttribute('class', 'success');"
-  page.show "notice"
+  page << "$('#notice').attr('class', 'success');"
+  page.show ".notice"
   page.delay(3) {
     page.visual_effect :fade, "notice", :duration => 3
   }
 else
   page.replace_html "notice", @entry.errors.full_messages.join(", ")
-  page << "$('notice').writeAttribute('class', 'error');"
-  page.show "notice"
+  page << "$('#notice').attr('class', 'error');"
+  page.show ".notice"
   page.delay(3) {
     page.visual_effect :fade, "notice", :duration => 3
   }
