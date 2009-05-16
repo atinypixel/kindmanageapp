@@ -2,24 +2,26 @@
   / %span#logo_text=link_to @current_account.name, "/"
   %span#logo_text=link_to "Kindmanage", root_url
   
-  %ul#navigation
-    -if current_account
-      %li.admin=link_to_function "Projects", "$('#admin').show();", :href => "#project_chooser"
-      %li.admin=link_to_function "Workspaces", "$('#admin').show();", :href => "#workspace_chooser"
-      / %li#nav_choose_project
-      /   =choose_admin_link "Projects", :type => :project, :partial => "projects/projects"
-      /   .close_admin=choose_admin_link(nil, :close => true, :type => :project)
-      / %li#nav_choose_workspace
-      /   =choose_admin_link "Workspaces", :type => :workspace, :partial=> "workspaces/workspaces"
-      /   .close_admin=choose_admin_link(nil, :close => true, :type => :workspace)
-    %li#nav_account
-      %ul
-        %li=link_to "Dashboard", root_url
-        %li=link_to "People", account_users_url
-        %li=link_to "Settings", edit_account_url
+  #admin_tabs
+    %ul
+      -if current_account
+        %li.admin
+          =link_to "Projects", "#project_chooser", :class => "nav"
+          =close_admin_link
+        %li.admin
+          =link_to "Workspaces", "#workspace_chooser", :class => "nav"
+          =close_admin_link
+  .clear
   
-  #admin{:style => "display:none;"}
-    #project_chooser{:style => "display:none;"}
-      =render :partial => "projects/projects"
-    #workspace_chooser{:style => "display:none;"}
-      =render :partial => "workspaces/workspaces"
+  #project_chooser.panel{:style => "display: none;"}
+    =render :partial => "projects/projects"
+  #workspace_chooser.panel{:style => "display: none;"}
+    =render :partial => "workspaces/workspaces"
+  
+  
+  / %ul
+  /   %li#nav_account
+  /     %ul
+  /       %li=link_to "Dashboard", root_url
+  /       %li=link_to "People", account_users_url
+  /       %li=link_to "Settings", edit_account_url

@@ -197,11 +197,11 @@ table {
       text-decoration: none; }
     #masthead #logo_text.hover a,     #masthead #logo_text:hover a {
       color: #fff; }
-  #masthead ul#navigation {
+  #masthead ul#navigation, #masthead #admin_tabs {
     float: left;
     width: 643px;
     margin-top: 0; }
-    #masthead ul#navigation li.admin {
+    #masthead ul#navigation li.admin,     #masthead #admin_tabs li.admin {
       position: relative;
       top: -5px;
       float: left;
@@ -213,109 +213,108 @@ table {
       font-family: "Helvetica", Arial;
       background-color: #54606b;
       display: inline-block; }
-      #masthead ul#navigation li.admin:after {
+      #masthead ul#navigation li.admin:after,       #masthead #admin_tabs li.admin:after {
         content: ".";
         display: block;
         height: 0;
         clear: both;
         visibility: hidden; }
-      * html #masthead ul#navigation li.admin {
+      * html #masthead ul#navigation li.admin,       * html #masthead #admin_tabs li.admin {
         height: 1px; }
-      #masthead ul#navigation li.admin a {
+      #masthead ul#navigation li.admin a,       #masthead #admin_tabs li.admin a {
         float: left;
         color: #828f9a;
         text-decoration: none;
         font-weight: bold; }
-        #masthead ul#navigation li.admin a:hover {
+        #masthead ul#navigation li.admin a:hover,         #masthead #admin_tabs li.admin a:hover {
           color: #fff; }
-      #masthead ul#navigation li.admin .close_admin {
+      #masthead ul#navigation li.admin a.close_admin,       #masthead #admin_tabs li.admin a.close_admin {
         display: none;
         float: left;
         margin-left: 6px;
         margin-top: 1px;
-        font-size: 10px; }
-        #masthead ul#navigation li.admin .close_admin a {
-          text-decoration: none; }
-      #masthead ul#navigation li.admin.on {
+        font-size: 10px;
+        text-decoration: none; }
+      #masthead ul#navigation li.admin.on,       #masthead #admin_tabs li.admin.on {
         background-color: #45515c;
         padding-bottom: 12px; }
-        #masthead ul#navigation li.admin.on a {
+        #masthead ul#navigation li.admin.on a,         #masthead #admin_tabs li.admin.on a {
           color: #fff;
           font-weight: bold; }
-        #masthead ul#navigation li.admin.on .close_admin {
+        #masthead ul#navigation li.admin.on .close_admin,         #masthead #admin_tabs li.admin.on .close_admin {
           display: inline; }
-          #masthead ul#navigation li.admin.on .close_admin a {
+          #masthead ul#navigation li.admin.on .close_admin a,           #masthead #admin_tabs li.admin.on .close_admin a {
             color: #909ca7; }
-    #masthead ul#navigation li#nav_account {
+    #masthead ul#navigation li#nav_account,     #masthead #admin_tabs li#nav_account {
       float: right; }
-      #masthead ul#navigation li#nav_account ul li {
+      #masthead ul#navigation li#nav_account ul li,       #masthead #admin_tabs li#nav_account ul li {
         float: left;
         margin-left: 15px; }
-        #masthead ul#navigation li#nav_account ul li a {
+        #masthead ul#navigation li#nav_account ul li a,         #masthead #admin_tabs li#nav_account ul li a {
           display: inline;
           font-size: 12px;
           font-weight: bold;
           color: #828f9a;
           text-decoration: none; }
-          #masthead ul#navigation li#nav_account ul li a:hover {
+          #masthead ul#navigation li#nav_account ul li a:hover,           #masthead #admin_tabs li#nav_account ul li a:hover {
             color: #fff; }
-  #masthead #admin {
+  #masthead #admin, #masthead .admin_section, #masthead .panel {
     display: inline-block;
     width: 720px;
     padding: 10px 15px;
     margin: -5px 0px 15px;
     background-color: #45515c;
     font-size: 12px; }
-    #masthead #admin:after {
+    #masthead #admin:after,     #masthead .admin_section:after,     #masthead .panel:after {
       content: ".";
       display: block;
       height: 0;
       clear: both;
       visibility: hidden; }
-    * html #masthead #admin {
+    * html #masthead #admin,     * html #masthead .admin_section,     * html #masthead .panel {
       height: 1px; }
-    #masthead #admin h3 {
+    #masthead #admin h3,     #masthead .admin_section h3,     #masthead .panel h3 {
       color: #eef5f7;
       margin-bottom: 10px; }
-    #masthead #admin .close_admin {
+    #masthead #admin .close_admin,     #masthead .admin_section .close_admin,     #masthead .panel .close_admin {
       margin-top: 0px;
       font-size: 9px; }
-      #masthead #admin .close_admin a {
+      #masthead #admin .close_admin a,       #masthead .admin_section .close_admin a,       #masthead .panel .close_admin a {
         padding: 1px 4px;
         color: #909ca7;
         text-decoration: none;
         background-color: #36424d; }
-    #masthead #admin ul#projects {
+    #masthead #admin ul#projects,     #masthead .admin_section ul#projects,     #masthead .panel ul#projects {
       float: left;
       width: 100%; }
-      #masthead #admin ul#projects li.project {
+      #masthead #admin ul#projects li.project,       #masthead .admin_section ul#projects li.project,       #masthead .panel ul#projects li.project {
         display: inline-block;
         width: 100%;
         padding: 0 0 7px;
         margin: 0 0 7px;
         border-bottom: 1px dashed #596570; }
-        #masthead #admin ul#projects li.project:after {
+        #masthead #admin ul#projects li.project:after,         #masthead .admin_section ul#projects li.project:after,         #masthead .panel ul#projects li.project:after {
           content: ".";
           display: block;
           height: 0;
           clear: both;
           visibility: hidden; }
-        * html #masthead #admin ul#projects li.project {
+        * html #masthead #admin ul#projects li.project,         * html #masthead .admin_section ul#projects li.project,         * html #masthead .panel ul#projects li.project {
           height: 1px; }
-        #masthead #admin ul#projects li.project .name {
+        #masthead #admin ul#projects li.project .name,         #masthead .admin_section ul#projects li.project .name,         #masthead .panel ul#projects li.project .name {
           width: 350px;
           float: left; }
-          #masthead #admin ul#projects li.project .name a {
+          #masthead #admin ul#projects li.project .name a,           #masthead .admin_section ul#projects li.project .name a,           #masthead .panel ul#projects li.project .name a {
             color: #a0adb8;
             font-weight: bold;
             text-decoration: none; }
-            #masthead #admin ul#projects li.project .name a:hover {
+            #masthead #admin ul#projects li.project .name a:hover,             #masthead .admin_section ul#projects li.project .name a:hover,             #masthead .panel ul#projects li.project .name a:hover {
               color: #fff; }
-          #masthead #admin ul#projects li.project .name a.destroy {
+          #masthead #admin ul#projects li.project .name a.destroy,           #masthead .admin_section ul#projects li.project .name a.destroy,           #masthead .panel ul#projects li.project .name a.destroy {
             margin-right: 3px;
             position: relative;
             top: 2px; }
-        #masthead #admin ul#projects li.project .meta {
+        #masthead #admin ul#projects li.project .meta,         #masthead .admin_section ul#projects li.project .meta,         #masthead .panel ul#projects li.project .meta {
           float: left;
           padding: 2px 0;
           font-size: 11px;

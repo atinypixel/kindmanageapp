@@ -12,23 +12,8 @@ module ApplicationHelper
     object.new_record? ? "new" : "edit"
   end
   
-  def choose_admin_link(name, options={})
-    unless options[:close]
-      link_to_function name do |page|
-        page.replace_html "admin", :partial => options[:partial]
-        page.visual_effect :blind_down, "admin", :duration => 0.1
-        page << "$('nav_choose_#{options[:type]}').addClassName('on')"
-        page << "$('nav_choose_#{%r{[^\w+)]}}')"
-        page.form.reset "project_form" if options[:type] == "project"
-      end
-    else
-      link_to_function image_tag("close_admin.gif") do |page|
-        page.remove "#{options[:type]}_list"
-        page.hide "admin"
-        page << "$('nav_choose_#{options[:type]}').removeClassName('on');"
-        page.form.reset "project_form" if options[:type] == "project"
-      end
-    end
+  def close_admin_link
+    link_to image_tag("close_admin.gif"), "#", :onclick => "$('#masthead .panel').hide(); $(this).parent().removeClass('on'); return false;", :class => "close_admin"
   end
   
   def delete_project_link(project)
