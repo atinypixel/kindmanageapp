@@ -4,12 +4,14 @@
   
   %ul#navigation
     -if current_account
-      %li#nav_choose_project
-        =choose_admin_link "Projects", :type => :project, :partial => "projects/projects"
-        .close_admin=choose_admin_link(nil, :close => true, :type => :project)
-      %li#nav_choose_workspace
-        =choose_admin_link "Workspaces", :type => :workspace, :partial=> "workspaces/workspaces"
-        .close_admin=choose_admin_link(nil, :close => true, :type => :workspace)
+      %li.admin=link_to_function "Projects", "$('#admin').show();", :href => "#project_chooser"
+      %li.admin=link_to_function "Workspaces", "$('#admin').show();", :href => "#workspace_chooser"
+      / %li#nav_choose_project
+      /   =choose_admin_link "Projects", :type => :project, :partial => "projects/projects"
+      /   .close_admin=choose_admin_link(nil, :close => true, :type => :project)
+      / %li#nav_choose_workspace
+      /   =choose_admin_link "Workspaces", :type => :workspace, :partial=> "workspaces/workspaces"
+      /   .close_admin=choose_admin_link(nil, :close => true, :type => :workspace)
     %li#nav_account
       %ul
         %li=link_to "Dashboard", root_url
@@ -17,4 +19,7 @@
         %li=link_to "Settings", edit_account_url
   
   #admin{:style => "display:none;"}
-    &nbsp;
+    #project_chooser{:style => "display:none;"}
+      =render :partial => "projects/projects"
+    #workspace_chooser{:style => "display:none;"}
+      =render :partial => "workspaces/workspaces"
