@@ -310,6 +310,36 @@ table {
           padding: 2px 0;
           font-size: 11px;
           color: #727e89; }
+    #masthead #admin ul#workspaces,     #masthead .admin_section ul#workspaces,     #masthead .panel ul#workspaces {
+      display: inline-block; }
+      #masthead #admin ul#workspaces:after,       #masthead .admin_section ul#workspaces:after,       #masthead .panel ul#workspaces:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+      * html #masthead #admin ul#workspaces,       * html #masthead .admin_section ul#workspaces,       * html #masthead .panel ul#workspaces {
+        height: 1px; }
+      #masthead #admin ul#workspaces li.workspace,       #masthead .admin_section ul#workspaces li.workspace,       #masthead .panel ul#workspaces li.workspace {
+        _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit');
+        float: left;
+        margin: 0 5px 5px 0;
+        padding: 5px 8px;
+        font-weight: bold;
+        background-color: #4e5b67; }
+        #masthead #admin ul#workspaces li.workspace a,         #masthead .admin_section ul#workspaces li.workspace a,         #masthead .panel ul#workspaces li.workspace a {
+          color: #b9c5d0; }
+        #masthead #admin ul#workspaces li.workspace span.name, #masthead #admin ul#workspaces li.workspace span.has_project,         #masthead .admin_section ul#workspaces li.workspace span.name, #masthead .admin_section ul#workspaces li.workspace span.has_project,         #masthead .panel ul#workspaces li.workspace span.name, #masthead .panel ul#workspaces li.workspace span.has_project {
+          float: left; }
+        #masthead #admin ul#workspaces li.workspace span.has_project,         #masthead .admin_section ul#workspaces li.workspace span.has_project,         #masthead .panel ul#workspaces li.workspace span.has_project {
+          position: relative;
+          top: 4px;
+          margin-right: 5px;
+          font-size: 16px;
+          line-height: 12px;
+          color: #8c9dac; }
+        #masthead #admin ul#workspaces li.workspace:hover, #masthead #admin ul#workspaces li.workspace.hover,         #masthead .admin_section ul#workspaces li.workspace:hover, #masthead .admin_section ul#workspaces li.workspace.hover,         #masthead .panel ul#workspaces li.workspace:hover, #masthead .panel ul#workspaces li.workspace.hover {
+          background: #3c4955; }
     #masthead #admin #new_project_form,     #masthead .admin_section #new_project_form,     #masthead .panel #new_project_form {
       display: block;
       padding: 0 0 7px;
@@ -577,7 +607,9 @@ a.at_tag {
 #page {
   float: left;
   width: 550px;
-  margin-top: -4px;
+  padding-top: 0px !important;
+  padding-bottom: 10px !important;
+  margin: 10px 0;
   display: inline-block; }
   #page:after {
     content: ".";
@@ -589,7 +621,6 @@ a.at_tag {
     height: 1px; }
   #page h5.label {
     float: left;
-    margin-bottom: 10px;
     height: 23px;
     font-size: 11px;
     font-weight: bold;
@@ -627,6 +658,15 @@ a.at_tag {
   #page.workspace h1.name {
     text-transform: capitalize; }
     #page.workspace h1.name span.sub {
-      padding-left: 5px;
+      padding-left: 2px;
       font-size: 12px;
-      color: #8c99a4; }
+      color: #8c99a4;
+      text-transform: lowercase !important; }
+    #page.workspace h1.name span.project {
+      font-size: 12px;
+      text-transform: capitalize !important; }
+      #page.workspace h1.name span.project a {
+        color: #a0adb8;
+        text-decoration: none; }
+        #page.workspace h1.name span.project a:hover {
+          text-decoration: underline; }

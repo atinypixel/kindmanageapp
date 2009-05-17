@@ -1,2 +1,16 @@
 #workspace_list
-  test
+  %ul#workspaces
+  
+  #workspace_context
+    %ul
+      %li.context=link_to "All", "#workspace_context_all"
+      %li.context=link_to "Mine", "#workspace_context_mine"
+      %li.context=link_to "By Project", "#workspace_context_project_only"
+        
+    #workspace_context_all
+      =workspace_list_for(current_account)
+      
+    #workspace_context_mine{:style => "display:none;"}
+      =workspace_list_for(current_user)
+    #workspace_context_project_only{:style => "display:none;"}    
+    

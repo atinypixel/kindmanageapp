@@ -24,16 +24,35 @@ module ApplicationHelper
   end
   
   def highlight_at_tags(content)
-    # new_content = content.gsub(/@(\w+)/, '<a href="/workspaces/\1" class="at_tag"><span class="at_symbol">@</span><span>\1</span></a>')
     content.gsub(/@(\w+)/m) do |w|
       ws = Workspace.find_by_name("#{$1}")
       if ws
         %{<a href="#{ws.project ? project_path(ws.project) : ''}/workspaces/#{$1}" class="at_tag"><span class="at_symbol">@</span><span>#{$1}</span></a>}
       else
-        %{<a href="#" title="This workspace has been removed or modified" class="at_tag invalid"><span class="at_symbol">@</span><span>#{$1}</span></a>}
+        %{<a href="#" title="This workspace has been removed or modified" class="at_tag invalid_at_tag"><span class="at_symbol">@</span><span>#{$1}</span></a>}
       end
     end
-    # project ? new_content.gsub(/\="\/workspaces\//, "=\"project/#{project.id}") : new_content
+  end
+  
+  def workspace_list_for(object)
+    workspaces ||= object.workspaces.scoped_by_project
+    haml_tag :ul, :id => "workspaces" do
+      workspaces.each do |workspace|
+        workspace_path = workspace.project ? project_workspace_path(workspace.project, workspace.name) : workspace_path(workspace.name)
+        haml_tag :li, :id => "workspace_#{workspace.id}", :class => "workspace" do
+          haml_tag :a, :href => workspace_path do
+            if workspace.project
+              haml_tag :span, :class => "has_project" do
+                puts "*"
+              end # span.has_project
+            end
+            haml_tag :span, :class => "name" do
+              puts workspace.name
+            end # span.name
+          end # anchor
+        end # li.workspace#workspace_00
+      end
+    end # ul#workspaces
   end
   
   def page_label(label, name)

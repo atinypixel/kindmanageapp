@@ -126,7 +126,28 @@
           :padding 2px 0
           :font-size 11px
           :color = !dark_blue +20
-
+    ul#workspaces
+      +cf
+      li.workspace
+        +support_hover
+        :float left
+        :margin 0 5px 5px 0
+        :padding 5px 8px
+        :font-weight bold
+        :background-color #4e5b67
+        a
+          :color #b9c5d0
+        span.name, span.has_project
+          :float left
+        span.has_project
+          :position relative
+          :top 4px
+          :margin-right 5px
+          :font-size 16px
+          :line-height 12px
+          :color #8c9dac
+        &:hover, &.hover
+          :background = #4e5b67 -18
     #new_project_form
       :display block
       :padding 0 0 7px

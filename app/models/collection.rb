@@ -1,6 +1,6 @@
 class Collection < ActiveRecord::Base
   
-  default_scope :order => 'position DESC'
+  default_scope :order => 'position, created_at ASC'
   
   
   belongs_to :workspace
