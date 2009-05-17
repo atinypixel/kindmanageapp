@@ -13,7 +13,7 @@
       =render :partial => "entries/#{entry.type.name}", :locals => {:entry => entry}
     .meta
       %span.created_at="#{time_ago_in_words(entry.created_at)} ago"
-      -if standalone || @workspace
+      -if standalone || @workspace && !@workspace.project
         %span.project
           in
           =link_to entry.project.name, project_path(entry.project)

@@ -406,19 +406,19 @@ ul.ribbon {
       float: left;
       width: 80px;
       padding-right: 15px;
-      text-align: right; }
+      text-align: right;
+      font-family: Arial !important; }
       #entries .entry ul.type li.label,       #entry .entry ul.type li.label {
         float: right;
         background-position: top right;
         background-repeat: no-repeat;
-        height: 19px; }
+        height: 15px; }
         #entries .entry ul.type li.label span,         #entry .entry ul.type li.label span {
           float: left;
-          height: 19px;
-          padding: 0 6px;
-          line-height: 21px;
+          height: 15px;
+          padding: 3px 4px 0;
           color: #fff;
-          font-size: 10px;
+          font-size: 9px;
           font-weight: bold;
           text-transform: uppercase;
           background-position: top left;
@@ -428,7 +428,7 @@ ul.ribbon {
       width: 475px;
       padding-right: 15px; }
       #entries .entry .content .body h3,       #entry .entry .content .body h3 {
-        margin-top: 2px;
+        margin-top: 0px;
         margin-bottom: 10px; }
       #entries .entry .content .body p,       #entry .entry .content .body p {
         padding-bottom: 10px;
@@ -476,9 +476,9 @@ ul.ribbon {
     #entry .milestone ul.type li.label span {
       background-image: url(/images/type_label_left_grn_bg.gif); }
   #entries .task ul.type li.label,   #entry .task ul.type li.label {
-    background-image: url(/images/type_label_right_blu_bg.gif); }
+    background-image: url(/images/type_label_right_blue_bg.gif); }
     #entries .task ul.type li.label span,     #entry .task ul.type li.label span {
-      background-image: url(/images/type_label_left_blu_bg.gif); }
+      background-image: url(/images/type_label_left_blue_bg.gif); }
   #entries .task .content .body h3,   #entry .task .content .body h3 {
     font-size: 16px;
     color: #333;
@@ -619,6 +619,11 @@ a.at_tag {
   #page.dashboard h5.label {
     font-weight: bold;
     color: #fff; }
+  #page.workspace h5.label {
+    color: #c7d4df;
+    background-image: url(/images/page_label_alt_left.gif) !important; }
+    #page.workspace h5.label span {
+      background-image: url(/images/page_label_alt_right.gif) !important; }
   #page.workspace h1.name {
     text-transform: capitalize; }
     #page.workspace h1.name span.sub {

@@ -8,8 +8,8 @@ class Project < ActiveRecord::Base
   validates_presence_of :name, :on => :create, :message => "can't be blank"
   
   def remove_workspaces_non_destructively
-    if project.workspaces
-      project.workspaces.each do |w|
+    if self.workspaces
+      self.workspaces.each do |w|
         w.project_id = ""
       end
     end
