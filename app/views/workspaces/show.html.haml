@@ -1,11 +1,10 @@
 #page.workspace
-  %h5.label 
+  %h5.label
     %span Workspace
   %h1.name
-    -unless @entry
-      =@workspace.name.humanize
-    -else
-      =link_to @workspace.name, workspace_path(@workspace)
+    =@workspace.name.humanize
+    -if @workspace.project
+      %span.sub=@workspace.project.name
 #content
   #entries
     #for_workspace

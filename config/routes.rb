@@ -8,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :projects do |p|
     p.resources :entries
+    p.resources :workspaces
   end
   
   map.resources :workspaces

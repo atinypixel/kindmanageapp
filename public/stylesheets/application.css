@@ -153,15 +153,13 @@ table {
       font-size: 12px;
       color: #6a675c; }
 
-#admin form {
+.panel form {
   width: auto;
   background-color: transparent; }
-  #admin form input.text {
+  .panel form input.text {
     width: 190px;
     padding: 3px;
-    border: none;
-    border-right: 1px solid #2b363f;
-    border-bottom: 1px solid #2b363f;
+    border: 1px solid #3a454e;
     font-size: 12px;
     font-family: "Helvetica", Arial;
     font-weight: bold;
@@ -171,7 +169,7 @@ table {
 #masthead {
   display: inline-block;
   width: 750px;
-  padding: 5px 20px 5px;
+  padding: 5px 20px 4px;
   margin: 10px -5px 5px;
   background-color: #596570;
   border-bottom: 1px dashed #54606b;
@@ -189,6 +187,7 @@ table {
   #masthead #logo_text {
     _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit');
     float: left;
+    margin-top: 1px;
     padding-right: 8px;
     font-size: 16px;
     font-weight: bold; }
@@ -206,9 +205,9 @@ table {
       top: -5px;
       float: left;
       display: inline;
-      margin-right: 8px;
+      margin-right: 5px;
       padding: 7px 10px 8px;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: normal;
       font-family: "Helvetica", Arial;
       background-color: #54606b;
@@ -232,12 +231,12 @@ table {
         display: none;
         float: left;
         margin-left: 6px;
-        margin-top: 1px;
+        margin-top: 2px;
         font-size: 10px;
         text-decoration: none; }
       #masthead ul#navigation li.admin.on,       #masthead #admin_tabs li.admin.on {
         background-color: #45515c;
-        padding-bottom: 12px; }
+        padding-bottom: 13px; }
         #masthead ul#navigation li.admin.on a,         #masthead #admin_tabs li.admin.on a {
           color: #fff;
           font-weight: bold; }
@@ -262,7 +261,7 @@ table {
     display: inline-block;
     width: 720px;
     padding: 10px 15px;
-    margin: -5px 0px 15px;
+    margin: -6px 0px 15px;
     background-color: #45515c;
     font-size: 12px; }
     #masthead #admin:after,     #masthead .admin_section:after,     #masthead .panel:after {
@@ -276,14 +275,6 @@ table {
     #masthead #admin h3,     #masthead .admin_section h3,     #masthead .panel h3 {
       color: #eef5f7;
       margin-bottom: 10px; }
-    #masthead #admin .close_admin,     #masthead .admin_section .close_admin,     #masthead .panel .close_admin {
-      margin-top: 0px;
-      font-size: 9px; }
-      #masthead #admin .close_admin a,       #masthead .admin_section .close_admin a,       #masthead .panel .close_admin a {
-        padding: 1px 4px;
-        color: #909ca7;
-        text-decoration: none;
-        background-color: #36424d; }
     #masthead #admin ul#projects,     #masthead .admin_section ul#projects,     #masthead .panel ul#projects {
       float: left;
       width: 100%; }
@@ -319,20 +310,19 @@ table {
           padding: 2px 0;
           font-size: 11px;
           color: #727e89; }
-
-#new_project_form {
-  display: block;
-  padding: 0 0 7px;
-  margin: 0 0 0;
-  display: inline-block; }
-  #new_project_form:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-  * html #new_project_form {
-    height: 1px; }
+    #masthead #admin #new_project_form,     #masthead .admin_section #new_project_form,     #masthead .panel #new_project_form {
+      display: block;
+      padding: 0 0 7px;
+      margin: 0 0 0;
+      display: inline-block; }
+      #masthead #admin #new_project_form:after,       #masthead .admin_section #new_project_form:after,       #masthead .panel #new_project_form:after {
+        content: ".";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden; }
+      * html #masthead #admin #new_project_form,       * html #masthead .admin_section #new_project_form,       * html #masthead .panel #new_project_form {
+        height: 1px; }
 
 ul.ribbon {
   float: left;
@@ -599,7 +589,7 @@ a.at_tag {
     height: 1px; }
   #page h5.label {
     float: left;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     height: 23px;
     font-size: 11px;
     font-weight: bold;
@@ -631,3 +621,7 @@ a.at_tag {
     color: #fff; }
   #page.workspace h1.name {
     text-transform: capitalize; }
+    #page.workspace h1.name span.sub {
+      padding-left: 5px;
+      font-size: 12px;
+      color: #8c99a4; }

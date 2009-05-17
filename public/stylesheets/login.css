@@ -112,15 +112,13 @@ table {
       font-size: 12px;
       color: #6a675c; }
 
-#admin form {
+.panel form {
   width: auto;
   background-color: transparent; }
-  #admin form input.text {
+  .panel form input.text {
     width: 190px;
     padding: 3px;
-    border: none;
-    border-right: 1px solid #2b363f;
-    border-bottom: 1px solid #2b363f;
+    border: 1px solid #3a454e;
     font-size: 12px;
     font-family: "Helvetica", Arial;
     font-weight: bold;

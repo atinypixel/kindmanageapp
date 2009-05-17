@@ -2,7 +2,9 @@ class Account < ActiveRecord::Base
   
   authenticates_many :user_sessions
   
-  has_many :users
-  has_many :projects
-  has_many :workspaces
+  has_many :users, :uniq => true
+  has_many :projects, :uniq => true
+  has_many :workspaces, :uniq => true
+  has_many :entries, :uniq => true
+  has_many :collections, :uniq => true
 end

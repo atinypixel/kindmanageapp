@@ -7,7 +7,7 @@ $(document).ready(function(){
     $(this).parent().addClass('on'); //Set parent of clicked link class to active
     var currentTab = $(this).attr('href'); // Set currentTab to value of href attribute
     $('#masthead div.panel').hide(); // Hide all divs
-    $(currentTab).blindDown(200); // Show div with id equal to variable currentTab
+    $(currentTab).show(); // Show div with id equal to variable currentTab
     return false;
   });
 });

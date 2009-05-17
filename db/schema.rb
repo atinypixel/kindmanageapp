@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090502085212) do
+ActiveRecord::Schema.define(:version => 20090516195831) do
 
   create_table "accounts", :force => true do |t|
     t.string   "subdomain"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20090502085212) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   create_table "comments", :force => true do |t|
@@ -70,6 +71,7 @@ ActiveRecord::Schema.define(:version => 20090502085212) do
     t.datetime "updated_at"
     t.integer  "account_id"
     t.string   "user_id"
+    t.boolean  "scope_workspaces"
   end
 
   create_table "types", :force => true do |t|
@@ -95,11 +97,11 @@ ActiveRecord::Schema.define(:version => 20090502085212) do
 
   create_table "workspaces", :force => true do |t|
     t.string   "name"
-    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "account_id"
     t.integer  "user_id"
+    t.integer  "project_id"
   end
 
   create_table "workspaces_entries", :force => true do |t|

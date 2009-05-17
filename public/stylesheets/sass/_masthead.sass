@@ -1,7 +1,7 @@
 #masthead
   +cf
   :width 750px
-  :padding 5px 20px 5px
+  :padding 5px 20px 4px
   :margin 10px -5px 5px
   :background-color = !dark_blue -5
   :border-bottom = 1px dashed (!dark_blue -10)
@@ -11,6 +11,7 @@
   #logo_text
     +support_hover
     :float left
+    :margin-top 1px
     :padding-right 8px
     / :margin-right 4px
     :font-size 16px
@@ -34,9 +35,9 @@
       :top -5px
       :float left
       :display inline
-      :margin-right 8px
+      :margin-right 5px
       :padding 7px 10px 8px
-      :font-size 12px
+      :font-size 13px
       :font-weight normal
       :font-family "Helvetica", Arial
       :background-color = !dark_blue -10
@@ -53,13 +54,13 @@
         :display none
         :float left
         :margin-left 6px
-        :margin-top 1px
+        :margin-top 2px
         :font-size 10px
         :text-decoration none
         
       &.on
         :background-color = !dark_blue -25
-        :padding-bottom 12px
+        :padding-bottom 13px
         a
           :color #fff
           :font-weight bold
@@ -92,21 +93,12 @@
     +cf
     :width 720px
     :padding 10px 15px
-    :margin -5px 0px 15px
+    :margin -6px 0px 15px
     :background-color = !dark_blue -25
     :font-size 12px
     h3
       :color = !light_blue
       :margin-bottom 10px
-    .close_admin
-      / :float right
-      :margin-top 0px
-      :font-size 9px
-      a
-        :padding 1px 4px
-        :color = !dark_blue +50
-        :text-decoration none
-        :background-color = !dark_blue -40
     ul#projects
       :float left
       :width 100%
@@ -134,8 +126,9 @@
           :padding 2px 0
           :font-size 11px
           :color = !dark_blue +20
-#new_project_form
-  :display block
-  :padding 0 0 7px
-  :margin 0 0 0
-  +cf
+
+    #new_project_form
+      :display block
+      :padding 0 0 7px
+      :margin 0 0 0
+      +cf
