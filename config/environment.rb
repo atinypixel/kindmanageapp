@@ -50,5 +50,12 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
+  
+  
+  if RAILS_ENV != 'test'
+    email_settings = YAML::load(File.open("#{RAILS_ROOT}/config/email.yml"))
+    ActionMailer::Base.smtp_settings = email_settings[RAILS_ENV] unless email_settings[RAILS_ENV].nil?
+  end
+  
 end
 
