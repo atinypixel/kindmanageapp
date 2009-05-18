@@ -8,6 +8,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
   
+  
   config.gem "haml"
   config.gem "acts_as_markup"
   # config.gem "authlogic"

@@ -2,14 +2,11 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  
-  include Kind
-  
-  helper :all
-  # helper_method :current_user_session, :current_user
-  filter_parameter_logging :password, :password_confirmation
-  
-  
+  include Certify::Controller
+  # include Certify::Controller
+  # helper :all # include all helpers, all the time
+  protect_from_forgery # See ActionController::RequestForgeryProtection for details
+
+  # Scrub sensitive parameters from your log
+  # filter_parameter_logging :password
 end
-
-

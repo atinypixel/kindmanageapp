@@ -6,10 +6,5 @@ class Account < ActiveRecord::Base
   has_many :projects, :uniq => true
   has_many :workspaces, :uniq => true
   has_many :entries, :uniq => true
-  has_many :collections, :uniq => true
-  
-  def subdomain
-    self.name || nil
-  end
-  
+  has_many :collections, :uniq => true  
 end

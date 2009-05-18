@@ -1,4 +1,5 @@
-encryption_key: 6dfe03c4a624d38d562d7b8fc848a2ae4
+root_domain: kindmanage.dev
+encryption_key: a8fe06b251001f09ce04861fe9a8142a9
 emails:
   password_change:
     from: no-reply@<host>
