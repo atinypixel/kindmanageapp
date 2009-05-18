@@ -11,6 +11,6 @@
       =workspace_list_for(current_account)
       
     #workspace_context_mine{:style => "display:none;"}
-      =workspace_list_for(current_user)
+      =workspace_list_for(current_user) if current_user
     #workspace_context_project_only{:style => "display:none;"}    
     

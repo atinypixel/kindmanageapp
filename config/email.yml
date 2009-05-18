@@ -1,0 +1,7 @@
+development:
+  :address: smtp.gmail.com
+  :port: 587
+  :domain: makingme@gmail.com
+  :authentication: plain
+  :user_name: makingme@gmail.com
+  :password: Make5866

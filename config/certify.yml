@@ -1,8 +1,0 @@
-encryption_key: 6dfe03c4a624d38d562d7b8fc848a2ae4
-emails:
-  password_change:
-    from: no-reply@<host>
-    subject: Password Change
-  registration:
-    from: no-reply@<host>
-    subject: Registration

@@ -260,7 +260,7 @@ table {
   #masthead #admin, #masthead .admin_section, #masthead .panel {
     display: inline-block;
     width: 720px;
-    padding: 10px 15px;
+    padding: 15px 15px 10px;
     margin: -6px 0px 15px;
     background-color: #45515c;
     font-size: 12px; }
