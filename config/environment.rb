@@ -10,13 +10,10 @@ Rails::Initializer.run do |config|
   
   config.gem "haml"
   config.gem "acts_as_markup"
-  config.gem "authlogic"
+  # config.gem "authlogic"
   # config.gem "rdiscount"
   # config.gem "resourcelogic"
-  
-  # Sass::Plugin.options[:style] = :compact
-  # Sass::Plugin.options[:load_paths] = RAILS_ROOT + "/public/design/stylesheets"
-  
+    
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
   # -- all .rb files in that directory are automatically loaded.
@@ -52,10 +49,11 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
   
   
-  if RAILS_ENV != 'test'
-    email_settings = YAML::load(File.open("#{RAILS_ROOT}/config/email.yml"))
-    ActionMailer::Base.smtp_settings = email_settings[RAILS_ENV] unless email_settings[RAILS_ENV].nil?
-  end
   
+end
+
+if RAILS_ENV != 'test'
+  email_settings = YAML::load(File.open("#{RAILS_ROOT}/config/email.yml"))
+  ActionMailer::Base.smtp_settings = email_settings[RAILS_ENV] unless email_settings[RAILS_ENV].nil?
 end
 

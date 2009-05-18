@@ -9,18 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090516195831) do
+ActiveRecord::Schema.define(:version => 20090517235536) do
 
   create_table "accounts", :force => true do |t|
-    t.string   "subdomain"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name",      :limit => 100, :null => false
+    t.string "api_token", :limit => 32
   end
+
+  add_index "accounts", ["name"], :name => "index_accounts_on_name"
 
   create_table "collections", :force => true do |t|
     t.integer  "entry_id"
     t.integer  "workspace_id"
-    t.integer  "position"
+    t.integer  "position",     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "account_id"
@@ -74,26 +75,36 @@ ActiveRecord::Schema.define(:version => 20090516195831) do
     t.boolean  "scope_workspaces"
   end
 
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
   create_table "types", :force => true do |t|
     t.string "name"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                              :null => false
-    t.string   "crypted_password",                   :null => false
-    t.string   "password_salt",                      :null => false
-    t.string   "persistence_token",                  :null => false
-    t.string   "single_access_token",                :null => false
-    t.string   "perishable_token",                   :null => false
-    t.integer  "login_count",         :default => 0, :null => false
-    t.integer  "failed_login_count",  :default => 0, :null => false
-    t.datetime "last_request_at"
-    t.datetime "current_login_at"
-    t.datetime "last_login_at"
-    t.string   "current_login_ip"
-    t.string   "last_login_ip"
-    t.integer  "accounts_id"
+    t.string   "first_name",                :limit => 16,                  :null => false
+    t.string   "last_name",                 :limit => 16,                  :null => false
+    t.string   "email",                     :limit => 100,                 :null => false
+    t.string   "password",                  :limit => 32,                  :null => false
+    t.integer  "role",                      :limit => 1,   :default => 1,  :null => false
+    t.string   "remember_token",            :limit => 32
+    t.datetime "remember_token_expires_at"
+    t.datetime "deleted_at"
+    t.integer  "account_id"
+    t.string   "salt",                      :limit => 32,  :default => "", :null => false
   end
+
+  add_index "users", ["email", "account_id"], :name => "index_users_on_email_and_account_id", :unique => true
+  add_index "users", ["email", "password", "account_id", "deleted_at"], :name => "index_users_on_email_and_password_and_account_id_and_deleted_at"
+  add_index "users", ["remember_token", "remember_token_expires_at", "account_id", "deleted_at"], :name => "by_remember_token"
 
   create_table "workspaces", :force => true do |t|
     t.string   "name"
