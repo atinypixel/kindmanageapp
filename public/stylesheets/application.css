@@ -166,193 +166,171 @@ table {
     color: #fff;
     background-color: #5e6a75; }
 
-#masthead {
+#admin_tabs {
+  float: left;
+  width: 643px;
+  margin-top: 0; }
+  #admin_tabs li.admin {
+    position: relative;
+    top: -5px;
+    float: left;
+    display: inline;
+    margin-right: 5px;
+    padding: 7px 10px 8px;
+    font-size: 13px;
+    font-weight: normal;
+    font-family: "Helvetica", Arial;
+    background-color: #54606b;
+    display: inline-block; }
+    #admin_tabs li.admin:after {
+      content: ".";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden; }
+    * html #admin_tabs li.admin {
+      height: 1px; }
+    #admin_tabs li.admin a {
+      float: left;
+      color: #828f9a;
+      text-decoration: none;
+      font-weight: bold; }
+      #admin_tabs li.admin a:hover {
+        color: #fff; }
+    #admin_tabs li.admin a.close_admin {
+      display: none;
+      float: left;
+      margin-left: 6px;
+      margin-top: 2px;
+      font-size: 10px;
+      text-decoration: none; }
+    #admin_tabs li.admin.on {
+      background-color: #45515c;
+      padding-bottom: 13px; }
+      #admin_tabs li.admin.on a {
+        color: #fff;
+        font-weight: bold; }
+      #admin_tabs li.admin.on .close_admin {
+        display: inline; }
+        #admin_tabs li.admin.on .close_admin a {
+          color: #909ca7; }
+
+.panel #workspaces .context, .panel #projects .context {
+  float: left;
+  width: 100%; }
+.panel #workspaces ul, .panel #projects ul {
   display: inline-block;
-  width: 750px;
-  padding: 5px 20px 4px;
-  margin: 10px -5px 5px;
-  background-color: #596570;
-  border-bottom: 1px dashed #54606b;
-  /* ---------------------------------------------------------------- =Logo_text */
-  /* ---------------------------------------------------------------- = Navigation */
-  /* ---------------------------------------------------------------- =Admin */ }
-  #masthead:after {
+  margin-bottom: 15px; }
+  .panel #workspaces ul:after,   .panel #projects ul:after {
     content: ".";
     display: block;
     height: 0;
     clear: both;
     visibility: hidden; }
-  * html #masthead {
+  * html .panel #workspaces ul,   * html .panel #projects ul {
     height: 1px; }
-  #masthead #logo_text {
-    _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit');
+  .panel #workspaces ul li.nav,   .panel #projects ul li.nav {
+    margin-right: 12px;
     float: left;
-    margin-top: 1px;
-    padding-right: 8px;
-    font-size: 16px;
-    font-weight: bold; }
-    #masthead #logo_text a {
-      color: #a3aeb7;
-      text-decoration: none; }
-    #masthead #logo_text.hover a,     #masthead #logo_text:hover a {
-      color: #fff; }
-  #masthead ul#navigation, #masthead #admin_tabs {
-    float: left;
-    width: 643px;
-    margin-top: 0; }
-    #masthead ul#navigation li.admin,     #masthead #admin_tabs li.admin {
-      position: relative;
-      top: -5px;
-      float: left;
-      display: inline;
-      margin-right: 5px;
-      padding: 7px 10px 8px;
-      font-size: 13px;
-      font-weight: normal;
-      font-family: "Helvetica", Arial;
-      background-color: #54606b;
-      display: inline-block; }
-      #masthead ul#navigation li.admin:after,       #masthead #admin_tabs li.admin:after {
-        content: ".";
-        display: block;
-        height: 0;
-        clear: both;
-        visibility: hidden; }
-      * html #masthead ul#navigation li.admin,       * html #masthead #admin_tabs li.admin {
-        height: 1px; }
-      #masthead ul#navigation li.admin a,       #masthead #admin_tabs li.admin a {
-        float: left;
-        color: #828f9a;
-        text-decoration: none;
-        font-weight: bold; }
-        #masthead ul#navigation li.admin a:hover,         #masthead #admin_tabs li.admin a:hover {
-          color: #fff; }
-      #masthead ul#navigation li.admin a.close_admin,       #masthead #admin_tabs li.admin a.close_admin {
-        display: none;
-        float: left;
-        margin-left: 6px;
-        margin-top: 2px;
-        font-size: 10px;
-        text-decoration: none; }
-      #masthead ul#navigation li.admin.on,       #masthead #admin_tabs li.admin.on {
-        background-color: #45515c;
-        padding-bottom: 13px; }
-        #masthead ul#navigation li.admin.on a,         #masthead #admin_tabs li.admin.on a {
-          color: #fff;
-          font-weight: bold; }
-        #masthead ul#navigation li.admin.on .close_admin,         #masthead #admin_tabs li.admin.on .close_admin {
-          display: inline; }
-          #masthead ul#navigation li.admin.on .close_admin a,           #masthead #admin_tabs li.admin.on .close_admin a {
-            color: #909ca7; }
-    #masthead ul#navigation li#nav_account,     #masthead #admin_tabs li#nav_account {
-      float: right; }
-      #masthead ul#navigation li#nav_account ul li,       #masthead #admin_tabs li#nav_account ul li {
-        float: left;
-        margin-left: 15px; }
-        #masthead ul#navigation li#nav_account ul li a,         #masthead #admin_tabs li#nav_account ul li a {
-          display: inline;
-          font-size: 12px;
-          font-weight: bold;
-          color: #828f9a;
-          text-decoration: none; }
-          #masthead ul#navigation li#nav_account ul li a:hover,           #masthead #admin_tabs li#nav_account ul li a:hover {
-            color: #fff; }
-  #masthead #admin, #masthead .admin_section, #masthead .panel {
+    font-weight: bold;
+    font-size: 14px; }
+    .panel #workspaces ul li.nav a,     .panel #projects ul li.nav a {
+      color: #6e7b86; }
+  .panel #workspaces ul li.on a,   .panel #projects ul li.on a {
+    color: #fff;
+    text-decoration: none !important; }
+
+#admin {
+  display: inline-block;
+  width: 750px;
+  padding: 5px 20px 4px;
+  margin: 10px -5px 5px;
+  background-color: #596570;
+  border-bottom: 1px dashed #54606b; }
+  #admin:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html #admin {
+    height: 1px; }
+  #admin .panel {
     display: inline-block;
     width: 720px;
     padding: 15px 15px 10px;
     margin: -6px 0px 15px;
     background-color: #45515c;
     font-size: 12px; }
-    #masthead #admin:after,     #masthead .admin_section:after,     #masthead .panel:after {
+    #admin .panel:after {
       content: ".";
       display: block;
       height: 0;
       clear: both;
       visibility: hidden; }
-    * html #masthead #admin,     * html #masthead .admin_section,     * html #masthead .panel {
+    * html #admin .panel {
       height: 1px; }
-    #masthead #admin h3,     #masthead .admin_section h3,     #masthead .panel h3 {
+    #admin .panel h3 {
       color: #eef5f7;
       margin-bottom: 10px; }
-    #masthead #admin ul#projects,     #masthead .admin_section ul#projects,     #masthead .panel ul#projects {
+    #admin .panel #workspaces .context,     #admin .panel #projects .context {
       float: left;
       width: 100%; }
-      #masthead #admin ul#projects li.project,       #masthead .admin_section ul#projects li.project,       #masthead .panel ul#projects li.project {
+    #admin .panel #workspaces li.workspace {
+      _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit');
+      float: left;
+      margin: 0 5px 5px 0;
+      padding: 5px 8px;
+      font-weight: bold;
+      background-color: #4e5b67; }
+      #admin .panel #workspaces li.workspace a {
+        color: #b9c5d0; }
+      #admin .panel #workspaces li.workspace span.name, #admin .panel #workspaces li.workspace span.has_project {
+        float: left; }
+      #admin .panel #workspaces li.workspace span.has_project {
+        position: relative;
+        top: 4px;
+        margin-right: 5px;
+        font-size: 16px;
+        line-height: 12px;
+        color: #8c9dac; }
+      #admin .panel #workspaces li.workspace:hover, #admin .panel #workspaces li.workspace.hover {
+        background: #3c4955; }
+    #admin .panel #projects ul.projects {
+      float: left;
+      width: 100%; }
+      #admin .panel #projects ul.projects li.project {
         display: inline-block;
         width: 100%;
-        padding: 0 0 7px;
-        margin: 0 0 7px;
+        padding: 0 0 6px;
+        margin: 0 0 6px;
         border-bottom: 1px dashed #596570; }
-        #masthead #admin ul#projects li.project:after,         #masthead .admin_section ul#projects li.project:after,         #masthead .panel ul#projects li.project:after {
+        #admin .panel #projects ul.projects li.project:after {
           content: ".";
           display: block;
           height: 0;
           clear: both;
           visibility: hidden; }
-        * html #masthead #admin ul#projects li.project,         * html #masthead .admin_section ul#projects li.project,         * html #masthead .panel ul#projects li.project {
+        * html #admin .panel #projects ul.projects li.project {
           height: 1px; }
-        #masthead #admin ul#projects li.project .name,         #masthead .admin_section ul#projects li.project .name,         #masthead .panel ul#projects li.project .name {
-          width: 350px;
+        #admin .panel #projects ul.projects li.project .name {
+          width: 300px;
           float: left; }
-          #masthead #admin ul#projects li.project .name a,           #masthead .admin_section ul#projects li.project .name a,           #masthead .panel ul#projects li.project .name a {
+          #admin .panel #projects ul.projects li.project .name a {
             color: #a0adb8;
             font-weight: bold;
             text-decoration: none; }
-            #masthead #admin ul#projects li.project .name a:hover,             #masthead .admin_section ul#projects li.project .name a:hover,             #masthead .panel ul#projects li.project .name a:hover {
+            #admin .panel #projects ul.projects li.project .name a:hover {
               color: #fff; }
-          #masthead #admin ul#projects li.project .name a.destroy,           #masthead .admin_section ul#projects li.project .name a.destroy,           #masthead .panel ul#projects li.project .name a.destroy {
+          #admin .panel #projects ul.projects li.project .name a.destroy {
             margin-right: 3px;
             position: relative;
             top: 2px; }
-        #masthead #admin ul#projects li.project .meta,         #masthead .admin_section ul#projects li.project .meta,         #masthead .panel ul#projects li.project .meta {
+        #admin .panel #projects ul.projects li.project .meta {
           float: left;
           padding: 2px 0;
           font-size: 11px;
           color: #727e89; }
-    #masthead #admin ul#workspaces,     #masthead .admin_section ul#workspaces,     #masthead .panel ul#workspaces {
-      display: inline-block; }
-      #masthead #admin ul#workspaces:after,       #masthead .admin_section ul#workspaces:after,       #masthead .panel ul#workspaces:after {
-        content: ".";
-        display: block;
-        height: 0;
-        clear: both;
-        visibility: hidden; }
-      * html #masthead #admin ul#workspaces,       * html #masthead .admin_section ul#workspaces,       * html #masthead .panel ul#workspaces {
-        height: 1px; }
-      #masthead #admin ul#workspaces li.workspace,       #masthead .admin_section ul#workspaces li.workspace,       #masthead .panel ul#workspaces li.workspace {
-        _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit');
-        float: left;
-        margin: 0 5px 5px 0;
-        padding: 5px 8px;
-        font-weight: bold;
-        background-color: #4e5b67; }
-        #masthead #admin ul#workspaces li.workspace a,         #masthead .admin_section ul#workspaces li.workspace a,         #masthead .panel ul#workspaces li.workspace a {
-          color: #b9c5d0; }
-        #masthead #admin ul#workspaces li.workspace span.name, #masthead #admin ul#workspaces li.workspace span.has_project,         #masthead .admin_section ul#workspaces li.workspace span.name, #masthead .admin_section ul#workspaces li.workspace span.has_project,         #masthead .panel ul#workspaces li.workspace span.name, #masthead .panel ul#workspaces li.workspace span.has_project {
-          float: left; }
-        #masthead #admin ul#workspaces li.workspace span.has_project,         #masthead .admin_section ul#workspaces li.workspace span.has_project,         #masthead .panel ul#workspaces li.workspace span.has_project {
-          position: relative;
-          top: 4px;
-          margin-right: 5px;
-          font-size: 16px;
-          line-height: 12px;
-          color: #8c9dac; }
-        #masthead #admin ul#workspaces li.workspace:hover, #masthead #admin ul#workspaces li.workspace.hover,         #masthead .admin_section ul#workspaces li.workspace:hover, #masthead .admin_section ul#workspaces li.workspace.hover,         #masthead .panel ul#workspaces li.workspace:hover, #masthead .panel ul#workspaces li.workspace.hover {
-          background: #3c4955; }
-    #masthead #admin #new_project_form,     #masthead .admin_section #new_project_form,     #masthead .panel #new_project_form {
-      display: block;
-      padding: 0 0 7px;
-      margin: 0 0 0;
-      display: inline-block; }
-      #masthead #admin #new_project_form:after,       #masthead .admin_section #new_project_form:after,       #masthead .panel #new_project_form:after {
-        content: ".";
-        display: block;
-        height: 0;
-        clear: both;
-        visibility: hidden; }
-      * html #masthead #admin #new_project_form,       * html #masthead .admin_section #new_project_form,       * html #masthead .panel #new_project_form {
-        height: 1px; }
 
 ul.ribbon {
   float: left;

@@ -1,0 +1,78 @@
+@import _colors.sass
+@import _tabs.sass
+
+#admin
+  +cf
+  :width 750px
+  :padding 5px 20px 4px
+  :margin 10px -5px 5px
+  :background-color = !dark_blue -5
+  :border-bottom = 1px dashed (!dark_blue -10)
+  .panel
+    +cf
+    :width 720px
+    :padding 15px 15px 10px
+    :margin -6px 0px 15px
+    :background-color = !dark_blue -25
+    :font-size 12px
+    h3
+      :color = !light_blue
+      :margin-bottom 10px
+
+    #workspaces, #projects
+      .context
+        :float left
+        :width 100%
+      
+    
+
+    #workspaces
+      li.workspace
+        +support_hover
+        :float left
+        :margin 0 5px 5px 0
+        :padding 5px 8px
+        :font-weight bold
+        :background-color #4e5b67
+        a
+          :color #b9c5d0
+        span.name, span.has_project
+          :float left
+        span.has_project
+          :position relative
+          :top 4px
+          :margin-right 5px
+          :font-size 16px
+          :line-height 12px
+          :color #8c9dac
+        &:hover, &.hover
+          :background = #4e5b67 -18
+
+    #projects
+      ul.projects
+        :float left
+        :width 100%
+        li.project
+          +cf
+          :width 100%
+          :padding 0 0 6px
+          :margin 0 0 6px
+          :border-bottom = 1px dashed (!dark_blue -5)
+          .name
+            :width 300px
+            :float left
+            a
+              :color = !blue +50
+              :font-weight bold
+              :text-decoration none
+              &:hover
+                :color #fff
+            a.destroy
+              :margin-right 3px
+              :position relative
+              :top 2px
+          .meta
+            :float left
+            :padding 2px 0
+            :font-size 11px
+            :color = !dark_blue +20

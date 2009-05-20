@@ -1,23 +1,22 @@
-#masthead
+#admin
   / %span#logo_text=link_to @current_account.name, "/"
   / %span#logo_text=link_to "Kindmanage", root_url
   
   #admin_tabs
     %ul
-      -if current_account
-        %li.admin
-          =link_to "Projects", "#project_chooser", :class => "nav"
-          =close_admin_link
-        %li#workspace_link.admin
-          =link_to "Workspaces", "#workspace_chooser", :class => "nav"
-          =close_admin_link
-        %li.admin
-          %a{:href => "#"} People
+      %li.admin
+        =link_to "Projects", "#project_chooser", :class => "nav"
+        =close_admin_link
+      %li#workspace_link.admin
+        =link_to "Workspaces", "#workspace_chooser", :class => "nav"
+        =close_admin_link
+      %li.admin
+        %a{:href => "#"} People
           
   .clear
   
   #project_chooser.panel{:style => "display: none;"}
-    =render :partial => "projects/projects"
+    =render :partial => "projects/projects", :locals => {:project_in_view => project_in_view}
   #workspace_chooser.panel{:style => "display: none;"}
     =render :partial => "workspaces/workspaces"
   

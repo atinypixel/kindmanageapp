@@ -24,20 +24,16 @@ class Entry < ActiveRecord::Base
     def process_workspaces
       if at_tags?
         at_tags.each do |at_tag|
-          # Create or find a workspace based on hash tag (@tags are translated into workspaces)
           workspace = new_or_existing_workspace(at_tag)
           unless collection_exists_for_at_tag?(workspace)
-            # Collect entry inside a workspace if collection doesn't already exist
             workspace.collections.create(:entry => self, :account => self.account)
           else
-            # Remove collection if no matching @tag
             self.collections.each do |c|
               c.destroy unless at_tags.include?(c.workspace.name)
             end
           end
         end
       else
-        # If there are absolutely no @tags, remove collections
         at_tags = " "
         self.collections.each do |c|
           c.destroy unless at_tags.include?(c.workspace.name)

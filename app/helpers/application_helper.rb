@@ -12,9 +12,53 @@ module ApplicationHelper
     object.new_record? ? "new" : "edit"
   end
   
+  def switch_admin_context_link(object)
+    
+  end
+  
+  def workspace_list_for(object, context=nil)
+    context = context.to_s
+    workspaces = context == "project" ? object.workspaces.scoped_by_project : object.workspaces
+    haml_tag :ul, :class => "workspaces" do
+      workspaces.each do |workspace|
+        workspace_path = workspace.project ? project_workspace_path(workspace.project, workspace.name) : workspace_path(workspace.name)
+        haml_tag :li, :id => "workspace_#{workspace.id}#{"_" + context if context}", :class => "workspace" do
+          haml_tag :a, :href => workspace_path do
+            if workspace.project
+              haml_tag :span, :class => "has_project" do
+                puts "*"
+              end # span.has_project
+            end
+            haml_tag :span, :class => "name" do
+              puts workspace.name
+            end # span.name
+          end # anchor
+        end # list_item
+      end # workspaces.each do |workspace|
+    end # ul.workspaces
+  end
+  
+  def project_list_for(object, project_in_view, context=nil)
+    context = context.to_s
+    projects ||= object.projects
+    haml_tag :ul, :class => "projects" do
+      projects.each do |project|
+        haml_tag :li, :id => "project_#{project.id}#{"_" + context if context}", :class => "project #{'hide' if project_in_view == project.id.to_s}" do
+          haml_tag :span, :class => "name" do
+            puts delete_project_link(project)
+            puts link_to project.name, project_path(project)
+          end # span.name
+          haml_tag :span, :class => "meta" do
+            puts "#{pluralize(project.number_of_entries_for("notes"), "note")} and #{pluralize(project.number_of_entries_for("tasks"), "task")}"
+          end
+        end
+      end
+    end
+  end
+  
   def close_admin_link
     link_to_function image_tag("close_admin.gif"), :class => "close_admin" do |page|
-      page << "$('#masthead div.panel').hide();"
+      page << "$('#admin div.panel').hide();"
       page << "$(this).parent().removeClass('on');"
     end
   end
@@ -34,26 +78,6 @@ module ApplicationHelper
     end
   end
   
-  def workspace_list_for(object)
-    workspaces ||= object.workspaces.scoped_by_project
-    haml_tag :ul, :id => "workspaces" do
-      workspaces.each do |workspace|
-        workspace_path = workspace.project ? project_workspace_path(workspace.project, workspace.name) : workspace_path(workspace.name)
-        haml_tag :li, :id => "workspace_#{workspace.id}", :class => "workspace" do
-          haml_tag :a, :href => workspace_path do
-            if workspace.project
-              haml_tag :span, :class => "has_project" do
-                puts "*"
-              end # span.has_project
-            end
-            haml_tag :span, :class => "name" do
-              puts workspace.name
-            end # span.name
-          end # anchor
-        end # li.workspace#workspace_00
-      end
-    end # ul#workspaces
-  end
   
   def page_label(label, name)
     
