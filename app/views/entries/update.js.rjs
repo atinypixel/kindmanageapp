@@ -9,5 +9,5 @@ when "entry"
   page.replace_html "for_single_entry", :partial => "entries/entry", :locals => {:entry => @entry, :project => @project, :standalone => true} 
   page.visual_effect :highlight, "entry_#{@entry.id}"
 end
-page.remove "#{@entry.type.name}_entry_form"
+page.remove "#{@entry.content_type_name}_entry_form"
 page.hide "entry_form"

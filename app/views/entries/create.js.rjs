@@ -4,7 +4,7 @@ if @entry.errors.empty?
   page.delay(0.5) {
     page.visual_effect :highlight, "entry_#{@entry.id}"
   }
-  page["##{@entry.data_type_name}_entry_form"].reset
+  page["##{@entry.content_type_name}_entry_form"].reset
   page.hide "entry_form"
   page.replace_html "notice", flash[:notice]
   page << "$('#notice').attr('class', 'success');"

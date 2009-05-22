@@ -1,6 +1,6 @@
 %ul#create_entry.ribbon
   %li.create_label &nbsp;
-  -entry_data_types.each do |type|
-    %li=link_to_remote "<span>#{type.capitalize}</span>", :url => new_project_entry_path(@project, :type => type, :single_entry => false), :method => :get
+  -entry_content_types.each do |content_type|
+    %li=link_to_remote "<span>#{content_type.capitalize}</span>", :url => new_project_entry_path(@project, :content_type => content_type, :single_entry => false), :method => :get
   %li.hide=link_to "<span>Upload</span>", "#"
     

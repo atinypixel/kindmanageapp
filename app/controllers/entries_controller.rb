@@ -8,12 +8,12 @@ class EntriesController < ApplicationController
     end
     
     before :new do
-      @type = params[:type]
-      @entry.send("build_#{@type}")
+      @content_type = params[:content_type]
+      @entry.send("build_#{@content_type}")
     end
         
     before :create do
-      @type = @entry.data_type_name
+      @content_type = @entry.content_type_name
       @entry.account = current_account
       @project = @entry.project
       @entries = @project.entries
@@ -25,7 +25,7 @@ class EntriesController < ApplicationController
     
     before :edit do
       @context = params[:context]
-      @type = params[:type]
+      @content_type = params[:content_type]
     end
       
     before :update, :destroy do

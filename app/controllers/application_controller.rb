@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   include Kind::Controller
   helper :all
-  helper_method :project_in_view, :entry_data_types
+  helper_method :project_in_view, :entry_content_types
   filter_parameter_logging :password, :password_confirmation
   
   def project_in_view(project_id=nil)
@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def entry_data_types
+  def entry_content_types
     ["task", "note", "upload"]
   end
   

@@ -74,7 +74,7 @@ module ApplicationHelper
       if ws
         %{<a href="#{ws.project ? project_path(ws.project) : ''}/workspaces/#{$1}" class="at_tag"><span class="at_symbol">@</span><span>#{$1}</span></a>}
       else
-        %{<a href="#" title="THIS WORKSPACE HAS BEEN REMOVED, MODIFIED OR DOESN'T EXIST" class="at_tag invalid_at_tag"><span class="at_symbol">@</span><span>#{$1}</span></a>}
+        %{<a href="#" onclick="return false;" title="This workspace doesn't exist or has been removed" class="at_tag invalid_at_tag"><span class="at_symbol">@</span><span>#{$1}</span></a>}
       end
     end
   end

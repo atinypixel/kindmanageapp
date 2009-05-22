@@ -1,17 +1,17 @@
--unless entry.data.nil?
+-unless entry.content.nil?
   %a{:id => "entry_marker_#{entry.id}"}
-  .entry{:class => entry.data_type_name, :id  => "entry_#{entry.id}"}
+  .entry{:class => entry.content_type_name, :id  => "entry_#{entry.id}"}
 
     / label
     %ul.type
       %li.label
         %span
-          =entry.data_type_name
+          =entry.content_type_name
 
     / content + meta    
     .content
       .body
-        =render :partial => "entries/#{entry.data_type_name}", :locals => {:entry => entry.data}
+        =render :partial => "entries/#{entry.content_type_name}", :locals => {:entry => entry.content}
       .meta
         %span.created_at="#{time_ago_in_words(entry.created_at)} ago"
         -if standalone || @workspace && !@workspace.project
@@ -27,7 +27,7 @@
           |
           =link_to "Add to queue", "#"
         -if standalone
-          =link_to_remote "Edit", :url => edit_project_entry_path(project, entry, :type => entry.data_type_name, :context => "#{standalone ? 'entry' : 'project'}"), :method => :get
+          =link_to_remote "Edit", :url => edit_project_entry_path(project, entry, :content_type => entry.content_type_name, :context => "#{standalone ? 'entry' : 'project'}"), :method => :get
           |
           =link_to_remote "Delete", :url => project_entry_path(project, entry, :context => "#{standalone ? 'entry' : 'project'}"), :method => :delete, :confirm => "Are you sure?"
       .group.user

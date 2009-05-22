@@ -535,7 +535,7 @@ a.at_tag {
     color: #000 !important; }
 
 a.invalid_at_tag span {
-  color: #999 !important; }
+  color: #bbb !important; }
 a.invalid_at_tag:hover span {
   color: #666 !important; }
 

@@ -8,7 +8,7 @@
       =link_to @project.name, project_path(@project)
 
 #content
-  =render :partial => "create_ribbon", :locals => {:project => @project, :types => @types}
+  =render :partial => "create_ribbon", :locals => {:project => @project }
   
   #entries
     #notice.clear{:style => "display: none;"}

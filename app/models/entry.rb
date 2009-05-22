@@ -11,27 +11,25 @@ class Entry < ActiveRecord::Base
   
   accepts_nested_attributes_for :task, :note, :upload
   
-  
   # other relationships
   belongs_to :project
   belongs_to :account
   belongs_to :user
   
-  
-  
   # workspace relationships
   has_many :collections, :uniq => true, :dependent => :destroy
   has_many :workspaces, :through => :collections
   
+  # Filter workspaces in and out
   after_save :process_workspaces
   after_update :process_workspaces
   
-  def data_type_name
-    data_model_name = data.class.name || data.class.name || data.class.name
-    data_model_name.downcase
+  def content_type_name
+    content_model_name = content.class.name || content.class.name || content.class.name
+    content_model_name.downcase
   end
 
-  def data
+  def content
     note || task || upload
   end
   
@@ -74,14 +72,14 @@ class Entry < ActiveRecord::Base
     end 
     
     def at_tags
-      body.scan(/@(\w+)/).flatten
+      content_body.scan(/@(\w+)/).flatten
     end
     
     def at_tags?
-      body.scan(/@(\w+)/).length > 0
+      content_body.scan(/@(\w+)/).length > 0
     end
     
-    def body
+    def content_body
       if self.note
         self.note.body
       elsif self.task
