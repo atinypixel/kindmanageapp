@@ -1,5 +1,10 @@
 class Project < ActiveRecord::Base
   has_many :entries, :dependent => :destroy
+  
+  has_many :tasks
+  has_many :notes
+  has_many :upload
+  
   has_many :workspaces, :uniq => true
   belongs_to :account
   

@@ -510,6 +510,9 @@ ul.ribbon {
   margin-bottom: 15px; }
 
 /* ------------------------------------------------------------------- =Basics */
+html {
+  overflow-y: scroll; }
+
 body {
   background-color: #6e7b86;
   text-align: center; }
@@ -530,6 +533,11 @@ a.at_tag {
     color: #a0adb8; }
   a.at_tag:hover {
     color: #000 !important; }
+
+a.invalid_at_tag span {
+  color: #999 !important; }
+a.invalid_at_tag:hover span {
+  color: #666 !important; }
 
 /* ------------------------------------------------------------------- =Skeleton */
 #wrapper {

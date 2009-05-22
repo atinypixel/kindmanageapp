@@ -10,6 +10,11 @@
 @import _dashboard.sass
 
 /*------------------------------------------------------------------- =Basics
+html
+  / :overflow -moz-scrollbars-vertical
+  :overflow-y scroll 
+  / :overflow scroll-vertical
+  
 body  
   :background-color #6e7b86
   :text-align center
@@ -29,6 +34,12 @@ a.at_tag
   
   &:hover
     :color #000 !important
+a.invalid_at_tag
+  span
+    :color #999 !important
+  &:hover span
+    :color #666 !important
+  
     
 
 /*------------------------------------------------------------------- =Skeleton

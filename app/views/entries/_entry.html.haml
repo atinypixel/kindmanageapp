@@ -1,33 +1,34 @@
-%a{:id => "entry_marker_#{entry.id}"}
-.entry{:class => entry.type.name, :id  => "entry_#{entry.id}"}
+-unless entry.data.nil?
+  %a{:id => "entry_marker_#{entry.id}"}
+  .entry{:class => entry.data_type_name, :id  => "entry_#{entry.id}"}
 
-  / label
-  %ul.type
-    %li.label
-      %span
-        =entry.type.name
+    / label
+    %ul.type
+      %li.label
+        %span
+          =entry.data_type_name
 
-  / content + meta    
-  .content
-    .body
-      =render :partial => "entries/#{entry.type.name}", :locals => {:entry => entry}
-    .meta
-      %span.created_at="#{time_ago_in_words(entry.created_at)} ago"
-      -if standalone || @workspace && !@workspace.project
-        %span.project
-          in
-          =link_to entry.project.name, project_path(entry.project)
+    / content + meta    
+    .content
+      .body
+        =render :partial => "entries/#{entry.data_type_name}", :locals => {:entry => entry.data}
+      .meta
+        %span.created_at="#{time_ago_in_words(entry.created_at)} ago"
+        -if standalone || @workspace && !@workspace.project
+          %span.project
+            in
+            =link_to entry.project.name, project_path(entry.project)
   
-  / actionable links + etc
-  .options
-    .group
-      -unless standalone
-        =link_to "Open", project_entry_path(project, entry)
-        |
-        =link_to "Add to queue", "#"
-      -if standalone
-        =link_to_remote "Edit", :url => edit_project_entry_path(project, entry, :type => entry.type, :context => "#{standalone ? 'entry' : 'project'}"), :method => :get
-        |
-        =link_to_remote "Delete", :url => project_entry_path(project, entry, :context => "#{standalone ? 'entry' : 'project'}"), :method => :delete, :confirm => "Are you sure?"
-    .group.user
-      From <strong>You</strong>
+    / actionable links + etc
+    .options
+      .group
+        -unless standalone
+          =link_to "Open", project_entry_path(project, entry)
+          |
+          =link_to "Add to queue", "#"
+        -if standalone
+          =link_to_remote "Edit", :url => edit_project_entry_path(project, entry, :type => entry.data_type_name, :context => "#{standalone ? 'entry' : 'project'}"), :method => :get
+          |
+          =link_to_remote "Delete", :url => project_entry_path(project, entry, :context => "#{standalone ? 'entry' : 'project'}"), :method => :delete, :confirm => "Are you sure?"
+      .group.user
+        From <strong>You</strong>

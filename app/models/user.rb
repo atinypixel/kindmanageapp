@@ -3,7 +3,11 @@ class User < ActiveRecord::Base
   acts_as_authentic
   
   has_one :account
+  
   has_many :entries
+  has_many :tasks, :through => :entries
+  has_many :notes, :through => :entries
+  has_many :uploads, :through => :entries
   
   before_save :create_account
         

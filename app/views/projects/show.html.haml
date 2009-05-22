@@ -11,8 +11,8 @@
   =render :partial => "create_ribbon", :locals => {:project => @project, :types => @types}
   
   #entries
-    #entry_form{:style => "display:none;"}
     #notice.clear{:style => "display: none;"}
+    #entry_form{:style => "display:none;"}
     #for_queue
     #for_project
       -unless @entries.empty?

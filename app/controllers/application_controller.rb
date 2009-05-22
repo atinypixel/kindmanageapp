@@ -2,9 +2,9 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  include Kind
+  include Kind::Controller
   helper :all
-  helper_method :project_in_view
+  helper_method :project_in_view, :entry_data_types
   filter_parameter_logging :password, :password_confirmation
   
   def project_in_view(project_id=nil)
@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     else
       "01"
     end
+  end
+  
+  def entry_data_types
+    ["task", "note", "upload"]
   end
   
 end

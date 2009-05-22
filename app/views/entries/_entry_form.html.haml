@@ -1,8 +1,8 @@
--remote_form_for :entry, @entry, :url => {:action => create_or_update(@entry)}, :html => {:id => "#{type.name}_entry_form", :method => create_or_update(@entry, :choose_method => true) } do |f|
+-remote_form_for :entry, @entry, :url => {:action => create_or_update(@entry)}, :html => {:id => "#{type}_entry_form", :method => create_or_update(@entry, :choose_method => true) } do |f|
 
   %fieldset.options
     %span.legend Options
-    =render :partial => "entries/forms/#{type.name}_options", :locals => {:f => f}
+    =render :partial => "entries/forms/#{type}_options", :locals => {:f => f}
     %div.row.hide
       %label Add to a workspace (optional)
       %select
@@ -10,18 +10,17 @@
         %option Backlog
     
   %fieldset.main
-    %span.legend="#{new_or_edit(@entry)} #{type.name}"
+    =#debug(@entry)
+    .clear
+    %span.legend="#{new_or_edit(@entry)} #{type}"
     
-    =render :partial => "entries/forms/#{type.name}", :locals => {:f => f}
+    =render :partial => "entries/forms/#{type}", :locals => {:f => f}
     
     %div.buttons
-      =f.hidden_field :type_id, :value => type.id
+      / =#f.hidden_field :type_id, :value => type.id
       -if @context
         =hidden_field_tag "context", @context
-      -if @entry.new_record?
-        =hidden_field_tag "add_another", "", :id => "add_another_option"
-      =f.submit "#{create_or_update(@entry).capitalize} #{type.name}"
+      =f.submit "#{create_or_update(@entry).capitalize} #{type}"
       or
-      =link_to_function "Cancel", "$('##{type.name}_entry_form').remove(); $('##{}entry_form').hide();"
+      =link_to_function "Cancel", "$('##{type}_entry_form').remove(); $('#entry_form').hide();"
       / =@context
-  

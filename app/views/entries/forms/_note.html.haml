@@ -1,9 +1,10 @@
-%div.row
-  %label{:for => "entry_note_title"} Title
-  =f.text_field :note_title, :class => "title"
+-f.fields_for :note do |nf|
+  %div.row
+    %label{:for => "entry_note_title"} Title
+    =nf.text_field :title, :class => "title"
 
-%div.row
-  %label{:for => "entry_note_body"}
-    Body
-    %span.help Use markdown for formatting  
-  =f.text_area :note_body, :rows => 6
+  %div.row
+    %label{:for => "entry_note_body"}
+      Body
+      %span.help Use markdown for formatting  
+    =nf.text_area :body, :rows => 6

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090516195831) do
+ActiveRecord::Schema.define(:version => 20090521191949) do
 
   create_table "accounts", :force => true do |t|
     t.string   "subdomain"
@@ -17,10 +17,16 @@ ActiveRecord::Schema.define(:version => 20090516195831) do
     t.datetime "updated_at"
   end
 
+  create_table "assets", :force => true do |t|
+    t.integer  "upload_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "collections", :force => true do |t|
     t.integer  "entry_id"
     t.integer  "workspace_id"
-    t.integer  "position"
+    t.integer  "position",     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "account_id"
@@ -36,21 +42,11 @@ ActiveRecord::Schema.define(:version => 20090516195831) do
   end
 
   create_table "entries", :force => true do |t|
-    t.text     "note_body"
-    t.string   "note_title"
-    t.text     "task_description"
-    t.datetime "task_due_at"
-    t.datetime "task_completed_at"
-    t.integer  "type_id"
     t.integer  "project_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "note_show_title"
-    t.boolean  "task_show_due_at"
     t.integer  "account_id"
     t.integer  "user_id"
-    t.boolean  "in_queue"
-    t.integer  "task_milestone_id"
     t.boolean  "private"
     t.integer  "milestone_id"
   end
@@ -65,17 +61,45 @@ ActiveRecord::Schema.define(:version => 20090516195831) do
     t.integer  "user_id"
   end
 
+  create_table "notes", :force => true do |t|
+  end
+
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "account_id"
     t.string   "user_id"
-    t.boolean  "scope_workspaces"
+    t.boolean  "scope_workspaces", :default => false
+  end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "tasks", :force => true do |t|
+    t.text     "description"
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "types", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "uploads", :force => true do |t|
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
@@ -102,11 +126,6 @@ ActiveRecord::Schema.define(:version => 20090516195831) do
     t.integer  "account_id"
     t.integer  "user_id"
     t.integer  "project_id"
-  end
-
-  create_table "workspaces_entries", :force => true do |t|
-    t.integer "workspace_id"
-    t.integer "entry_id"
   end
 
 end

@@ -1,23 +1,39 @@
 class Entry < ActiveRecord::Base
-  acts_as_markdown :note_body
+  acts_as_markdown :body
   default_scope :order => 'created_at DESC'
   
-  named_scope :notes, :conditions => { :type_id => Type.find_by_name("note") }
-  named_scope :tasks, :conditions => { :type_id => Type.find_by_name("task") }
+  # attr_accessible :body, :title
+    
+  # entry types
+  has_one :task, :dependent => :destroy
+  has_one :note, :dependent => :destroy
+  has_one :upload, :dependent => :destroy
   
+  accepts_nested_attributes_for :task, :note, :upload
+  
+  
+  # other relationships
   belongs_to :project
-  belongs_to :type
   belongs_to :account
+  belongs_to :user
   
+  
+  
+  # workspace relationships
   has_many :collections, :uniq => true, :dependent => :destroy
   has_many :workspaces, :through => :collections
   
-  validates_presence_of :note_body, :note_title, :if => :expected_for_notes?
-  validates_presence_of :task_description, :if => :expected_for_tasks?
-    
-  before_save :scope_to_account
   after_save :process_workspaces
   after_update :process_workspaces
+  
+  def data_type_name
+    data_model_name = data.class.name || data.class.name || data.class.name
+    data_model_name.downcase
+  end
+
+  def data
+    note || task || upload
+  end
   
   private
   
@@ -65,40 +81,13 @@ class Entry < ActiveRecord::Base
       body.scan(/@(\w+)/).length > 0
     end
     
-    def type_by_name(entry_type)
-      Type.find_by_name(entry_type)
-    end
-    
     def body
-      case entry_type
-      when "note"
-        self.note_body
-      when "task"
-        self.task_description
+      if self.note
+        self.note.body
+      elsif self.task
+        self.task.description
+      elsif upload
+        self.upload.description
       end
-    end
-      
-    def scope_to_account
-      self.account_id = self.project.account_id
-    end
-  
-  
-    ######################## Validation-specific methods
-  
-    def expected_for_notes?
-      entry_type.include?("note")
-    end
-    
-    def expected_for_tasks?
-      entry_type.include?("task")
-    end
-  
-    def entry_type
-      self.type.name
-    end
-    
-  
-    def valid_entry_types
-      ["task", "note"]
-    end
+    end    
 end

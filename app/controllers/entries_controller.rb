@@ -8,25 +8,28 @@ class EntriesController < ApplicationController
     end
     
     before :new do
-      @type = Type.find(params[:type])
+      @type = params[:type]
+      @entry.send("build_#{@type}")
     end
         
     before :create do
-      @project = current_object.project
+      @type = @entry.data_type_name
+      @entry.account = current_account
+      @project = @entry.project
       @entries = @project.entries
     end
     
     after :create do
-      flash[:notice] = "#{current_object.type.name.capitalize} has been successfully added to `#{current_object.project.name}`"
+      flash[:notice] = "#{@entry.data_type_name.capitalize} has been successfully added to `#{@entry.project.name}`"
     end
     
     before :edit do
       @context = params[:context]
-      @type = Type.find(params[:type])
+      @type = params[:type]
     end
       
     before :update, :destroy do
-      @project = current_object.project
+      @project = @entry.project
       @entries = @project.entries
       @context = params[:context]
     end

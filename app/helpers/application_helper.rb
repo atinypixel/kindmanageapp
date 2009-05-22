@@ -26,11 +26,11 @@ module ApplicationHelper
           haml_tag :a, :href => workspace_path do
             if workspace.project
               haml_tag :span, :class => "has_project" do
-                puts "*"
+                haml_concat "*"
               end # span.has_project
             end
             haml_tag :span, :class => "name" do
-              puts workspace.name
+              haml_concat workspace.name
             end # span.name
           end # anchor
         end # list_item
@@ -45,12 +45,13 @@ module ApplicationHelper
       projects.each do |project|
         haml_tag :li, :id => "project_#{project.id}#{"_" + context if context}", :class => "project #{'hide' if project_in_view == project.id.to_s}" do
           haml_tag :span, :class => "name" do
-            puts delete_project_link(project)
-            puts link_to project.name, project_path(project)
+            haml_concat delete_project_link(project)
+            haml_concat link_to(project.name, project_path(project))
           end # span.name
-          haml_tag :span, :class => "meta" do
-            puts "#{pluralize(project.number_of_entries_for("notes"), "note")} and #{pluralize(project.number_of_entries_for("tasks"), "task")}"
-          end
+          
+          # haml_tag :span, :class => "meta" do
+          #   puts "#{pluralize(project.number_of_entries_for("notes"), "note")} and #{pluralize(project.number_of_entries_for("tasks"), "task")}"
+          # end
         end
       end
     end
@@ -73,11 +74,10 @@ module ApplicationHelper
       if ws
         %{<a href="#{ws.project ? project_path(ws.project) : ''}/workspaces/#{$1}" class="at_tag"><span class="at_symbol">@</span><span>#{$1}</span></a>}
       else
-        %{<a href="#" title="This workspace has been removed or modified" class="at_tag invalid_at_tag"><span class="at_symbol">@</span><span>#{$1}</span></a>}
+        %{<a href="#" title="THIS WORKSPACE HAS BEEN REMOVED, MODIFIED OR DOESN'T EXIST" class="at_tag invalid_at_tag"><span class="at_symbol">@</span><span>#{$1}</span></a>}
       end
     end
   end
-  
   
   def page_label(label, name)
     
