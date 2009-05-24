@@ -520,12 +520,13 @@ ul.ribbon {
     background-image: url(/images/type_label_right_blue_bg.gif); }
     #entries .task ul.type li.label span,     #entry .task ul.type li.label span {
       background-image: url(/images/type_label_left_blue_bg.gif); }
-  #entries .task .content .body h3,   #entry .task .content .body h3 {
+  #entries .task .content .body .task_title,   #entry .task .content .body .task_title {
     font-size: 16px;
     color: #333;
     margin-bottom: 0;
-    line-height: 19px; }
-    #entries .task .content .body h3 span.due,     #entry .task .content .body h3 span.due {
+    line-height: 19px;
+    font-weight: bold; }
+    #entries .task .content .body .task_title span.due,     #entry .task .content .body .task_title span.due {
       padding-left: 4px;
       font-size: 11px;
       font-weight: bold;
@@ -555,6 +556,10 @@ body {
 
 .clear {
   clear: both; }
+
+.soft_hide {
+  margin: 0;
+  padding: 0; }
 
 /* ------------------------------------------------------------------- =Skeleton */
 #wrapper {
