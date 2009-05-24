@@ -11,7 +11,7 @@
     / content + meta    
     .content
       .body
-        =render :partial => "entries/#{entry.content_type_name}", :locals => {:entry => entry.content}
+        =render :partial => "entries/#{entry.content_type_name}", :locals => {"#{entry.content_type_name}".to_sym => entry.content}
       .meta
         %span.created_at="#{time_ago_in_words(entry.created_at)} ago"
         -if standalone || @workspace && !@workspace.project
@@ -25,10 +25,9 @@
         -unless standalone
           =link_to "Open", project_entry_path(project, entry)
           |
-          =link_to "Add to queue", "#"
+        =link_to_remote "Edit", :url => edit_project_entry_path(entry.project, entry, :content_type => entry.content_type_name, :context => "#{standalone ? 'entry' : 'project'}"), :method => :get
         -if standalone
-          =link_to_remote "Edit", :url => edit_project_entry_path(project, entry, :content_type => entry.content_type_name, :context => "#{standalone ? 'entry' : 'project'}"), :method => :get
           |
-          =link_to_remote "Delete", :url => project_entry_path(project, entry, :context => "#{standalone ? 'entry' : 'project'}"), :method => :delete, :confirm => "Are you sure?"
+          =link_to_remote "Delete", :url => project_entry_path(entry.project, entry, :context => "#{standalone ? 'entry' : 'project'}"), :method => :delete, :confirm => "Are you sure?"
       .group.user
         From <strong>You</strong>

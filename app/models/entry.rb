@@ -20,9 +20,61 @@ class Entry < ActiveRecord::Base
   has_many :collections, :uniq => true, :dependent => :destroy
   has_many :workspaces, :through => :collections
   
-  # Filter workspaces in and out
+  # filter workspaces in and out
   after_save :process_workspaces
   after_update :process_workspaces
+  
+  
+  def process_workspaces
+    if at_tags?
+      at_tags.each do |at_tag|
+        workspace = new_or_existing_workspace(at_tag)
+        unless collection_exists_for_at_tag?(workspace)
+          workspace.collections.create(:entry => self, :account => self.account)
+        else
+          self.collections.each do |c|
+            c.destroy unless at_tags.include?(c.workspace.name)
+          end
+        end
+      end
+    else
+      at_tags = " "
+      self.collections.each do |c|
+        c.destroy unless at_tags.include?(c.workspace.name)
+      end
+    end
+  end
+  
+  def new_or_existing_workspace(at_tag)
+    if self.project.scope_workspaces
+      workspace = Workspace.find_or_create_by_name_and_project_id(at_tag, self.project_id) {|w| w.account = self.account}
+    else
+      workspace = Workspace.find_by_name(at_tag, :conditions => "project_id is null") || Workspace.create(:name => at_tag, :account => self.account)
+    end
+    return workspace
+  end
+  
+  def collection_exists_for_at_tag?(workspace)
+    true if at_tags.include?(workspace.name) && workspace.collections.find_by_entry_id(self.id)
+  end
+  
+  def at_tags
+    content_body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).flatten
+  end
+  
+  def at_tags?
+    content_body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).length > 0
+  end
+  
+  def content_body
+    if self.note
+      self.note.body
+    elsif self.task
+      self.task.description
+    elsif self.upload
+      self.upload.description
+    end
+  end    
   
   def content_type_name
     content_model_name = content.class.name || content.class.name || content.class.name
@@ -33,59 +85,4 @@ class Entry < ActiveRecord::Base
     note || task || upload
   end
   
-  private
-  
-    def process_workspaces
-      if at_tags?
-        at_tags.each do |at_tag|
-          workspace = new_or_existing_workspace(at_tag)
-          unless collection_exists_for_at_tag?(workspace)
-            workspace.collections.create(:entry => self, :account => self.account)
-          else
-            self.collections.each do |c|
-              c.destroy unless at_tags.include?(c.workspace.name)
-            end
-          end
-        end
-      else
-        at_tags = " "
-        self.collections.each do |c|
-          c.destroy unless at_tags.include?(c.workspace.name)
-        end
-      end
-    end
-    
-    def new_or_existing_workspace(at_tag)
-      workspace = Workspace.find_or_create_by_name(at_tag)
-      if workspace.created_at < 5.seconds.ago || workspace.account_id.blank?
-        workspace.account = self.account
-        if self.project.scope_workspaces
-          workspace.project = self.project unless workspace.scoped_by_different_project?(self.project)
-        end
-        workspace.save!
-      end
-      return workspace
-    end
-      
-    def collection_exists_for_at_tag?(workspace)
-      true if at_tags.include?(workspace.name) && workspace.collections.find_by_entry_id(self.id)
-    end 
-    
-    def at_tags
-      content_body.scan(/@(\w+)/).flatten
-    end
-    
-    def at_tags?
-      content_body.scan(/@(\w+)/).length > 0
-    end
-    
-    def content_body
-      if self.note
-        self.note.body
-      elsif self.task
-        self.task.description
-      elsif upload
-        self.upload.description
-      end
-    end    
 end

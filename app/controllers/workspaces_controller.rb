@@ -5,7 +5,7 @@ class WorkspacesController < ApplicationController
   
   private
   
-  def current_object
-    @current_object ||= Workspace.find_by_name(params[:id])
-  end
+  # def current_object
+  #   @current_object ||= Workspace.find_by_id(params[:id])
+  # end
 end

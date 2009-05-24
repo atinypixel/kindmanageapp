@@ -20,7 +20,7 @@ class EntriesController < ApplicationController
     end
     
     after :create do
-      flash[:notice] = "#{@entry.data_type_name.capitalize} has been successfully added to `#{@entry.project.name}`"
+      flash[:notice] = "#{@entry.content_type_name.capitalize} has been successfully added to `#{@entry.project.name}`"
     end
     
     before :edit do

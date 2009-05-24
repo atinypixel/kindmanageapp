@@ -1,4 +1,4 @@
 / content
--unless entry.title.blank?
-  %h3=entry.title
-=highlight_at_tags(entry.body.to_html)
+-unless note.title.blank?
+  %h3=note.title
+=content_with_tags(note.body, note.entry, true, :context => "#{@entry ? 'entry' : 'other'}")

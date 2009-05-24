@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
     p.resources :uploads
     p.resources :workspaces
   end
-  
+  map.resources :collections
   map.resources :workspaces
 
   map.resource :user_session

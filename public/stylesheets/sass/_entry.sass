@@ -66,6 +66,54 @@
           :text-decoration none
           &:hover
             :text-decoration underline
+      ul.workspaces
+        :float left
+        :width 100%
+        :margin-bottom 10px
+        li
+          :float left
+          :margin-right 8px
+          a.remove_collection
+            :position relative
+            :top -1px
+            :margin-right 0
+            :padding 0
+            :padding 1px 3px 0px
+            :color #aaa
+            :font-size 10px
+            :text-decoration none
+            / :text-transform uppercase
+            :background-color #eee
+            :border 1px solid #e0e0e0
+            &:hover
+              :color #fff
+              :background-color #aa0000
+              :border-color #aa0000
+                
+          a.at_tag
+            :display inline
+            / :padding 2px
+            :font-weight bold
+            :font-size 14px
+            :color = !blue
+            :text-decoration none !important
+            .at_symbol
+              :color = !blue +50
+
+            &:hover
+              :color #000 !important
+              .remove_ws
+                :color #fff
+                :background-color #aa0000
+                :border-color #fff
+          a.invalid_at_tag
+            span
+              :color #bbb !important
+            &:hover span
+              :color #666 !important
+        &.task_workspaces
+          :margin-top 5px
+          
           
           
     /*--------------------------------------------------------------- =Entry_options

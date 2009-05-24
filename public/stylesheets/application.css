@@ -453,6 +453,48 @@ ul.ribbon {
           text-decoration: none; }
           #entries .entry .content .meta .project a:hover,           #entry .entry .content .meta .project a:hover {
             text-decoration: underline; }
+      #entries .entry .content ul.workspaces,       #entry .entry .content ul.workspaces {
+        float: left;
+        width: 100%;
+        margin-bottom: 10px; }
+        #entries .entry .content ul.workspaces li,         #entry .entry .content ul.workspaces li {
+          float: left;
+          margin-right: 8px; }
+          #entries .entry .content ul.workspaces li a.remove_collection,           #entry .entry .content ul.workspaces li a.remove_collection {
+            position: relative;
+            top: -1px;
+            margin-right: 0;
+            padding: 0;
+            padding: 1px 3px 0px;
+            color: #aaa;
+            font-size: 10px;
+            text-decoration: none;
+            background-color: #eee;
+            border: 1px solid #e0e0e0; }
+            #entries .entry .content ul.workspaces li a.remove_collection:hover,             #entry .entry .content ul.workspaces li a.remove_collection:hover {
+              color: #fff;
+              background-color: #aa0000;
+              border-color: #aa0000; }
+          #entries .entry .content ul.workspaces li a.at_tag,           #entry .entry .content ul.workspaces li a.at_tag {
+            display: inline;
+            font-weight: bold;
+            font-size: 14px;
+            color: #6e7b86;
+            text-decoration: none !important; }
+            #entries .entry .content ul.workspaces li a.at_tag .at_symbol,             #entry .entry .content ul.workspaces li a.at_tag .at_symbol {
+              color: #a0adb8; }
+            #entries .entry .content ul.workspaces li a.at_tag:hover,             #entry .entry .content ul.workspaces li a.at_tag:hover {
+              color: #000 !important; }
+              #entries .entry .content ul.workspaces li a.at_tag:hover .remove_ws,               #entry .entry .content ul.workspaces li a.at_tag:hover .remove_ws {
+                color: #fff;
+                background-color: #aa0000;
+                border-color: #fff; }
+          #entries .entry .content ul.workspaces li a.invalid_at_tag span,           #entry .entry .content ul.workspaces li a.invalid_at_tag span {
+            color: #bbb !important; }
+          #entries .entry .content ul.workspaces li a.invalid_at_tag:hover span,           #entry .entry .content ul.workspaces li a.invalid_at_tag:hover span {
+            color: #666 !important; }
+        #entries .entry .content ul.workspaces.task_workspaces,         #entry .entry .content ul.workspaces.task_workspaces {
+          margin-top: 5px; }
     #entries .entry .options,     #entry .entry .options {
       float: left;
       width: 135px; }
@@ -522,22 +564,6 @@ body {
 
 .clear {
   clear: both; }
-
-a.at_tag {
-  display: inline;
-  font-weight: bold;
-  font-size: 14px;
-  color: #6e7b86;
-  text-decoration: none !important; }
-  a.at_tag .at_symbol {
-    color: #a0adb8; }
-  a.at_tag:hover {
-    color: #000 !important; }
-
-a.invalid_at_tag span {
-  color: #bbb !important; }
-a.invalid_at_tag:hover span {
-  color: #666 !important; }
 
 /* ------------------------------------------------------------------- =Skeleton */
 #wrapper {
@@ -627,7 +653,7 @@ a.invalid_at_tag:hover span {
       background-image: url(/images/page_label_right.gif); }
   #page h1.name {
     float: left;
-    margin-top: 3px;
+    margin-top: 4px;
     margin-left: 8px;
     font-size: 18px;
     color: #fff; }
@@ -649,7 +675,7 @@ a.invalid_at_tag:hover span {
       color: #8c99a4;
       text-transform: lowercase !important; }
     #page.workspace h1.name span.project {
-      font-size: 12px;
+      font-size: 14px;
       text-transform: capitalize !important; }
       #page.workspace h1.name span.project a {
         color: #a0adb8;
