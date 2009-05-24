@@ -459,22 +459,13 @@ ul.ribbon {
         margin-bottom: 10px; }
         #entries .entry .content ul.workspaces li,         #entry .entry .content ul.workspaces li {
           float: left;
-          margin-right: 8px; }
+          margin-right: 12px; }
           #entries .entry .content ul.workspaces li a.remove_collection,           #entry .entry .content ul.workspaces li a.remove_collection {
-            position: relative;
-            top: -1px;
             margin-right: 0;
             padding: 0;
-            padding: 1px 3px 0px;
             color: #aaa;
             font-size: 10px;
-            text-decoration: none;
-            background-color: #eee;
-            border: 1px solid #e0e0e0; }
-            #entries .entry .content ul.workspaces li a.remove_collection:hover,             #entry .entry .content ul.workspaces li a.remove_collection:hover {
-              color: #fff;
-              background-color: #aa0000;
-              border-color: #aa0000; }
+            text-decoration: none; }
           #entries .entry .content ul.workspaces li a.at_tag,           #entry .entry .content ul.workspaces li a.at_tag {
             display: inline;
             font-weight: bold;

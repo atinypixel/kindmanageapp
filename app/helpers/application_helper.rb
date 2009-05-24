@@ -71,8 +71,6 @@ module ApplicationHelper
   def content_with_tags(content, entry, apply_formatting=true, options={}) 
     # remove tags from content and establish some objects
     content_without_tags = content.gsub(/((?:@\w+\s*)+)$/, "")
-    # workspaces = content.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).flatten
-    # project = entry.entry.project
     
     if apply_formatting
       puts markdown(content_without_tags)
@@ -83,10 +81,10 @@ module ApplicationHelper
     unless entry.collections.empty?
       haml_tag :ul, :class => "workspaces #{entry.content_type_name}_workspaces" do
         entry.collections.each do |c|
-          c.workspace
-          haml_tag :li, :id => "collection_#{c.id}_for_entry_#{c.entry_id}" do
-            unless @workspace && @workspace.name == c.workspace.name
-              haml_concat link_to_remote "x", :url => collection_path(c, :context => options[:context]), :method => :delete, :confirm => "Are you sure", :html => {:class => "remove_collection"}
+          workspace_in_view = @workspace && @workspace.name == c.workspace.name
+          haml_tag :li, :id => "collection_#{c.id}_for_entry_#{c.entry_id}", :class => "#{'hide' if workspace_in_view}" do
+            unless workspace_in_view
+              haml_concat link_to_remote image_tag("trash_icon.gif"), :url => collection_path(c, :context => options[:context]), :method => :delete, :confirm => "Are you sure", :html => {:class => "remove_collection"}
             end
             haml_concat link_to c.workspace.name, "#{c.workspace.project_id ? project_workspace_path(c.workspace.project, c.workspace) : workspace_path(c.workspace)}", :class => "at_tag"
           end
