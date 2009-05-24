@@ -1,2 +1,3 @@
-.task_title=content_with_tags(task.description, task.entry, false, :context => "#{@entry ? 'entry' : 'other'}")
+.description
+  =content_with_tags(task.description, task.entry, false, :context => "#{@entry ? 'entry' : 'other'}")
   

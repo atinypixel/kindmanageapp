@@ -75,21 +75,21 @@ module ApplicationHelper
     if apply_formatting
       puts markdown(content_without_tags)
     else
-      puts content_without_tags
+      haml_tag :span, content_without_tags
     end
     
     unless entry.collections.empty?
       haml_tag :ul, :class => "workspaces #{entry.content_type_name}_workspaces" do
         entry.collections.each do |c|
-          workspace_in_view = @workspace && @workspace.name == c.workspace.name
-          haml_tag :li, :id => "collection_#{c.id}_for_entry_#{c.entry_id}", :class => "#{'hide' if workspace_in_view}" do
-            unless workspace_in_view
-              haml_concat link_to_remote image_tag("trash_icon.gif"), :url => collection_path(c, :context => options[:context]), :method => :delete, :confirm => "Are you sure", :html => {:class => "remove_collection"}
+          unless @workspace && @workspace.name == c.workspace.name
+            haml_tag :li, :id => "collection_#{c.id}_for_entry_#{c.entry_id}" do
+              haml_concat link_to_remote image_tag("trash_icon.gif"), :url => collection_path(c, :context => options[:context]), :method => :delete, :confirm => "Are you sure?", :html => {:class => "remove_collection"}
+              haml_concat link_to c.workspace.name, "#{c.workspace.project_id ? project_workspace_path(c.workspace.project, c.workspace) : workspace_path(c.workspace)}", :class => "at_tag"
             end
-            haml_concat link_to c.workspace.name, "#{c.workspace.project_id ? project_workspace_path(c.workspace.project, c.workspace) : workspace_path(c.workspace)}", :class => "at_tag"
           end
         end
       end
+      haml_tag :div, :class => "clear"
     end
   end
   

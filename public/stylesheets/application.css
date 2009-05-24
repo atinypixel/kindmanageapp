@@ -135,6 +135,12 @@ table {
       font-family: "Helvetica", Arial;
       width: 454px;
       color: #333; }
+    #entry_form form textarea#entry_note_attributes_body,     .form_area form textarea#entry_note_attributes_body {
+      min-height: 105px;
+      max-height: 500px; }
+    #entry_form form textarea#entry_task_attributes_description,     .form_area form textarea#entry_task_attributes_description {
+      min-height: 45px;
+      max-height: 45px; }
     #entry_form form input.title,     .form_area form input.title {
       font-weight: bold;
       font-size: 16px; }
@@ -455,11 +461,11 @@ ul.ribbon {
             text-decoration: underline; }
       #entries .entry .content ul.workspaces,       #entry .entry .content ul.workspaces {
         float: left;
-        width: 100%;
-        margin-bottom: 10px; }
+        width: 100%; }
         #entries .entry .content ul.workspaces li,         #entry .entry .content ul.workspaces li {
           float: left;
-          margin-right: 12px; }
+          margin-right: 10px;
+          margin-bottom: 10px; }
           #entries .entry .content ul.workspaces li a.remove_collection,           #entry .entry .content ul.workspaces li a.remove_collection {
             margin-right: 0;
             padding: 0;
@@ -469,8 +475,8 @@ ul.ribbon {
           #entries .entry .content ul.workspaces li a.at_tag,           #entry .entry .content ul.workspaces li a.at_tag {
             display: inline;
             font-weight: bold;
-            font-size: 14px;
-            color: #6e7b86;
+            font-size: 12px;
+            color: #5f84a4;
             text-decoration: none !important; }
             #entries .entry .content ul.workspaces li a.at_tag .at_symbol,             #entry .entry .content ul.workspaces li a.at_tag .at_symbol {
               color: #a0adb8; }
@@ -484,8 +490,6 @@ ul.ribbon {
             color: #bbb !important; }
           #entries .entry .content ul.workspaces li a.invalid_at_tag:hover span,           #entry .entry .content ul.workspaces li a.invalid_at_tag:hover span {
             color: #666 !important; }
-        #entries .entry .content ul.workspaces.task_workspaces,         #entry .entry .content ul.workspaces.task_workspaces {
-          margin-top: 5px; }
     #entries .entry .options,     #entry .entry .options {
       float: left;
       width: 135px; }
@@ -520,19 +524,19 @@ ul.ribbon {
     background-image: url(/images/type_label_right_blue_bg.gif); }
     #entries .task ul.type li.label span,     #entry .task ul.type li.label span {
       background-image: url(/images/type_label_left_blue_bg.gif); }
-  #entries .task .content .body .task_title,   #entry .task .content .body .task_title {
+  #entries .task .content .body .description,   #entry .task .content .body .description {
     font-size: 16px;
     color: #333;
-    margin-bottom: 0;
     line-height: 19px;
     font-weight: bold; }
-    #entries .task .content .body .task_title span.due,     #entry .task .content .body .task_title span.due {
+    #entries .task .content .body .description span,     #entry .task .content .body .description span {
+      display: block;
+      padding-bottom: 6px; }
+    #entries .task .content .body .description span.due,     #entry .task .content .body .description span.due {
       padding-left: 4px;
       font-size: 11px;
       font-weight: bold;
       color: #999; }
-  #entries .task .content .meta,   #entry .task .content .meta {
-    margin-top: 6px; }
   #entries .note .content .body h3,   #entry .note .content .body h3 {
     margin-top: 0px;
     font-size: 18px;
@@ -677,4 +681,27 @@ body {
         color: #a0adb8;
         text-decoration: none; }
         #page.workspace h1.name span.project a:hover {
+          text-decoration: underline; }
+  #entry #page {
+    padding: 0;
+    margin: -5px 0 0px 0; }
+    #entry #page h5.label {
+      height: 21px;
+      background-image: url(/images/entry_page_label_left.gif);
+      color: #b9b8ad;
+      font-size: 10px; }
+      #entry #page h5.label span {
+        height: 22px;
+        padding-left: 6px;
+        padding-right: 14px;
+        line-height: 22px;
+        background-image: url(/images/entry_page_label_right.gif); }
+    #entry #page h1.name {
+      margin-top: 4px; }
+      #entry #page h1.name a {
+        font-size: 14px;
+        text-decoration: none;
+        color: #afaea3; }
+        #entry #page h1.name a:hover {
+          color: #9b9a8f;
           text-decoration: underline; }

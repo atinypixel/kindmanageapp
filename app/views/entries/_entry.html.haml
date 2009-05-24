@@ -1,6 +1,6 @@
 -unless entry.content.nil?
   %a{:id => "entry_marker_#{entry.id}"}
-  .entry{:class => entry.content_type_name, :id  => "entry_#{entry.id}"}
+  .entry{:class => "#{entry.content_type_name}#{' has_collections' if entry.collections}", :id => "entry_#{entry.id}"}
 
     / label
     %ul.type
@@ -14,7 +14,7 @@
         =render :partial => "entries/#{entry.content_type_name}", :locals => {"#{entry.content_type_name}".to_sym => entry.content}
       .meta
         %span.created_at="#{time_ago_in_words(entry.created_at)} ago"
-        -if standalone || @workspace && !@workspace.project
+        -unless @project || !standalone && @workspace && @workspace.project
           %span.project
             in
             =link_to entry.project.name, project_path(entry.project)
@@ -23,7 +23,7 @@
     .options
       .group
         -unless standalone
-          =link_to "Open", project_entry_path(project, entry)
+          =link_to "View", project_entry_path(project, entry)
           |
         =link_to_remote "Edit", :url => edit_project_entry_path(entry.project, entry, :content_type => entry.content_type_name, :context => "#{standalone ? 'entry' : 'project'}"), :method => :get
         -if standalone

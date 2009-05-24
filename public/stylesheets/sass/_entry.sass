@@ -69,10 +69,13 @@
       ul.workspaces
         :float left
         :width 100%
-        :margin-bottom 10px
+        / :margin-top -3px
+        / :padding-top 5px
+        / :border-top 1px dotted #eee
         li
           :float left
-          :margin-right 12px
+          :margin-right 10px
+          :margin-bottom 10px
           a.remove_collection
             :margin-right 0
             :padding 0
@@ -84,8 +87,8 @@
             :display inline
             / :padding 2px
             :font-weight bold
-            :font-size 14px
-            :color = !blue
+            :font-size 12px
+            :color = !blue_alt
             :text-decoration none !important
             .at_symbol
               :color = !blue +50
@@ -101,8 +104,6 @@
               :color #bbb !important
             &:hover span
               :color #666 !important
-        &.task_workspaces
-          :margin-top 5px
           
           
           
@@ -149,19 +150,20 @@
   
   .task .content
     .body
-      .task_title
+      .description
         :font-size 16px
         :color #333
-        :margin-bottom 0
+        / :margin-bottom 5px
         :line-height 19px
         :font-weight bold
+        span
+          :display block
+          :padding-bottom 6px
         span.due
           :padding-left 4px
           :font-size 11px
           :font-weight bold
           :color #999
-    .meta
-      :margin-top 6px
   
   .note .content
     .body

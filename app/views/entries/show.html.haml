@@ -1,14 +1,9 @@
-#page.hide
-  %h5.label
-    %span Project
-  %h1.name
-    -unless @entry
-      =@project.name
-    -else
-      =link_to @project.name, project_path(@project)
-      
 #content
   #entry
+    #page
+      %h5.label
+        %span Project
+      %h1.name=link_to @project.name, project_path(@project)
     #entry_form{:style => "display:none;"}
     #for_single_entry
       =render :partial => "entries/entry", :locals => {:entry => @entry, :project => @project, :standalone => true}

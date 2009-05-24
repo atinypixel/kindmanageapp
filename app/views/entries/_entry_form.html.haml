@@ -23,4 +23,7 @@
       =f.submit "#{create_or_update(@entry).capitalize} #{content_type}"
       or
       =link_to_function "Cancel", "$('##{content_type}_entry_form').remove(); $('#entry_form').hide();"
-      / =@context
+
+  :javascript
+    $('textarea.expanding').autogrow();
+      
