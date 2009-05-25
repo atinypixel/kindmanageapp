@@ -24,6 +24,6 @@
       =yield
       
       #footer
-        =current_user.email unless current_user.nil?
+        =current_user.name unless current_user.nil?
         =link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure?"
       

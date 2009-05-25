@@ -12,6 +12,10 @@ module ApplicationHelper
     object.new_record? ? "new" : "edit"
   end
   
+  def created_by_current_user?(object, user)
+    object.user_id == user.id
+  end
+  
   def switch_admin_context_link(object)
     
   end

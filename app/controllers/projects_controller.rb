@@ -24,7 +24,6 @@ class ProjectsController < ApplicationController
       @entries = current_object.entries
       @types = Type.find(:all)
     end
-    
   end
   
   protected

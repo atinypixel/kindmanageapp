@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090524225405) do
+ActiveRecord::Schema.define(:version => 20090525165339) do
 
   create_table "accounts", :force => true do |t|
     t.string   "subdomain"
@@ -128,6 +128,8 @@ ActiveRecord::Schema.define(:version => 20090524225405) do
     t.string   "current_login_ip"
     t.string   "last_login_ip"
     t.integer  "account_id"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   create_table "workspaces", :force => true do |t|

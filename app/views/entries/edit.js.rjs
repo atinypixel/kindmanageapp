@@ -1,4 +1,3 @@
 page.visual_effect :scroll_to, "entry_form", :duration => 0.5
-page.replace_html "entry_form", :partial => "entries/entry_form", :locals => {:content_type => @content_type}
+page.replace_html "entry_form", :partial => "entries/form", :locals => {:content_type => @content_type}
 page.visual_effect :blind_down, "entry_form", :duration => 0.2
-# page << "$('#{entry_form}').evalScripts();"

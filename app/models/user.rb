@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   
   acts_as_authentic
   
-  has_one :account
+  # has_one :account
+  belongs_to :account
   
   has_many :entries
   has_many :tasks, :through => :entries
@@ -11,40 +12,44 @@ class User < ActiveRecord::Base
   has_many :workspaces
   has_many :projects
   
-  before_save :create_account
+  def name
+    self.first_name.capitalize + " " + self.last_name.scan(/^.{1}/).flatten.to_s.capitalize + "."
+  end
+  
+  # before_save :create_account
         
     
-  def self.register(user_params, account_params, host = 'kindmanage.dev')
-    user_params ||= {}
-    account_params ||= {}
-  
-    # you can choose to provide a password field, or have a password generated
-    # we'll default it here if you haven't provided a field
-    user_params[:password] ||= encrypt(Time.now)[0..8]
-  
-    account = Account.new(account_params)
-    user = User.new(user_params)
-  
-    begin
-      account.rollback_active_record_state! do
-        transaction do
-          # save the account
-          account.save!
-          # assign the user to it
-          user.account_id = account.id
-          # save the user
-          if user.save!
-            # if saved: send email notification of success
-            ::Notifier.deliver_registration(user, account, user_params[:password], host)
-          end
-        end
-      end
-    rescue ActiveRecord::RecordInvalid
-      # do nothing
-    end
-  
-    # return the pair as an array
-    [user, account]
-  end
+  # def self.register(user_params, account_params, host = 'kindmanage.dev')
+  #   user_params ||= {}
+  #   account_params ||= {}
+  # 
+  #   # you can choose to provide a password field, or have a password generated
+  #   # we'll default it here if you haven't provided a field
+  #   user_params[:password] ||= encrypt(Time.now)[0..8]
+  # 
+  #   account = Account.new(account_params)
+  #   user = User.new(user_params)
+  # 
+  #   begin
+  #     account.rollback_active_record_state! do
+  #       transaction do
+  #         # save the account
+  #         account.save!
+  #         # assign the user to it
+  #         user.account_id = account.id
+  #         # save the user
+  #         if user.save!
+  #           # if saved: send email notification of success
+  #           ::Notifier.deliver_registration(user, account, user_params[:password], host)
+  #         end
+  #       end
+  #     end
+  #   rescue ActiveRecord::RecordInvalid
+  #     # do nothing
+  #   end
+  # 
+  #   # return the pair as an array
+  #   [user, account]
+  # end
   
 end

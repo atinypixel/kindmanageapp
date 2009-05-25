@@ -2,7 +2,7 @@
 
   %fieldset.options
     %span.legend Options
-    =render :partial => "entries/forms/#{content_type}_options", :locals => {:f => f}
+    =render :partial => "entries/#{content_type}/form/optional_fields", :locals => {:f => f}
     %div.row.hide
       %label Add to a workspace (optional)
       %select
@@ -14,7 +14,7 @@
     .clear
     %span.legend="#{new_or_edit(@entry)} #{content_type}"
     
-    =render :partial => "entries/forms/#{content_type}", :locals => {:f => f}
+    =render :partial => "entries/#{content_type}/form/fields", :locals => {:f => f}
     
     %div.buttons
       / =#f.hidden_field :type_id, :value => type.id

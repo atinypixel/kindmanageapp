@@ -25,6 +25,18 @@ class Entry < ActiveRecord::Base
   after_update :process_workspaces
   
   
+  def by_line(current_user)
+    if self.user == current_user
+      "You"
+    else
+      self.user.name
+    end
+  end
+  
+  def owned_by_current_user?(current_user)
+    self.user == current_user
+  end
+  
   def process_workspaces
     if at_tags?
       at_tags.each do |at_tag|
