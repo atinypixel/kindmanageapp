@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :tasks, :through => :entries
   has_many :notes, :through => :entries
   has_many :uploads, :through => :entries
+  has_many :workspaces
+  has_many :projects
   
   before_save :create_account
         

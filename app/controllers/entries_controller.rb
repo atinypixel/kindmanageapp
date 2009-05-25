@@ -1,4 +1,6 @@
 class EntriesController < ApplicationController
+  before_filter :require_user
+  
   make_resourceful do
     actions :all
     belongs_to :project, :account

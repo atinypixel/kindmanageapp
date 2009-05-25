@@ -2,7 +2,6 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :account do |a|
     a.resources :users
-    # a.resources :projects
   end
   
   map.resources :projects do |p|
@@ -12,12 +11,21 @@ ActionController::Routing::Routes.draw do |map|
     p.resources :uploads
     p.resources :workspaces
   end
+  
   map.resources :collections
   map.resources :workspaces
-
   map.resource :user_session
+  
+  map.app_root "/", :controller => "accounts", :conditions => {:subdomain => /.+[^w{3}]/}
+  map.public_root "/", :controller => "public", :conditions => {:subdomain => nil}
+  
   # map.root :controller => "user_sessions", :action => "new"
-  map.root :controller => "accounts"
+  
+  
+  
+  
+  
+  # map.root :controller => 'accounts'
   
 
   # Install the default routes as the lowest priority.

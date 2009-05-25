@@ -1,25 +1,56 @@
 module Kind
   module Controller
-    def self.included(controller)
-      controller.send(:include, UsersAccounts)
-    
-      controller.class_eval do
-        helper_method :current_account, :current_user, :current_user_session, :require_user, :require_no_user, :redirect_back_or_default
+    module Accounts
+      def self.included(controller)
+        controller.helper_method(:account_domain, :account_subdomain, :account_url, :current_account, :default_account_subdomain, :default_account_url)
       end
-    end
-  
-  
-  
-    module UsersAccounts
-    
-      private
-      
+
+      protected
+
+        # TODO: need to handle www as well
         def current_account
-          subdomain = request.subdomains.first
-          # subdomain ||= 'test' if local_request?
-          @current_account = Account.find_by_subdomain(subdomain.downcase) if subdomain
+          Account.find_by_subdomain(account_subdomain)
         end
+        
+        def default_account_subdomain
+          account_subdomain if ["www", ""].include?(account_subdomain)
+        end
+        
+        def default_account_url( use_ssl = request.ssl? )
+          http_protocol(use_ssl) + account_domain
+        end
+
+        # def account_url(account_subdomain = default_account_subdomain, use_ssl = request.ssl?)
+        #   http_protocol(use_ssl) + account_host(account_subdomain)
+        # end
+        # 
+        # def account_host(subdomain)
+        #   account_host = ''
+        #   account_host << subdomain + '.'
+        #   account_host << account_domain
+        # end
+        
+        def account_subdomain
+          request.subdomains.first || ''
+        end
+        
+        def account_domain
+          account_domain = ''
+          account_domain << request.domain + request.port_string
+        end
+
+        def http_protocol( use_ssl = request.ssl? )
+          (use_ssl ? "https://" : "http://")
+        end
+    end
     
+    module Users
+      def self.included(controller)
+        controller.helper_method(:current_account, :current_user, :current_user_session, :require_user, :require_no_user, :redirect_back_or_default)
+      end
+      
+      protected
+          
         def current_user_session
           return @current_user_session if defined?(@current_user_session)
           @current_user_session = current_account.user_sessions.find
@@ -57,5 +88,7 @@ module Kind
           session[:return_to] = nil
         end
     end
+  end
+  module Model
   end
 end

@@ -9,12 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090521191949) do
+ActiveRecord::Schema.define(:version => 20090524225405) do
 
   create_table "accounts", :force => true do |t|
     t.string   "subdomain"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "assets", :force => true do |t|
@@ -62,6 +63,14 @@ ActiveRecord::Schema.define(:version => 20090521191949) do
   end
 
   create_table "notes", :force => true do |t|
+    t.text     "body"
+    t.string   "title"
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.integer  "account_id"
+    t.integer  "entry_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "projects", :force => true do |t|
@@ -88,6 +97,7 @@ ActiveRecord::Schema.define(:version => 20090521191949) do
     t.integer  "project_id"
     t.integer  "user_id"
     t.integer  "account_id"
+    t.integer  "entry_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -98,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20090521191949) do
 
   create_table "uploads", :force => true do |t|
     t.text     "description"
+    t.integer  "entry_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -116,7 +127,7 @@ ActiveRecord::Schema.define(:version => 20090521191949) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
-    t.integer  "accounts_id"
+    t.integer  "account_id"
   end
 
   create_table "workspaces", :force => true do |t|

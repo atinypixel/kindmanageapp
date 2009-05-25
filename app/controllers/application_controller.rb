@@ -2,10 +2,22 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  include Kind::Controller
+  include Kind::Controller::Accounts
+  include Kind::Controller::Users
+  
+  layout :current_layout_name
+  
   helper :all
   helper_method :project_in_view, :entry_content_types
   filter_parameter_logging :password, :password_confirmation
+  
+  def current_layout_name
+    public_site? ? 'public' : 'application'
+  end
+  
+  def public_site?
+    account_subdomain = default_account_subdomain
+  end
   
   def project_in_view(project_id=nil)
     unless project_id.nil?

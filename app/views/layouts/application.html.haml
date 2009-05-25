@@ -18,10 +18,12 @@
     
   %body    
     #wrapper
-      
-      -if current_account || current_user
+      -if current_user
         =render :partial => "shared/admin", :locals => {:project_in_view => project_in_view(params[:project_id] || @project.try(:id).to_s || @workspace.try(:project_id))}
       
       =yield
       
-      #footer      
+      #footer
+        =current_user.email unless current_user.nil?
+        =link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure?"
+      
