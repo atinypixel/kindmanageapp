@@ -2,8 +2,8 @@ $(document).ready(function(){
   $('#admin div.panel').hide(); // Hide all divs
   $('#workspaces ul li.nav:first, #projects ul li.nav:first').addClass('on'); // Select "all" context by default
   
-  // $('#workspace_chooser').show(); // Show the first div
-  // $('#admin_tabs ul li#workspace_link').addClass('on'); // Set the class for active state
+  $('#account_people').show(); // Show the first div
+  $('#admin_tabs ul li#people_link').addClass('on'); // Set the class for active state
   
   
   $('#admin_tabs ul li.admin a.nav').click(function(){ // When link is clicked

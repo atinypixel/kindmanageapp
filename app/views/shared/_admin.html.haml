@@ -10,8 +10,10 @@
       %li#workspace_link.admin
         =link_to "Workspaces", "#workspace_chooser", :class => "nav"
         =close_admin_link
-      %li.admin
-        %a{:href => "#"} People
+      %li#people_link.admin
+        =link_to "People", "#account_people", :class => "nav"
+        =close_admin_link
+        
           
   .clear
   
@@ -19,6 +21,8 @@
     =render :partial => "projects/projects", :locals => {:project_in_view => project_in_view}
   #workspace_chooser.panel{:style => "display: none;"}
     =render :partial => "workspaces/workspaces"
+  #account_people.panel{:style => "display: none;"}
+    =render :partial => "users/users"
   
   
   / %ul

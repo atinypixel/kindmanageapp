@@ -37,12 +37,7 @@ body
   :background #5e6a75 url(/images/wrapper_bg.gif) top center no-repeat
   :font-family "Helvetica", Arial, Tahoma, sans-serif
   :text-align left
-    
-  #header, #page
-    +cf
-    +inside_wrapper
-    :padding-bottom 10px
-    :height auto
+        
   #content
     +cf
     +inside_wrapper
@@ -57,11 +52,9 @@ body
 /*------------------------------------------------------------------- =Page_meta
 #page
   :float left
-  :width 550px
-  :padding-top 0px !important
-  :padding-bottom 10px !important
-  :margin 10px 0
-  +cf
+  :width 760px
+  :padding 15px 10px 16px !important
+  :margin 0 !important
   h5.label
     :float left
     / :margin-bottom 10px
@@ -127,8 +120,9 @@ body
           &:hover
             :text-decoration underline
   #entry &
-    :padding 0
-    :margin -5px 0 0px 0
+    :width auto
+    :padding 0 !important
+    :margin -5px 0 10px !important
     h5.label
       :height 21px
       :background-image url(/images/entry_page_label_left.gif)

@@ -2,19 +2,20 @@
 @import _tabs.sass
 
 #admin
-  +cf
-  :width 750px
-  :padding 5px 20px 4px
-  :margin 10px -5px 5px
+  :float left
+  :width 790px
+  :padding 0
+  :margin 5px -5px 0
   :background-color = !dark_blue -5
   :border-bottom = 1px dashed (!dark_blue -10)
   .panel
     +cf
-    :width 720px
-    :padding 15px 15px 10px
-    :margin -6px 0px 15px
+    :width 760px
+    :padding 10px 15px 10px
+    :margin 0
     :background-color = !dark_blue -25
     :font-size 12px
+    :border-bottom = 1px solid (!dark_blue -30)
     h3
       :color = !light_blue
       :margin-bottom 10px
@@ -76,3 +77,14 @@
             :padding 2px 0
             :font-size 11px
             :color = !dark_blue +20
+            
+    #account_people
+      ul.people
+        li.person
+          :width 160px
+          :height 40px
+          :margin-right 10px
+          :padding 10px
+          :float left
+          :background-color = !blue -30
+      

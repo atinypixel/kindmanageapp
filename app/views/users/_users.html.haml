@@ -1,0 +1,5 @@
+#account_people
+  %ul.people
+    -current_account.users.in_groups_of(4, false) do |account_users|
+      -account_users.each do |user|
+        %li.person=user.name

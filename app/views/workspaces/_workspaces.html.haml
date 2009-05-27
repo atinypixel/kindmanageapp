@@ -2,7 +2,7 @@
   %ul
     %li.nav=link_to "All", "#all_workspaces"
     %li.nav=link_to "Mine", "#my_workspaces"
-    %li.nav=link_to "Project Only", "#project_workspaces"
+    %li.nav=link_to "By Project", "#project_workspaces"
       
   #all_workspaces.context
     =workspace_list_for(current_account, :all) if current_account

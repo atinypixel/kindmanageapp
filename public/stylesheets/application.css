@@ -182,19 +182,16 @@ textarea, input, select {
 
 #admin_tabs {
   float: left;
-  width: 643px;
-  margin-top: 0; }
+  width: 780px;
+  padding: 0 5px; }
   #admin_tabs li.admin {
-    position: relative;
-    top: -5px;
     float: left;
     display: inline;
-    margin-right: 5px;
-    padding: 7px 10px 8px;
+    margin-top: -5px;
+    padding: 12px 10px 11px;
     font-size: 13px;
     font-weight: normal;
     font-family: "Helvetica", Arial;
-    background-color: #54606b;
     display: inline-block; }
     #admin_tabs li.admin:after {
       content: ".";
@@ -220,7 +217,8 @@ textarea, input, select {
       text-decoration: none; }
     #admin_tabs li.admin.on {
       background-color: #45515c;
-      padding-bottom: 13px; }
+      margin-top: 0px;
+      padding-top: 7px; }
       #admin_tabs li.admin.on a {
         color: #fff;
         font-weight: bold; }
@@ -234,7 +232,7 @@ textarea, input, select {
   width: 100%; }
 .panel #workspaces ul, .panel #projects ul {
   display: inline-block;
-  margin-bottom: 15px; }
+  margin-bottom: 0; }
   .panel #workspaces ul:after,   .panel #projects ul:after {
     content: ".";
     display: block;
@@ -255,27 +253,20 @@ textarea, input, select {
     text-decoration: none !important; }
 
 #admin {
-  display: inline-block;
-  width: 750px;
-  padding: 5px 20px 4px;
-  margin: 10px -5px 5px;
+  float: left;
+  width: 790px;
+  padding: 0;
+  margin: 5px -5px 0;
   background-color: #596570;
   border-bottom: 1px dashed #54606b; }
-  #admin:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-  * html #admin {
-    height: 1px; }
   #admin .panel {
     display: inline-block;
-    width: 720px;
-    padding: 15px 15px 10px;
-    margin: -6px 0px 15px;
+    width: 760px;
+    padding: 10px 15px 10px;
+    margin: 0;
     background-color: #45515c;
-    font-size: 12px; }
+    font-size: 12px;
+    border-bottom: 1px solid #404c57; }
     #admin .panel:after {
       content: ".";
       display: block;
@@ -345,6 +336,13 @@ textarea, input, select {
           padding: 2px 0;
           font-size: 11px;
           color: #727e89; }
+    #admin .panel #account_people ul.people li.person {
+      width: 160px;
+      height: 40px;
+      margin-right: 10px;
+      padding: 10px;
+      float: left;
+      background-color: #505d68; }
 
 ul.ribbon {
   float: left;
@@ -454,7 +452,7 @@ ul.ribbon {
         margin-bottom: 10px; }
       #entries .entry .content .body p,       #entry .entry .content .body p {
         padding-bottom: 10px;
-        font-size: 14px;
+        font-size: 12px;
         line-height: 18px;
         color: #333; }
       #entries .entry .content .meta,       #entry .entry .content .meta {
@@ -462,14 +460,14 @@ ul.ribbon {
         color: #999; }
         #entries .entry .content .meta .actions a,         #entry .entry .content .meta .actions a {
           font-weight: bold;
-          padding: 0 1px;
           text-decoration: none;
+          border-bottom: 1px dotted #ccc;
           color: #666; }
           #entries .entry .content .meta .actions a img,           #entry .entry .content .meta .actions a img {
             position: relative;
             top: 1px; }
           #entries .entry .content .meta .actions a:hover,           #entry .entry .content .meta .actions a:hover {
-            text-decoration: underline; }
+            border-color: #999; }
         #entries .entry .content .meta .project a,         #entry .entry .content .meta .project a {
           color: #777;
           text-decoration: none; }
@@ -511,7 +509,7 @@ ul.ribbon {
     #entries .entry .options,     #entry .entry .options {
       float: left;
       width: 135px;
-      margin-top: 2px; }
+      margin-top: -1px; }
       #entries .entry .options .group,       #entry .entry .options .group {
         float: left;
         width: 100%;
@@ -563,8 +561,11 @@ ul.ribbon {
       color: #999; }
   #entries .note .content .body h3,   #entry .note .content .body h3 {
     margin-top: 0px;
-    font-size: 18px;
-    line-height: 20px; }
+    font-size: 20px;
+    line-height: 20px;
+    color: #333 !important; }
+  #entries .note .content .body p,   #entry .note .content .body p {
+    font-size: 14px; }
 
 #entries .inbox .content {
   width: 430px; }
@@ -629,20 +630,6 @@ body {
     visibility: hidden; }
   * html #wrapper {
     height: 1px; }
-  #wrapper #header, #wrapper #page {
-    display: inline-block;
-    width: 750px;
-    padding: 15px;
-    padding-bottom: 10px;
-    height: auto; }
-    #wrapper #header:after,     #wrapper #page:after {
-      content: ".";
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden; }
-    * html #wrapper #header,     * html #wrapper #page {
-      height: 1px; }
   #wrapper #content {
     display: inline-block;
     width: 750px;
@@ -665,19 +652,9 @@ body {
 /* ------------------------------------------------------------------- =Page_meta */
 #page {
   float: left;
-  width: 550px;
-  padding-top: 0px !important;
-  padding-bottom: 10px !important;
-  margin: 10px 0;
-  display: inline-block; }
-  #page:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-  * html #page {
-    height: 1px; }
+  width: 760px;
+  padding: 15px 10px 16px !important;
+  margin: 0 !important; }
   #page h5.label {
     float: left;
     height: 23px;
@@ -730,8 +707,9 @@ body {
         #page.workspace h1.name span.project a:hover {
           text-decoration: underline; }
   #entry #page {
-    padding: 0;
-    margin: -5px 0 0px 0; }
+    width: auto;
+    padding: 0 !important;
+    margin: -5px 0 10px !important; }
     #entry #page h5.label {
       height: 21px;
       background-image: url(/images/entry_page_label_left.gif);
