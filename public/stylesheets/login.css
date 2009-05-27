@@ -36,6 +36,11 @@ table {
 *:focus {
   outline: 0; }
 
+/* 
+ * Special cases */
+textarea, input, select {
+  -moz-box-sizing: border-box; }
+
 #entry_form, .form_area {
   float: left;
   width: 746px;

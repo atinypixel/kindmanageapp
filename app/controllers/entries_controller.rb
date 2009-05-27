@@ -11,6 +11,7 @@ class EntriesController < ApplicationController
     end
     
     before :new do
+      @context = params[:context]
       @content_type = params[:content_type]
       @entry.send("build_#{@content_type}")
     end
@@ -20,7 +21,6 @@ class EntriesController < ApplicationController
       @content_type = @entry.content_type_name
       @entry.account, @entry.user = current_account, current_user
       @project = @entry.project
-      @entries = @project.entries
     end
     
     after :create do
@@ -33,9 +33,9 @@ class EntriesController < ApplicationController
     end
     
     before :update, :destroy do
+      @context = params[:context]
       @project = @entry.project
       @entries = @project.entries
-      @context = params[:context]
     end
   end  
   # def current_object

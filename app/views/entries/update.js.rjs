@@ -3,8 +3,8 @@ when /^workspace|project/
   page["#entry_container_#{@entry.id}"].replace_html :partial => "entries/entry", 
     :locals => {
       :entry => @entry, 
-      :project => @project, 
-      :context => @context, 
+      :project => @entry.project, 
+      :context => @context,
       :standalone => false }
   page.visual_effect :scroll_to, "entry_marker_#{@entry.id}", :duration => 0.5
   page.delay(0.5) {
@@ -14,7 +14,7 @@ when "entry"
   page["#entry_container_#{@entry.id}"].replace_html :partial => "entries/entry", 
     :locals => {
       :entry => @entry, 
-      :project => @project,
+      :project => @entry.project,
       :context => @context, 
       :standalone => true }
   page["#entry_#{@entry.id}"].visual_effect :highlight

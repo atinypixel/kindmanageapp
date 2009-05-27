@@ -71,21 +71,20 @@ class Entry < ActiveRecord::Base
   end
   
   def at_tags
-    body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).flatten
+    content_body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).flatten
   end
   
   def at_tags?
-    body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).length > 0
+    content_body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).length > 0
   end
   
-  def body
-    case self
-    when note
-      note.body
-    when task
-      task.description
-    when upload
-      upload.description
+  def content_body
+    if note
+      self.note.body
+    elsif task
+      self.task.description
+    elsif upload
+      self.upload.description
     end
   end    
   

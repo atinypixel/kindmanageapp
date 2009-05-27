@@ -36,6 +36,11 @@ table {
 *:focus {
   outline: 0; }
 
+/* 
+ * Special cases */
+textarea, input, select {
+  -moz-box-sizing: border-box; }
+
 body {
   background-color: #6e7b86;
   text-align: center;

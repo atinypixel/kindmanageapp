@@ -60,7 +60,16 @@
         :font-size 11px
         :color #999
         .actions
-          :font-weight bold
+          a
+            :font-weight bold
+            :padding 0 1px
+            :text-decoration none
+            :color #666
+            img
+              :position relative
+              :top 1px
+            &:hover
+              :text-decoration underline
         .project a
           :color #777
           :text-decoration none
@@ -113,16 +122,17 @@
     .options
       :float left
       :width 135px
+      :margin-top 2px
       .group
         :float left
         :width 100%
         :display block
         :font-size 11px
         :font-weight normal
+        :line-height 12px
         :color #ddd
-        :margin-bottom 4px
-        :padding-bottom 3px
-        :border-bottom 1px dotted #d9d9d9
+        :padding 3px 0
+        :border-bottom 1px dotted #eaeaea
         a
           :font-weight bold
           :text-decoration none
@@ -130,8 +140,13 @@
             :color #000
         a.neg:hover
           :color #cc0000
-      .user
+      .user, .created
+        :text-align right
         :color #aaa
+      .user
+        :color #777
+      .created
+        :font-style italic
     
   
   /*----------------------------------------------------------------- =Entry_type_label_variations

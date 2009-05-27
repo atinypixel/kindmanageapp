@@ -37,6 +37,11 @@ table {
 *:focus {
   outline: 0; }
 
+/* 
+ * Special cases */
+textarea, input, select {
+  -moz-box-sizing: border-box; }
+
 .error, .notice, .success {
   display: inline-block;
   padding: 10px;
@@ -455,8 +460,16 @@ ul.ribbon {
       #entries .entry .content .meta,       #entry .entry .content .meta {
         font-size: 11px;
         color: #999; }
-        #entries .entry .content .meta .actions,         #entry .entry .content .meta .actions {
-          font-weight: bold; }
+        #entries .entry .content .meta .actions a,         #entry .entry .content .meta .actions a {
+          font-weight: bold;
+          padding: 0 1px;
+          text-decoration: none;
+          color: #666; }
+          #entries .entry .content .meta .actions a img,           #entry .entry .content .meta .actions a img {
+            position: relative;
+            top: 1px; }
+          #entries .entry .content .meta .actions a:hover,           #entry .entry .content .meta .actions a:hover {
+            text-decoration: underline; }
         #entries .entry .content .meta .project a,         #entry .entry .content .meta .project a {
           color: #777;
           text-decoration: none; }
@@ -497,17 +510,18 @@ ul.ribbon {
             color: #666 !important; }
     #entries .entry .options,     #entry .entry .options {
       float: left;
-      width: 135px; }
+      width: 135px;
+      margin-top: 2px; }
       #entries .entry .options .group,       #entry .entry .options .group {
         float: left;
         width: 100%;
         display: block;
         font-size: 11px;
         font-weight: normal;
+        line-height: 12px;
         color: #ddd;
-        margin-bottom: 4px;
-        padding-bottom: 3px;
-        border-bottom: 1px dotted #d9d9d9; }
+        padding: 3px 0;
+        border-bottom: 1px dotted #eaeaea; }
         #entries .entry .options .group a,         #entry .entry .options .group a {
           font-weight: bold;
           text-decoration: none; }
@@ -515,8 +529,13 @@ ul.ribbon {
             color: #000; }
         #entries .entry .options .group a.neg:hover,         #entry .entry .options .group a.neg:hover {
           color: #cc0000; }
-      #entries .entry .options .user,       #entry .entry .options .user {
+      #entries .entry .options .user, #entries .entry .options .created,       #entry .entry .options .user, #entry .entry .options .created {
+        text-align: right;
         color: #aaa; }
+      #entries .entry .options .user,       #entry .entry .options .user {
+        color: #777; }
+      #entries .entry .options .created,       #entry .entry .options .created {
+        font-style: italic; }
   #entries .note ul.type li.label,
   #entries .milestone ul.type li.label,   #entry .note ul.type li.label,
   #entry .milestone ul.type li.label {

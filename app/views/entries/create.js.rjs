@@ -1,9 +1,8 @@
 if @entry.errors.empty?
-  page["#for_project"].replace_html :partial => "entries/show", 
-    :collection => @entries, 
-    :as => :entry, 
+  page.insert_html :top, "for_project", :partial => "entries/show",
     :locals => {
-      :project => @project, 
+      :entry => @entry,
+      :project => @entry.project, 
       :standalone => false, 
       :context => @context }
   page.visual_effect :scroll_to, "entry_marker_#{@entry.id}", :duration => 1
