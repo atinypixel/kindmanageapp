@@ -16,6 +16,7 @@ class EntriesController < ApplicationController
     end
         
     before :create do
+      @context = params[:context]
       @content_type = @entry.content_type_name
       @entry.account, @entry.user = current_account, current_user
       @project = @entry.project

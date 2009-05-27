@@ -1,13 +1,23 @@
 case @context
-when "project"
-  page.replace_html "for_project", :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project, :standalone => false}
+when /^workspace|project/
+  page["#entry_container_#{@entry.id}"].replace_html :partial => "entries/entry", 
+    :locals => {
+      :entry => @entry, 
+      :project => @project, 
+      :context => @context, 
+      :standalone => false }
   page.visual_effect :scroll_to, "entry_marker_#{@entry.id}", :duration => 0.5
   page.delay(0.5) {
-    page.visual_effect :highlight, "entry_#{@entry.id}"
+    page["#entry_#{@entry.id}"].visual_effect :highlight
   }
 when "entry"
-  page.replace_html "for_single_entry", :partial => "entries/entry", :locals => {:entry => @entry, :project => @project, :standalone => true} 
-  page.visual_effect :highlight, "entry_#{@entry.id}"
+  page["#entry_container_#{@entry.id}"].replace_html :partial => "entries/entry", 
+    :locals => {
+      :entry => @entry, 
+      :project => @project,
+      :context => @context, 
+      :standalone => true }
+  page["#entry_#{@entry.id}"].visual_effect :highlight
 end
-page.remove "#{@entry.content_type_name}_entry_form"
-page.hide "entry_form"
+page["#{@entry.content_type_name}_entry_form"].remove
+page["#entry_form"].hide

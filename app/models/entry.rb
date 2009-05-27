@@ -17,7 +17,7 @@ class Entry < ActiveRecord::Base
   belongs_to :user
   
   # workspace relationships
-  has_many :collections, :uniq => true, :dependent => :destroy
+  has_many :collections, :uniq => true, :dependent => :destroy, :include => :workspace
   has_many :workspaces, :through => :collections
   
   # filter workspaces in and out
@@ -71,20 +71,21 @@ class Entry < ActiveRecord::Base
   end
   
   def at_tags
-    content_body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).flatten
+    body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).flatten
   end
   
   def at_tags?
-    content_body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).length > 0
+    body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).length > 0
   end
   
-  def content_body
-    if self.note
-      self.note.body
-    elsif self.task
-      self.task.description
-    elsif self.upload
-      self.upload.description
+  def body
+    case self
+    when note
+      note.body
+    when task
+      task.description
+    when upload
+      upload.description
     end
   end    
   

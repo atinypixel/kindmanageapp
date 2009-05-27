@@ -1,9 +1,13 @@
 if @entry.errors.empty?
-  page.replace_html "for_project", :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project, :standalone => false}
+  page["#for_project"].replace_html :partial => "entries/show", 
+    :collection => @entries, 
+    :as => :entry, 
+    :locals => {
+      :project => @project, 
+      :standalone => false, 
+      :context => @context }
   page.visual_effect :scroll_to, "entry_marker_#{@entry.id}", :duration => 1
-  page.delay(0.5) {
-    page.visual_effect :highlight, "entry_#{@entry.id}"
-  }
+  page.delay(0.5) { page.visual_effect :highlight, "entry_#{@entry.id}" }
   page["##{@entry.content_type_name}_entry_form"].reset
   page.hide "entry_form"
   page.replace_html "notice", flash[:notice]

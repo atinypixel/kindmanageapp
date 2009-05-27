@@ -1,9 +1,10 @@
 class Workspace < ActiveRecord::Base
-  has_many :collections, :uniq => true, :dependent => :destroy
-  has_many :entries, :through => :collections
   
   named_scope :scoped_by_project, :conditions => "project_id is not null"
   named_scope :not_scoped, :conditions => "project_id is null"
+  
+  has_many :collections, :uniq => true, :dependent => :destroy, :include => :entry
+  has_many :entries, :through => :collections
   
   belongs_to :account
   belongs_to :project

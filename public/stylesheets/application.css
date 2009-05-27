@@ -135,15 +135,18 @@ table {
       font-family: "Helvetica", Arial;
       width: 454px;
       color: #333; }
+    #entry_form form textarea,     .form_area form textarea {
+      line-height: 20px; }
+    #entry_form form input.title,     .form_area form input.title {
+      font-weight: bold;
+      font-size: 16px; }
     #entry_form form textarea#entry_note_attributes_body,     .form_area form textarea#entry_note_attributes_body {
       min-height: 105px;
       max-height: 500px; }
     #entry_form form textarea#entry_task_attributes_description,     .form_area form textarea#entry_task_attributes_description {
-      min-height: 45px;
-      max-height: 45px; }
-    #entry_form form input.title,     .form_area form input.title {
-      font-weight: bold;
-      font-size: 16px; }
+      height: 52px;
+      min-height: 52px;
+      max-height: 78px; }
     #entry_form form .buttons,     .form_area form .buttons {
       margin-top: 10px;
       font-size: 12px; }
@@ -461,11 +464,13 @@ ul.ribbon {
             text-decoration: underline; }
       #entries .entry .content ul.workspaces,       #entry .entry .content ul.workspaces {
         float: left;
-        width: 100%; }
+        width: 100%;
+        margin-bottom: 10px; }
         #entries .entry .content ul.workspaces li,         #entry .entry .content ul.workspaces li {
           float: left;
           margin-right: 10px;
-          margin-bottom: 10px; }
+          margin-bottom: 3px;
+          line-height: 14px; }
           #entries .entry .content ul.workspaces li a.remove_collection,           #entry .entry .content ul.workspaces li a.remove_collection {
             margin-right: 0;
             padding: 0;
@@ -500,7 +505,7 @@ ul.ribbon {
         font-size: 11px;
         font-weight: normal;
         color: #ddd;
-        margin-bottom: 3px;
+        margin-bottom: 4px;
         padding-bottom: 3px;
         border-bottom: 1px dotted #d9d9d9; }
         #entries .entry .options .group a,         #entry .entry .options .group a {
@@ -531,7 +536,7 @@ ul.ribbon {
     font-weight: bold; }
     #entries .task .content .body .description span,     #entry .task .content .body .description span {
       display: block;
-      padding-bottom: 6px; }
+      padding-bottom: 8px; }
     #entries .task .content .body .description span.due,     #entry .task .content .body .description span.due {
       padding-left: 4px;
       font-size: 11px;
@@ -541,6 +546,28 @@ ul.ribbon {
     margin-top: 0px;
     font-size: 18px;
     line-height: 20px; }
+
+#entries .inbox .content {
+  width: 430px; }
+  #entries .inbox .content .body {
+    margin-bottom: 0;
+    padding-bottom: 0; }
+    #entries .inbox .content .body h3 {
+      font-size: 14px;
+      margin: 0;
+      line-height: 18px; }
+    #entries .inbox .content .body span.body {
+      font-size: 12px;
+      font-weight: normal;
+      color: #999; }
+#entries .inbox .options {
+  width: 180px;
+  padding-top: 3px; }
+  #entries .inbox .options .group {
+    text-align: right;
+    border-bottom: none;
+    padding: 0;
+    margin: 0; }
 
 .dashboard h1.section {
   font-size: 14px;
@@ -553,7 +580,8 @@ html {
 
 body {
   background-color: #6e7b86;
-  text-align: center; }
+  text-align: center;
+  padding-top: 15px; }
 
 .hide {
   display: none !important; }
@@ -568,7 +596,7 @@ body {
 /* ------------------------------------------------------------------- =Skeleton */
 #wrapper {
   display: inline-block;
-  margin: 45px auto 0;
+  margin: 0px auto 0;
   padding: 0 5px;
   width: 780px;
   background: #5e6a75 url(/images/wrapper_bg.gif) top center no-repeat;

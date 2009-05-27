@@ -5,4 +5,4 @@
       %span.help
         =#toggle_entry_field_link "Add due date", "task_due_at", "add", f, :disable_option => "entry_task_show_due_at"
       
-    =tf.text_area :description, :rows => nil, :class => "expanding"
+    =tf.text_area :description, :rows => nil, :class => "expanding", :limit => 100

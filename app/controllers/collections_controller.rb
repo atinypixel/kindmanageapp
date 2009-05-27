@@ -5,6 +5,8 @@ class CollectionsController < ApplicationController
     actions :all
     
     before :destroy do
+      @keep_entry = params[:keep_entry]
+      @workspace = @collection.workspace
       @context = params[:context]
     end
   end

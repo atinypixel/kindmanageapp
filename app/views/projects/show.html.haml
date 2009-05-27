@@ -16,7 +16,7 @@
     #for_queue
     #for_project
       -unless @entries.empty?
-        =render :partial => "entries/entry", :collection => @entries, :as => :entry, :locals => {:project => @project, :standalone => false}
+        =render :partial => "entries/show", :collection => @entries, :as => :entry, :locals => {:project => @project, :standalone => false, :context => view_context(current_object), :inbox_mode => true}
       -else
         %h2.empty There are no entries for this project
         

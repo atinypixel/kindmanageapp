@@ -1,0 +1,3 @@
+%div{:id => "entry_container_#{entry.id}"}
+  =render :partial => "entries/entry", :locals => {:entry => entry, :project => project, :standalone => standalone, :context => context, :inbox_mode => inbox_mode}
+  

@@ -94,15 +94,18 @@ table {
       font-family: "Helvetica", Arial;
       width: 454px;
       color: #333; }
+    #entry_form form textarea,     .form_area form textarea {
+      line-height: 20px; }
+    #entry_form form input.title,     .form_area form input.title {
+      font-weight: bold;
+      font-size: 16px; }
     #entry_form form textarea#entry_note_attributes_body,     .form_area form textarea#entry_note_attributes_body {
       min-height: 105px;
       max-height: 500px; }
     #entry_form form textarea#entry_task_attributes_description,     .form_area form textarea#entry_task_attributes_description {
-      min-height: 45px;
-      max-height: 45px; }
-    #entry_form form input.title,     .form_area form input.title {
-      font-weight: bold;
-      font-size: 16px; }
+      height: 52px;
+      min-height: 52px;
+      max-height: 78px; }
     #entry_form form .buttons,     .form_area form .buttons {
       margin-top: 10px;
       font-size: 12px; }

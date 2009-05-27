@@ -12,10 +12,6 @@ module ApplicationHelper
     object.new_record? ? "new" : "edit"
   end
   
-  def created_by_current_user?(object, user)
-    object.user_id == user.id
-  end
-  
   def switch_admin_context_link(object)
     
   end
@@ -68,6 +64,45 @@ module ApplicationHelper
     end
   end
   
+  def inbox_entry(object, title, body=nil, options={})
+    haml_tag :div, :id => "entry_#{object.entry.id}", :class => "inbox entry #{object.entry.content_type_name}" do
+      # content_type
+      haml_concat %{<ul class="type"><li class="label"><span>#{object.entry.content_type_name}</span></li></ul>}
+      
+      # content
+      haml_tag :div, :class => "content" do
+        haml_tag :div, :class => "body" do
+          haml_tag :h3 do
+            title_truncate_number = title.length < 50 ? 50 : 100 
+            haml_concat truncate(title.gsub(/((?:@\w+\s*)+)$/, ""), title_truncate_number)
+            if body
+              haml_concat %{<span class="body">#{body.scan(/^.{#{title.length < 50 ? 50 : 75}}/)} ...</span>}
+            end
+          end
+        end
+      end
+      
+      # options
+      haml_tag :div, :class => "options" do
+        haml_tag :div, :class => "group user" do
+          if created_by_current_user?(object.entry)
+            # haml_concat link_to_remote image_tag("trash_icon.gif"), :url => project_entry_path(object.entry.project, object.entry, :context => options[:context]), :method => :delete, :confirm => "Are you sure?"
+            # haml_concat "|"
+            # haml_concat link_to_remote "Edit", :url => edit_project_entry_path(object.entry.project, object.entry, :content_type => object.entry.content_type_name, :context => options[:context]), :method => :get
+            # haml_concat "|"
+          end
+          haml_concat "From #{created_by_current_user?(object.entry) ? 'You' : object.entry.user.name}"
+          haml_concat "|"
+          haml_concat link_to "View", project_entry_path(object.entry.project, object.entry)
+          haml_concat "|"
+          haml_concat link_to "Expand", "#"
+          
+        end
+        
+      end
+    end
+  end
+  
   def delete_project_link(project)
     link_to_remote image_tag("admin_trash_icon.gif"), :url => project_path(project), :method => :delete, :html => {:class => "destroy"}, :confirm => "Deleting this project will also remove all of it's entries. Are you sure?"
   end
@@ -83,18 +118,34 @@ module ApplicationHelper
     end
     
     unless entry.collections.empty?
-      haml_tag :ul, :class => "workspaces #{entry.content_type_name}_workspaces" do
+      haml_tag :ul, :class => "workspaces", :id => "workspaces_for_entry_#{entry.id}" do
         entry.collections.each do |c|
-          unless @workspace && @workspace.name == c.workspace.name
-            haml_tag :li, :id => "collection_#{c.id}_for_entry_#{c.entry_id}" do
-              haml_concat link_to_remote image_tag("trash_icon.gif"), :url => collection_path(c, :context => options[:context]), :method => :delete, :confirm => "Are you sure?", :html => {:class => "remove_collection"}
-              haml_concat link_to c.workspace.name, "#{c.workspace.project_id ? project_workspace_path(c.workspace.project, c.workspace) : workspace_path(c.workspace)}", :class => "at_tag"
+          haml_tag :li, :id => "collection_#{c.id}_for_entry_#{c.entry_id}" do
+            case options[:context]
+            when /^workspace|project/
+              haml_concat image_tag("46.png")
+            when "entry"
+              if created_by_current_user?(entry)
+                haml_concat link_to_remote image_tag("trash_icon.gif"), 
+                              :url => collection_path(c, 
+                              :context => options[:context]), 
+                              :method => :delete, 
+                              :confirm => "Are you sure?", 
+                              :html => {:class => "remove_collection"}
+              else
+                haml_concat image_tag("46.png")
+              end
             end
+            haml_concat link_to c.workspace.name, "#{c.workspace.project_id ? project_workspace_path(c.workspace.project, c.workspace) : workspace_path(c.workspace)}", :class => "at_tag"
           end
         end
       end
       haml_tag :div, :class => "clear"
     end
+  end
+  
+  def content_without_tags(content)
+    
   end
   
   def page_label(label, name)
@@ -103,5 +154,13 @@ module ApplicationHelper
   
   def markdown(text)
     Markdown.new(text).to_html
+  end
+  
+  def collection_extists_for?(entry, workspace)
+    Collection.find_by_workspace_id_and_entry_id(entry.id, workspace.id).nil?
+  end
+  
+  def view_context(current_object)
+    current_object.class.name.downcase
   end
 end
