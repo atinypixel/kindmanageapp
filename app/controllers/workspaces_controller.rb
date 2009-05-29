@@ -3,11 +3,10 @@ class WorkspacesController < ApplicationController
   
   make_resourceful do
     actions :all
+    
+    before :destroy do
+      @context = params[:context]
+    end
+    
   end
-  
-  private
-  
-  # def current_object
-  #   @current_object ||= Workspace.find_by_id(params[:id])
-  # end
 end

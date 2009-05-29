@@ -7,11 +7,16 @@ module Kind
           :account_domain, 
           :account_subdomain, 
           :default_account_url,
-          :default_account_subdomain)
+          :default_account_subdomain,
+          :current_account_owned_by? )
       end
 
       protected
-
+        
+        def current_account_owned_by?(user)
+          current_account.owner_id == user.id
+        end
+        
         def current_account
           Account.find_by_subdomain(account_subdomain)
         end
@@ -56,15 +61,29 @@ module Kind
           :require_user, 
           :require_no_user, 
           :redirect_back_or_default,
-          :created_by_current_user?)
+          :created_by_current_user?,
+          :current_user?)
       end
       
       protected
-          
+        
+        def current_user?(user)
+          current_user.id == user.id
+        end
+        
         def created_by_current_user?(object)
           object.user_id == current_user.id
         end
-            
+        
+        def require_account_owner
+          unless current_user && current_user.id == current_account.owner_id
+            store_location
+            flash[:notice] = "You must be an account owner to access this page"
+            redirect_to account_url
+            return false
+          end
+        end
+        
         def require_user
           unless current_user
             store_location

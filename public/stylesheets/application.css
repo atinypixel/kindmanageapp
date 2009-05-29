@@ -82,35 +82,35 @@ textarea, input, select {
 .success a {
   color: #264409; }
 
-#entry_form, .form_area {
+.form_area {
   float: left;
   width: 746px;
   height: auto;
   margin-bottom: 15px;
   background-color: #fff;
   border: 2px solid #ece9de; }
-  #entry_form form,   .form_area form {
+  .form_area form {
     float: left;
     overflow: hidden;
     /* =Form_layout */
     /* =Form_elements */ }
-    #entry_form form .main,     .form_area form .main {
+    .form_area form .main {
       float: left;
       width: 466px;
       padding: 15px; }
-    #entry_form form .options,     .form_area form .options {
+    .form_area form .options {
       float: right;
       width: 219px;
       padding: 15px 15px 1000px;
       margin-bottom: -1000px;
       background-color: #f8f5ea;
       border-left: 1px solid #ece9de; }
-    #entry_form form .row, #entry_form form .buttons,     .form_area form .row, .form_area form .buttons {
+    .form_area form .row, .form_area form .buttons {
       float: left;
       width: 100%;
       margin-bottom: 10px;
       display: block; }
-    #entry_form form span.legend,     .form_area form span.legend {
+    .form_area form span.legend {
       margin: 0px 0 10px;
       float: left;
       width: 100%;
@@ -120,18 +120,18 @@ textarea, input, select {
       display: block;
       color: #bab7ac;
       text-transform: uppercase; }
-    #entry_form form label,     .form_area form label {
+    .form_area form label {
       display: block;
       margin-bottom: 3px;
       font-size: 14px;
       font-weight: bold;
       color: #666; }
-      #entry_form form label .help,       .form_area form label .help {
+      .form_area form label .help {
         padding-left: 3px;
         font-size: 11px;
         font-weight: normal;
         color: #999; }
-    #entry_form form input.text, #entry_form form input.title, #entry_form form input.password, #entry_form form textarea.body, #entry_form form textarea,     .form_area form input.text, .form_area form input.title, .form_area form input.password, .form_area form textarea.body, .form_area form textarea {
+    .form_area form input.text, .form_area form input.title, .form_area form input.password, .form_area form textarea.body, .form_area form textarea {
       border: 1px solid #ccc;
       border-right: 2px solid #bbb;
       border-bottom: 2px solid #bbb;
@@ -140,45 +140,76 @@ textarea, input, select {
       font-family: "Helvetica", Arial;
       width: 454px;
       color: #333; }
-    #entry_form form textarea,     .form_area form textarea {
-      line-height: 20px; }
-    #entry_form form input.title,     .form_area form input.title {
+    .form_area form textarea {
+      line-height: 16px; }
+    .form_area form input.title {
       font-weight: bold;
       font-size: 16px; }
-    #entry_form form textarea#entry_note_attributes_body,     .form_area form textarea#entry_note_attributes_body {
-      min-height: 105px;
-      max-height: 500px; }
-    #entry_form form textarea#entry_task_attributes_description,     .form_area form textarea#entry_task_attributes_description {
-      height: 52px;
-      min-height: 52px;
-      max-height: 78px; }
-    #entry_form form .buttons,     .form_area form .buttons {
+    .form_area form textarea#entry_note_attributes_body {
+      min-height: 140px;
+      max-height: 300px; }
+    .form_area form textarea#entry_task_attributes_description {
+      height: 54px;
+      min-height: 54px;
+      max-height: 82px; }
+    .form_area form .buttons {
       margin-top: 10px;
       font-size: 12px; }
-      #entry_form form .buttons input, #entry_form form .buttons button,       .form_area form .buttons input, .form_area form .buttons button {
+      .form_area form .buttons input, .form_area form .buttons button {
         font-family: Helvetica;
         font-size: 12px;
         color: #333; }
-      #entry_form form .buttons a,       .form_area form .buttons a {
+      .form_area form .buttons a {
         color: #cc0000; }
-    #entry_form form .options .row,     .form_area form .options .row {
+    .form_area form .options .row {
       margin-bottom: 12px; }
-    #entry_form form .options label,     .form_area form .options label {
+    .form_area form .options label {
       font-size: 12px;
       color: #6a675c; }
 
 .panel form {
   width: auto;
-  background-color: transparent; }
+  background-color: transparent;
+  display: inline-block; }
+  .panel form:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .panel form {
+    height: 1px; }
   .panel form input.text {
-    width: 190px;
-    padding: 3px;
-    border: 1px solid #3a454e;
+    width: 210px;
+    padding: 4px;
+    border: 2px solid #5e6a75;
     font-size: 12px;
     font-family: "Helvetica", Arial;
     font-weight: bold;
     color: #fff;
-    background-color: #5e6a75; }
+    background-color: #54606b; }
+
+.panel .form .row, .panel .form .buttons {
+  float: left;
+  width: 100%;
+  margin-bottom: 0px;
+  color: #b2b9bb; }
+  .panel .form .row input[type=checkbox],   .panel .form .buttons input[type=checkbox] {
+    position: relative;
+    top: 2px;
+    left: -4px; }
+.panel .form .buttons {
+  margin-top: 10px; }
+.panel .form h3 {
+  margin-bottom: 10px !important;
+  font-size: 10px;
+  color: #5e6a75 !important;
+  text-transform: uppercase; }
+.panel .form label {
+  float: left;
+  padding: 6px 10px 6px 0;
+  width: 35px;
+  font-weight: bold; }
 
 #admin_tabs {
   float: left;
@@ -262,7 +293,7 @@ textarea, input, select {
   #admin .panel {
     display: inline-block;
     width: 760px;
-    padding: 10px 15px 10px;
+    padding: 15px;
     margin: 0;
     background-color: #45515c;
     font-size: 12px;
@@ -281,15 +312,30 @@ textarea, input, select {
     #admin .panel #workspaces .context,     #admin .panel #projects .context {
       float: left;
       width: 100%; }
+    #admin .panel #workspaces .main,     #admin .panel #projects .main {
+      width: 441px;
+      float: left;
+      padding-right: 15px; }
+    #admin .panel #workspaces .form,     #admin .panel #projects .form {
+      width: 304px;
+      float: left; }
+      #admin .panel #workspaces .form form,       #admin .panel #projects .form form {
+        padding: 15px;
+        background-color: #404d59; }
     #admin .panel #workspaces li.workspace {
       _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit');
       float: left;
       margin: 0 5px 5px 0;
-      padding: 5px 8px;
+      padding: 5px 8px 4px;
       font-weight: bold;
-      background-color: #4e5b67; }
+      background-color: #4e5b67;
+      border: 1px solid #3f4c58; }
       #admin .panel #workspaces li.workspace a {
         color: #b9c5d0; }
+      #admin .panel #workspaces li.workspace a.destroy {
+        float: left;
+        margin-top: -1px;
+        margin-right: 6px; }
       #admin .panel #workspaces li.workspace span.name, #admin .panel #workspaces li.workspace span.has_project {
         float: left; }
       #admin .panel #workspaces li.workspace span.has_project {
@@ -300,7 +346,7 @@ textarea, input, select {
         line-height: 12px;
         color: #8c9dac; }
       #admin .panel #workspaces li.workspace:hover, #admin .panel #workspaces li.workspace.hover {
-        background: #3c4955; }
+        background: #3f4c58; }
     #admin .panel #projects ul.projects {
       float: left;
       width: 100%; }
@@ -320,7 +366,8 @@ textarea, input, select {
           height: 1px; }
         #admin .panel #projects ul.projects li.project .name {
           width: 300px;
-          float: left; }
+          float: left;
+          font-size: 14px; }
           #admin .panel #projects ul.projects li.project .name a {
             color: #a0adb8;
             font-weight: bold;
@@ -330,19 +377,37 @@ textarea, input, select {
           #admin .panel #projects ul.projects li.project .name a.destroy {
             margin-right: 3px;
             position: relative;
-            top: 2px; }
+            top: 1px; }
         #admin .panel #projects ul.projects li.project .meta {
           float: left;
           padding: 2px 0;
           font-size: 11px;
           color: #727e89; }
     #admin .panel #account_people ul.people li.person {
-      width: 160px;
+      width: 180px;
       height: 40px;
       margin-right: 10px;
-      padding: 10px;
-      float: left;
-      background-color: #505d68; }
+      float: left; }
+      #admin .panel #account_people ul.people li.person .profile_pic {
+        width: 30px;
+        height: 30px;
+        margin-right: 8px;
+        float: left;
+        background-color: #404c57; }
+      #admin .panel #account_people ul.people li.person .name, #admin .panel #account_people ul.people li.person .type {
+        float: left;
+        width: 132px; }
+      #admin .panel #account_people ul.people li.person .name {
+        margin-bottom: 3px;
+        font-weight: bold;
+        font-size: 14px; }
+        #admin .panel #account_people ul.people li.person .name a {
+          color: #aab7c2; }
+      #admin .panel #account_people ul.people li.person .type {
+        width: 100px;
+        float: left;
+        font-size: 10px;
+        color: #6e7b86; }
 
 ul.ribbon {
   float: left;

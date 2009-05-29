@@ -11,7 +11,7 @@
   .panel
     +cf
     :width 760px
-    :padding 10px 15px 10px
+    :padding 15px
     :margin 0
     :background-color = !dark_blue -25
     :font-size 12px
@@ -24,6 +24,16 @@
       .context
         :float left
         :width 100%
+      .main
+        :width = 456px - 15px
+        :float left
+        :padding-right 15px
+      .form
+        :width 304px
+        :float left
+        form
+          :padding 15px
+          :background-color = #4e5b67 -14
       
     
 
@@ -32,11 +42,16 @@
         +support_hover
         :float left
         :margin 0 5px 5px 0
-        :padding 5px 8px
+        :padding 5px 8px 4px
         :font-weight bold
         :background-color #4e5b67
+        :border = 1px solid (#4e5b67 -15)
         a
           :color #b9c5d0
+        a.destroy
+          :float left
+          :margin-top -1px
+          :margin-right 6px
         span.name, span.has_project
           :float left
         span.has_project
@@ -47,7 +62,7 @@
           :line-height 12px
           :color #8c9dac
         &:hover, &.hover
-          :background = #4e5b67 -18
+          :background = #4e5b67 -15
 
     #projects
       ul.projects
@@ -62,6 +77,7 @@
           .name
             :width 300px
             :float left
+            :font-size 14px
             a
               :color = !blue +50
               :font-weight bold
@@ -71,7 +87,7 @@
             a.destroy
               :margin-right 3px
               :position relative
-              :top 2px
+              :top 1px
           .meta
             :float left
             :padding 2px 0
@@ -81,10 +97,27 @@
     #account_people
       ul.people
         li.person
-          :width 160px
+          :width 180px
           :height 40px
           :margin-right 10px
-          :padding 10px
           :float left
-          :background-color = !blue -30
-      
+          .profile_pic
+            :width 30px
+            :height 30px
+            :margin-right 8px
+            :float left
+            :background-color = !dark_blue -30
+          .name, .type
+            :float left
+            :width 132px
+          .name
+            :margin-bottom 3px
+            :font-weight bold
+            :font-size 14px
+            a
+              :color = !blue +60
+          .type
+            :width 100px
+            :float left
+            :font-size 10px
+            :color = !blue

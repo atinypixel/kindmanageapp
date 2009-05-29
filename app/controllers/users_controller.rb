@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   
   private
     
-    def current_object
-      @current_object ||= current_user
-    end
+    # def current_object
+    #   # @current_object ||= current_user
+    # end
     
     def current_objects
       @current_objects || current_account.users

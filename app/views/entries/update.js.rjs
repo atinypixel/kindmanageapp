@@ -1,12 +1,11 @@
 case @context
 when /^workspace|project/
-  page["#entry_container_#{@entry.id}"].replace_html :partial => "entries/entry", 
+  page["#entry_container_#{@entry.id}"].replace_html :partial => "entries/entry",
     :locals => {
       :entry => @entry, 
       :project => @entry.project, 
       :context => @context,
       :standalone => false }
-  page.visual_effect :scroll_to, "entry_marker_#{@entry.id}", :duration => 0.5
   page.delay(0.5) {
     page["#entry_#{@entry.id}"].visual_effect :highlight
   }
@@ -19,5 +18,3 @@ when "entry"
       :standalone => true }
   page["#entry_#{@entry.id}"].visual_effect :highlight
 end
-page["#{@entry.content_type_name}_entry_form"].remove
-page["#entry_form"].hide

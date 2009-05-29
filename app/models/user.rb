@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
   def name
     self.first_name.capitalize + " " + self.last_name.scan(/^.{1}/).flatten.to_s.capitalize + "."
   end
+  
+  def full_name
+    self.first_name.capitalize + " " + self.last_name.capitalize
+  end
       
   def self.register(user_params, account_params)
     user_params ||= {}

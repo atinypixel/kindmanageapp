@@ -11,19 +11,28 @@ class Entry < ActiveRecord::Base
   
   accepts_nested_attributes_for :task, :note, :upload
   
+  # workspace relationships
+  has_many :collections, :uniq => true, :dependent => :destroy, :include => :workspace
+  has_many :workspaces, :through => :collections
+  
+  # todos
+  has_many :todos, :through => :task
+  
   # other relationships
   belongs_to :project
   belongs_to :account
   belongs_to :user
   
-  # workspace relationships
-  has_many :collections, :uniq => true, :dependent => :destroy, :include => :workspace
-  has_many :workspaces, :through => :collections
   
   # filter workspaces in and out
   after_save :process_workspaces
   after_update :process_workspaces
   
+  
+  def archive_it(entry)
+    entry.archived = true
+    
+  end
   
   def by_line(current_user)
     if self.user == current_user

@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :require_user
+  before_filter :require_account_owner
   
   make_resourceful do
     actions :all
@@ -21,13 +22,12 @@ class ProjectsController < ApplicationController
     end
     
     before :show do
-      @entries = current_object.entries
-      @types = Type.find(:all)
+      @entries = @project.entries
     end
   end
   
   protected
-  
+    
   def current_object
     @current_object ||= current_account.projects.find(params[:id])
   end

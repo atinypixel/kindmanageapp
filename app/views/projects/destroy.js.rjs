@@ -1,4 +1,0 @@
-page.visual_effect :fade, "project_#{@project.id}", :duration => 0.5
-page.delay(0.5) {
-  page.remove "project_#{@project.id}"
-}

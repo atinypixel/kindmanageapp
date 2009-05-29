@@ -1,4 +1,5 @@
 %a{:id => "entry_marker_#{entry.id}"}
+.form_area{:style => "display:none;"}
 .entry{:class => "#{entry.content_type_name}#{' has_collections' if entry.collections}", :id => "entry_#{entry.id}"}
   / label
   %ul.type
@@ -26,6 +27,8 @@
           =link_to_remote "Edit", :url => edit_project_entry_path(entry.project, entry, :content_type => entry.content_type_name, :context => context), :method => :get
           = "|" if !standalone
         =link_to "Open", project_entry_path(entry.project, entry) unless standalone
+        |
+        =link_to "Archive", "#"
 
   / actionable links + etc
   .options

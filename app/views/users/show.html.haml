@@ -1,0 +1,6 @@
+#page
+  %h5.label 
+    %span="#{current_account_owned_by?(@user) ? "Account Owner" : "Member"}"
+  %h1.name="#{current_user?(@user) ? "You" : @user.full_name}"
+#content
+

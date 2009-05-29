@@ -1,17 +1,27 @@
 #projects
+  .main
+    / %ul
+    /   %li.nav=link_to "All", "#all_projects"
+    /   / %li.nav=link_to "Mine", "#my_projects"
+    /   / %li.nav=link_to "By Project", "#workspace_context_project_only"
   
-  %ul
-    %li.nav=link_to "All", "#all_projects"
-    %li.nav=link_to "Mine", "#my_projects"
-    / %li.nav=link_to "By Project", "#workspace_context_project_only"
   
-  
-  #all_projects.context
-    =project_list_for(current_account, project_in_view, :all) if current_account
-  #my_projects.context
-    =project_list_for(current_user, project_in_view, :mine) if current_user
+    #all_projects.context
+      =project_list_for(current_account, project_in_view, :all) if current_account
+    / #my_projects.context
+    /   =project_list_for(current_user, project_in_view, :mine) if current_user
     
-  #new_project_form
-    -remote_form_for :project, :url => {:controller => "projects", :action => "create"}, :html => {:method => :get, :id => "project_form"} do |f|
-      =f.text_field :name, :class => "text", :value => ""
-      =f.submit "Add project"
+    / #new_project_form
+  .form
+    -remote_form_for :project, :url => {:controller => "projects", :action => "create"}, :html => {:method => :get, :id => "add_project_form"} do |f|
+      %h3 Add project
+      %div.row
+        =f.label :name
+        =f.text_field :name, :class => "text", :value => ""
+      %div.row
+        %label &nbsp;
+        =f.check_box :scope_workspaces, :value => 0
+        %span Keep workspaces in project?
+      %div.buttons
+        %label &nbsp;
+        =f.submit "Add project"

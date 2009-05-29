@@ -8,7 +8,7 @@ if @entry.errors.empty?
   page.visual_effect :scroll_to, "entry_marker_#{@entry.id}", :duration => 1
   page.delay(0.5) { page.visual_effect :highlight, "entry_#{@entry.id}" }
   page["##{@entry.content_type_name}_entry_form"].reset
-  page.hide "entry_form"
+  page.hide "#entry_form .form_area"
   page.replace_html "notice", flash[:notice]
   page << "$('#notice').attr('class', 'success');"
   page.show ".notice"

@@ -1,4 +1,6 @@
-#entry_form, .form_area
+@import _mixins.sass
+
+.form_area
   :float left
   :width 746px
   :height auto
@@ -63,17 +65,17 @@
       :width 454px
       :color #333
     textarea
-      :line-height 20px
+      :line-height 16px
     input.title
       :font-weight bold
       :font-size 16px
     textarea#entry_note_attributes_body
-      :min-height 105px
-      :max-height 500px
+      :min-height 140px
+      :max-height 300px
     textarea#entry_task_attributes_description
-      :height 52px
-      :min-height 52px
-      :max-height 78px
+      :height 54px
+      :min-height 54px
+      :max-height 82px
     .buttons
       :margin-top 10px
       :font-size 12px
@@ -92,15 +94,39 @@
 .panel form
   :width auto
   :background-color transparent
+  +cf
   input.text
-    :width 190px
-    :padding 3px
+    :width 210px
+    :padding 4px
     / :border = 1px solid (!dark_blue_alt -40)
-    :border = 1px solid (!dark_blue_alt -25)
+    :border = 2px solid (!dark_blue)
     :font
       :size 12px
       :family "Helvetica", Arial
       :weight bold
     / :color = !blue +80
     :color #fff
-    :background-color = !dark_blue
+    :background-color = !dark_blue -10
+.panel .form
+  .row, .buttons
+    :float left
+    :width 100%
+    :margin-bottom 0px
+    :color = #EEF5F7 -60
+    input[type=checkbox]
+      :position relative
+      :top 2px
+      :left -4px
+  .buttons
+    :margin-top 10px
+  h3
+    :margin-bottom 10px !important
+    :font-size 10px
+    :color = !dark_blue (!important)
+    :text-transform uppercase
+    
+  label
+    :float left
+    :padding 6px 10px 6px 0
+    :width 35px
+    :font-weight bold

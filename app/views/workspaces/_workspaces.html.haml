@@ -1,16 +1,18 @@
 #workspaces
-  %ul
-    %li.nav=link_to "All", "#all_workspaces"
-    %li.nav=link_to "Mine", "#my_workspaces"
-    %li.nav=link_to "By Project", "#project_workspaces"
+  .main
+    %ul.hide
+      %li.nav=link_to "All", "#all_workspaces"
+      / %li.nav=link_to "Mine", "#my_workspaces"
+      %li.nav=link_to "By Project", "#project_workspaces"
       
-  #all_workspaces.context
-    =workspace_list_for(current_account, :all) if current_account
+    #all_workspaces.context
+      =workspace_list_for(current_account, :all) if current_account
     
-  #my_workspaces.context{:style => "display:none;"}
-    =workspace_list_for(current_user, :user) if current_user
+    / #my_workspaces.context{:style => "display:none;"}
+    /   =workspace_list_for(current_user, :user) if current_user
     
-  #project_workspaces.context{:style => "display:none;"}
-    =workspace_list_for(current_account, :project) if current_account
+    #project_workspaces.context{:style => "display:none;"}
+      =workspace_list_for(current_account, :project) if current_account
   
-  #workspace_admin
+  .form
+    

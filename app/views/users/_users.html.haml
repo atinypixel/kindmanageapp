@@ -2,4 +2,11 @@
   %ul.people
     -current_account.users.in_groups_of(4, false) do |account_users|
       -account_users.each do |user|
-        %li.person=user.name
+        -unless current_user?(user)
+          %li.person
+            %span.profile_pic
+            %span.name
+              =link_to "#{current_user.id == user.id ? "You" : user.full_name}", account_user_path(user)
+            %span.type
+              =current_account_owned_by?(user) ? "Account Owner" : "Member"
+          
