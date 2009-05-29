@@ -6,5 +6,5 @@
       %h1.name=link_to @project.name, project_path(@project)
     #entry_form{:style => "display:none;"}
     #for_entry
-      =render :partial => "entries/show", :locals => {:entry => @entry, :project => @project, :standalone => true, :context => view_context(current_object), :inbox_mode => false}
+      =render :partial => "entries/show", :locals => {:entry => @entry, :project => @project, :standalone => true, :context => view_context(current_object)}
     

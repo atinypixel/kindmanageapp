@@ -4,7 +4,7 @@
   %h1.name
     =@workspace.name.humanize
     -if @workspace.project
-      %span.sub for
+      %span.sub /
       %span.project=link_to @workspace.project.name, project_path(@workspace.project)
 #content
   #entries

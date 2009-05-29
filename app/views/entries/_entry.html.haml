@@ -13,7 +13,7 @@
       =render :partial => "entries/#{entry.content_type_name}/show", :locals => {"#{entry.content_type_name}".to_sym => entry.content, :context => context}
     .workspaces.hide
     .meta
-      -unless params[:project_id] || @project
+      -unless params[:project_id] || @project || standalone
         %span.project
           =link_to entry.project.name, project_path(entry.project)
           \-
