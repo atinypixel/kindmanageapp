@@ -1,5 +1,5 @@
 authlogic --version '>= 2.0.13'
-vigetlabs-acts_as_markup --version '>= 1.3.2' --source gems.github.com
-rtomayko-rdiscount --version '>= 1.3.4' --source gems.github.com
-thoughtbot-paperclip --version '>= 2.2.9.1' --source gems.github.com
-mbleigh-subdomain-fu --version '>= 0.1.0' --source gems.github.com
+acts_as_markup --version '>= 1.3.2' --source gems.github.com
+rdiscount --version '>= 1.3.4' --source gems.github.com
+paperclip --version '>= 2.2.9.1' --source gems.github.com
+subdomain-fu --version '>= 0.1.0' --source gems.github.com
