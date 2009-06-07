@@ -29,6 +29,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def check_for_access
+    case @context
+    when "workspace"
+    when "project"
+    when "entry"
+    end
+  end
+  
   def entry_content_types
     ["note", "task", "issue", "upload"]
   end

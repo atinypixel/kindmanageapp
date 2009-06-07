@@ -91,7 +91,6 @@ textarea, input, select {
     color: #fff;
     font-size: 14px;
     background-color: #333;
-    text-transform: capitalize;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px; }
   #main ul#bread_crumbs li.after {
@@ -227,6 +226,9 @@ textarea, input, select {
     padding-right: 5px;
     margin-right: 5px;
     border-right: 1px solid #ccc; }
+#for_entry .entry .content .meta {
+  margin-top: 5px;
+  margin-bottom: 10px; }
 
 .entry {
   display: inline-block;
@@ -283,7 +285,18 @@ textarea, input, select {
       .entry .slim h3.title a.owning_project:hover {
         color: #000; }
   #for_entry .entry {
-    padding: 0; }
+    padding: 0 0 10px; }
+    #for_entry .entry .content {
+      width: 510px !important; }
+      #for_entry .entry .content p {
+        line-height: 18px;
+        padding-bottom: 12px; }
+
+#for_entry .note h3.title {
+  font-size: 18px;
+  margin-bottom: 10px; }
+#for_entry .note p {
+  font-size: 14px; }
 
 .form_area {
   float: left;
@@ -305,7 +318,7 @@ form {
     background-color: #fff;
     display: block;
     color: #333;
-    text-transform: uppercase;
+    text-transform: capitalize;
     -moz-border-radius-topleft: 0px;
     -moz-border-radius-topright: 6px;
     -moz-border-radius-bottomleft: 6px;
@@ -328,12 +341,12 @@ form {
       color: red; }
     form .row .help, form .buttons .help {
       float: left;
-      padding: 5px 0 0 80px;
+      padding: 5px 0 0 100px;
       color: #888;
       font-size: 11px; }
     form .row label, form .buttons label {
       float: left;
-      width: 65px;
+      width: 85px;
       padding-right: 15px;
       text-align: right;
       line-height: 20px;
@@ -342,7 +355,7 @@ form {
       color: #666; }
     form .row input[type=text], form .row input.text, form .row input.title, form .row textarea, form .row textarea.short, form .row textarea.long, form .buttons input[type=text], form .buttons input.text, form .buttons input.title, form .buttons textarea, form .buttons textarea.short, form .buttons textarea.long {
       padding: 3px 3px;
-      width: 404px;
+      width: 384px;
       font-size: 14px;
       background: #fff url(/images/fieldbg.gif) top left repeat-x;
       border: 1px solid #e0e0e0;

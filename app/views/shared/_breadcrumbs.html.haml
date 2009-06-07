@@ -14,7 +14,7 @@
         %li.after="#{@context == "workspace" ? '<span class="ws">w</span>' + current_object.name.humanize : current_object.content_type.capitalize}"
       -else
         %li.origin="#{@context == "workspace" ? '<span class="ws">w</span>' + current_object.name.humanize : current_object.content_type.capitalize}"
-  -if @context == "project" && controller.action_name == "show"
+  -if @context == "project" and not ["edit", "new"].include?(@context_action)
     %li.add
       =link_to_function image_tag "add_button.png" do |page|
         -page["#bread_crumbs .content_types"].toggle
