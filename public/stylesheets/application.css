@@ -2,9 +2,7 @@
 /* 
  * Reset
  * By Eric Meyers
- * //
- * PURPOSE:
- * Resets everything to zero for better browser compatibility */
+ * PURPOSE: */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a,
 abbr, acronym, address, big, cite, code, small, strike, strong, sub, sup, tt, var,
 dfn, em, img, del, small, strike, strong, sub, sup, tt, dl, dt, dd, ol, ul, li,
@@ -42,631 +40,343 @@ table {
 textarea, input, select {
   -moz-box-sizing: border-box; }
 
-.error, .notice, .success {
-  display: inline-block;
-  padding: 10px;
-  margin-bottom: 1em;
-  border: 2px solid #ddd;
-  float: left;
-  width: 726px; }
-  .error:after,   .notice:after,   .success:after {
+#main ul#bread_crumbs {
+  width: 679px;
+  padding: 3px;
+  -moz-border-radius-topleft: 6px;
+  -moz-border-radius-topright: 6px;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-bottomright: 0;
+  -webkit-border-top-left-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  background-color: #efefef;
+  display: inline-block; }
+  #main ul#bread_crumbs:after {
     content: ".";
     display: block;
     height: 0;
     clear: both;
     visibility: hidden; }
-  * html .error,   * html .notice,   * html .success {
+  * html #main ul#bread_crumbs {
     height: 1px; }
+  #main ul#bread_crumbs li {
+    height: 16px;
+    padding: 6px 8px 6px;
+    float: left;
+    font-weight: bold; }
+    #main ul#bread_crumbs li span.ws {
+      position: relative;
+      top: 1px;
+      float: right;
+      margin-left: 7px;
+      padding: 1px 3px;
+      background-color: #fff;
+      color: #000;
+      font-size: 11px;
+      font-weight: normal;
+      text-transform: lowercase !important; }
+    #main ul#bread_crumbs li a {
+      color: #fff; }
+  #main ul#bread_crumbs li.separator {
+    width: 16px;
+    height: 28px;
+    padding: 0;
+    margin-left: -6px;
+    position: relative;
+    z-index: 2;
+    background: url(/images/bc_right.png) top left no-repeat; }
+  #main ul#bread_crumbs li.origin {
+    color: #fff;
+    font-size: 14px;
+    background-color: #333;
+    text-transform: capitalize;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px; }
+  #main ul#bread_crumbs li.after {
+    font-size: 14px;
+    margin-left: -16px;
+    padding-left: 22px;
+    padding-right: 10px;
+    position: relative;
+    z-index: 0;
+    -moz-border-radius: 6px;
+    background-color: #fff; }
+    #main ul#bread_crumbs li.after span.ws {
+      background-color: #eee;
+      color: #666; }
+  #main ul#bread_crumbs li.add {
+    padding: 0;
+    margin: 0 0 0 3px; }
+    #main ul#bread_crumbs li.add .content_types {
+      width: 100px;
+      margin-top: -9px;
+      padding: 10px 10px;
+      position: absolute;
+      z-index: 9999;
+      background-color: #fff;
+      -moz-border-radius-topleft: 0px;
+      -moz-border-radius-topright: 6px;
+      -moz-border-radius-bottomleft: 6px;
+      -moz-border-radius-bottomright: 6px;
+      -webkit-border-top-left-radius: 0px;
+      -webkit-border-top-right-radius: 6px;
+      -webkit-border-bottom-left-radius: 6px;
+      -webkit-border-bottom-right-radius: 6px;
+      border: 1px solid #dadada;
+      border-top: none; }
+      #main ul#bread_crumbs li.add .content_types .content_type {
+        float: none;
+        margin: 0 0 0px;
+        padding: 3px 4px;
+        font-size: 14px;
+        border-bottom: 1px solid #efefef;
+        _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit'); }
+        #main ul#bread_crumbs li.add .content_types .content_type a {
+          color: #000;
+          text-decoration: none; }
+        #main ul#bread_crumbs li.add .content_types .content_type.hover a, #main ul#bread_crumbs li.add .content_types .content_type:hover a {
+          color: #7ca709; }
+  #main ul#bread_crumbs li.other {
+    float: right;
+    font-size: 12px;
+    line-height: 16px; }
+    #main ul#bread_crumbs li.other a {
+      padding-left: 5px;
+      color: #666; }
 
-.error {
-  background: #FBE3E4;
-  color: #8a1f11;
-  border-color: #FBC2C4; }
+.entry .content {
+  float: left;
+  padding: 0px !important; }
 
-.notice {
-  background: #FFF6BF;
-  color: #514721;
-  border-color: #FFD324; }
+.slim .workspaces, .content .workspaces {
+  float: left;
+  width: 80%; }
+  .slim .workspaces li, .content .workspaces li {
+    margin-bottom: 4px; }
+  .slim .workspaces .label, .content .workspaces .label {
+    margin-right: 4px;
+    float: left; }
+  .slim .workspaces .workspace, .content .workspaces .workspace {
+    float: left;
+    margin: -3px 3px 0 0;
+    padding: 3px 5px;
+    font-size: 11px;
+    background-color: #f5f5f5;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit'); }
+    .slim .workspaces .workspace a, .content .workspaces .workspace a {
+      padding-right: 0;
+      text-decoration: none;
+      color: #888;
+      float: left; }
+      .slim .workspaces .workspace a img, .content .workspaces .workspace a img {
+        float: left; }
+      .slim .workspaces .workspace a:hover, .content .workspaces .workspace a:hover {
+        color: #000; }
+    .slim .workspaces .workspace a.remove_collection, .content .workspaces .workspace a.remove_collection {
+      margin-top: -1px;
+      margin-right: 3px;
+      margin-bottom: -1px;
+      color: #aaa; }
+    .slim .workspaces .workspace.hover, .slim .workspaces .workspace:hover, .content .workspaces .workspace.hover, .content .workspaces .workspace:hover {
+      background-color: #ffffe0;
+      border: 1px dashed #ebeb8c;
+      padding: 2px 4px; }
+      .slim .workspaces .workspace.hover a, .slim .workspaces .workspace:hover a, .content .workspaces .workspace.hover a, .content .workspaces .workspace:hover a {
+        color: #000; }
 
-.success {
-  background: #E6EFC2;
-  color: #264409;
-  border-color: #C6D880; }
+/* ul.workspaces
+ * :float left
+ * :width 100%
+ * :margin-bottom 10px
+ * :display none
+ * / :padding-top 5px
+ * / :border-top 1px dotted #eee
+ * li */
+.entry .content_type {
+  text-align: right;
+  color: #fff; }
+.task .content_type span {
+  background-color: #d9eeaf;
+  color: #618737; }
+.note .content_type span {
+  background-color: #eed7af;
+  color: #6c552d; }
 
-.error a {
-  color: #8a1f11; }
+.entry .meta {
+  float: right;
+  padding-right: 5px;
+  font-size: 11px;
+  text-align: right;
+  color: #bbb; }
+  .entry .meta .group {
+    padding: 3px 0; }
+  .entry .meta .user {
+    color: #999; }
+.entry .content .meta {
+  margin-top: 0px;
+  float: left;
+  width: 100%;
+  text-align: left; }
+  .entry .content .meta .workspaces, .entry .content .meta .comments {
+    float: left; }
+  .entry .content .meta .separate {
+    padding-right: 5px;
+    margin-right: 5px;
+    border-right: 1px solid #ccc; }
 
-.notice a {
-  color: #514721; }
-
-.success a {
-  color: #264409; }
+.entry {
+  display: inline-block;
+  padding: 5px 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px dotted #eaeaea; }
+  .entry:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .entry {
+    height: 1px; }
+  .entry .content_type, .entry .slim {
+    padding-top: 3px; }
+  .entry .content_type {
+    float: left;
+    width: 80px;
+    padding-top: 5px;
+    margin-right: 15px;
+    font-size: 9px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff; }
+    .entry .content_type span {
+      padding: 3px 4px;
+      -moz-border-radius: 3px; }
+  .entry .content {
+    width: 410px;
+    padding-right: 15px; }
+  .entry .meta {
+    width: 145px;
+    padding: 0; }
+  .entry .slim h3.title {
+    font-size: 14px;
+    margin: 1px 0 6px;
+    line-height: 16px; }
+    .entry .slim h3.title a {
+      color: #444;
+      text-decoration: none; }
+      .entry .slim h3.title a:hover {
+        color: #0066aa; }
+    .entry .slim h3.title a.owning_project {
+      padding: 1px 3px;
+      position: relative;
+      top: -1px;
+      font-size: 11px;
+      font-weight: normal;
+      background-color: #ffffd0;
+      color: #8a8a3c;
+      -moz-border-radius: 4px; }
+      .entry .slim h3.title a.owning_project:hover {
+        color: #000; }
+  #for_entry .entry {
+    padding: 0; }
 
 .form_area {
   float: left;
-  width: 746px;
-  height: auto;
-  margin-bottom: 15px;
-  background-color: #fff;
-  border: 2px solid #ece9de; }
-  .form_area form {
-    float: left;
-    overflow: hidden;
-    /* =Form_layout */
-    /* =Form_elements */ }
-    .form_area form .main {
-      float: left;
-      width: 466px;
-      padding: 15px; }
-    .form_area form .options {
-      float: right;
-      width: 219px;
-      padding: 15px 15px 1000px;
-      margin-bottom: -1000px;
-      background-color: #f8f5ea;
-      border-left: 1px solid #ece9de; }
-    .form_area form .row, .form_area form .buttons {
-      float: left;
-      width: 100%;
-      margin-bottom: 10px;
-      display: block; }
-    .form_area form span.legend {
-      margin: 0px 0 10px;
-      float: left;
-      width: 100%;
-      font-size: 10px;
-      font-weight: bold;
-      background-color: transparent;
-      display: block;
-      color: #bab7ac;
-      text-transform: uppercase; }
-    .form_area form label {
-      display: block;
-      margin-bottom: 3px;
-      font-size: 14px;
-      font-weight: bold;
-      color: #666; }
-      .form_area form label .help {
-        padding-left: 3px;
-        font-size: 11px;
-        font-weight: normal;
-        color: #999; }
-    .form_area form input.text, .form_area form input.title, .form_area form input.password, .form_area form textarea.body, .form_area form textarea {
-      border: 1px solid #ccc;
-      border-right: 2px solid #bbb;
-      border-bottom: 2px solid #bbb;
-      padding: 4px;
-      font-size: 14px;
-      font-family: "Helvetica", Arial;
-      width: 454px;
-      color: #333; }
-    .form_area form textarea {
-      line-height: 16px; }
-    .form_area form input.title {
-      font-weight: bold;
-      font-size: 16px; }
-    .form_area form textarea#entry_note_attributes_body {
-      min-height: 140px;
-      max-height: 300px; }
-    .form_area form textarea#entry_task_attributes_description {
-      height: 54px;
-      min-height: 54px;
-      max-height: 82px; }
-    .form_area form .buttons {
-      margin-top: 10px;
-      font-size: 12px; }
-      .form_area form .buttons input, .form_area form .buttons button {
-        font-family: Helvetica;
-        font-size: 12px;
-        color: #333; }
-      .form_area form .buttons a {
-        color: #cc0000; }
-    .form_area form .options .row {
-      margin-bottom: 12px; }
-    .form_area form .options label {
-      font-size: 12px;
-      color: #6a675c; }
-
-.panel form {
-  width: auto;
-  background-color: transparent;
-  display: inline-block; }
-  .panel form:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-  * html .panel form {
-    height: 1px; }
-  .panel form input.text {
-    width: 210px;
-    padding: 4px;
-    border: 2px solid #5e6a75;
-    font-size: 12px;
-    font-family: "Helvetica", Arial;
-    font-weight: bold;
-    color: #fff;
-    background-color: #54606b; }
-
-.panel .form .row, .panel .form .buttons {
-  float: left;
   width: 100%;
-  margin-bottom: 0px;
-  color: #b2b9bb; }
-  .panel .form .row input[type=checkbox],   .panel .form .buttons input[type=checkbox] {
-    position: relative;
-    top: 2px;
-    left: -4px; }
-.panel .form .buttons {
-  margin-top: 10px; }
-.panel .form h3 {
-  margin-bottom: 10px !important;
-  font-size: 10px;
-  color: #5e6a75 !important;
-  text-transform: uppercase; }
-.panel .form label {
-  float: left;
-  padding: 6px 10px 6px 0;
-  width: 35px;
-  font-weight: bold; }
+  margin-bottom: 10px;
+  background-color: #e7e7e7;
+  border: 1px solid #dcdcdc;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px; }
 
-#admin_tabs {
-  float: left;
-  width: 780px;
-  padding: 0 5px; }
-  #admin_tabs li.admin {
-    float: left;
-    display: inline;
-    margin-top: -5px;
-    padding: 12px 10px 11px;
-    font-size: 13px;
-    font-weight: normal;
-    font-family: "Helvetica", Arial;
-    display: inline-block; }
-    #admin_tabs li.admin:after {
-      content: ".";
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden; }
-    * html #admin_tabs li.admin {
-      height: 1px; }
-    #admin_tabs li.admin a {
-      float: left;
-      color: #828f9a;
-      text-decoration: none;
-      font-weight: bold; }
-      #admin_tabs li.admin a:hover {
-        color: #fff; }
-    #admin_tabs li.admin a.close_admin {
-      display: none;
-      float: left;
-      margin-left: 6px;
-      margin-top: 2px;
-      font-size: 10px;
-      text-decoration: none; }
-    #admin_tabs li.admin.on {
-      background-color: #45515c;
-      margin-top: 0px;
-      padding-top: 7px; }
-      #admin_tabs li.admin.on a {
-        color: #fff;
-        font-weight: bold; }
-      #admin_tabs li.admin.on .close_admin {
-        display: inline; }
-        #admin_tabs li.admin.on .close_admin a {
-          color: #909ca7; }
-
-.panel #workspaces .context, .panel #projects .context {
-  float: left;
-  width: 100%; }
-.panel #workspaces ul, .panel #projects ul {
-  display: inline-block;
-  margin-bottom: 0; }
-  .panel #workspaces ul:after,   .panel #projects ul:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-  * html .panel #workspaces ul,   * html .panel #projects ul {
-    height: 1px; }
-  .panel #workspaces ul li.nav,   .panel #projects ul li.nav {
-    margin-right: 12px;
-    float: left;
-    font-weight: bold;
-    font-size: 14px; }
-    .panel #workspaces ul li.nav a,     .panel #projects ul li.nav a {
-      color: #6e7b86; }
-  .panel #workspaces ul li.on a,   .panel #projects ul li.on a {
-    color: #fff;
-    text-decoration: none !important; }
-
-#admin {
-  float: left;
-  width: 790px;
-  padding: 0;
-  margin: 5px -5px 0;
-  background-color: #596570;
-  border-bottom: 1px dashed #54606b; }
-  #admin .panel {
-    display: inline-block;
-    width: 760px;
-    padding: 15px;
-    margin: 0;
-    background-color: #45515c;
+form {
+  text-align: center; }
+  form span.legend {
+    margin: -15px -15px 10px 0px;
+    float: right;
+    padding: 6px;
     font-size: 12px;
-    border-bottom: 1px solid #404c57; }
-    #admin .panel:after {
-      content: ".";
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden; }
-    * html #admin .panel {
-      height: 1px; }
-    #admin .panel h3 {
-      color: #eef5f7;
-      margin-bottom: 10px; }
-    #admin .panel #workspaces .context,     #admin .panel #projects .context {
-      float: left;
-      width: 100%; }
-    #admin .panel #workspaces .main,     #admin .panel #projects .main {
-      width: 441px;
-      float: left;
-      padding-right: 15px; }
-    #admin .panel #workspaces .form,     #admin .panel #projects .form {
-      width: 304px;
-      float: left; }
-      #admin .panel #workspaces .form form,       #admin .panel #projects .form form {
-        padding: 15px;
-        background-color: #404d59; }
-    #admin .panel #workspaces li.workspace {
-      _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit');
-      float: left;
-      margin: 0 5px 5px 0;
-      padding: 5px 8px 4px;
-      font-weight: bold;
-      background-color: #4e5b67;
-      border: 1px solid #3f4c58; }
-      #admin .panel #workspaces li.workspace a {
-        color: #b9c5d0; }
-      #admin .panel #workspaces li.workspace a.destroy {
-        float: left;
-        margin-top: -1px;
-        margin-right: 6px; }
-      #admin .panel #workspaces li.workspace span.name, #admin .panel #workspaces li.workspace span.has_project {
-        float: left; }
-      #admin .panel #workspaces li.workspace span.has_project {
-        position: relative;
-        top: 4px;
-        margin-right: 5px;
-        font-size: 16px;
-        line-height: 12px;
-        color: #8c9dac; }
-      #admin .panel #workspaces li.workspace:hover, #admin .panel #workspaces li.workspace.hover {
-        background: #3f4c58; }
-    #admin .panel #projects ul.projects {
-      float: left;
-      width: 100%; }
-      #admin .panel #projects ul.projects li.project {
-        display: inline-block;
-        width: 100%;
-        padding: 0 0 6px;
-        margin: 0 0 6px;
-        border-bottom: 1px dashed #596570; }
-        #admin .panel #projects ul.projects li.project:after {
-          content: ".";
-          display: block;
-          height: 0;
-          clear: both;
-          visibility: hidden; }
-        * html #admin .panel #projects ul.projects li.project {
-          height: 1px; }
-        #admin .panel #projects ul.projects li.project .name {
-          width: 300px;
-          float: left;
-          font-size: 14px; }
-          #admin .panel #projects ul.projects li.project .name a {
-            color: #a0adb8;
-            font-weight: bold;
-            text-decoration: none; }
-            #admin .panel #projects ul.projects li.project .name a:hover {
-              color: #fff; }
-          #admin .panel #projects ul.projects li.project .name a.destroy {
-            margin-right: 3px;
-            position: relative;
-            top: 1px; }
-        #admin .panel #projects ul.projects li.project .meta {
-          float: left;
-          padding: 2px 0;
-          font-size: 11px;
-          color: #727e89; }
-    #admin .panel #account_people ul.people li.person {
-      width: 180px;
-      height: 40px;
-      margin-right: 10px;
-      float: left; }
-      #admin .panel #account_people ul.people li.person .profile_pic {
-        width: 30px;
-        height: 30px;
-        margin-right: 8px;
-        float: left;
-        background-color: #404c57; }
-      #admin .panel #account_people ul.people li.person .name, #admin .panel #account_people ul.people li.person .type {
-        float: left;
-        width: 132px; }
-      #admin .panel #account_people ul.people li.person .name {
-        margin-bottom: 3px;
-        font-weight: bold;
-        font-size: 14px; }
-        #admin .panel #account_people ul.people li.person .name a {
-          color: #aab7c2; }
-      #admin .panel #account_people ul.people li.person .type {
-        width: 100px;
-        float: left;
-        font-size: 10px;
-        color: #6e7b86; }
-
-ul.ribbon {
-  float: left;
-  width: 780px;
-  height: 39px;
-  margin: -15px -15px 15px;
-  padding: 0;
-  background: #eae2c7 url(/images/ribbon_bg.gif) top left repeat-x;
-  border-bottom: 1px solid #cbc3a8; }
-  ul.ribbon li {
-    float: left;
-    margin-right: 3px;
-    _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit'); }
-    ul.ribbon li a, ul.ribbon li span {
-      float: left;
-      height: 39px; }
-    ul.ribbon li a {
-      font-size: 14px;
-      font-weight: bold;
-      color: #000;
-      text-decoration: none;
-      background: url(/images/ribbon_item_right_bg.gif) top right no-repeat;
-      outline: 0; }
-      ul.ribbon li a span {
-        padding: 0 10px;
-        line-height: 43px;
-        background: url(/images/ribbon_item_left_bg.gif) top left no-repeat; }
-    ul.ribbon li.hover a,     ul.ribbon li:hover a {
-      background-image: url(/images/ribbon_item_right_bg_on.gif); }
-      ul.ribbon li.hover a span,       ul.ribbon li:hover a span {
-        background-image: url(/images/ribbon_item_left_bg_on.gif); }
-    ul.ribbon li.active a,     ul.ribbon li:active a {
-      background-image: url(/images/ribbon_item_right_bg_act.gif); }
-      ul.ribbon li.active a span,       ul.ribbon li:active a span {
-        background-image: url(/images/ribbon_item_left_bg_act.gif); }
-  ul.ribbon li.create_label {
-    width: 42px;
-    height: 39px;
-    margin-right: 8px;
-    background: url(/images/ribbon_create_label_bg.gif) top left no-repeat; }
-
-/* ------------------------------------------------------------------- =Entries */
-#entries, #entry {
-  display: inline-block;
-  width: 750px;
-  padding: 15px;
-  margin: -15px -15px 0;
-  background-color: #f4f3ed;
-  border-top: 1px solid #ece9de;
-  /* ----------------------------------------------------------------- =Entry_type_label_variations */
-  /* ----------------------------------------------------------------- =Entry_type_formatting */ }
-  #entries:after,   #entry:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-  * html #entries,   * html #entry {
-    height: 1px; }
-  #entries a,   #entry a {
-    color: #5f84a4; }
-  #entries .entry,   #entry .entry {
-    display: inline-block;
-    width: 720px;
-    padding: 15px;
-    margin: 0 0 5px;
+    font-weight: bold;
     background-color: #fff;
-    border-bottom: 2px solid #ece9de;
-    /* --------------------------------------------------------------- =Entry_type_labels */
-    /* --------------------------------------------------------------- =Entry_basic_formatting */
-    /* --------------------------------------------------------------- =Entry_options */ }
-    #entries .entry:after,     #entry .entry:after {
-      content: ".";
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden; }
-    * html #entries .entry,     * html #entry .entry {
-      height: 1px; }
-    #entries .entry ul.type,     #entry .entry ul.type {
+    display: block;
+    color: #333;
+    text-transform: uppercase;
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-top-left-radius: 0px;
+    -webkit-border-top-right-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -webkit-border-bottom-right-radius: 0px; }
+  form .buttons {
+    font-size: 12px; }
+    form .buttons input {
+      font-weight: bold; }
+  form .row, form .buttons {
+    float: left;
+    width: 80%;
+    margin-bottom: 10px;
+    clear: left;
+    text-align: left; }
+    form .row a.cancel, form .buttons a.cancel {
+      color: red; }
+    form .row .help, form .buttons .help {
       float: left;
-      width: 80px;
+      padding: 5px 0 0 80px;
+      color: #888;
+      font-size: 11px; }
+    form .row label, form .buttons label {
+      float: left;
+      width: 65px;
       padding-right: 15px;
       text-align: right;
-      font-family: Arial !important; }
-      #entries .entry ul.type li.label,       #entry .entry ul.type li.label {
-        float: right;
-        background-position: top right;
-        background-repeat: no-repeat;
-        height: 15px; }
-        #entries .entry ul.type li.label span,         #entry .entry ul.type li.label span {
-          float: left;
-          height: 15px;
-          padding: 3px 4px 0;
-          color: #fff;
-          font-size: 9px;
-          font-weight: bold;
-          text-transform: uppercase;
-          background-position: top left;
-          background-repeat: no-repeat; }
-    #entries .entry .content,     #entry .entry .content {
-      float: left;
-      width: 475px;
-      padding-right: 15px; }
-      #entries .entry .content .body h3,       #entry .entry .content .body h3 {
-        margin-top: 0px;
-        margin-bottom: 10px; }
-      #entries .entry .content .body p,       #entry .entry .content .body p {
-        padding-bottom: 10px;
-        font-size: 12px;
-        line-height: 18px;
-        color: #333; }
-      #entries .entry .content .meta,       #entry .entry .content .meta {
-        font-size: 11px;
-        color: #999; }
-        #entries .entry .content .meta .actions a,         #entry .entry .content .meta .actions a {
-          font-weight: bold;
-          text-decoration: none;
-          border-bottom: 1px dotted #ccc;
-          color: #666; }
-          #entries .entry .content .meta .actions a img,           #entry .entry .content .meta .actions a img {
-            position: relative;
-            top: 1px; }
-          #entries .entry .content .meta .actions a:hover,           #entry .entry .content .meta .actions a:hover {
-            border-color: #999; }
-        #entries .entry .content .meta .project a,         #entry .entry .content .meta .project a {
-          color: #777;
-          text-decoration: none; }
-          #entries .entry .content .meta .project a:hover,           #entry .entry .content .meta .project a:hover {
-            text-decoration: underline; }
-      #entries .entry .content ul.workspaces,       #entry .entry .content ul.workspaces {
-        float: left;
-        width: 100%;
-        margin-bottom: 10px; }
-        #entries .entry .content ul.workspaces li,         #entry .entry .content ul.workspaces li {
-          float: left;
-          margin-right: 10px;
-          margin-bottom: 3px;
-          line-height: 14px; }
-          #entries .entry .content ul.workspaces li a.remove_collection,           #entry .entry .content ul.workspaces li a.remove_collection {
-            margin-right: 0;
-            padding: 0;
-            color: #aaa;
-            font-size: 10px;
-            text-decoration: none; }
-          #entries .entry .content ul.workspaces li a.at_tag,           #entry .entry .content ul.workspaces li a.at_tag {
-            display: inline;
-            font-weight: bold;
-            font-size: 12px;
-            color: #5f84a4;
-            text-decoration: none !important; }
-            #entries .entry .content ul.workspaces li a.at_tag .at_symbol,             #entry .entry .content ul.workspaces li a.at_tag .at_symbol {
-              color: #a0adb8; }
-            #entries .entry .content ul.workspaces li a.at_tag:hover,             #entry .entry .content ul.workspaces li a.at_tag:hover {
-              color: #000 !important; }
-              #entries .entry .content ul.workspaces li a.at_tag:hover .remove_ws,               #entry .entry .content ul.workspaces li a.at_tag:hover .remove_ws {
-                color: #fff;
-                background-color: #aa0000;
-                border-color: #fff; }
-          #entries .entry .content ul.workspaces li a.invalid_at_tag span,           #entry .entry .content ul.workspaces li a.invalid_at_tag span {
-            color: #bbb !important; }
-          #entries .entry .content ul.workspaces li a.invalid_at_tag:hover span,           #entry .entry .content ul.workspaces li a.invalid_at_tag:hover span {
-            color: #666 !important; }
-    #entries .entry .options,     #entry .entry .options {
-      float: left;
-      width: 135px;
-      margin-top: -1px; }
-      #entries .entry .options .group,       #entry .entry .options .group {
-        float: left;
-        width: 100%;
-        display: block;
-        font-size: 11px;
-        font-weight: normal;
-        line-height: 12px;
-        color: #ddd;
-        padding: 3px 0;
-        border-bottom: 1px dotted #eaeaea; }
-        #entries .entry .options .group a,         #entry .entry .options .group a {
-          font-weight: bold;
-          text-decoration: none; }
-          #entries .entry .options .group a:hover,           #entry .entry .options .group a:hover {
-            color: #000; }
-        #entries .entry .options .group a.neg:hover,         #entry .entry .options .group a.neg:hover {
-          color: #cc0000; }
-      #entries .entry .options .user, #entries .entry .options .created,       #entry .entry .options .user, #entry .entry .options .created {
-        text-align: right;
-        color: #aaa; }
-      #entries .entry .options .user,       #entry .entry .options .user {
-        color: #777; }
-      #entries .entry .options .created,       #entry .entry .options .created {
-        font-style: italic; }
-  #entries .note ul.type li.label,
-  #entries .milestone ul.type li.label,   #entry .note ul.type li.label,
-  #entry .milestone ul.type li.label {
-    background-image: url(/images/type_label_right_grn_bg.gif); }
-    #entries .note ul.type li.label span,
-    #entries .milestone ul.type li.label span,     #entry .note ul.type li.label span,
-    #entry .milestone ul.type li.label span {
-      background-image: url(/images/type_label_left_grn_bg.gif); }
-  #entries .task ul.type li.label,   #entry .task ul.type li.label {
-    background-image: url(/images/type_label_right_blue_bg.gif); }
-    #entries .task ul.type li.label span,     #entry .task ul.type li.label span {
-      background-image: url(/images/type_label_left_blue_bg.gif); }
-  #entries .task .content .body .description,   #entry .task .content .body .description {
-    font-size: 16px;
-    color: #333;
-    line-height: 19px;
-    font-weight: bold; }
-    #entries .task .content .body .description span,     #entry .task .content .body .description span {
-      display: block;
-      padding-bottom: 8px; }
-    #entries .task .content .body .description span.due,     #entry .task .content .body .description span.due {
-      padding-left: 4px;
-      font-size: 11px;
-      font-weight: bold;
-      color: #999; }
-  #entries .note .content .body h3,   #entry .note .content .body h3 {
-    margin-top: 0px;
-    font-size: 20px;
-    line-height: 20px;
-    color: #333 !important; }
-  #entries .note .content .body p,   #entry .note .content .body p {
-    font-size: 14px; }
-
-#entries .inbox .content {
-  width: 430px; }
-  #entries .inbox .content .body {
-    margin-bottom: 0;
-    padding-bottom: 0; }
-    #entries .inbox .content .body h3 {
-      font-size: 14px;
-      margin: 0;
-      line-height: 18px; }
-    #entries .inbox .content .body span.body {
+      line-height: 20px;
       font-size: 12px;
-      font-weight: normal;
-      color: #999; }
-#entries .inbox .options {
-  width: 180px;
-  padding-top: 3px; }
-  #entries .inbox .options .group {
-    text-align: right;
-    border-bottom: none;
-    padding: 0;
-    margin: 0; }
+      font-weight: bold;
+      color: #666; }
+    form .row input[type=text], form .row input.text, form .row input.title, form .row textarea, form .row textarea.short, form .row textarea.long, form .buttons input[type=text], form .buttons input.text, form .buttons input.title, form .buttons textarea, form .buttons textarea.short, form .buttons textarea.long {
+      padding: 3px 3px;
+      width: 404px;
+      font-size: 14px;
+      background: #fff url(/images/fieldbg.gif) top left repeat-x;
+      border: 1px solid #e0e0e0;
+      border-top: none;
+      font-family: Arial;
+      font-weight: bold; }
+    form .row textarea, form .buttons textarea {
+      font-weight: normal !important;
+      max-height: 500px; }
+    form .row textarea.short, form .buttons textarea.short {
+      min-height: 55px;
+      max-height: 190px; }
+    form .row textarea.long, form .buttons textarea.long {
+      min-height: 140px; }
+  .form_area form {
+    width: auto;
+    margin: 15px; }
 
-.dashboard h1.section {
-  font-size: 14px;
-  color: #999;
-  margin-bottom: 15px; }
+
+
+
+
+
+
 
 /* ------------------------------------------------------------------- =Basics */
 html {
   overflow-y: scroll; }
 
 body {
-  background-color: #6e7b86;
+  background-color: #dedede;
   text-align: center;
-  padding-top: 15px; }
+  padding-top: 15px;
+  font-family: Arial; }
 
 .hide {
   display: none !important; }
@@ -678,15 +388,37 @@ body {
   margin: 0;
   padding: 0; }
 
+h2.empty {
+  color: #f4f3ed -70; }
+
 /* ------------------------------------------------------------------- =Skeleton */
+#header {
+  display: none;
+  margin: 0 auto 10px;
+  width: 960px;
+  height: 32px;
+  background-color: #d1d1d1;
+  text-align: left;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px; }
+  #header ul.navigation {
+    padding: 3px 10px;
+    font-size: 12px; }
+    #header ul.navigation li {
+      float: left;
+      height: 26px;
+      _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit'); }
+      #header ul.navigation li a {
+        color: #666;
+        line-height: 26px;
+        font-weight: bold;
+        text-decoration: none; }
+
 #wrapper {
-  display: inline-block;
-  margin: 0px auto 0;
-  padding: 0 5px;
-  width: 780px;
-  background: #5e6a75 url(/images/wrapper_bg.gif) top center no-repeat;
-  font-family: "Helvetica", Arial, Tahoma, sans-serif;
-  text-align: left; }
+  width: 960px;
+  margin: 0 auto;
+  text-align: left;
+  display: inline-block; }
   #wrapper:after {
     content: ".";
     display: block;
@@ -695,103 +427,53 @@ body {
     visibility: hidden; }
   * html #wrapper {
     height: 1px; }
-  #wrapper #content {
-    display: inline-block;
-    width: 750px;
-    padding: 15px;
-    background-color: #fff; }
-    #wrapper #content:after {
-      content: ".";
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden; }
-    * html #wrapper #content {
-      height: 1px; }
-  #wrapper #footer {
-    width: 790px;
-    height: 10px;
-    margin: 0 -5px;
-    background: #5e6a75 url(/images/footer_bg.gif) bottom center no-repeat; }
-
-/* ------------------------------------------------------------------- =Page_meta */
-#page {
-  float: left;
-  width: 760px;
-  padding: 15px 10px 16px !important;
-  margin: 0 !important; }
-  #page h5.label {
+  #wrapper #main {
+    width: 685px;
+    margin: 0 auto;
     float: left;
-    height: 23px;
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #a9b6c1;
-    background-color: #535e67;
-    background-position: top left;
-    background-repeat: no-repeat;
-    background-image: url(/images/page_label_left.gif); }
-    #page h5.label span {
+    background-color: #fff;
+    -moz-border-radius: 6px; }
+    #wrapper #main .content {
+      padding: 10px; }
+  #wrapper #sidebar {
+    width: 260px;
+    padding-left: 15px;
+    float: left;
+    text-align: left; }
+    #wrapper #sidebar h1.section_title {
+      padding-bottom: 4px;
+      margin-bottom: 4px;
+      font-size: 10px;
+      text-transform: uppercase;
+      color: #999; }
+    #wrapper #sidebar ul.workspaces {
       float: left;
-      padding-left: 8px;
-      padding-right: 16px;
-      height: 23px;
-      line-height: 24px;
-      background-position: top right;
-      background-repeat: no-repeat;
-      background-image: url(/images/page_label_right.gif); }
-  #page h1.name {
-    float: left;
-    margin-top: 4px;
-    margin-left: 8px;
-    font-size: 18px;
-    color: #fff; }
-    #page h1.name a {
-      color: #fff; }
-  #page.dashboard h5.label {
-    font-weight: bold;
-    color: #fff; }
-  #page.workspace h5.label {
-    color: #c7d4df;
-    background-image: url(/images/page_label_alt_left.gif) !important; }
-    #page.workspace h5.label span {
-      background-image: url(/images/page_label_alt_right.gif) !important; }
-  #page.workspace h1.name {
-    text-transform: capitalize; }
-    #page.workspace h1.name span.sub {
-      padding-left: 2px;
-      font-size: 12px;
-      color: #8c99a4;
-      text-transform: lowercase !important; }
-    #page.workspace h1.name span.project {
-      font-size: 14px;
-      text-transform: capitalize !important; }
-      #page.workspace h1.name span.project a {
-        color: #a0adb8;
-        text-decoration: none; }
-        #page.workspace h1.name span.project a:hover {
-          text-decoration: underline; }
-  #entry #page {
-    width: auto;
-    padding: 0 !important;
-    margin: -5px 0 10px !important; }
-    #entry #page h5.label {
-      height: 21px;
-      background-image: url(/images/entry_page_label_left.gif);
-      color: #b9b8ad;
-      font-size: 10px; }
-      #entry #page h5.label span {
-        height: 22px;
-        padding-left: 6px;
-        padding-right: 14px;
-        line-height: 22px;
-        background-image: url(/images/entry_page_label_right.gif); }
-    #entry #page h1.name {
-      margin-top: 4px; }
-      #entry #page h1.name a {
-        font-size: 14px;
-        text-decoration: none;
-        color: #afaea3; }
-        #entry #page h1.name a:hover {
-          color: #9b9a8f;
-          text-decoration: underline; }
+      width: 100%;
+      margin-bottom: 15px; }
+      #wrapper #sidebar ul.workspaces li.workspace {
+        float: left;
+        padding: 2px 6px 2px 7px;
+        margin: 0 3px 3px 0;
+        -moz-border-radius: 6px;
+        font-weight: bold;
+        font-size: 12px;
+        color: #fff;
+        background-color: #f0f0f0;
+        line-height: 17px;
+        _azimuth: expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit'); }
+        #wrapper #sidebar ul.workspaces li.workspace a {
+          color: #555;
+          text-decoration: none;
+          position: relative;
+          top: -1px; }
+        #wrapper #sidebar ul.workspaces li.workspace a.destroy {
+          vertical-align: baseline;
+          margin-right: 1px;
+          position: relative;
+          top: 1px; }
+        #wrapper #sidebar ul.workspaces li.workspace.hover, #wrapper #sidebar ul.workspaces li.workspace:hover {
+          background-color: lightyellow;
+          color: #000;
+          cursor: pointer; }
+          #wrapper #sidebar ul.workspaces li.workspace.hover a, #wrapper #sidebar ul.workspaces li.workspace:hover a {
+            color: #000; }

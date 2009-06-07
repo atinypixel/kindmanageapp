@@ -11,17 +11,18 @@
     / #my_projects.context
     /   =project_list_for(current_user, project_in_view, :mine) if current_user
     
-    / #new_project_form
-  .form
-    -remote_form_for :project, :url => {:controller => "projects", :action => "create"}, :html => {:method => :get, :id => "add_project_form"} do |f|
-      %h3 Add project
+  #ajax_project_form.form
+    -project = Project.new
+    -remote_form_for project, :url => {:controller => "projects", :action => "create"}, :html => {:method => :get, :id => "add_project_form"} do |f|
+      
+      %h3 Add a new project
       %div.row
         =f.label :name
         =f.text_field :name, :class => "text", :value => ""
       %div.row
         %label &nbsp;
-        =f.check_box :scope_workspaces, :value => 0
+        =f.check_box :scope_workspaces, :value => false
         %span Keep workspaces in project?
       %div.buttons
         %label &nbsp;
-        =f.submit "Add project"
+        =f.submit "Create project"

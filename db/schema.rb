@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090528203857) do
+ActiveRecord::Schema.define(:version => 20090531231208) do
 
   create_table "accounts", :force => true do |t|
     t.string   "subdomain"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(:version => 20090528203857) do
 
   create_table "assets", :force => true do |t|
     t.integer  "upload_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "collaborations", :force => true do |t|
+    t.integer  "projects_id"
+    t.integer  "workspaces_id"
+    t.integer  "users_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -53,6 +61,14 @@ ActiveRecord::Schema.define(:version => 20090528203857) do
     t.boolean  "archived",     :default => false
   end
 
+  create_table "issues", :force => true do |t|
+    t.integer  "entry_id"
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "milestones", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -81,6 +97,11 @@ ActiveRecord::Schema.define(:version => 20090528203857) do
     t.integer  "account_id"
     t.string   "user_id"
     t.boolean  "scope_workspaces", :default => false
+  end
+
+  create_table "projects_users", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "user_id"
   end
 
   create_table "sessions", :force => true do |t|

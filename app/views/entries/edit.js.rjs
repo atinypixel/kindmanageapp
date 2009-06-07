@@ -1,4 +1,4 @@
 # page.visual_effect :scroll_to, "entry_form", :duration => 0.5
 # page.replace_html "entry_form", :partial => "entries/form", :locals => {:content_type => @content_type}
-page.insert_html :top, "#entry_container_#{@entry.id} .form_area", :partial => "entries/form", :locals => {:content_type => @content_type}
-page.visual_effect :blind_down, "#entry_container_#{@entry.id} .form_area", :duration => 0.2
+page.replace_html "#for_entry .form_area", :partial => "entries/form", :locals => {:content_type => @content_type}
+page.visual_effect :blind_down, "#for_entry .form_area", :duration => 0.2

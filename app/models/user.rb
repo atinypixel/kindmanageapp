@@ -10,7 +10,10 @@ class User < ActiveRecord::Base
   has_many :notes, :through => :entries
   has_many :uploads, :through => :entries
   has_many :workspaces
-  has_many :projects
+  
+  has_many :collaborations
+  has_many :users, :through => :collaborations
+  
   
   def name
     self.first_name.capitalize + " " + self.last_name.scan(/^.{1}/).flatten.to_s.capitalize + "."

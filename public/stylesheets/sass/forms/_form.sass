@@ -1,0 +1,67 @@
+.form_area
+  :float left
+  :width 100%
+  :margin-bottom 10px
+  :background-color #e7e7e7
+  :border 1px solid #dcdcdc
+  +border_radius_all(6px)
+  
+form
+  :text-align center
+  span.legend
+    :margin -15px -15px 10px 0px
+    :float right
+    :padding 6px
+    :font-size 12px
+    :font-weight bold
+    :background-color #fff
+    :display block
+    :color #333
+    :text-transform uppercase
+    +border_radius(0px, 6px, 6px, 0px)
+  .buttons
+    :font-size 12px
+    input
+      :font-weight bold
+  .row, .buttons
+    :float left
+    :width 80%
+    :margin-bottom 10px
+    :clear left
+    :text-align left
+    a.cancel
+      :color red
+    .help
+      :float left
+      :padding 5px 0 0 80px
+      :color #888
+      :font-size 11px
+    label
+      :float left
+      :width 65px
+      :padding-right 15px
+      :text-align right
+      :line-height 20px
+      :font-size 12px
+      :font-weight bold
+      :color #666
+    input[type=text], input.text, input.title, textarea, textarea.short, textarea.long
+      :padding 3px 3px
+      :width 404px
+      :font-size 14px
+      :background #fff url(/images/fieldbg.gif) top left repeat-x
+      :border 1px solid #e0e0e0
+        :top none
+      :font-family Arial
+      :font-weight bold
+    textarea
+      :font-weight normal !important
+      :max-height 500px
+    textarea.short
+      :min-height 55px
+      :max-height 190px
+    textarea.long
+      :min-height 140px
+  .form_area &
+    :width auto
+    :margin 15px

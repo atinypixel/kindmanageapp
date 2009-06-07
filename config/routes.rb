@@ -4,6 +4,10 @@ ActionController::Routing::Routes.draw do |map|
     a.resources :users
   end
   
+  map.resources :users do |u|
+    u.resources :collaborations
+  end
+  
   map.resources :projects do |p|
     p.resources :entries
     p.resources :notes
@@ -12,8 +16,10 @@ ActionController::Routing::Routes.draw do |map|
     p.resources :workspaces
   end
   
+  map.resources :collaborations
   map.resources :collections
   map.resources :workspaces
+  
   map.resource :user_session
   
   map.app_root "/", :controller => "accounts", :conditions => {:subdomain => /.+[^w{3}]/}

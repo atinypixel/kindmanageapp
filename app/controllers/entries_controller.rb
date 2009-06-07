@@ -18,13 +18,13 @@ class EntriesController < ApplicationController
         
     before :create do
       @context = params[:context]
-      @content_type = @entry.content_type_name
+      @content_type = @entry.content_type
       @entry.account, @entry.user = current_account, current_user
       @project = @entry.project
     end
     
     after :create do
-      flash[:notice] = "#{@entry.content_type_name.capitalize} has been successfully added to `#{@entry.project.name}`"
+      flash[:notice] = "#{@entry.content_type.capitalize} has been successfully added to `#{@entry.project.name}`"
     end
     
     before :edit do

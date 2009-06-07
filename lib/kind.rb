@@ -60,8 +60,8 @@ module Kind
           :current_user_session, 
           :require_user, 
           :require_no_user, 
-          :redirect_back_or_default,
-          :created_by_current_user?,
+          :redirect_back_or_default, 
+          :created_by_current_user?, 
           :current_user?)
       end
       

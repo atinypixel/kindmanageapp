@@ -6,24 +6,46 @@
     =javascript_include_tag "tabs.js"
     =javascript_include_tag "jquery.autogrow.js"
     =javascript_include_tag "jquery.scrollto-min.js"
+    =javascript_include_tag "jquery.curvycorners.js"
     =javascript_include_tag "cufon/cufon.js"
     =javascript_include_tag "cufon/Museo_500-Museo_700.font.js"
     =stylesheet_link_tag "application.css"
     =stylesheet_link_tag "safari.css"
         
-    :javascript
-      Cufon.replace('#logo_text');
-          
-    /[if lt IE 7]
-      %script{:src => "http://ie7-js.googlecode.com/svn/version/2.0(beta3)/IE7.js", :type => "text/javascript"}
+    / :javascript
+    /   Cufon.replace('#logo_text');
+    
+    / :javascript
+    /   $(function(){
+    /   $('.type .label').corner({
+    /   tl: { radius: 4 },
+    /   tr: { radius: 4 },
+    /   bl: { radius: 4 },
+    /   br: { radius: 4 }
+    /   });
+    /   });
+    
     
   %body
+    #header
+      %ul.navigation
+        %li=link_to "Your projects", "#"
     #wrapper
-      -if current_user
-        =render :partial => "shared/admin", :locals => {:project_in_view => project_in_view(params[:project_id] || @project.try(:id).to_s || @workspace.try(:project_id))}
+      #main
+        -unless current_user
+          =render :partial => "shared/admin", :locals => {:project_in_view => project_in_view(params[:project_id] || @project.try(:id).to_s || @workspace.try(:project_id))}
+        
+        =render :partial => "shared/breadcrumbs"
+          
+        
+        
+        =yield
       
-      =yield
-      
+      #sidebar
+        =render :partial => "shared/sidebar/workspaces"
+          
+      .clear
+      %br
       #footer
         =current_user.name unless current_user.nil?
         =link_to "Logout", user_session_path, :method => :delete, :confirm => "Are you sure?"

@@ -1,16 +1,6 @@
-case @context
-when /^workspace|project/
-  page["#entry_container_#{@entry.id}"].replace_html :partial => "entries/entry",
-    :locals => {
-      :entry => @entry, 
-      :project => @entry.project, 
-      :context => @context,
-      :standalone => false }
-  page.delay(0.5) {
-    page["#entry_#{@entry.id}"].visual_effect :highlight
-  }
-when "entry"
-  page["#entry_container_#{@entry.id}"].replace_html :partial => "entries/entry", 
+if @context == "entry"
+  page["#for_entry .form_area"].hide
+  page["#for_entry"].replace_html :partial => "entries/item", 
     :locals => {
       :entry => @entry, 
       :project => @entry.project,

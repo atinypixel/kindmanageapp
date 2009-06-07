@@ -5,6 +5,11 @@ class Project < ActiveRecord::Base
   has_many :notes
   has_many :upload
   
+  has_many :collaborations
+  has_many :users, :through => :collaborations
+  
+  
+  
   has_many :workspaces, :uniq => true
   belongs_to :account
   
@@ -16,6 +21,7 @@ class Project < ActiveRecord::Base
     if self.workspaces
       self.workspaces.each do |w|
         w.project_id = ""
+        w.save
       end
     end
   end

@@ -1,6 +1,5 @@
-case @context
-when "entry"
-  page["#for_#{@context}"].replace_html :partial => "entries/show", :locals => {:entry => @collection.entry, :standalone => true, :context => @context}
+if @context == "entry"
+  page["#for_#{@context}"].replace_html :partial => "entries/item", :locals => {:entry => @collection.entry, :standalone => true, :context => @context}
   page["#entry_#{@collection.entry_id}"].visual_effect :highlight
 end
   

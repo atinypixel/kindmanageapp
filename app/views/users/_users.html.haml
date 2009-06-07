@@ -3,10 +3,11 @@
     -current_account.users.in_groups_of(4, false) do |account_users|
       -account_users.each do |user|
         -unless current_user?(user)
-          %li.person
+          %li.person{:id => "person_#{user.id}"}
             %span.profile_pic
             %span.name
               =link_to "#{current_user.id == user.id ? "You" : user.full_name}", account_user_path(user)
             %span.type
               =current_account_owned_by?(user) ? "Account Owner" : "Member"
-          
+            
+          =draggable_element "person_#{user.id}"

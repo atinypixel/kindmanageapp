@@ -1,0 +1,54 @@
+@import entries/_content.sass
+@import entries/_meta.sass
+
+.entry
+  +cf
+  :padding 5px 0
+  :width 100%
+  :background-color #fff
+  :border-bottom 1px dotted #eaeaea
+  
+  .content_type, .slim
+    :padding-top 3px
+  .content_type
+    :float left
+    :width 80px
+    :padding-top 5px
+    :margin-right 15px
+    :font-size 9px
+    :font-weight bold
+    :text-transform uppercase
+    :color #fff
+    span
+      :padding 3px 4px
+      :-moz-border-radius 3px
+  .content
+    :width 410px
+    :padding-right 15px
+  .meta
+    :width 145px
+    :padding 0
+  .slim
+    h3.title
+      :font-size 14px
+      :margin 1px 0 6px
+      :line-height 16px
+      a
+        :color #444
+        :text-decoration none
+        &:hover
+          :color #0066aa
+      a.owning_project
+        :padding 1px 3px
+        :position relative
+        :top -1px
+        :font-size 11px
+        :font-weight normal
+        :background-color #ffffd0
+        / :border 1px dashed #eeeea0
+        :color = #eeeea0 - 100
+        :-moz-border-radius 4px
+        &:hover
+          :color #000
+  #for_entry &
+    :padding 0

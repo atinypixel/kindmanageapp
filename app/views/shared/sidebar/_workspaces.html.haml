@@ -1,0 +1,12 @@
+-case @context
+  -when /^project|entry|workspace/
+    -if @project && @project.scope_workspaces && !@project.workspaces.empty?
+      %h1.section_title Current project only
+      =workspace_list_for(@project, :project)
+ 
+
+.clear
+-unless current_account.workspaces.not_scoped.empty?
+  %h1.section_title Shared
+  =workspace_list_for(current_account, :all)
+  

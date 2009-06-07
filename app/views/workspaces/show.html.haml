@@ -1,14 +1,7 @@
-#page.workspace
-  %h5.label
-    %span Workspace
-  %h1.name
-    =@workspace.name.humanize
-    -if @workspace.project
-      %span.sub /
-      %span.project=link_to @workspace.project.name, project_path(@workspace.project)
-#content
+.content
   #entries
     #entry_form{:style => 'display:none;'}
     #for_workspace
       -@workspace.collections.each do |c|
-        =render :partial => "entries/show", :locals => {:entry => c.entry, :project => c.entry.project, :standalone => false, :context => view_context(current_object)}  
+        =entry_list_item(c.entry)
+        =#render :partial => "entries/show", :locals => {:entry => c.entry, :project => c.entry.project, :standalone => false, :context => view_context(current_object)}  

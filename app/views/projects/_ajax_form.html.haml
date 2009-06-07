@@ -1,0 +1,10 @@
+%div.row
+  =f.label :name
+  =f.text_field :name, :class => "text", :value => ""
+%div.row
+  %label &nbsp;
+  =f.check_box :scope_workspaces, :value => false
+  %span Keep workspaces in project?
+%div.buttons
+  %label &nbsp;
+  =f.submit "Add project"

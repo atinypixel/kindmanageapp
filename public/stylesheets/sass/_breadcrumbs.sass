@@ -1,0 +1,92 @@
+@import _mixins.sass
+
+#main ul#bread_crumbs
+  / :float left
+  :width = 685px - 6
+  :padding 3px
+  +border_radius(6px, 6px)
+  :background-color #efefef
+  +cf
+  li
+    :height = 27px - 11
+    :padding 6px 8px 6px
+    :float left
+    :font-weight bold
+    span.ws
+      :position relative
+      :top 1px
+      :float right
+      :margin-left 7px
+      :padding 1px 3px
+      :background-color #fff
+      :color #000
+      :font-size 11px
+      :font-weight normal
+      :text-transform lowercase !important
+    a
+      :color #fff
+  li.separator
+    :width 16px
+    :height 28px
+    :padding 0
+    :margin-left -6px
+    :position relative
+    :z-index 2
+    :background url(/images/bc_right.png) top left no-repeat
+  li.origin
+    :color #fff
+    :font-size 14px
+    / :background-color #7ca709
+    :background-color #333 
+    :text-transform capitalize
+    +border_radius_all(6px)
+  li.after
+    :font-size 14px
+    :margin-left -16px
+    :padding-left 22px
+    :padding-right 10px
+    :position relative
+    :z-index 0
+    :-moz-border-radius 6px
+    :background-color #fff
+    span.ws
+      :background-color #eee
+      :color #666
+  li.add
+    :padding 0
+    :margin 0 0 0 3px
+    / :float right
+    .content_types
+      :width 100px
+      :margin-top -9px
+      :padding 10px 10px
+      :position absolute
+      :z-index 9999
+      :background-color #fff
+      +border_radius(0px, 6px, 6px, 6px)
+      / :-moz-border-radius-topright 6px
+      / :-moz-border-radius-bottomleft 6px
+      / :-moz-border-radius-bottomright 6px
+      :border 1px solid #dadada
+        :top none
+      .content_type
+        :float none
+        :margin 0 0 0px
+        :padding 3px 4px
+        / :background-color #efefef
+        :font-size 14px
+        :border-bottom 1px solid #efefef
+        +support_hover
+        a
+          :color #000
+          :text-decoration none
+        &.hover, &:hover
+          a
+            :color #7ca709
+  li.other
+    :float right
+    :font-size 12px
+    :line-height 16px
+    a
+      :padding-left 5px
+      :color #666      

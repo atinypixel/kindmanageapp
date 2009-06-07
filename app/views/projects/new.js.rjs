@@ -1,0 +1,1 @@
+page.insert_html :bottom, "#add_project_form", :partial => "projects/ajax_form"

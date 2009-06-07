@@ -16,8 +16,17 @@
 =support_hover
   :_azimuth expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit')
 
-=heading_tag_fix_for_safari
-  @media screen and (-webkit-min-device-pixel-ratio:0) &
-    :position relative
-    :top -5px
 
+=border_radius_all(!radius)
+  :-moz-border-radius = !radius
+  :-webkit-border-radius = !radius
+  
+=border_radius(!top_left="0", !top_right="0", !bottom_left="0", !bottom_right="0")
+  :-moz-border-radius-topleft = !top_left
+  :-moz-border-radius-topright = !top_right
+  :-moz-border-radius-bottomleft = !bottom_left
+  :-moz-border-radius-bottomright = !bottom_right
+  :-webkit-border-top-left-radius = !top_left
+  :-webkit-border-top-right-radius = !top_right
+  :-webkit-border-bottom-left-radius = !bottom_left
+  :-webkit-border-bottom-right-radius = !bottom_right

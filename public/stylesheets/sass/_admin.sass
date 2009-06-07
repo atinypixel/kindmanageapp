@@ -1,5 +1,6 @@
 @import _colors.sass
 @import _tabs.sass
+@import _mixins.sass
 
 #admin
   :float left
@@ -32,6 +33,7 @@
         :width 304px
         :float left
         form
+          :width = 304px - 30px
           :padding 15px
           :background-color = #4e5b67 -14
       
@@ -42,15 +44,16 @@
         +support_hover
         :float left
         :margin 0 5px 5px 0
-        :padding 5px 8px 4px
+        :padding 5px 8px 6px
         :font-weight bold
         :background-color #4e5b67
         :border = 1px solid (#4e5b67 -15)
         a
           :color #b9c5d0
+          :text-decoration none
         a.destroy
           :float left
-          :margin-top -1px
+          / :margin-top -1px
           :margin-right 6px
         span.name, span.has_project
           :float left
@@ -77,7 +80,7 @@
           .name
             :width 300px
             :float left
-            :font-size 14px
+            :font-size 12px
             a
               :color = !blue +50
               :font-weight bold
@@ -107,6 +110,10 @@
             :margin-right 8px
             :float left
             :background-color = !dark_blue -30
+            +support_hover
+            &.hover, &:hover
+              :cursor move
+              
           .name, .type
             :float left
             :width 132px

@@ -28,11 +28,11 @@ class ProjectsController < ApplicationController
   
   protected
     
-  def current_object
-    @current_object ||= current_account.projects.find(params[:id])
-  end
+    # def current_object
+    #   @current_object ||= current_account.projects.find(params[:id])
+    # end
   
-  def current_objects
-    @current_objects ||= current_account.projects.find(:all)
-  end
+    def current_objects
+      @current_objects ||= current_account.projects.find(:all)
+    end
 end

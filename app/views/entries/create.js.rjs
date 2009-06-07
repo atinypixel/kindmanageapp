@@ -1,4 +1,5 @@
 if @entry.errors.empty?
+  page << "$('#for_#{@context} h2.empty').hide();"
   page.insert_html :top, "for_project", :partial => "entries/show",
     :locals => {
       :entry => @entry,
@@ -7,7 +8,7 @@ if @entry.errors.empty?
       :context => @context }
   page.visual_effect :scroll_to, "entry_marker_#{@entry.id}", :duration => 1
   page.delay(0.5) { page.visual_effect :highlight, "entry_#{@entry.id}" }
-  page["##{@entry.content_type_name}_entry_form"].reset
+  page["##{@entry.content_type}_entry_form"].reset
   page.hide "#entry_form .form_area"
   page.replace_html "notice", flash[:notice]
   page << "$('#notice').attr('class', 'success');"
@@ -23,3 +24,5 @@ else
     page.visual_effect :fade, "notice", :duration => 1
   }
 end
+
+page << "$('#for_#{@context} h2.empty').hide();"

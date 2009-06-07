@@ -1,10 +1,11 @@
-#content
+.content
   #entry
-    #page
-      %h5.label
-        %span Project
-      %h1.name=link_to @project.name, project_path(@project)
-    #entry_form{:style => "display:none;"}
-    #for_entry
-      =render :partial => "entries/show", :locals => {:entry => @entry, :project => @project, :standalone => true, :context => view_context(current_object)}
-    
+    #for_entry  
+      =entry_item(@entry)
+      
+-content_for :actions do
+  -if created_by_current_user?(@entry)
+    =link_to_remote(image_tag("trash_icon.gif"), :url => project_entry_path(@entry.project, @entry, :context => @context), :method => :delete, :confirm => "Are you sure?")
+    =link_to_remote("Edit #{@entry.content_type}", :url => edit_project_entry_path(@entry.project, @entry, :content_type => @entry.content_type, :context => @context), :method => :get)
+  
+

@@ -1,14 +1,16 @@
 /*------------------------------------------------------------------- =Includes
-@import _reset.sass
-@import _colors.sass
+@import _reset.sass  
 @import _mixins.sass
-@import _flash.sass
-@import _forms.sass
-@import _admin.sass
-@import _ribbon.sass
-@import _entry.sass
-@import _dashboard.sass
-
+@import _breadcrumbs.sass
+@import entries/_entry.sass
+@import forms/_form.sass
+/ @import _colors.sass
+/ @import _flash.sass
+/ @import _admin.sass
+/ @import _ribbon.sass
+/ @import _entry.sass
+/ @import _dashboard.sass
+/
 /*------------------------------------------------------------------- =Basics
 html
   / :overflow -moz-scrollbars-vertical
@@ -16,9 +18,10 @@ html
   / :overflow scroll-vertical
   
 body  
-  :background-color #6e7b86
+  :background-color #dedede
   :text-align center
   :padding-top 15px
+  :font-family Arial
 .hide
   :display none !important
 .clear
@@ -26,121 +29,89 @@ body
 .soft_hide
   :margin 0
   :padding 0
-    
+h2.empty
+  :color = #F4F3ED -70
 
 /*------------------------------------------------------------------- =Skeleton
-#wrapper
-  +cf
-  :margin 0px auto 0
-  :padding 0 5px
-  :width 780px
-  :background #5e6a75 url(/images/wrapper_bg.gif) top center no-repeat
-  :font-family "Helvetica", Arial, Tahoma, sans-serif
-  :text-align left
-        
-  #content
-    +cf
-    +inside_wrapper
-    :background-color #fff
-  #footer
-    :width 790px
-    :height 10px
-    :margin 0 -5px
-    :background #5e6a75 url(/images/footer_bg.gif) bottom center no-repeat
-    
 
-/*------------------------------------------------------------------- =Page_meta
-#page
-  :float left
-  :width 760px
-  :padding 15px 10px 16px !important
-  :margin 0 !important
-  h5.label
-    :float left
-    / :margin-bottom 10px
-    / :padding 6px 8px
-    :height 23px
-    :font-size 11px
-    :font-weight bold
-    :text-transform uppercase
-    :color = #8b98a3 +30
-    :background
-      :color = !dark_blue_alt
-      :position top left
-      :repeat no-repeat
-      :image url(/images/page_label_left.gif)
-    span
+#header
+  :display none
+  :margin 0 auto 10px
+  :width 960px
+  :height 32px
+  :background-color #d1d1d1
+  :text-align left
+  +border_radius_all(6px)
+  ul.navigation
+    :padding 3px 10px
+    :font-size 12px
+    li
       :float left
-      :padding
-        :left 8px
-        :right 16px
-      :height 23px
-      :line-height 24px
-      :background
-        :position top right
-        :repeat no-repeat
-        :image url(/images/page_label_right.gif)
-      
-  h1.name
-    :float left
-    :margin-top 4px
-    :margin-left 8px
-    :font-size 18px
-    :color #fff
-    a
-      :color #fff
-    
-  &.dashboard
-    h5.label
-      :font-weight bold
-      :color #fff
-      /:font-size 13px
-      /:background-color = !dark_blue_alt - 50
-      /:color #fff
-      
-  &.workspace
-    h5.label
-      :color = #8b98a3 +60
-      :background-image url(/images/page_label_alt_left.gif) !important
-      span
-        :background-image url(/images/page_label_alt_right.gif) !important
-    h1.name
-      :text-transform capitalize
-      span.sub
-        :padding-left 2px
-        :font-size 12px
-        :color = !blue +30
-        :text-transform lowercase !important
-      span.project
-        :font-size 14px
-        :text-transform capitalize !important
-        a
-          :color = !blue +50
-          :text-decoration none
-          &:hover
-            :text-decoration underline
-  #entry &
-    :width auto
-    :padding 0 !important
-    :margin -5px 0 10px !important
-    h5.label
-      :height 21px
-      :background-image url(/images/entry_page_label_left.gif)
-      :color #b9b8ad
-      :font-size 10px
-      span
-        :height 22px
-        :padding
-          :left 6px
-          :right 14px
-        :line-height 22px
-        :background-image url(/images/entry_page_label_right.gif)
-    h1.name
-      :margin-top 4px
+      :height 26px
+      +support_hover
       a
-        :font-size 14px
+        :color #666
+        :line-height 26px
+        :font-weight bold
         :text-decoration none
-        :color = #b9b8ad -10
-        &:hover
-          :color = #b9b8ad -30
-          :text-decoration underline
+      &.hover, &:hover
+        
+
+#wrapper
+  :width 960px
+  :margin 0 auto
+  :text-align left
+  +cf
+  #main
+    :width 685px
+    :margin 0 auto
+    :float left
+    :background-color #fff
+    :-moz-border-radius 6px          
+    .content
+      :padding 10px
+        
+  #sidebar
+    :width = 275px - 15px
+    :padding-left 15px
+    :float left
+    :text-align left
+    h1.section_title
+      :padding-bottom 4px
+      :margin-bottom 4px
+      :font-size 10px
+      :text-transform uppercase
+      :color #999
+      / :border-bottom 1px dashed #d0d0d0
+      
+    ul.workspaces
+      :float left
+      :width 100%
+      :margin-bottom 15px
+      li.workspace
+        :float left
+        :padding 2px 6px 2px 7px
+        :margin 0 3px 3px 0
+        :-moz-border-radius 6px
+        :font-weight bold
+        :font-size 12px
+        :color #fff
+        :background-color #f0f0f0
+        :line-height 17px
+        +support_hover
+        a
+          :color #555
+          :text-decoration none
+          :position relative
+          :top -1px
+        a.destroy
+          :vertical-align baseline
+          :margin-right 1px
+          :position relative
+          :top 1px
+        &.hover, &:hover
+          :background-color lightyellow
+          :color #000
+          :cursor pointer
+          a
+            :color #000

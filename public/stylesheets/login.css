@@ -1,9 +1,7 @@
 /* 
  * Reset
  * By Eric Meyers
- * //
- * PURPOSE:
- * Resets everything to zero for better browser compatibility */
+ * PURPOSE: */
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a,
 abbr, acronym, address, big, cite, code, small, strike, strong, sub, sup, tt, var,
 dfn, em, img, del, small, strike, strong, sub, sup, tt, dl, dt, dd, ol, ul, li,
@@ -41,135 +39,6 @@ table {
 textarea, input, select {
   -moz-box-sizing: border-box; }
 
-.form_area {
-  float: left;
-  width: 746px;
-  height: auto;
-  margin-bottom: 15px;
-  background-color: #fff;
-  border: 2px solid #ece9de; }
-  .form_area form {
-    float: left;
-    overflow: hidden;
-    /* =Form_layout */
-    /* =Form_elements */ }
-    .form_area form .main {
-      float: left;
-      width: 466px;
-      padding: 15px; }
-    .form_area form .options {
-      float: right;
-      width: 219px;
-      padding: 15px 15px 1000px;
-      margin-bottom: -1000px;
-      background-color: #f8f5ea;
-      border-left: 1px solid #ece9de; }
-    .form_area form .row, .form_area form .buttons {
-      float: left;
-      width: 100%;
-      margin-bottom: 10px;
-      display: block; }
-    .form_area form span.legend {
-      margin: 0px 0 10px;
-      float: left;
-      width: 100%;
-      font-size: 10px;
-      font-weight: bold;
-      background-color: transparent;
-      display: block;
-      color: #bab7ac;
-      text-transform: uppercase; }
-    .form_area form label {
-      display: block;
-      margin-bottom: 3px;
-      font-size: 14px;
-      font-weight: bold;
-      color: #666; }
-      .form_area form label .help {
-        padding-left: 3px;
-        font-size: 11px;
-        font-weight: normal;
-        color: #999; }
-    .form_area form input.text, .form_area form input.title, .form_area form input.password, .form_area form textarea.body, .form_area form textarea {
-      border: 1px solid #ccc;
-      border-right: 2px solid #bbb;
-      border-bottom: 2px solid #bbb;
-      padding: 4px;
-      font-size: 14px;
-      font-family: "Helvetica", Arial;
-      width: 454px;
-      color: #333; }
-    .form_area form textarea {
-      line-height: 16px; }
-    .form_area form input.title {
-      font-weight: bold;
-      font-size: 16px; }
-    .form_area form textarea#entry_note_attributes_body {
-      min-height: 140px;
-      max-height: 300px; }
-    .form_area form textarea#entry_task_attributes_description {
-      height: 54px;
-      min-height: 54px;
-      max-height: 82px; }
-    .form_area form .buttons {
-      margin-top: 10px;
-      font-size: 12px; }
-      .form_area form .buttons input, .form_area form .buttons button {
-        font-family: Helvetica;
-        font-size: 12px;
-        color: #333; }
-      .form_area form .buttons a {
-        color: #cc0000; }
-    .form_area form .options .row {
-      margin-bottom: 12px; }
-    .form_area form .options label {
-      font-size: 12px;
-      color: #6a675c; }
-
-.panel form {
-  width: auto;
-  background-color: transparent;
-  display: inline-block; }
-  .panel form:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-  * html .panel form {
-    height: 1px; }
-  .panel form input.text {
-    width: 210px;
-    padding: 4px;
-    border: 2px solid #5e6a75;
-    font-size: 12px;
-    font-family: "Helvetica", Arial;
-    font-weight: bold;
-    color: #fff;
-    background-color: #54606b; }
-
-.panel .form .row, .panel .form .buttons {
-  float: left;
-  width: 100%;
-  margin-bottom: 0px;
-  color: #b2b9bb; }
-  .panel .form .row input[type=checkbox],   .panel .form .buttons input[type=checkbox] {
-    position: relative;
-    top: 2px;
-    left: -4px; }
-.panel .form .buttons {
-  margin-top: 10px; }
-.panel .form h3 {
-  margin-bottom: 10px !important;
-  font-size: 10px;
-  color: #5e6a75 !important;
-  text-transform: uppercase; }
-.panel .form label {
-  float: left;
-  padding: 6px 10px 6px 0;
-  width: 35px;
-  font-weight: bold; }
-
 body {
   background-color: #6e7b86;
   text-align: center;
@@ -189,10 +58,10 @@ body {
     padding: 10px 15px 15px;
     margin: -15px -15px 15px;
     background-color: #5e6a75;
-    border-bottom: 1px solid #4a5661;
-    color: #b8c4cf; }
+    border-bottom: 1px solid(#5e6a75 -20);
+    color: #5e6a7590; }
     #login form #logo_text strong {
-      color: #909ca7; }
+      color: #5e6a7550; }
   #login form h1 {
     margin-bottom: 15px;
     color: #5e6a75; }

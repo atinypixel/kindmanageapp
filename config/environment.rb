@@ -8,11 +8,12 @@ require File.join(File.dirname(__FILE__), 'boot')
 require 'rdiscount'
 
 Rails::Initializer.run do |config|  
-  config.gem "haml"
+  config.gem "haml", :version => ">= 2.1.0"
   config.gem "acts_as_markup"
   config.gem "authlogic"
   config.gem 'mbleigh-subdomain-fu', :source => "http://gems.github.com", :lib => "subdomain-fu"
-  config.gem 'thoughtbot-paperclip', :lib => 'paperclip'
+  # config.gem 'thoughtbot-paperclip', :lib => 'paperclip'
+  # config.gem 'mime-types'
   # config.gem "rdiscount"
   # config.gem "resourcelogic"
   

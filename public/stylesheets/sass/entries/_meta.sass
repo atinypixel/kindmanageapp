@@ -1,0 +1,37 @@
+@import workspaces/_workspace.sass
+
+.content_type
+  .entry &
+    :text-align right
+    :color #fff
+  .task &
+    span
+      :background-color = #d9eeaf
+      :color = #d9ffaf - 120
+  .note &
+    span
+      :background-color = #eed7af
+      :color = #eed7af - 130
+
+.meta
+  .entry &
+    :float right
+    :padding-right 5px
+    :font-size 11px
+    :text-align right
+    :color #bbb
+    .group
+      :padding 3px 0
+    .user
+      :color #999
+  .entry .content &
+    :margin-top 0px
+    :float left
+    :width 100%
+    :text-align left
+    .workspaces, .comments
+      :float left
+    .separate
+      :padding-right 5px
+      :margin-right 5px
+      :border-right 1px solid #ccc    

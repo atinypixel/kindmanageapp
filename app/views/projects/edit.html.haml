@@ -1,0 +1,10 @@
+.content
+  .form_area
+    -form_for :project, @project, :url => {:action => create_or_update(@project)}, :html => {:method => create_or_update(@project, :choose_method => true)} do |f|
+      .row
+        =f.label :name
+        =f.text_field :name, :class => "text"
+      .buttons
+        %label &nbsp;
+        =submit_tag "Update project"
+    

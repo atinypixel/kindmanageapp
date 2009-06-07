@@ -8,8 +8,9 @@ class Entry < ActiveRecord::Base
   has_one :task, :dependent => :destroy
   has_one :note, :dependent => :destroy
   has_one :upload, :dependent => :destroy
+  has_one :issue, :dependent => :destroy
   
-  accepts_nested_attributes_for :task, :note, :upload
+  accepts_nested_attributes_for :task, :note, :upload, :issue
   
   # workspace relationships
   has_many :collections, :uniq => true, :dependent => :destroy, :include => :workspace
@@ -31,7 +32,6 @@ class Entry < ActiveRecord::Base
   
   def archive_it(entry)
     entry.archived = true
-    
   end
   
   def by_line(current_user)
@@ -80,26 +80,24 @@ class Entry < ActiveRecord::Base
   end
   
   def at_tags
-    content_body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).flatten
+    self.content.body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).flatten
   end
   
   def at_tags?
-    content_body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).length > 0
+    self.content.body.scan(/((?:@\w+\s*)+)$/).flatten.to_s.scan(/@(\w+)/).length > 0
   end
   
-  def content_body
-    if note
-      self.note.body
-    elsif task
-      self.task.description
-    elsif upload
-      self.upload.description
+  def title
+    case content_type
+    when "note"
+      content.title
+    when "task"
+      content.description
     end
-  end    
+  end
   
-  def content_type_name
-    content_model_name = content.class.name || content.class.name || content.class.name
-    content_model_name.downcase
+  def content_type
+    content.class.name.downcase
   end
 
   def content

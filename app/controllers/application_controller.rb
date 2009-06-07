@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   include Kind::Controller::Accounts
   include Kind::Controller::Users
   
+  before_filter :load_context
+  
   layout :current_layout_name
   
   helper :all
@@ -28,7 +30,12 @@ class ApplicationController < ActionController::Base
   end
   
   def entry_content_types
-    ["task", "note", "upload"]
+    ["note", "task", "issue", "upload"]
+  end
+  
+  def load_context
+    @context = current_object.class.name.downcase
+    @context_action = params[:action]
   end
   
 end

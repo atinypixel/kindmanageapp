@@ -13,7 +13,7 @@ class Collection < ActiveRecord::Base
   
   def strip_associated_at_tags_from_entry
     entry = self.entry
-    case entry.content_type_name
+    case entry.content_type
     when "note"
       entry.note.update_attributes(:body => entry.note.body.gsub(/\s@#{self.workspace.name}/, "").gsub(/@#{self.workspace.name}/, ""))
     when "task"

@@ -1,26 +1,19 @@
-#page
-  %h5.label 
-    %span Project  
-  %h1.name
-    -unless @entry
-      =@project.name
-    -else
-      =link_to @project.name, project_path(@project)
-
-#content
-  =render :partial => "create_ribbon", :locals => {:project => @project }
-  
+.content
   #entries
     #notice.clear{:style => "display: none;"}
     #entry_form
-      .form_area{:style => "display: none;"}
+      .form_area{:style => "display:none;"}
     #for_queue
     #for_project
-      -unless @entries.empty?
-        =render :partial => "entries/show", :collection => @entries, :as => :entry, :locals => {:project => @project, :standalone => false, :context => view_context(current_object), :inbox_mode => true}
+      -unless @project.entries.empty?
+        -@project.entries.each do |entry|
+          =entry_list_item(entry)
+        =#render :partial => "entries/show", :collection => @project.entries, :as => :entry, :locals => {:project => @project, :standalone => false, :context => @context}
       -else
         %h2.empty There are no entries for this project
         
-  
+-content_for :actions do
+  =link_to "Edit project", edit_project_path(@project)
+/ =drop_receiving_element('add_people', :accept => 'person', :with => "'user_id=' + (element.id.split('_').last()) + '&project_id=' + #{@project.id}", :url => {:controller => "collaborations", :action => "create"})
   
 
