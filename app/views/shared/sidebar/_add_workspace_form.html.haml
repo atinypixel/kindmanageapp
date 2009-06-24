@@ -1,0 +1,11 @@
+-remote_form_for workspace, :url => {:controller => "workspaces", :action => create_or_update(workspace)}, :html => {:method => create_or_update(workspace, :choose_method => true), :id => "add_workspace_form"} do |f|
+  .row
+    =f.label :name
+    =f.text_field :name, :class => "text"
+  .row.checkboxes
+    .group
+      =f.check_box :exclusive, :class => "checkbox"
+      Workspace is exclusive
+  .buttons
+    =hidden_field_tag :project_id, project.id
+    =submit_tag "Create workspace"

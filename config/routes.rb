@@ -10,11 +10,11 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resources :projects do |p|
     p.resources :entries
-    p.resources :notes
-    p.resources :tasks
-    p.resources :uploads
     p.resources :workspaces
+    p.resources :collaborations
   end
+  
+  map.delete_project "projects/:id/delete", :controller => "projects", :actions => "delete"
   
   map.resources :collaborations
   map.resources :collections
@@ -23,5 +23,5 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :user_session
   
   map.app_root "/", :controller => "accounts", :conditions => {:subdomain => /.+[^w{3}]/}
-  map.public_root "/", :controller => "public", :conditions => {:subdomain => nil}  
+  map.public_root "/", :controller => "public", :conditions => {:subdomain => nil}
 end

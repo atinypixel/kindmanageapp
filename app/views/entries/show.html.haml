@@ -1,11 +1,20 @@
+-content_for :first_crumb do
+  =link_to @entry.project.name, project_path(@entry.project)
+-content_for :second_crumb do
+  =@entry.content_type.capitalize
+  
 .content
   #entry
     #for_entry  
       =entry_item(@entry)
       
 -content_for :actions do
-  -if created_by_current_user?(@entry)
-    =link_to_remote(image_tag("trash_icon.gif"), :url => project_entry_path(@entry.project, @entry, :context => @context), :method => :delete, :confirm => "Are you sure?")
+  -if "task".include?(@entry.content_type)
+    =link_to "Mark as completed", "#"
+    |
+  -if current_user.owns?(@entry) || current_user.owns_current_account?(current_account)
     =link_to_remote("Edit #{@entry.content_type}", :url => edit_project_entry_path(@entry.project, @entry, :content_type => @entry.content_type, :context => @context), :method => :get)
+    |
+    =link_to_remote(image_tag("trash_icon.gif"), :url => project_entry_path(@entry.project, @entry, :context => @context), :method => :delete, :confirm => "Are you sure?")
   
 

@@ -1,0 +1,6 @@
+page.replace_html "#add_workspace .form", :partial => "shared/sidebar/add_workspace_form", :locals => {:workspace => @workspace, :project => @project}
+page.show "#remove_workspace_form_link"
+page.show "#add_workspace .form"
+
+# page.hide "#add_workspace_form_link"
+# page.show "#remove_workspace_form_link"

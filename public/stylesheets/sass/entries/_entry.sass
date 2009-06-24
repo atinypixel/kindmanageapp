@@ -1,29 +1,28 @@
 @import entries/_content.sass
 @import entries/_meta.sass
 
+#entries
+  :width 100%
+  :background-color #f5f5f5
+  :float left
+  :margin 0 -10px
+  :padding 10px 0px
+  :border-top 1px solid #e0e0e0
+  #for_workspace, #for_project
+
 .entry
   +cf
-  :padding 5px 0
-  :width 100%
+  :margin-top 0px
+  :padding 8px
+  :margin-bottom 5px
+  :width = 665px - 16px
   :background-color #fff
-  :border-bottom 1px dotted #eaeaea
+  :border-bottom = 1px "solid" (#f4f3ed - 20)
   
   .content_type, .slim
     :padding-top 3px
-  .content_type
-    :float left
-    :width 80px
-    :padding-top 5px
-    :margin-right 15px
-    :font-size 9px
-    :font-weight bold
-    :text-transform uppercase
-    :color #fff
-    span
-      :padding 3px 4px
-      :-moz-border-radius 3px
   .content
-    :width 410px
+    :width 410px !important
     :padding-right 15px
   .meta
     :width 145px
@@ -31,37 +30,67 @@
   .slim
     h3.title
       :font-size 14px
-      :margin 1px 0 6px
-      :line-height 16px
+      :margin 0px 0 9px
+      :line-height 18px
+      +support_hover
       a
-        :color #444
+        :color #000 
         :text-decoration none
         &:hover
-          :color #0066aa
+          :color = (#0066aa - 5)
+          :border-bottom  = (1px dashed) (#0066aa 190)
+          
       a.owning_project
-        :padding 1px 3px
+        :float left
+        :padding 0px 3px
         :position relative
-        :top -1px
+        :top 1px
+        :margin-right 4px
         :font-size 11px
+        :line-height 16px
         :font-weight normal
-        :background-color #ffffd0
+        :background-color = #ffffd0 + 15
         / :border 1px dashed #eeeea0
         :color = #eeeea0 - 100
-        :-moz-border-radius 4px
+        +border-radius-all(4px)
         &:hover
           :color #000
   #for_entry &
-    :padding 0 0 10px
+    :margin-top 0px
+    :padding 0 0 5px
     .content
       :width 510px !important
       p
-        :line-height 18px
+        :line-height 19px
         :padding-bottom 12px
+        :color #444
       
-#for_entry .note
+#for_entry .note, #for_entry .discussion
   h3.title
     :font-size 18px
     :margin-bottom 10px
-  p
-    :font-size 14px
+    :line-height 20px
+  .body
+    :margin-bottom -10px
+    p, ul, li
+      :color #444
+    p
+      :font-size 14px
+    ol, ul
+      :font-size 14px
+      :padding-left 25px
+      :margin-bottom 12px
+      li
+        :margin-bottom 6px
+    ol li
+      :list-style-type decimal
+    ul li
+      :list-style-type disc
+    pre
+      :padding-bottom 10px
+      
+#for_entry .task
+  h3.title
+    :line-height 20px
+    :margin-bottom 0px
     

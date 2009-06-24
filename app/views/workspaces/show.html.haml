@@ -1,7 +1,22 @@
+-unless @workspace.project.nil?
+  -content_for :first_crumb do
+    =link_to @workspace.project.name, project_path(@workspace.project)
+  -content_for :second_crumb do
+    =%{<span class="ws">w</span>}
+    =@workspace.nice_name
+-else
+  -content_for :first_crumb do
+    =%{<span class="ws">w</span>}
+    =@workspace.nice_name
+    
+
 .content
   #entries
     #entry_form{:style => 'display:none;'}
     #for_workspace
       -@workspace.collections.each do |c|
         =entry_list_item(c.entry)
-        =#render :partial => "entries/show", :locals => {:entry => c.entry, :project => c.entry.project, :standalone => false, :context => view_context(current_object)}  
+            
+-content_for :actions do
+  =link_to "Edit workspace", edit_workspace_path(@workspace)
+  

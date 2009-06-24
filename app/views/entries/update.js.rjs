@@ -7,4 +7,5 @@ if @context == "entry"
       :context => @context, 
       :standalone => true }
   page["#entry_#{@entry.id}"].visual_effect :highlight
+  page.replace_html "sidebar_workspaces", :partial => "shared/sidebar/workspaces"
 end

@@ -1,30 +1,27 @@
-%ul#bread_crumbs{:class => @context}
-  -case @context
-    -when "project"
-      %li.origin
-        =link_to @project.name, project_path(@project)
-        -if controller.action_name == "edit"
-          %li.separator
-          %li.after Edit
-          
-    -when /^workspace|entry/
-      -if params[:project_id]
-        %li.origin=link_to current_object.project.name, project_path(current_object.project)
-        %li.separator
-        %li.after="#{@context == "workspace" ? '<span class="ws">w</span>' + current_object.name.humanize : current_object.content_type.capitalize}"
-      -else
-        %li.origin="#{@context == "workspace" ? '<span class="ws">w</span>' + current_object.name.humanize : current_object.content_type.capitalize}"
-  -if @context == "project" and not ["edit", "new"].include?(@context_action)
-    %li.add
-      =link_to_function image_tag "add_button.png" do |page|
-        -page["#bread_crumbs .content_types"].toggle
-      %ul.content_types{:style => "display:none;"}
-        -entry_content_types.each do |content_type|
-          %li.content_type{:onclick => "$(this).parent().toggle(); return false;"}
-            =link_to_remote "<span>#{content_type.capitalize}</span>", :url => new_project_entry_path(@project, :content_type => content_type, :context => @context), :method => :get
-    
-  %li.other
-    =yield :actions
-        
-
-        
+%ul#bread_crumbs
+  / set origin
+  %li.origin
+    -if %w{edit new}.include?(@context_action)
+      %span.action="#{@context_action.capitalize} #{image_tag 'bc_right_dark.png'}"
+    =yield :first_crumb
+  -if yield :second_crumb
+    %li.separator
+    %li.after
+      =yield :second_crumb
+  
+  -case @context_with_action
+  -when "show_project"
+    -if current_user.owns_current_account?(current_account) || current_user.belongs_to_project?(@project)
+      %li.add
+        =link_to_function image_tag("add_button.png") do |page|
+          -page["#bread_crumbs .content_types"].toggle
+        %ul.content_types{:style => "display:none;"}
+          -entry_content_types.each do |content_type|
+            %li.content_type{:onclick => "$(this).parent().toggle(); return false;"}
+              =link_to_remote "<span>#{content_type.capitalize}</span>", :url => new_project_entry_path(@project, :content_type => content_type, :context => @context), :method => :get
+          %li.user
+            =image_tag "user_silhouette.png"
+            =link_to "Person", "#"
+  -unless yield(:actions).blank?
+    %li.other
+      =yield :actions

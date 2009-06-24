@@ -15,7 +15,32 @@ module ApplicationHelper
   def switch_admin_context_link(object)
     
   end
-  
+    
+  def breadcrumbs
+    project = @project || Project.find(params[:project_id])
+    if project && params[:project_id]
+      html = %{<li class="origin">#{link_to(project.name, project_path(project))}</li>}
+    end
+    return @context
+    # capture_haml do
+    #   haml_tag :li, :class => "origin" do
+    #     haml_concat link_to(project.name, project_path(project))
+    #   end
+    #   haml_tag :li, :class => "separator"
+    #   haml_tag :li, :class => "after" do
+    #     case @context
+    #       when "workspace"
+    #         haml_concat %{<span class="ws">w</span>}
+    #         haml_concat current_object.name.humanize
+    #       when "entry"
+    #         haml_concat current_object.content_type.capitalize
+    #       when "collaboration"
+    #         haml_concat "Collaborating Users"
+    #     end
+    #   end # li.after
+    # end # capture_haml
+  end
+    
   def display_time_or_day(created_at)
     if created_at.to_date.eql?(Time.zone.now.to_date)
       display = created_at.strftime("%l:%M%p").downcase
@@ -44,6 +69,13 @@ module ApplicationHelper
     entries.group_by{|e| e.created_at.to_date}.sort{|a,b| b[0] <=> a[0]}
   end
   
+  def require_collaboration
+  end
+  
+  def filter_workspaces(string)
+    string.gsub(/((?:@[a-zA-z0-9\.\-]+\s*)+)$/, "")
+  end
+  
   def workspace_list_for(object, context=nil)
     context = context.to_s
     case context
@@ -56,8 +88,8 @@ module ApplicationHelper
     capture_haml do
       haml_tag :ul, :class => "workspaces" do
         workspaces.each do |workspace|
-          workspace_path = workspace.project ? project_workspace_path(workspace.project, workspace.name) : workspace_path(workspace.name)
-          haml_tag :li, :id => "workspace_#{workspace.id}#{"_" + context if context}", :class => "workspace" do
+          # ws_path = workspace.project ? project_workspace_path(workspace.project, workspace.name) : workspace_path(workspace.name)
+          haml_tag :li, :id => "workspace_#{workspace.id}#{"_" + context if context}", :class => "workspace#{' exclusive' if workspace.exclusive}#{' selected' if @workspace && @workspace.id == workspace.id}" do
             haml_concat destroy_workspace_link(workspace, context)
             haml_tag :a, :href => workspace.project ? project_workspace_path(workspace.project, workspace.id) : workspace_path(workspace.id) do
               haml_tag :span, :class => "name" do
@@ -92,7 +124,7 @@ module ApplicationHelper
         :method => :delete,
         :complete => visual_effect(:fade, "#workspace_#{workspace.id}_#{context}"),
         :html => {:class => "destroy"}, 
-        :confirm => "Are you sure?"
+        :confirm => "Upon deletion, associated project entries and files will no longer be collected into the `#{workspace.name}` workspace. Continue?"
     end
   end
   

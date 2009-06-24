@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :require_user
-  before_filter :require_account_owner
+  before_filter :require_ownership_or_collaboration, :only => [:show]
   
   make_resourceful do
     actions :all
@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
     end
     
     response_for :create do |wants|
+      wants.html {redirect_to project_url(@project)}
       wants.js {
         if @project.save
           @new_project = @project
@@ -22,6 +23,7 @@ class ProjectsController < ApplicationController
     end
     
     before :show do
+      # @primary_crumb = link_to(@project.name, project_path(@project))
       @entries = @project.entries
     end
   end

@@ -16,8 +16,9 @@ if @entry.errors.empty?
   page.delay(3) {
     page.visual_effect :fade, "notice", :duration => 3
   }
+  page.replace_html "sidebar_workspaces", :partial => "shared/sidebar/workspaces", :locals => {:project_in_view => @entry.project}
 else
-  page.replace_html "notice", @entry.data.errors.full_messages.join(", ")
+  page.replace_html "notice", @entry.content.errors.full_messages.join(", ")
   page << "$('#notice').attr('class', 'error');"
   page.show "notice"
   page.delay(6) {

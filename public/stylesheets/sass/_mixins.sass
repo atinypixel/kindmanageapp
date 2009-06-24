@@ -17,11 +17,11 @@
   :_azimuth expression(this.onmousedown = this.onmousedown || new Function("this.className += ' active'"), this.onmouseup = this.onmouseup || new Function("this.className = this.className.replace('active','')"), this.onmouseenter = this.onmouseenter || new Function("this.className += ' hover'"), this.onmouseleave = this.onmouseleave || new Function("this.className = this.className.replace('hover','')"), 'inherit')
 
 
-=border_radius_all(!radius)
+=border-radius-all(!radius)
   :-moz-border-radius = !radius
   :-webkit-border-radius = !radius
   
-=border_radius(!top_left="0", !top_right="0", !bottom_left="0", !bottom_right="0")
+=border-radius(!top_left="0", !top_right="0", !bottom_left="0", !bottom_right="0")
   :-moz-border-radius-topleft = !top_left
   :-moz-border-radius-topright = !top_right
   :-moz-border-radius-bottomleft = !bottom_left

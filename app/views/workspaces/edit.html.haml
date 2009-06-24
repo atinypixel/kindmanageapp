@@ -1,0 +1,23 @@
+-unless @workspace.project.nil?
+  -content_for :first_crumb do
+    =link_to @workspace.project.name, project_path(@workspace.project)
+  -content_for :second_crumb do
+    =%{<span class="ws">w</span>}
+    =@workspace.nice_name
+-else
+  -content_for :first_crumb do
+    =%{<span class="ws">w</span>}
+    =@workspace.nice_name
+    
+.content
+  .form_area
+    -form_for :workspace, @workspace, :url => {:action => create_or_update(@workspace)}, :html => {:method => create_or_update(@workspace, :choose_method => true)} do |f|
+      .row
+        =f.label :name
+        =f.text_field :name, :class => "text"
+      .row.checkboxes
+        .group
+          =f.check_box :exclusive
+          .label Workspace is unique
+      .buttons
+        =submit_tag "Save workspace"

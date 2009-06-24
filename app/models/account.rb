@@ -9,4 +9,6 @@ class Account < ActiveRecord::Base
   has_many :workspaces, :uniq => true
   has_many :entries, :uniq => true
   has_many :collections, :uniq => true
+  
+  alias_attribute :user_id, :owner_id
 end

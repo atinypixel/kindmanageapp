@@ -1,12 +1,45 @@
+%ul.actions.hide
+  %li.action
+    =link_to "New workspace", "#"
+  %li.action
+    =link_to "New project", "#"
+
 -case @context
   -when /^project|entry|workspace/
-    -if @project && @project.scope_workspaces && !@project.workspaces.empty?
-      %h1.section_title Current project only
-      =workspace_list_for(@project, :project)
- 
+    -if project_in_view && project_in_view.scope_workspaces && !project_in_view.workspaces.empty?
+      .current_project_only
+        %h1.section_title Current project
+        =workspace_list_for(project_in_view, :project)
+    -elsif project_in_view && project_in_view.scope_workspaces && !project_in_view.workspaces.empty?
+      .current_project_only
+        %h1.section_title Current project
+        %em{:style => "font-size:11px;color:#aaa;margin-top: -4px;float:left;clear:left;"}
+          ="No workspaces at the moment"
 
 .clear
 -unless current_account.workspaces.not_scoped.empty?
   %h1.section_title Shared
   =workspace_list_for(current_account, :all)
-  
+
+.clear
+
+#add_workspace
+  #add_workspace_form_link
+    =link_to_remote "#{image_tag('zone--plus.png')} Add a workspace", :url => new_workspace_path(:project => project_in_view), :method => :get, :html => {:class => "add"}
+  #remove_workspace_form_link{:style => "display:none;"}
+    =link_to_function "Cancel" do |page|
+      -page.remove "#add_workspace_form"
+      -page.hide "#add_workspace .form"
+      -page.hide "#remove_workspace_form_link"
+    
+  %span.form{:style => "display:none;"}
+    / %form
+    /   %span.row
+    /     %label Name
+    /     %input{:type => "text"}
+    /   %span.row.checkboxes
+    /     .group
+    /       %input.checkbox{:type => "checkbox"} Workspace is unique
+    /   %span.buttons
+    /     %input{:type => "submit", :value => "Create workspace"}
+        

@@ -1,10 +1,9 @@
-%div.row
+.row
   %label{:for => "note_title"} Title
   =cf.text_field :title, :class => "title"
 
-%div.row
+.row
   %label{:for => "note_body"}
     Body
-  =cf.text_area :body, :rows => nil, :class => "long expanding"
+  =cf.text_area :body, :class => "long expand"
   .help Use markdown for formatting  
-  

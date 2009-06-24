@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090531231208) do
+ActiveRecord::Schema.define(:version => 20090615205731) do
 
   create_table "accounts", :force => true do |t|
     t.string   "subdomain"
@@ -25,11 +25,13 @@ ActiveRecord::Schema.define(:version => 20090531231208) do
   end
 
   create_table "collaborations", :force => true do |t|
-    t.integer  "projects_id"
-    t.integer  "workspaces_id"
+    t.integer  "project_id"
+    t.integer  "workspace_id"
     t.integer  "users_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "privilages"
+    t.integer  "user_id"
   end
 
   create_table "collections", :force => true do |t|
@@ -50,6 +52,14 @@ ActiveRecord::Schema.define(:version => 20090531231208) do
     t.integer  "account_id"
   end
 
+  create_table "discussions", :force => true do |t|
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "entry_id"
+  end
+
   create_table "entries", :force => true do |t|
     t.integer  "project_id"
     t.datetime "created_at"
@@ -59,14 +69,7 @@ ActiveRecord::Schema.define(:version => 20090531231208) do
     t.boolean  "private"
     t.integer  "milestone_id"
     t.boolean  "archived",     :default => false
-  end
-
-  create_table "issues", :force => true do |t|
-    t.integer  "entry_id"
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "content_type"
   end
 
   create_table "milestones", :force => true do |t|
@@ -99,11 +102,6 @@ ActiveRecord::Schema.define(:version => 20090531231208) do
     t.boolean  "scope_workspaces", :default => false
   end
 
-  create_table "projects_users", :id => false, :force => true do |t|
-    t.integer "project_id"
-    t.integer "user_id"
-  end
-
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -130,10 +128,6 @@ ActiveRecord::Schema.define(:version => 20090531231208) do
     t.integer  "assigned_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "types", :force => true do |t|
-    t.string "name"
   end
 
   create_table "uploads", :force => true do |t|
@@ -169,6 +163,7 @@ ActiveRecord::Schema.define(:version => 20090531231208) do
     t.integer  "account_id"
     t.integer  "user_id"
     t.integer  "project_id"
+    t.boolean  "exclusive",  :default => false
   end
 
 end

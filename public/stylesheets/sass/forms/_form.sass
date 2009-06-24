@@ -1,67 +1,129 @@
+#entry_form
+  +cf
+  
 .form_area
   :float left
   :width 100%
   :margin-bottom 10px
   :background-color #e7e7e7
   :border 1px solid #dcdcdc
-  +border_radius_all(6px)
-  
-form
-  :text-align center
-  span.legend
-    :margin -15px -15px 10px 0px
-    :float right
-    :padding 6px
-    :font-size 12px
-    :font-weight bold
-    :background-color #fff
+  +border-radius-all(6px)
+  span.none
     :display block
-    :color #333
-    :text-transform capitalize
-    +border_radius(0px, 6px, 6px, 0px)
+    :padding 10px
+    :color #999
+    :font-style italic
+  span.legend
+    :margin -1px -1px 0
+    :padding 6px 8px
+    :font-size 9px
+    :font-weight bold
+    :text-align left
+    :background-color #d6d6d6
+    :display block
+    :color #666
+    :text-transform uppercase
+    +border-radius(6px, 6px, 0px, 0px)
+  #entries &
+    :margin-top 3px
+form
+  :text-align left
+  :padding 5px 10px
   .buttons
     :font-size 12px
     input
       :font-weight bold
   .row, .buttons
-    :float left
-    :width 80%
+    +cf
+    :width 100%
     :margin-bottom 10px
-    :clear left
     :text-align left
     a.cancel
       :color red
     .help
+      :display none
       :float left
-      :padding 5px 0 0 100px
+      :padding 5px 0 0 85px
       :color #888
       :font-size 11px
     label
       :float left
-      :width 85px
+      :width 100%
+      :display block
+      :clear right
+      :margin-bottom 3px
+      :padding-top 3px
       :padding-right 15px
-      :text-align right
-      :line-height 20px
+      :text-align left
+      :line-height 16px
       :font-size 12px
       :font-weight bold
       :color #666
     input[type=text], input.text, input.title, textarea, textarea.short, textarea.long
-      :padding 3px 3px
-      :width 384px
+      :float left
+      :clear left
+      :padding 3px
+      :width 624px
       :font-size 14px
       :background #fff url(/images/fieldbg.gif) top left repeat-x
       :border 1px solid #e0e0e0
         :top none
-      :font-family Arial
       :font-weight bold
+      :font-family Arial
+    input.title
+      :font-size 16px !important
     textarea
+      :width 457px
+      :float none
+      :font-family Courier !important
+      :line-height 18px
       :font-weight normal !important
-      :max-height 500px
-    textarea.short
-      :min-height 55px
-      :max-height 190px
-    textarea.long
-      :min-height 140px
+      &.short
+        :height 42px
+      &.long
+        :height 105px
+  .checkboxes
+    .group
+      :float left
+      .label, input
+        :float left
+        :margin-right 5px
+      .label
+        :color #666
+        :line-height 22px
+        :font-size 12px
+  &.small
+    :padding 0
+    :margin 10px !important
+    +cf
+    .row
+      .help
+        :padding 3px 0 0
+      input[type=text], input.text, input.title, textarea, textarea.short, textarea.long
+        :width 240px
+    .buttons
+      :margin-bottom 0
+      
   .form_area &
     :width auto
-    :margin 15px
+    :margin 0px
+    .row
+      :margin-bottom 4px
+      :padding-bottom 3px
+      textarea
+        :border-top 1px solid #e7e7e7
+  
+  #add_workspace &
+    :font-size 12px
+    label
+      :font-size 12px
+    input[type=text], input.text
+      :width = 100% - 4
+      :font-size 12px
+    .checkboxes
+      :color #888
+      :margin-left -3px
+      input.checkbox
+        :position relative
+        :top -4px
+      

@@ -1,5 +1,9 @@
 class Note < ActiveRecord::Base
-  acts_as_markdown :body
+  
+  include Kind::Model::Extensions
+  
   belongs_to :entry
-  validates_presence_of :body, :on => :create, :message => "can't be blank"    
+  validates_presence_of :body, :on => :create, :message => "can't be blank"
+  process_workspaces_for :title, :body
+  
 end

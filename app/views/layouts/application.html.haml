@@ -27,22 +27,29 @@
     
     
   %body
+    =#debug(params)
+    =#debug(@context)
     #header
       %ul.navigation
-        %li=link_to "Your projects", "#"
+        %li.nav
+          =link_to_function "Projects <span>#{image_tag("nav_down_arrow.png")}</span>", "$(this).parent().toggleClass('on');"
+          %ul.projects
+            -current_account.projects.each do |project|
+              -if project_accessible_by_user?(project, current_user)
+                %li=link_to project.name, project_path(project)
+            %li.create=link_to "+ New project", new_project_path
+        %li.nav=link_to "Your workspace", "#", :class => "nav"
     #wrapper
       #main
-        -unless current_user
-          =render :partial => "shared/admin", :locals => {:project_in_view => project_in_view(params[:project_id] || @project.try(:id).to_s || @workspace.try(:project_id))}
-        
         =render :partial => "shared/breadcrumbs"
-          
-        
         
         =yield
       
-      #sidebar
-        =render :partial => "shared/sidebar/workspaces"
+      #sidebar        
+        #sidebar_workspaces
+          =render :partial => "shared/sidebar/workspaces", :locals => {:project_in_view => @project}
+                
+              
           
       .clear
       %br

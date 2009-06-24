@@ -1,0 +1,26 @@
+-if params[:project_id]
+  -content_for :first_crumb do
+    =link_to @project.name, project_path(@project)
+  -content_for :second_crumb do
+    Collaborate with people
+    
+#collaborations.content
+  .clear
+  %ul.people#non_members
+    -current_account.users.each do |person|
+      -unless project_accessible_by_user?(@project, person)
+        -collaboration = Collaboration.new
+        %li.person{:id => "person_#{person.id}"}
+          .profile_pic
+          .name=person.full_name
+          .type
+          
+          
+  %ul.people#members
+    %h3 Members of this project
+    -@project.collaborations.each do |collab|
+      -if project_accessible_by_user?(@project, collab.user)
+        %li.person{:id => "member_#{collab.user.id}"}
+          .profile_pic
+          .name=collab.user.full_name
+    

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   layout :current_layout_name
   
   helper :all
-  helper_method :project_in_view, :entry_content_types
+  helper_method :project_in_view, :entry_content_types, :project_accessible_by_user?
   filter_parameter_logging :password, :password_confirmation
   
   def current_layout_name
@@ -29,23 +29,22 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def check_for_access
-    case @context
-    when "workspace"
-    when "project"
-    when "entry"
-    end
+  def project_accessible_by_user?(project, user)
+    true if user.owns_current_account?(current_account) || user.owns_project?(project) || user.belongs_to_project?(project)
+  end
+  
+  def filter_workspaces(string)
+    string.gsub(/((?:@[a-zA-z0-9\.\-]+\s*)+)$/, "")
   end
   
   def entry_content_types
-    ["note", "task", "issue", "upload"]
+    ["note", "task", "discussion"]
   end
   
   def load_context
-    @context = current_object.class.name.downcase
+    @context = params[:controller].singularize
     @context_action = params[:action]
+    @context_with_action = "#{params[:action]}_#{params[:controller].singularize}"
   end
   
 end
-
-

@@ -2,10 +2,11 @@
 
 #main ul#bread_crumbs
   / :float left
-  :width = 685px - 6
-  :padding 3px
-  +border_radius(6px, 6px)
-  :background-color #efefef
+  :width = 685px
+  :padding 0px 0 4px
+  +border-radius(6px, 6px)
+  / :background-color #f4f3ed
+  :background-color #dedede
   +cf
   li
     :height = 27px - 11
@@ -14,15 +15,18 @@
     :font-weight bold
     span.ws
       :position relative
-      :top 1px
+      :top -2px
       :float right
-      :margin-left 7px
-      :padding 1px 3px
-      :background-color #fff
-      :color #000
+      :margin-left 8px
+      :margin-right -4px
+      :padding 2px 5px 4px
+      :background-color #78af41
+      :color #fff
+      :line-height 14px
       :font-size 11px
       :font-weight normal
       :text-transform lowercase !important
+      +border-radius-all(3px)
     a
       :color #fff
   li.separator
@@ -37,16 +41,33 @@
     :color #fff
     :font-size 14px
     / :background-color #7ca709
-    :background-color #333 
-    +border_radius_all(6px)
+    :background-color #5f922d
+    +border-radius-all(6px)
+    .action
+      :float left
+      :padding 5px 5px 6px
+      :position relative
+      :top -3px
+      :left -5px
+      :background-color = #5f922d - 30
+      :font-weight normal
+      :font-size 11px
+      :color #fff
+      / :opacity 0.2
+      +border-radius-all(6px)
+      img
+        :display none
+        :float right
+        :margin-right -11px
+        :vertical-align middle
   li.after
     :font-size 14px
     :margin-left -16px
-    :padding-left 22px
-    :padding-right 10px
+    :padding-left 16px
+    :padding-right 8px
     :position relative
     :z-index 0
-    :-moz-border-radius 6px
+    +border-radius-all(6px)
     :background-color #fff
     span.ws
       :background-color #eee
@@ -62,18 +83,19 @@
       :position absolute
       :z-index 9999
       :background-color #fff
-      +border_radius(0px, 6px, 6px, 6px)
+      +border-radius(0px, 6px, 6px, 6px)
       / :-moz-border-radius-topright 6px
       / :-moz-border-radius-bottomleft 6px
       / :-moz-border-radius-bottomright 6px
       :border 1px solid #dadada
         :top none
-      .content_type
+      .content_type, .user
         :float none
-        :margin 0 0 0px
-        :padding 3px 4px
+        :margin 0 0 4px
+        :padding 4px 4px 3px 0
         / :background-color #efefef
         :font-size 14px
+        :line-height 14px
         :border-bottom 1px solid #efefef
         +support_hover
         a
@@ -82,10 +104,30 @@
         &.hover, &:hover
           a
             :color #7ca709
+      .user
+        :margin-top -3px
+        :line-height 14px
+        img
+          :margin-top -1px
+          :margin-right 4px
+          :float left
+          
   li.other
     :float right
     :font-size 12px
     :line-height 16px
+    :color #c6c6c6
+    :background-color #d0d0d0
+    / :background-color = #f4f3ed - 25
+    :font-weight normal
+    +border-radius-all(6px)
     a
-      :padding-left 5px
-      :color #666      
+      :padding-left 0px
+      :color #666
+      :font-weight bold
+      :text-decoration none
+      img
+        :position relative
+        :top 1px
+      &:hover
+        :text-decoration underline

@@ -1,18 +1,39 @@
 @import workspaces/_workspace.sass
 
 .content_type
+  :float left
+  :width auto
+  :padding-top 0 !important
+  :margin-right 6px
+  :font-size 11px
+  :font-weight normal
+  :text-transform capitalize
+  span
+    :padding 2px 4px 2px 4px
+    +border-radius-all(4px)
+  
   .entry &
     :text-align right
-    :color #fff
+    :color = #fff
+    span
+      :background-color = #2c608f + 20 
+      
   .task &
     span
-      :background-color = #d9eeaf
-      :color = #d9ffaf - 120
+      / :color = #d9eeaf + 20
+      :background-color = #d9ffaf - 120
+  
   .note &
     span
-      :background-color = #eed7af
-      :color = #eed7af - 130
-
+      :color = #fff
+      :background-color = #555
+      
+  .discussion &
+    span
+      :background-color = #2c608f + 20
+      :color #fff
+      / :color = #cfe8ff + 10
+      
 .meta
   .entry &
     :float right
@@ -20,8 +41,11 @@
     :font-size 11px
     :text-align right
     :color #bbb
+    :margin-top 0px
+    :margin-bottom -2px
     .group
-      :padding 3px 0
+      :line-height 15px
+      :padding 0px 0 4px
     .user
       :color #999
   .entry .content &
@@ -31,11 +55,49 @@
     :text-align left
     .workspaces, .comments
       :float left
+      :line-height 11px
+    .workspaces
+      :float left
+      :width 80%
+      li
+        :margin-bottom 4px
+        :margin-right 4px
+      .label
+        :margin-right 4px
+        :float left
+      .workspace
+        :position relative
+        :top -2px
+        :z-index 15
+        :float left
+        :height 12px
+        :line-height 12px
+        :padding 1px 5px 2px
+        :font-size 11px
+        :background-color #f5f5f5
+        +border-radius-all(6px)
+        +support_hover
+        a
+          :display block
+          :text-decoration none
+          :color #777
+          :float left
+          &:hover
+            :color #000
+        a.remove_collection
+          :color #aaa
+          :margin 0 0 -1px
+            :right 3px
+        &.hover, &:hover
+          :background-color #ffffc9
+          a
+            :color #000
+      
     .separate
       :padding-right 5px
       :margin-right 5px
       :border-right 1px solid #ccc
       
   #for_entry .entry .content &
-    :margin-top 5px
-    :margin-bottom 10px
+    :margin-top 3px
+    :margin-bottom 0px

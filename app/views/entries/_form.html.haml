@@ -1,19 +1,18 @@
+%span.legend="#{new_or_edit(@entry)} #{content_type}"
 -remote_form_for :entry, @entry, :url => {:action => create_or_update(@entry)}, :html => {:id => "#{content_type}_entry_form", :class => content_type, :method => create_or_update(@entry, :choose_method => true) } do |f|
 
-  %span.legend="#{new_or_edit(@entry)} #{content_type}"
-  
   -f.fields_for content_type.to_sym do |cf|
-    
-    =render :partial => "entries/#{content_type}/form/fields", :locals => {:cf => cf}
-  
-    %div.buttons
-      %label &nbsp;
-      / =#f.hidden_field :type_id, :value => type.id
-      -if @context
-        =hidden_field_tag "context", @context
-      =f.submit "#{create_or_update(@entry).capitalize} #{content_type}"
-      or
-      =link_to_function "Cancel", "$('##{content_type}_entry_form').remove(); $('.form_area').hide();", :class => "cancel"
 
-    :javascript
-      $('textarea.expanding').autogrow();
+    =render :partial => "entries/#{content_type}/form/fields", :locals => {:cf => cf}
+
+  %div.buttons
+    / =#f.hidden_field :type_id, :value => type.id
+    -if @context
+      =hidden_field_tag "context", @context
+    =f.hidden_field :content_type, :value => content_type
+    =f.submit "Save #{content_type}"
+    or
+    =link_to_function "Cancel", "$('##{content_type}_entry_form').remove(); $('.form_area').hide();", :class => "cancel"
+
+:javascript
+  $("textarea.expand").elastic();  

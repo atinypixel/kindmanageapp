@@ -1,0 +1,14 @@
+-content_for :first_crumb do
+  Project
+.content
+  .form_area
+    -form_for :project, @project, :url => {:action => create_or_update(@project)}, :html => {:method => create_or_update(@project, :choose_method => true)} do |f|
+      .row
+        =f.label :name
+        =f.text_field :name, :class => "text"
+      .row.checkboxes
+        .group
+          =f.check_box :scope_workspaces
+          .label Keep workspaces within project
+      .buttons
+        =submit_tag "Create project"

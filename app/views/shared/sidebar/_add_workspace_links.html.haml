@@ -1,0 +1,10 @@
+=link_to_remote "+ Add new workspace", :url => new_workspace_path
+/ =link_to_function "+ Add new workspace", :id => "add_workspace_form_link" do |page|
+/   -page.replace_html "#add_workspace_form", :partial => "shared/sidebar/add_workspace_form"
+/   -page.hide "#add_workspace_form_link"
+/   -page.show "#remove_workspace_form_link"
+/     
+/ =link_to_function "Cancel", :id => "remove_workspace_form_link", :style => "display:none;", :class => "on" do |page|
+/   -page.remove "#add_workspace_form .form_area"
+/   -page.hide "#remove_workspace_form_link"
+/   -page.show "#add_workspace_form_link"

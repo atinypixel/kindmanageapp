@@ -1,0 +1,58 @@
+ul.people
+  :display block
+  :padding-bottom 10px
+  li.person
+    :padding 6px
+    :width 197px
+    :height 30px
+    :margin-right 10px
+    :margin-bottom 10px
+    :float left
+    :background-color #eee
+    :border 1px solid #dfdfdf
+    +border-radius-all(6px)
+    .profile_pic
+      :width 30px
+      :height 30px
+      :margin-left 8px
+      :float right
+      :background-color #ccc
+      +support_hover
+      +border-radius-all(6px)
+      &.hover, &:hover
+        :cursor move
+    .name, .type
+      :float left
+      :width 132px
+    .name
+      :margin-bottom 3px
+      :font-weight bold
+      :font-size 12px
+      a
+    .type
+      :width 100px
+      :float left
+      :font-size 10px
+      :color = !blue
+    input.add_to_project
+      :border 1px solid #eee
+      :background-color #fff
+      
+  &#members
+    :float left
+    :padding 10px
+    :margin 0 -10px
+    :width = 665px - 0px
+    :background-color = #ffffe0 + 10
+    :border = (1px dashed) (#ffffe0 - 20)
+      :right none
+      :left none
+    h3
+      :margin-bottom 10px
+      :color = #ffffe0 - 90
+      :font-size 10px
+      :font-weight normal
+      :text-transform uppercase
+    
+    
+  
